@@ -5,6 +5,7 @@ from pathlib import Path
 import click
 
 from python.collectors.steam import SteamCollector
+from python.processors.aggregator import KPIAggregator
 from python.storage.parquet_writer import ParquetWriter
 
 
@@ -70,9 +71,43 @@ def store() -> None:
 
 
 @cli.command()
-def aggregate() -> None:
-    """Calculate KPIs and Hype Index."""
-    click.echo("Aggregating KPIs...")
+@click.option(
+    "--db-path",
+    "-d",
+    default="data/duckdb/gaming.db",
+    help="Path to DuckDB database",
+    type=click.Path(),
+)
+@click.option(
+    "--output-dir",
+    "-o",
+    default="data/exports/observable",
+    help="Output directory for JSON exports",
+    type=click.Path(),
+)
+def aggregate(db_path: str, output_dir: str) -> None:
+    """Calculate KPIs and export to JSON for dashboards."""
+    click.echo("📊 Aggregating KPIs from DuckDB...")
+
+    db_path_obj = Path(db_path)
+    output_dir_obj = Path(output_dir)
+
+    if not db_path_obj.exists():
+        click.echo(f"❌ Database not found: {db_path}", err=True)
+        raise click.Abort()
+
+    try:
+        with KPIAggregator(db_path=db_path_obj) as aggregator:
+            aggregator.run_full_aggregation(output_dir=output_dir_obj)
+
+        click.echo(f"✅ KPIs aggregated and exported to {output_dir}/")
+        click.echo("  • daily_kpis.json")
+        click.echo("  • latest_kpis.json (last 7 days)")
+        click.echo("  • game_rankings.json")
+
+    except Exception as e:
+        click.echo(f"❌ Error during aggregation: {e}", err=True)
+        raise click.Abort() from e
 
 
 @cli.command()
