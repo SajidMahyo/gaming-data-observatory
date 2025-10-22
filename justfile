@@ -102,6 +102,16 @@ precommit:
 collect:
     uv run python -m python.main collect
 
+# Aggregate KPIs from DuckDB and export to JSON for dashboards
+[group('data')]
+aggregate:
+    uv run python -m python.main aggregate
+
+# Full pipeline: collect data and aggregate KPIs
+[group('data')]
+pipeline: collect aggregate
+    @echo "✅ Data pipeline complete!"
+
 # ============================================================================
 # 🚀 CLI
 # ============================================================================
@@ -125,6 +135,16 @@ test-steam-api:
 [group('dev')]
 repl:
     uv run python
+
+# Start Observable Framework dev server (dashboard preview)
+[group('dev')]
+dashboard:
+    npm run dev
+
+# Build Observable Framework static site
+[group('dev')]
+build-dashboard:
+    npm run build
 
 # Clean build artifacts, caches, and test outputs
 [group('dev')]
