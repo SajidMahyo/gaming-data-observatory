@@ -54,7 +54,7 @@ jobs:
               db.query('''
                   CREATE OR REPLACE TABLE daily_kpis AS
                   SELECT
-                      DATE_TRUNC('day', timestamp) as date,
+                      date,
                       game_name,
                       app_id,
                       AVG(player_count) as avg_ccu,
