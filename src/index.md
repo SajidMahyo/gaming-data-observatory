@@ -20,8 +20,9 @@ function getSteamImage(appId) {
 }
 ```
 
-<div class="hero">
-  ${topGame ? `
+```js
+html`<div class="hero">
+  ${topGame ? html`
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">Top Game Right Now</h1>
@@ -39,14 +40,16 @@ function getSteamImage(appId) {
       </div>
       <img src="${getSteamImage(topGame.app_id)}" alt="${topGame.game_name}" class="hero-image" />
     </div>
-  ` : '<p>Loading...</p>'}
-</div>
+  ` : html`<p>Loading...</p>`}
+</div>`
+```
 
 ---
 
 ## 📊 Key Metrics
 
-<div class="metrics-grid">
+```js
+html`<div class="metrics-grid">
   <div class="metric-card metric-blue">
     <div class="metric-icon">🎮</div>
     <h2 class="metric-value">${totalGames}</h2>
@@ -64,14 +67,16 @@ function getSteamImage(appId) {
     <h2 class="metric-value">${gameRankings.length > 0 ? gameRankings[0].days_tracked : 0}</h2>
     <p class="metric-label">Days Tracked</p>
   </div>
-</div>
+</div>`
+```
 
 ---
 
 ## 🏆 Top Games Rankings
 
-<div class="rankings-grid">
-  ${gameRankings.slice(0, 5).map((game, index) => `
+```js
+html`<div class="rankings-grid">
+  ${gameRankings.slice(0, 5).map((game, index) => html`
     <div class="game-card rank-${index + 1}">
       <div class="game-rank">#${index + 1}</div>
       <img src="${getSteamImage(game.app_id)}" alt="${game.game_name}" class="game-image" />
@@ -89,8 +94,9 @@ function getSteamImage(appId) {
         </div>
       </div>
     </div>
-  `).join('')}
-</div>
+  `)}
+</div>`
+```
 
 ---
 
