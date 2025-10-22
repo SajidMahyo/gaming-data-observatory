@@ -1,0 +1,159 @@
+name: Weekly Deploy to GitHub Pages
+
+on:
+  schedule:
+    # Run every Monday at 8:00 AM UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install UV
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install Python dependencies
+        run: uv sync --all-extras
+
+      - name: Aggregate KPIs from DuckDB
+        run: |
+          echo "📊 Aggregating KPIs from DuckDB..."
+          uv run python -c "
+          from pathlib import Path
+          from python.storage.duckdb_manager import DuckDBManager
+
+          db_path = Path('data/duckdb/gaming.db')
+
+          with DuckDBManager(db_path=db_path) as db:
+              # Create daily KPIs table
+              db.query('''
+                  CREATE OR REPLACE TABLE daily_kpis AS
+                  SELECT
+                      DATE_TRUNC('day', timestamp) as date,
+                      game_name,
+                      app_id,
+                      AVG(player_count) as avg_ccu,
+                      MAX(player_count) as peak_ccu,
+                      MIN(player_count) as min_ccu,
+                      COUNT(*) as samples
+                  FROM steam_raw
+                  GROUP BY date, game_name, app_id
+                  ORDER BY date DESC, peak_ccu DESC
+              ''')
+
+              # Export to JSON for Observable
+              output_dir = Path('data/exports/observable')
+              output_dir.mkdir(parents=True, exist_ok=True)
+
+              # Export daily KPIs
+              db.export_to_json(
+                  table_name='daily_kpis',
+                  output_path=output_dir / 'daily_kpis.json'
+              )
+
+              # Export latest snapshot (last 7 days)
+              db.export_to_json(
+                  query='''
+                      SELECT * FROM daily_kpis
+                      WHERE date >= CURRENT_DATE - INTERVAL 7 DAY
+                      ORDER BY date DESC, peak_ccu DESC
+                  ''',
+                  output_path=output_dir / 'latest_kpis.json'
+              )
+
+              # Export game rankings
+              db.export_to_json(
+                  query='''
+                      SELECT
+                          game_name,
+                          app_id,
+                          AVG(peak_ccu) as avg_peak,
+                          MAX(peak_ccu) as all_time_peak,
+                          COUNT(DISTINCT date) as days_tracked
+                      FROM daily_kpis
+                      GROUP BY game_name, app_id
+                      ORDER BY avg_peak DESC
+                  ''',
+                  output_path=output_dir / 'game_rankings.json'
+              )
+
+          print('✅ KPIs aggregated and exported')
+          "
+
+      - name: Calculate Hype Index (placeholder)
+        run: |
+          echo "🔥 Calculating Hype Index..."
+          echo "TODO: Implement Hype Index calculation"
+          # Will be implemented in future iterations
+
+      - name: Generate forecasts with Prophet (placeholder)
+        run: |
+          echo "📈 Generating 14-day forecasts..."
+          echo "TODO: Implement Prophet forecasting"
+          # Will be implemented in future iterations
+
+      - name: Set up Node.js for Observable Framework
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Observable Framework (placeholder)
+        run: |
+          echo "📦 Installing Observable Framework..."
+          echo "TODO: Initialize Observable Framework"
+          # Will be set up when we create the dashboard
+
+      - name: Build static site (placeholder)
+        run: |
+          echo "🏗️  Building static site..."
+          echo "TODO: Build Observable site"
+          # Will be implemented with Observable
+
+      - name: Upload Pages artifact (placeholder)
+        run: |
+          echo "📤 Uploading to GitHub Pages..."
+          echo "TODO: Deploy to Pages"
+          # Will be configured when Observable is ready
+
+      - name: Commit exported data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/exports/
+
+          if git diff --staged --quiet; then
+            echo "📭 No new exports to commit"
+          else
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+            git commit -m "data: weekly aggregation ${TIMESTAMP}"
+            git push
+            echo "✅ Exports committed and pushed"
+          fi
