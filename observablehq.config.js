@@ -5,6 +5,9 @@ export default {
   title: "Gaming Data Observatory",
   description: "Real-time Steam player analytics and insights",
 
+  // Source root directory
+  root: "src",
+
   // GitHub Pages deployment
   base: "/gaming-data-observatory/",
 
@@ -30,7 +33,6 @@ export default {
   // Pages
   pages: [
     {name: "Dashboard", path: "/index"},
-    {name: "Top Games", path: "/games"},
     {name: "About", path: "/about"}
   ]
 };
