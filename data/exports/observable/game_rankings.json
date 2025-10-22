@@ -2,36 +2,71 @@
   {
     "game_name":"Counter-Strike 2",
     "app_id":730,
-    "avg_peak":943115,
-    "all_time_peak":1097727,
-    "days_tracked":7
+    "avg_peak":1050028.0,
+    "all_time_peak":1050028,
+    "days_tracked":1
   },
   {
     "game_name":"Dota 2",
     "app_id":570,
-    "avg_peak":551156,
-    "all_time_peak":691777,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Apex Legends",
-    "app_id":1172470,
-    "avg_peak":351686,
-    "all_time_peak":492466,
-    "days_tracked":7
+    "avg_peak":591852.0,
+    "all_time_peak":591852,
+    "days_tracked":1
   },
   {
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
-    "avg_peak":259292,
-    "all_time_peak":394562,
-    "days_tracked":7
+    "avg_peak":180229.0,
+    "all_time_peak":180229,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Rust",
+    "app_id":252490,
+    "avg_peak":93243.0,
+    "all_time_peak":93243,
+    "days_tracked":1
   },
   {
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
-    "avg_peak":185059,
-    "all_time_peak":322503,
-    "days_tracked":7
+    "avg_peak":60031.0,
+    "all_time_peak":60031,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Apex Legends",
+    "app_id":1172470,
+    "avg_peak":51490.0,
+    "all_time_peak":51490,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Call of Duty",
+    "app_id":1938090,
+    "avg_peak":40710.0,
+    "all_time_peak":40710,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Team Fortress 2",
+    "app_id":440,
+    "avg_peak":37683.0,
+    "all_time_peak":37683,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Elden Ring",
+    "app_id":2357570,
+    "avg_peak":33080.0,
+    "all_time_peak":33080,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Palworld",
+    "app_id":1623730,
+    "avg_peak":20229.0,
+    "all_time_peak":20229,
+    "days_tracked":1
   }
 ]
