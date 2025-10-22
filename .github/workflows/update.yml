@@ -1,0 +1,149 @@
+name: Hourly Update and Deploy
+
+on:
+  schedule:
+    # Run every hour
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install UV
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install Python dependencies
+        run: uv sync --all-extras
+
+      # ========================================================================
+      # COLLECT STEAM DATA
+      # ========================================================================
+
+      - name: Collect Steam player data
+        run: |
+          echo "🎮 Collecting Steam player data..."
+          uv run python -m python.main collect
+          echo "✅ Data collection complete"
+
+      # ========================================================================
+      # STORE IN DUCKDB
+      # ========================================================================
+
+      - name: Load data into DuckDB
+        run: |
+          echo "💾 Loading Parquet files into DuckDB..."
+          uv run python -c "
+          from pathlib import Path
+          import pandas as pd
+          from python.storage.duckdb_manager import DuckDBManager
+
+          db_path = Path('data/duckdb/gaming.db')
+          parquet_path = Path('data/raw/steam')
+
+          # Find all parquet files
+          parquet_files = list(parquet_path.rglob('*.parquet'))
+
+          if parquet_files:
+              with DuckDBManager(db_path=db_path) as db:
+                  # Read all parquet files into DuckDB
+                  db.query('''
+                      CREATE TABLE IF NOT EXISTS steam_raw AS
+                      SELECT * FROM read_parquet('data/raw/steam/**/*.parquet')
+                  ''')
+
+                  # Insert new data (avoiding duplicates)
+                  db.query('''
+                      INSERT INTO steam_raw
+                      SELECT * FROM read_parquet('data/raw/steam/**/*.parquet')
+                      WHERE NOT EXISTS (
+                          SELECT 1 FROM steam_raw s
+                          WHERE s.timestamp = read_parquet.timestamp
+                          AND s.app_id = read_parquet.app_id
+                      )
+                  ''')
+              print(f'✅ Loaded {len(parquet_files)} parquet files into DuckDB')
+          else:
+              print('⚠️  No parquet files found')
+          "
+
+      # ========================================================================
+      # AGGREGATE KPIs
+      # ========================================================================
+
+      - name: Aggregate KPIs from DuckDB
+        run: uv run python -m python.main aggregate
+
+      # ========================================================================
+      # BUILD OBSERVABLE DASHBOARD
+      # ========================================================================
+
+      - name: Set up Node.js for Observable Framework
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Observable Framework
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      # ========================================================================
+      # DEPLOY TO GITHUB PAGES
+      # ========================================================================
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # ========================================================================
+      # COMMIT DATA TO REPOSITORY
+      # ========================================================================
+
+      - name: Commit collected data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add new data files
+          git add data/raw/steam/ data/duckdb/ data/exports/
+
+          if git diff --staged --quiet; then
+            echo "📭 No new data to commit"
+          else
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+            git commit -m "data: hourly update ${TIMESTAMP}"
+            git push
+            echo "✅ Data committed and pushed"
+          fi
