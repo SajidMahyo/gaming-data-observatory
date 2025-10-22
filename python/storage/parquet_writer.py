@@ -1,6 +1,5 @@
 """Parquet file writer with partitioning support."""
 
-import uuid
 from pathlib import Path
 from typing import Any
 
@@ -50,8 +49,11 @@ class ParquetWriter:
             # Save with partitioning
             self._save_partitioned(df, partition_cols)
         else:
-            # Save single file
-            filename = f"data_{uuid.uuid4().hex[:8]}.parquet"
+            # Save single file with game_id and timestamp
+            game_id = int(df["game_id"].iloc[0])
+            timestamp = pd.to_datetime(df["timestamp"].iloc[0])
+            timestamp_str = timestamp.strftime("%Y-%m-%dT%H-%M-%S")
+            filename = f"{game_id}_{timestamp_str}.parquet"
             filepath = self.base_path / filename
             df.to_parquet(filepath, index=False)
 
@@ -120,8 +122,11 @@ class ParquetWriter:
             partition_path = self.base_path / Path(*partition_parts)
             partition_path.mkdir(parents=True, exist_ok=True)
 
-            # Generate unique filename
-            filename = f"data_{uuid.uuid4().hex[:8]}.parquet"
+            # Generate filename with game_id and timestamp for uniqueness
+            game_id = int(group["game_id"].iloc[0])
+            timestamp = pd.to_datetime(group["timestamp"].iloc[0])
+            timestamp_str = timestamp.strftime("%Y-%m-%dT%H-%M-%S")
+            filename = f"{game_id}_{timestamp_str}.parquet"
             filepath = partition_path / filename
 
             # Save partition
