@@ -1,0 +1,11 @@
+# Git LFS Configuration for Gaming Data Observatory
+
+# Track Parquet files (raw data, partitioned storage)
+*.parquet filter=lfs diff=lfs merge=lfs -text
+
+# Track DuckDB database files (aggregated historical data)
+*.db filter=lfs diff=lfs merge=lfs -text
+
+# Track compressed archives (if needed for backups)
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text

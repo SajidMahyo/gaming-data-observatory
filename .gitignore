@@ -52,11 +52,9 @@ dmypy.json
 .DS_Store
 Thumbs.db
 
-# Data files
-data/raw/
-data/processed/
-*.parquet
-*.duckdb
+# Data files (managed by Git LFS via GitHub Actions)
+# Note: *.parquet and *.db are tracked by LFS (see .gitattributes)
+# Raw data will be committed by GitHub Actions workflow
 *.duckdb.wal
 
 # Observable Framework
