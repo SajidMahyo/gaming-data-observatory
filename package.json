@@ -1,0 +1,26 @@
+{
+  "name": "gaming-data-observatory",
+  "version": "1.0.0",
+  "description": "Gaming Data Observatory - Interactive dashboard for Steam player analytics",
+  "type": "module",
+  "scripts": {
+    "dev": "observable preview",
+    "build": "observable build",
+    "deploy": "observable build && gh-pages -d dist",
+    "clean": "rm -rf dist .observablehq/cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SajidMahyo/gaming-data-observatory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SajidMahyo/gaming-data-observatory/issues"
+  },
+  "homepage": "https://github.com/SajidMahyo/gaming-data-observatory#readme",
+  "devDependencies": {
+    "@observablehq/framework": "^1.13.3"
+  }
+}

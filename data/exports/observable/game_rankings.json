@@ -1,0 +1,37 @@
+[
+  {
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":943115,
+    "all_time_peak":1097727,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Dota 2",
+    "app_id":570,
+    "avg_peak":551156,
+    "all_time_peak":691777,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Apex Legends",
+    "app_id":1172470,
+    "avg_peak":351686,
+    "all_time_peak":492466,
+    "days_tracked":7
+  },
+  {
+    "game_name":"PUBG: BATTLEGROUNDS",
+    "app_id":578080,
+    "avg_peak":259292,
+    "all_time_peak":394562,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Grand Theft Auto V",
+    "app_id":271590,
+    "avg_peak":185059,
+    "all_time_peak":322503,
+    "days_tracked":7
+  }
+]

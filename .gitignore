@@ -60,6 +60,7 @@ Thumbs.db
 # Observable Framework
 .observablehq/
 docs/
+node_modules/
 
 # Logs
 *.log
