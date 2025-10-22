@@ -123,23 +123,24 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install Observable Framework (placeholder)
+      - name: Install Observable Framework
         run: |
           echo "📦 Installing Observable Framework..."
-          echo "TODO: Initialize Observable Framework"
-          # Will be set up when we create the dashboard
+          npm ci
 
-      - name: Build static site (placeholder)
+      - name: Build static site
         run: |
           echo "🏗️  Building static site..."
-          echo "TODO: Build Observable site"
-          # Will be implemented with Observable
+          npm run build
 
-      - name: Upload Pages artifact (placeholder)
-        run: |
-          echo "📤 Uploading to GitHub Pages..."
-          echo "TODO: Deploy to Pages"
-          # Will be configured when Observable is ready
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Commit exported data
         run: |
