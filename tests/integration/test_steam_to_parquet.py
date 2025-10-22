@@ -15,11 +15,12 @@ def test_collect_and_save_cs2_data(tmp_path: Path) -> None:
     collector = SteamCollector()
     writer = ParquetWriter(base_path=tmp_path / "data" / "raw" / "steam")
 
-    # Mock API response
+    # Mock API response with realistic CS2 data
     with patch("requests.get") as mock_get:
         mock_response = Mock()
         mock_response.status_code = 200
-        mock_response.json.return_value = {"response": {"player_count": 987654, "result": 1}}
+        # Real Steam API response format for CS2
+        mock_response.json.return_value = {"response": {"player_count": 1102182, "result": 1}}
         mock_get.return_value = mock_response
 
         # Collect data
@@ -41,7 +42,7 @@ def test_collect_and_save_cs2_data(tmp_path: Path) -> None:
     assert len(df) == 1
     assert df.iloc[0]["app_id"] == 730
     assert df.iloc[0]["game_name"] == "Counter-Strike 2"
-    assert df.iloc[0]["player_count"] == 987654
+    assert df.iloc[0]["player_count"] == 1102182  # Realistic player count
     assert "timestamp" in df.columns
 
 
@@ -50,25 +51,25 @@ def test_collect_multiple_games_and_save(tmp_path: Path) -> None:
     collector = SteamCollector()
     writer = ParquetWriter(base_path=tmp_path / "data" / "raw" / "steam")
 
-    # Mock API responses
+    # Mock API responses with realistic player counts
     with patch.object(collector, "get_game_data") as mock_get_data:
         mock_get_data.side_effect = [
             {
                 "app_id": 730,
                 "game_name": "Counter-Strike 2",
-                "player_count": 100000,
+                "player_count": 1102182,  # Realistic CS2 count
                 "timestamp": "2025-01-22T14:00:00+00:00",
             },
             {
                 "app_id": 570,
                 "game_name": "Dota 2",
-                "player_count": 50000,
+                "player_count": 620592,  # Realistic Dota 2 count
                 "timestamp": "2025-01-22T14:00:00+00:00",
             },
             {
                 "app_id": 578080,
                 "game_name": "PUBG: BATTLEGROUNDS",
-                "player_count": 30000,
+                "player_count": 284000,  # Realistic PUBG count
                 "timestamp": "2025-01-22T14:00:00+00:00",
             },
         ]
