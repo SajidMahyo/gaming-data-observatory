@@ -102,21 +102,22 @@ export default {
   pager: false,
 
   // Dynamic paths for game pages
-  dynamicPaths: async () => {
-    const fs = await import("node:fs/promises");
-    const path = await import("node:path");
+  async *dynamicPaths() {
+    const {readFile} = await import("node:fs/promises");
+    const {join} = await import("node:path");
 
     // Read game metadata to generate paths
-    const metadataPath = path.join(process.cwd(), "src/data/game-metadata.json");
+    const metadataPath = join(process.cwd(), "src/data/game-metadata.json");
     try {
-      const data = await fs.readFile(metadataPath, "utf-8");
+      const data = await readFile(metadataPath, "utf-8");
       const games = JSON.parse(data);
 
       // Generate a path for each game: /games/[app_id]
-      return games.map(game => `/games/${game.app_id}`);
+      for (const game of games) {
+        yield `/games/${game.app_id}`;
+      }
     } catch (error) {
       console.warn("Could not load game metadata for dynamic paths:", error.message);
-      return [];
     }
   }
 };
