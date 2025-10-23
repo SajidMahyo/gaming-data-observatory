@@ -1,105 +1,105 @@
 [
   {
-    "date":"2025-10-23T00:00:00.000",
+    "date":"2025-10-23",
     "game_name":"Counter-Strike 2",
     "app_id":730,
-    "avg_ccu":803590.7931034482,
-    "peak_ccu":1049683,
-    "min_ccu":611654,
-    "samples":29
+    "avg_ccu":997845.4210526316,
+    "peak_ccu":1539350,
+    "min_ccu":661490,
+    "samples":19
   },
   {
-    "date":"2025-10-23T00:00:00.000",
+    "date":"2025-10-23",
     "game_name":"Dota 2",
     "app_id":570,
-    "avg_ccu":401201.0,
-    "peak_ccu":509380,
+    "avg_ccu":504234.0,
+    "peak_ccu":725211,
     "min_ccu":352202,
-    "samples":12
+    "samples":19
   },
   {
-    "date":"2025-10-23T00:00:00.000",
+    "date":"2025-10-23",
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
-    "avg_ccu":209805.0,
-    "peak_ccu":329858,
+    "avg_ccu":297803.3684210526,
+    "peak_ccu":622406,
     "min_ccu":83456,
-    "samples":12
+    "samples":19
   },
   {
-    "date":"2025-10-23T00:00:00.000",
+    "date":"2025-10-23",
     "game_name":"Apex Legends",
     "app_id":1172470,
-    "avg_ccu":47883.8333333333,
-    "peak_ccu":73220,
+    "avg_ccu":69865.0,
+    "peak_ccu":148819,
     "min_ccu":17658,
-    "samples":12
+    "samples":19
   },
   {
-    "date":"2025-10-23T00:00:00.000",
+    "date":"2025-10-23",
     "game_name":"Rust",
     "app_id":252490,
-    "avg_ccu":54255.8333333333,
-    "peak_ccu":69652,
+    "avg_ccu":73341.2631578947,
+    "peak_ccu":122275,
     "min_ccu":46416,
-    "samples":12
+    "samples":19
   },
   {
-    "date":"2025-10-23T00:00:00.000",
+    "date":"2025-10-23",
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
-    "avg_ccu":38096.0833333333,
-    "peak_ccu":55257,
+    "avg_ccu":51886.7894736842,
+    "peak_ccu":79750,
     "min_ccu":28369,
-    "samples":12
+    "samples":19
   },
   {
-    "date":"2025-10-23T00:00:00.000",
-    "game_name":"Call of Duty",
-    "app_id":1938090,
-    "avg_ccu":25401.6666666667,
-    "peak_ccu":43162,
-    "min_ccu":16889,
-    "samples":12
-  },
-  {
-    "date":"2025-10-23T00:00:00.000",
+    "date":"2025-10-23",
     "game_name":"Team Fortress 2",
     "app_id":440,
-    "avg_ccu":27748.5833333333,
-    "peak_ccu":37771,
+    "avg_ccu":33878.3684210526,
+    "peak_ccu":48221,
     "min_ccu":21604,
-    "samples":12
+    "samples":19
   },
   {
-    "date":"2025-10-23T00:00:00.000",
-    "game_name":"Elden Ring",
-    "app_id":2357570,
-    "avg_ccu":21584.75,
-    "peak_ccu":30577,
-    "min_ccu":15912,
-    "samples":12
+    "date":"2025-10-23",
+    "game_name":"Call of Duty",
+    "app_id":1938090,
+    "avg_ccu":28818.7894736842,
+    "peak_ccu":43228,
+    "min_ccu":16889,
+    "samples":19
   },
   {
-    "date":"2025-10-23T00:00:00.000",
+    "date":"2025-10-23",
     "game_name":"Palworld",
     "app_id":1623730,
-    "avg_ccu":20822.3333333333,
-    "peak_ccu":25932,
+    "avg_ccu":25093.5263157895,
+    "peak_ccu":38261,
     "min_ccu":18253,
+    "samples":19
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Elden Ring",
+    "app_id":2357570,
+    "avg_ccu":24578.7368421053,
+    "peak_ccu":32565,
+    "min_ccu":15912,
+    "samples":19
+  },
+  {
+    "date":"2025-10-22",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_ccu":876977.1666666666,
+    "peak_ccu":1050028,
+    "min_ccu":654026,
     "samples":12
   },
   {
-    "date":"2025-10-22T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":523335.0,
-    "peak_ccu":830301,
-    "min_ccu":429985,
-    "samples":24
-  },
-  {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"Dota 2",
     "app_id":570,
     "avg_ccu":500047.3333333333,
@@ -108,7 +108,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
     "avg_ccu":138721.8333333333,
@@ -117,7 +117,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"Rust",
     "app_id":252490,
     "avg_ccu":83046.25,
@@ -126,7 +126,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
     "avg_ccu":50128.0,
@@ -135,7 +135,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"Apex Legends",
     "app_id":1172470,
     "avg_ccu":45098.75,
@@ -144,7 +144,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"Call of Duty",
     "app_id":1938090,
     "avg_ccu":39583.5,
@@ -153,7 +153,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"Team Fortress 2",
     "app_id":440,
     "avg_ccu":31738.625,
@@ -162,7 +162,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"Elden Ring",
     "app_id":2357570,
     "avg_ccu":30778.0,
@@ -171,273 +171,12 @@
     "samples":8
   },
   {
-    "date":"2025-10-22T00:00:00.000",
+    "date":"2025-10-22",
     "game_name":"Palworld",
     "app_id":1623730,
     "avg_ccu":18887.125,
     "peak_ccu":20229,
     "min_ccu":17268,
     "samples":8
-  },
-  {
-    "date":"2025-10-21T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":733573.0,
-    "peak_ccu":975818,
-    "min_ccu":536219,
-    "samples":24
-  },
-  {
-    "date":"2025-10-20T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":762849.0,
-    "peak_ccu":1034882,
-    "min_ccu":480728,
-    "samples":24
-  },
-  {
-    "date":"2025-10-19T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":724651.0,
-    "peak_ccu":963433,
-    "min_ccu":399969,
-    "samples":24
-  },
-  {
-    "date":"2025-10-18T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":858103.0,
-    "peak_ccu":1139265,
-    "min_ccu":472662,
-    "samples":24
-  },
-  {
-    "date":"2025-10-17T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":683084.0,
-    "peak_ccu":949645,
-    "min_ccu":466226,
-    "samples":24
-  },
-  {
-    "date":"2025-10-16T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":841724.0,
-    "peak_ccu":1094577,
-    "min_ccu":598237,
-    "samples":24
-  },
-  {
-    "date":"2025-10-15T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":810214.0,
-    "peak_ccu":1086845,
-    "min_ccu":437282,
-    "samples":24
-  },
-  {
-    "date":"2025-10-14T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":667923.0,
-    "peak_ccu":1079198,
-    "min_ccu":508450,
-    "samples":24
-  },
-  {
-    "date":"2025-10-13T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":581167.0,
-    "peak_ccu":818698,
-    "min_ccu":439643,
-    "samples":24
-  },
-  {
-    "date":"2025-10-12T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":643259.0,
-    "peak_ccu":1051478,
-    "min_ccu":567711,
-    "samples":24
-  },
-  {
-    "date":"2025-10-11T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":772305.0,
-    "peak_ccu":1154148,
-    "min_ccu":669728,
-    "samples":24
-  },
-  {
-    "date":"2025-10-10T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":864086.0,
-    "peak_ccu":1135057,
-    "min_ccu":498989,
-    "samples":24
-  },
-  {
-    "date":"2025-10-09T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":777227.0,
-    "peak_ccu":1051040,
-    "min_ccu":549312,
-    "samples":24
-  },
-  {
-    "date":"2025-10-08T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":733029.0,
-    "peak_ccu":1034833,
-    "min_ccu":586064,
-    "samples":24
-  },
-  {
-    "date":"2025-10-07T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":526853.0,
-    "peak_ccu":805861,
-    "min_ccu":458890,
-    "samples":24
-  },
-  {
-    "date":"2025-10-06T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":734340.0,
-    "peak_ccu":1135908,
-    "min_ccu":584930,
-    "samples":24
-  },
-  {
-    "date":"2025-10-05T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":657222.0,
-    "peak_ccu":1001128,
-    "min_ccu":413718,
-    "samples":24
-  },
-  {
-    "date":"2025-10-04T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":606722.0,
-    "peak_ccu":868147,
-    "min_ccu":518810,
-    "samples":24
-  },
-  {
-    "date":"2025-10-03T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":591016.0,
-    "peak_ccu":855395,
-    "min_ccu":381188,
-    "samples":24
-  },
-  {
-    "date":"2025-10-02T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":656264.0,
-    "peak_ccu":897398,
-    "min_ccu":422119,
-    "samples":24
-  },
-  {
-    "date":"2025-10-01T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":828919.0,
-    "peak_ccu":1083279,
-    "min_ccu":538041,
-    "samples":24
-  },
-  {
-    "date":"2025-09-30T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":701074.0,
-    "peak_ccu":1164413,
-    "min_ccu":644761,
-    "samples":24
-  },
-  {
-    "date":"2025-09-29T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":717212.0,
-    "peak_ccu":1098625,
-    "min_ccu":651627,
-    "samples":24
-  },
-  {
-    "date":"2025-09-28T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":770315.0,
-    "peak_ccu":1076098,
-    "min_ccu":617460,
-    "samples":24
-  },
-  {
-    "date":"2025-09-27T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":714806.0,
-    "peak_ccu":1166072,
-    "min_ccu":639076,
-    "samples":24
-  },
-  {
-    "date":"2025-09-26T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":760746.0,
-    "peak_ccu":1045168,
-    "min_ccu":549626,
-    "samples":24
-  },
-  {
-    "date":"2025-09-25T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":693043.0,
-    "peak_ccu":1045629,
-    "min_ccu":576517,
-    "samples":24
-  },
-  {
-    "date":"2025-09-24T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":682402.0,
-    "peak_ccu":1038547,
-    "min_ccu":603581,
-    "samples":24
-  },
-  {
-    "date":"2025-09-23T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":585625.0,
-    "peak_ccu":929170,
-    "min_ccu":477405,
-    "samples":24
   }
 ]
