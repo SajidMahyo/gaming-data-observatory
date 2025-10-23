@@ -1,0 +1,140 @@
+/* Custom styling for Gaming Data Observatory */
+
+/* Force dark background */
+body {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+}
+
+#observablehq-main {
+  background-color: #0f172a;
+}
+
+/* Full-width layout without sidebars */
+#observablehq-main {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+#observablehq-center {
+  max-width: 100%;
+  background-color: transparent;
+}
+
+/* Content container spacing */
+main {
+  padding: 2rem;
+  background-color: transparent;
+}
+
+/* Responsive navbar for mobile */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+
+  header > div {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 1rem !important;
+  }
+}
+
+/* Smooth transitions for interactive elements */
+a {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Card styling for dark theme */
+.card {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(96, 165, 250, 0.3);
+  border-color: #60a5fa !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
+}
+
+/* Hero section styling */
+.hero-banner {
+  margin: 0 -2rem;
+  margin-bottom: 2rem;
+}
+
+/* Game cards grid */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Remove Observable default page navigation */
+nav[aria-label="Pagination"] {
+  display: none;
+}
+
+/* Dark theme text colors */
+h1, h2, h3, h4, h5, h6 {
+  color: #f1f5f9 !important;
+}
+
+p, span, div {
+  color: #e2e8f0;
+}
+
+/* Links in dark theme */
+a:not([style*="color"]) {
+  color: #60a5fa;
+}
+
+a:not([style*="color"]):hover {
+  color: #93c5fd;
+}
+
+/* Tables in dark theme */
+table {
+  background-color: #1e293b;
+  border-color: #334155 !important;
+}
+
+th {
+  background-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+td {
+  border-color: #334155 !important;
+  color: #e2e8f0;
+}
+
+/* Input elements in dark theme */
+input, select, textarea {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}

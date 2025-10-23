@@ -34,7 +34,7 @@ const topTags = game.tags
 ```js
 html`<div class="hero-banner" style="background-image: url('${getSteamImage(game.app_id)}')">
   <div class="hero-overlay"></div>
-  <a href="../" class="back-link-hero">← Back to Rankings</a>
+  <a href="../" class="back-link-hero">← Go back</a>
   <div class="hero-content">
     <h1 class="hero-title">${game.name}</h1>
     <div class="hero-tags">
@@ -109,46 +109,116 @@ const filteredData = (period === "day"
 ```
 
 ```js
-// Player trend chart
-Plot.plot({
-  width: 1000,
-  height: 400,
-  marginLeft: 60,
-  x: {
-    type: "time",
-    label: period === "day" ? "Hour" : period === "month" ? "Date" : "Month"
-  },
-  y: {
-    label: "Players",
-    grid: true
-  },
-  marks: [
-    Plot.lineY(filteredData, {
-      x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
-      y: "peak_ccu",
-      stroke: "#60a5fa",
-      strokeWidth: 2,
-      curve: "catmull-rom"
-    }),
-    Plot.areaY(filteredData, {
-      x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
-      y: "peak_ccu",
-      fill: "#60a5fa",
-      fillOpacity: 0.1,
-      curve: "catmull-rom"
-    }),
-    Plot.dot(filteredData, {
-      x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
-      y: "peak_ccu",
-      fill: "#60a5fa",
-      r: 3
-    })
-  ],
-  style: {
-    background: "transparent",
-    color: "#e2e8f0"
-  }
-})
+// Layout à deux colonnes pour les graphiques
+html`<div class="charts-grid">
+  <!-- Graphique 1: Player Trends -->
+  <div class="chart-column">
+    <h3>Peak Players Over Time</h3>
+    ${resize((width) => Plot.plot({
+      width: width - 40, // Prend toute la largeur de la colonne (moins padding)
+      height: 400,
+      marginLeft: 60,
+      marginRight: 20,
+      marginTop: 30,
+      marginBottom: 50,
+      x: {
+        type: "time",
+        label: period === "day" ? "Hour" : period === "month" ? "Date" : "Month",
+        labelAnchor: "center"
+      },
+      y: {
+        label: "Peak CCU",
+        grid: true,
+        labelAnchor: "center"
+      },
+      marks: [
+        Plot.lineY(filteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+          y: "peak_ccu",
+          stroke: "#60a5fa",
+          strokeWidth: 3,
+          curve: "catmull-rom"
+        }),
+        Plot.areaY(filteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+          y: "peak_ccu",
+          fill: "#60a5fa",
+          fillOpacity: 0.15,
+          curve: "catmull-rom"
+        }),
+        Plot.dot(filteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+          y: "peak_ccu",
+          fill: "#60a5fa",
+          r: 4,
+          stroke: "#0f172a",
+          strokeWidth: 1
+        }),
+        Plot.ruleY([0])
+      ],
+      style: {
+        background: "rgba(30, 41, 59, 0.5)",
+        color: "#e2e8f0",
+        borderRadius: "12px",
+        padding: "15px"
+      }
+    }))}
+  </div>
+
+  <!-- Graphique 2: Average Players -->
+  <div class="chart-column">
+    <h3>Average Players Over Time</h3>
+    ${resize((width) => Plot.plot({
+      width: width - 40, // Prend toute la largeur de la colonne (moins padding)
+      height: 400,
+      marginLeft: 60,
+      marginRight: 20,
+      marginTop: 30,
+      marginBottom: 50,
+      x: {
+        type: "time",
+        label: period === "day" ? "Hour" : period === "month" ? "Date" : "Month",
+        labelAnchor: "center"
+      },
+      y: {
+        label: "Avg CCU",
+        grid: true,
+        labelAnchor: "center"
+      },
+      marks: [
+        Plot.lineY(filteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+          y: "avg_ccu",
+          stroke: "#a78bfa",
+          strokeWidth: 3,
+          curve: "catmull-rom"
+        }),
+        Plot.areaY(filteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+          y: "avg_ccu",
+          fill: "#a78bfa",
+          fillOpacity: 0.15,
+          curve: "catmull-rom"
+        }),
+        Plot.dot(filteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+          y: "avg_ccu",
+          fill: "#a78bfa",
+          r: 4,
+          stroke: "#0f172a",
+          strokeWidth: 1
+        }),
+        Plot.ruleY([0])
+      ],
+      style: {
+        background: "rgba(30, 41, 59, 0.5)",
+        color: "#e2e8f0",
+        borderRadius: "12px",
+        padding: "15px"
+      }
+    }))}
+  </div>
+</div>`
 ```
 
 ## Game Information
@@ -343,64 +413,72 @@ game.price_info && html`<div class="price-section">
   .hero-description {
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(15, 23, 42, 0.98);
+    width: 45%;
+    background: linear-gradient(to right,
+      transparent 0%,
+      rgba(15, 23, 42, 0.05) 10%,
+      rgba(15, 23, 42, 0.2) 25%,
+      rgba(15, 23, 42, 0.5) 45%,
+      rgba(15, 23, 42, 0.75) 65%,
+      rgba(15, 23, 42, 0.92) 85%,
+      rgba(15, 23, 42, 0.98) 100%
+    );
+    backdrop-filter: blur(10px);
     z-index: 3;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 3rem;
+    justify-content: flex-end;
+    padding: 3rem 4rem 3rem 5rem;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateX(20px);
   }
 
   .hero-banner:hover .hero-description {
     opacity: 1;
+    transform: translateX(0);
   }
 
   .hero-description p {
-    color: #cbd5e1;
-    line-height: 1.8;
-    font-size: 1.2rem;
-    max-width: 800px;
-    text-align: center;
+    color: #e2e8f0;
+    line-height: 1.9;
+    font-size: 1.15rem;
+    max-width: 500px;
+    text-align: left;
     margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 400;
   }
 
-  /* Modern section titles */
+  /* Titres de section sobres et élégants */
   h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin: 3rem 0 2rem 0;
-    padding-bottom: 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 3.5rem 0 1.5rem 0;
+    padding-bottom: 0;
     position: relative;
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.5px;
+    color: #f1f5f9;
+    letter-spacing: -0.025em;
+    pointer-events: none;
+  }
+
+  h2 a {
+    pointer-events: none;
+    text-decoration: none !important;
+    color: #f1f5f9 !important;
+    cursor: default;
   }
 
   h2::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -0.5rem;
     left: 0;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 50%, transparent 100%);
-    border-radius: 2px;
-  }
-
-  h2::before {
-    content: '▸';
-    position: absolute;
-    left: -1.5rem;
-    color: #60a5fa;
-    font-size: 1.5rem;
-    opacity: 0.6;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, #60a5fa, transparent);
   }
 
   /* Period Selector */
@@ -441,31 +519,79 @@ game.price_info && html`<div class="price-section">
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
     margin: 2rem 0;
   }
 
   .stat-card {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-radius: 16px;
-    padding: 2rem;
+    position: relative;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
     text-align: center;
-    border: 1px solid #334155;
+    border: 1px solid rgba(96, 165, 250, 0.15);
+    box-shadow:
+      0 4px 24px -1px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 -1px 0 0 rgba(255, 255, 255, 0.05) inset;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+    opacity: 0.8;
+  }
+
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(96, 165, 250, 0.1), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow:
+      0 20px 40px -12px rgba(96, 165, 250, 0.25),
+      0 0 0 1px rgba(96, 165, 250, 0.1) inset,
+      0 -1px 0 0 rgba(255, 255, 255, 0.1) inset;
+  }
+
+  .stat-card:hover::after {
+    opacity: 1;
   }
 
   .stat-value {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #60a5fa;
-    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
   .stat-label {
-    color: #94a3b8;
-    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
   }
 
   .info-section {
@@ -569,5 +695,37 @@ game.price_info && html`<div class="price-section">
 
   .free-price {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  /* Grille de graphiques à deux colonnes */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  .chart-column {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-width: 0; /* Important pour le responsive */
+  }
+
+  .chart-column h3 {
+    color: #e2e8f0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    text-align: center;
+  }
+
+  /* Responsive : une seule colonne sur petits écrans */
+  @media (max-width: 1024px) {
+    .charts-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
