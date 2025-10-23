@@ -1,6 +1,6 @@
 [
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Counter-Strike 2",
     "app_id":730,
     "avg_ccu":796704.4166666666,
@@ -9,7 +9,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Dota 2",
     "app_id":570,
     "avg_ccu":401201.0,
@@ -18,7 +18,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
     "avg_ccu":209805.0,
@@ -27,7 +27,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Apex Legends",
     "app_id":1172470,
     "avg_ccu":47883.8333333333,
@@ -36,7 +36,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Rust",
     "app_id":252490,
     "avg_ccu":54255.8333333333,
@@ -45,7 +45,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
     "avg_ccu":38096.0833333333,
@@ -54,7 +54,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Call of Duty",
     "app_id":1938090,
     "avg_ccu":25401.6666666667,
@@ -63,7 +63,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Team Fortress 2",
     "app_id":440,
     "avg_ccu":27748.5833333333,
@@ -72,7 +72,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Elden Ring",
     "app_id":2357570,
     "avg_ccu":21584.75,
@@ -81,7 +81,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-23",
+    "date":"2025-10-23T00:00:00.000",
     "game_name":"Palworld",
     "app_id":1623730,
     "avg_ccu":20822.3333333333,
@@ -90,7 +90,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Counter-Strike 2",
     "app_id":730,
     "avg_ccu":876977.1666666666,
@@ -99,7 +99,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Dota 2",
     "app_id":570,
     "avg_ccu":500047.3333333333,
@@ -108,7 +108,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
     "avg_ccu":138721.8333333333,
@@ -117,7 +117,7 @@
     "samples":12
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Rust",
     "app_id":252490,
     "avg_ccu":83046.25,
@@ -126,7 +126,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
     "avg_ccu":50128.0,
@@ -135,7 +135,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Apex Legends",
     "app_id":1172470,
     "avg_ccu":45098.75,
@@ -144,7 +144,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Call of Duty",
     "app_id":1938090,
     "avg_ccu":39583.5,
@@ -153,7 +153,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Team Fortress 2",
     "app_id":440,
     "avg_ccu":31738.625,
@@ -162,7 +162,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Elden Ring",
     "app_id":2357570,
     "avg_ccu":30778.0,
@@ -171,7 +171,7 @@
     "samples":8
   },
   {
-    "date":"2025-10-22",
+    "date":"2025-10-22T00:00:00.000",
     "game_name":"Palworld",
     "app_id":1623730,
     "avg_ccu":18887.125,

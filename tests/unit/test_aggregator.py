@@ -58,7 +58,7 @@ class TestKPIAggregator:
         assert aggregator.db_path == db_path
 
     def test_create_daily_kpis_table(self, mock_db_manager, sample_steam_data):
-        """Test creation of daily KPIs aggregation table."""
+        """Test creation of daily KPIs aggregation table with PRIMARY KEY."""
         # Mock the query method to return sample data
         mock_db_manager.query.return_value = sample_steam_data
 
@@ -68,14 +68,22 @@ class TestKPIAggregator:
         with patch.object(aggregator, "db_manager", mock_db_manager):
             aggregator.create_daily_kpis()
 
-        # Verify query was called
-        mock_db_manager.query.assert_called_once()
+        # Verify query was called 3 times (DROP + CREATE + INSERT)
+        assert mock_db_manager.query.call_count == 3
 
-        # Verify SQL contains expected clauses
-        sql_call = mock_db_manager.query.call_args[0][0]
-        assert "CREATE OR REPLACE TABLE daily_kpis" in sql_call
-        assert "GROUP BY" in sql_call
-        assert "date, game_name, app_id" in sql_call
+        # Verify first call drops old table
+        first_call = mock_db_manager.query.call_args_list[0][0][0]
+        assert "DROP TABLE IF EXISTS daily_kpis" in first_call
+
+        # Verify second call creates table with PRIMARY KEY
+        second_call = mock_db_manager.query.call_args_list[1][0][0]
+        assert "CREATE TABLE daily_kpis" in second_call
+        assert "PRIMARY KEY (date, app_id)" in second_call
+
+        # Verify third call inserts all historical data
+        third_call = mock_db_manager.query.call_args_list[2][0][0]
+        assert "INSERT INTO daily_kpis" in third_call
+        assert "GROUP BY CAST(timestamp AS DATE), game_name, app_id" in third_call
 
     def test_export_latest_kpis(self, mock_db_manager, tmp_path):
         """Test export of latest 7 days KPIs."""
