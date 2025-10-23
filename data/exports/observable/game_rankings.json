@@ -37,8 +37,15 @@
   {
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
-    "avg_peak":69658.5,
-    "all_time_peak":79286,
+    "avg_peak":69890.5,
+    "all_time_peak":79750,
+    "days_tracked":2
+  },
+  {
+    "game_name":"Team Fortress 2",
+    "app_id":440,
+    "avg_peak":42498.0,
+    "all_time_peak":47313,
     "days_tracked":2
   },
   {
@@ -46,13 +53,6 @@
     "app_id":1938090,
     "avg_peak":41936.0,
     "all_time_peak":43162,
-    "days_tracked":2
-  },
-  {
-    "game_name":"Team Fortress 2",
-    "app_id":440,
-    "avg_peak":41617.0,
-    "all_time_peak":45551,
     "days_tracked":2
   },
   {
