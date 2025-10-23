@@ -1,5 +1,6 @@
 """KPI aggregation module for Steam gaming data."""
 
+from datetime import datetime, timedelta
 from pathlib import Path
 from types import TracebackType
 
@@ -267,6 +268,49 @@ class KPIAggregator:
 
         return int(count_before - count_after)
 
+    def cleanup_old_parquet_files(self, raw_data_path: Path, retention_days: int = 7) -> int:
+        """Delete Parquet files older than retention period.
+
+        Removes old Parquet files from the raw data directory to save disk space.
+        Only files older than the retention period are deleted.
+
+        Args:
+            raw_data_path: Path to raw data directory (e.g., data/raw/steam)
+            retention_days: Number of days of files to keep (default: 7)
+
+        Returns:
+            Number of files deleted
+
+        Example:
+            >>> files_deleted = aggregator.cleanup_old_parquet_files(
+            ...     Path("data/raw/steam"), retention_days=7
+            ... )
+            >>> print(f"Deleted {files_deleted} old Parquet files")
+        """
+        if not raw_data_path.exists():
+            return 0
+
+        cutoff_date = datetime.now() - timedelta(days=retention_days)
+        files_deleted = 0
+
+        # Find all .parquet files recursively
+        for parquet_file in raw_data_path.rglob("*.parquet"):
+            # Get file modification time
+            file_mtime = datetime.fromtimestamp(parquet_file.stat().st_mtime)
+
+            # Delete if older than cutoff
+            if file_mtime < cutoff_date:
+                parquet_file.unlink()
+                files_deleted += 1
+
+                # Clean up empty parent directories
+                parent = parquet_file.parent
+                while parent != raw_data_path and not list(parent.iterdir()):
+                    parent.rmdir()
+                    parent = parent.parent
+
+        return files_deleted
+
     def run_full_aggregation(self, output_dir: Path) -> None:
         """Run full cascading aggregation pipeline and export all KPIs.
 
@@ -292,6 +336,12 @@ class KPIAggregator:
         rows_deleted = self.cleanup_old_raw_data(retention_days=7)
         if rows_deleted > 0:
             print(f"🧹 Cleaned up {rows_deleted:,} old raw records (>7 days)")
+
+        # Clean up old Parquet files (retention: 7 days)
+        raw_steam_path = Path("data/raw/steam")
+        files_deleted = self.cleanup_old_parquet_files(raw_steam_path, retention_days=7)
+        if files_deleted > 0:
+            print(f"🧹 Deleted {files_deleted:,} old Parquet files (>7 days)")
 
         # Export all KPIs
         self.export_all_daily_kpis(output_path=output_dir / "daily_kpis.json")
