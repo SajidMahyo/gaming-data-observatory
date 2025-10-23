@@ -1,0 +1,66 @@
+{
+  "app_id": 271590,
+  "name": "Grand Theft Auto V Legacy",
+  "type": "game",
+  "description": "Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second.",
+  "developers": [
+    "Rockstar North"
+  ],
+  "publishers": [
+    "Rockstar Games"
+  ],
+  "is_free": false,
+  "required_age": "17",
+  "release_date": "13 Apr, 2015",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 96,
+  "metacritic_url": "https://www.metacritic.com/game/pc/grand-theft-auto-v?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Open World": 32676,
+    "Action": 23557,
+    "Multiplayer": 21773,
+    "Crime": 19442,
+    "Automobile Sim": 18788,
+    "Third Person": 18682,
+    "First-Person": 18291,
+    "Mature": 15317,
+    "Shooter": 14971,
+    "Adventure": 13658,
+    "Singleplayer": 12528,
+    "Third-Person Shooter": 12002,
+    "Racing": 11591,
+    "Co-op": 10287,
+    "Sandbox": 10014,
+    "Atmospheric": 9945,
+    "Funny": 9411,
+    "Great Soundtrack": 8745,
+    "Comedy": 8613,
+    "Moddable": 7098
+  },
+  "collected_at": "2025-10-23 16:23:23"
+}

@@ -1,0 +1,63 @@
+{
+  "app_id": 578080,
+  "name": "PUBG: BATTLEGROUNDS",
+  "type": "game",
+  "description": "PUBG: BATTLEGROUNDS, the high-stakes winner-take-all shooter that started the Battle Royale craze, is free-to-play! Drop into diverse maps, loot unique weapons and supplies, and survive in an ever-shrinking zone where every turn could be your last.",
+  "developers": [
+    "PUBG Corporation"
+  ],
+  "publishers": [
+    "KRAFTON, Inc."
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "21 Dec, 2017",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Stats",
+    "Remote Play on Phone",
+    "Remote Play on Tablet"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Massively Multiplayer",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Survival": 14893,
+    "Shooter": 12788,
+    "Battle Royale": 10936,
+    "Multiplayer": 10884,
+    "FPS": 8483,
+    "PvP": 7734,
+    "Third-Person Shooter": 7341,
+    "Action": 6044,
+    "Online Co-Op": 5400,
+    "Tactical": 5080,
+    "Co-op": 4364,
+    "First-Person": 4116,
+    "Strategy": 3138,
+    "Early Access": 2840,
+    "Competitive": 2461,
+    "Third Person": 2385,
+    "Team-Based": 2108,
+    "Difficult": 1766,
+    "Simulation": 1411,
+    "Stealth": 1310
+  },
+  "collected_at": "2025-10-23 16:23:20"
+}

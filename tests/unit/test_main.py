@@ -80,3 +80,21 @@ def test_process_command() -> None:
     result = runner.invoke(cli, ["process"])
     assert result.exit_code == 0
     assert "Processing data" in result.output
+
+
+def test_aggregate_command_help() -> None:
+    """Test aggregate command help."""
+    runner = CliRunner()
+    result = runner.invoke(cli, ["aggregate", "--help"])
+    assert result.exit_code == 0
+    assert "Calculate KPIs" in result.output
+    assert "--db-path" in result.output
+    assert "--output-dir" in result.output
+
+
+def test_store_command_help() -> None:
+    """Test store command help."""
+    runner = CliRunner()
+    result = runner.invoke(cli, ["store", "--help"])
+    assert result.exit_code == 0
+    assert "Store data in DuckDB and Parquet" in result.output

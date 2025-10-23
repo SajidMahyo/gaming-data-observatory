@@ -112,6 +112,18 @@ aggregate:
 pipeline: collect aggregate
     @echo "✅ Data pipeline complete!"
 
+# Load and prepare all data for development (with test data)
+[group('data')]
+load-data:
+    @echo "📊 Loading all data for development..."
+    @echo "1️⃣ Collecting game metadata from Steam API (saves to JSON + DuckDB)..."
+    uv run python -m python.main metadata --app-ids "730,570,578080,1172470,271590"
+    @echo "2️⃣ Aggregating KPIs..."
+    uv run python -m python.main aggregate
+    @echo "3️⃣ Inserting test historical data..."
+    uv run python scripts/insert_test_data.py
+    @echo "✅ Data loaded and ready!"
+
 # ============================================================================
 # 🚀 CLI
 # ============================================================================

@@ -1,0 +1,245 @@
+[
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Rust",
+    "app_id":252490,
+    "avg_peak":81447.5,
+    "max_peak":93243,
+    "total_samples":20,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"PUBG: BATTLEGROUNDS",
+    "app_id":578080,
+    "avg_peak":255043.5,
+    "max_peak":329858,
+    "total_samples":24,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Dota 2",
+    "app_id":570,
+    "avg_peak":550616.0,
+    "max_peak":591852,
+    "total_samples":24,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":972671.0,
+    "max_peak":1049683,
+    "total_samples":84,
+    "days_in_week":4
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Grand Theft Auto V",
+    "app_id":271590,
+    "avg_peak":57644.0,
+    "max_peak":60031,
+    "total_samples":20,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Team Fortress 2",
+    "app_id":440,
+    "avg_peak":37727.0,
+    "max_peak":37771,
+    "total_samples":20,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Elden Ring",
+    "app_id":2357570,
+    "avg_peak":31828.5,
+    "max_peak":33080,
+    "total_samples":20,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Apex Legends",
+    "app_id":1172470,
+    "avg_peak":62355.0,
+    "max_peak":73220,
+    "total_samples":20,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Palworld",
+    "app_id":1623730,
+    "avg_peak":23080.5,
+    "max_peak":25932,
+    "total_samples":20,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-10-20T00:00:00.000",
+    "game_name":"Call of Duty",
+    "app_id":1938090,
+    "avg_peak":41936.0,
+    "max_peak":43162,
+    "total_samples":20,
+    "days_in_week":2
+  },
+  {
+    "week_start":"2025-07-28T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":985368.1428571428,
+    "max_peak":1156516,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-09-29T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":995483.5714285715,
+    "max_peak":1164413,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-09-15T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":988672.7142857143,
+    "max_peak":1176708,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-07-14T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":930435.4285714285,
+    "max_peak":1079546,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-08-11T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1059587.4285714286,
+    "max_peak":1163598,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-07-21T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1039820.8571428572,
+    "max_peak":1166079,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-09-01T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":995064.2857142857,
+    "max_peak":1195665,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-09-08T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":966821.8571428572,
+    "max_peak":1163225,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-08-18T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1037160.4285714285,
+    "max_peak":1143411,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-06-30T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":999356.4285714285,
+    "max_peak":1177122,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-06-23T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1032915.0,
+    "max_peak":1151321,
+    "total_samples":120,
+    "days_in_week":5
+  },
+  {
+    "week_start":"2025-10-06T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1052617.857142857,
+    "max_peak":1154148,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-10-13T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1018808.7142857143,
+    "max_peak":1139265,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-09-22T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1065459.4285714286,
+    "max_peak":1166072,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-07-07T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1043629.2857142857,
+    "max_peak":1180785,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-08-04T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1053431.0,
+    "max_peak":1152486,
+    "total_samples":168,
+    "days_in_week":7
+  },
+  {
+    "week_start":"2025-08-25T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1002438.8571428572,
+    "max_peak":1194286,
+    "total_samples":168,
+    "days_in_week":7
+  }
+]

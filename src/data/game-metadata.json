@@ -1,0 +1,336 @@
+[
+  {
+    "app_id": 1172470,
+    "name": "Apex Legends\u2122",
+    "type": "game",
+    "description": "Apex Legends is the award-winning, free-to-play Hero Shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities, and experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter and Battle Royale.",
+    "developers": [
+      "Respawn"
+    ],
+    "publishers": [
+      "Electronic Arts"
+    ],
+    "is_free": true,
+    "required_age": 0,
+    "release_date": "4 Nov, 2020",
+    "platforms": [
+      "windows"
+    ],
+    "metacritic_score": 88,
+    "metacritic_url": "https://www.metacritic.com/game/pc/apex-legends?ftag=MCD-06-10aaa1f",
+    "categories": [
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "In-App Purchases",
+      "Chat Speech-to-text",
+      "Playable without Timed Input"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Free To Play"
+    ],
+    "price_info": {
+      "currency": "USD",
+      "price": 0,
+      "is_free": true,
+      "discount": 0
+    },
+    "tags": {
+      "Free to Play": 2232,
+      "Battle Royale": 1511,
+      "Multiplayer": 1510,
+      "FPS": 1474,
+      "Shooter": 1385,
+      "First-Person": 1116,
+      "PvP": 948,
+      "Action": 837,
+      "Hero Shooter": 777,
+      "Team-Based": 748,
+      "Tactical": 568,
+      "Sci-fi": 505,
+      "Loot": 501,
+      "Survival": 498,
+      "Co-op": 489,
+      "Character Customization": 481,
+      "Funny": 460,
+      "Lore-Rich": 374,
+      "Cyberpunk": 364,
+      "Cinematic": 299
+    }
+  },
+  {
+    "app_id": 730,
+    "name": "Counter-Strike 2",
+    "type": "game",
+    "description": "\u0411\u043e\u043b\u0435\u0435 \u0434\u0432\u0443\u0445 \u0434\u0435\u0441\u044f\u0442\u0438\u043b\u0435\u0442\u0438\u0439 Counter-Strike \u0441\u043b\u0443\u0436\u0438\u0442 \u043f\u0440\u0438\u043c\u0435\u0440\u043e\u043c \u043f\u0435\u0440\u0432\u043e\u043a\u043b\u0430\u0441\u0441\u043d\u043e\u0439 \u0441\u043e\u0440\u0435\u0432\u043d\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0439 \u0438\u0433\u0440\u044b, \u043f\u0443\u0442\u044c \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u044f \u043a\u043e\u0442\u043e\u0440\u043e\u0439 \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u044f\u044e\u0442 \u043c\u0438\u043b\u043b\u0438\u043e\u043d\u044b \u0438\u0433\u0440\u043e\u043a\u043e\u0432 \u0441\u043e \u0432\u0441\u0435\u0433\u043e \u043c\u0438\u0440\u0430. \u0422\u0435\u043f\u0435\u0440\u044c \u043f\u0440\u0438\u0448\u043b\u043e \u0432\u0440\u0435\u043c\u044f \u043d\u043e\u0432\u043e\u0433\u043e \u044d\u0442\u0430\u043f\u0430 \u2014 Counter-Strike 2.",
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ],
+    "is_free": true,
+    "required_age": 0,
+    "release_date": "21 \u0430\u0432\u0433. 2012 \u0433.",
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "metacritic_score": null,
+    "metacritic_url": null,
+    "categories": [
+      "\u0414\u043b\u044f \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u0438\u0445 \u0438\u0433\u0440\u043e\u043a\u043e\u0432",
+      "\u041a\u0440\u043e\u0441\u0441-\u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0435\u043d\u043d\u044b\u0439 \u043c\u0443\u043b\u044c\u0442\u0438\u043f\u043b\u0435\u0435\u0440",
+      "\u041a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0438 Steam",
+      "\u041c\u0430\u0441\u0442\u0435\u0440\u0441\u043a\u0430\u044f Steam",
+      "\u0412\u043d\u0443\u0442\u0440\u0438\u0438\u0433\u0440\u043e\u0432\u044b\u0435 \u043f\u043e\u043a\u0443\u043f\u043a\u0438",
+      "\u0420\u0435\u0433\u0443\u043b\u0438\u0440\u0443\u0435\u043c\u044b\u0439 \u0440\u0430\u0437\u043c\u0435\u0440 \u0442\u0435\u043a\u0441\u0442\u0430",
+      "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u043a\u0430\u043c\u0435\u0440\u044b",
+      "\u0410\u043b\u044c\u0442\u0435\u0440\u043d\u0430\u0442\u0438\u0432\u043d\u044b\u0435 \u0446\u0432\u0435\u0442\u0430",
+      "\u0420\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u043d\u043e\u0435 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0433\u0440\u043e\u043c\u043a\u043e\u0441\u0442\u044c\u044e",
+      "\u041c\u043e\u0436\u043d\u043e \u0438\u0433\u0440\u0430\u0442\u044c \u0431\u0435\u0437 QTE",
+      "\u0421\u0442\u0435\u0440\u0435\u043e\u0437\u0432\u0443\u043a",
+      "\u041e\u0431\u044a\u0451\u043c\u043d\u044b\u0439 \u0437\u0432\u0443\u043a",
+      "\u0412\u043a\u043b\u044e\u0447\u0451\u043d \u0430\u043d\u0442\u0438\u0447\u0438\u0442 Valve",
+      "\u0421\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043a\u0430",
+      "Remote Play \u043d\u0430 \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u0435",
+      "Remote Play \u043d\u0430 \u043f\u043b\u0430\u043d\u0448\u0435\u0442\u0435",
+      "Remote Play \u043d\u0430 \u0442\u0435\u043b\u0435\u0432\u0438\u0437\u043e\u0440\u0435",
+      "\u0412\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0448\u043a\u0430\u043b\u0430 Steam"
+    ],
+    "genres": [
+      "\u042d\u043a\u0448\u0435\u043d\u044b",
+      "\u0411\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0435"
+    ],
+    "price_info": {
+      "currency": "USD",
+      "price": 0,
+      "is_free": true,
+      "discount": 0
+    },
+    "tags": {
+      "FPS": 91172,
+      "Shooter": 65634,
+      "Multiplayer": 62536,
+      "Competitive": 53536,
+      "Action": 47634,
+      "Team-Based": 46549,
+      "e-sports": 43682,
+      "Tactical": 41468,
+      "First-Person": 39540,
+      "PvP": 34587,
+      "Online Co-Op": 34056,
+      "Co-op": 30342,
+      "Strategy": 30189,
+      "Military": 28762,
+      "War": 28060,
+      "Difficult": 26037,
+      "Trading": 25813,
+      "Realistic": 25497,
+      "Fast-Paced": 25369,
+      "Moddable": 6667
+    }
+  },
+  {
+    "app_id": 570,
+    "name": "Dota 2",
+    "type": "game",
+    "description": "Every day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it's their 10th hour of play or 1,000th, there's always something new to discover. With regular updates that ensure a constant evolution of gameplay, features, and heroes, Dota 2 has taken on a life of its own.",
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ],
+    "is_free": true,
+    "required_age": 0,
+    "release_date": "9 Jul, 2013",
+    "platforms": [
+      "windows",
+      "mac",
+      "linux"
+    ],
+    "metacritic_score": 90,
+    "metacritic_url": "https://www.metacritic.com/game/pc/dota-2?ftag=MCD-06-10aaa1f",
+    "categories": [
+      "Multi-player",
+      "Co-op",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "SteamVR Collectibles",
+      "In-App Purchases",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Valve Anti-Cheat enabled",
+      "Steam Timeline"
+    ],
+    "genres": [
+      "Action",
+      "Strategy",
+      "Free To Play"
+    ],
+    "price_info": {
+      "currency": "USD",
+      "price": 0,
+      "is_free": true,
+      "discount": 0
+    },
+    "tags": {
+      "Free to Play": 60040,
+      "MOBA": 20225,
+      "Multiplayer": 15411,
+      "Strategy": 14289,
+      "e-sports": 11816,
+      "Team-Based": 10989,
+      "Competitive": 8324,
+      "Action": 7939,
+      "Online Co-Op": 7495,
+      "PvP": 6073,
+      "Difficult": 5376,
+      "Co-op": 4338,
+      "RTS": 4127,
+      "RPG": 3807,
+      "Tower Defense": 3796,
+      "Fantasy": 3764,
+      "Character Customization": 2944,
+      "Replay Value": 2766,
+      "Action RPG": 2471,
+      "Simulation": 1987
+    }
+  },
+  {
+    "app_id": 271590,
+    "name": "Grand Theft Auto V Legacy",
+    "type": "game",
+    "description": "Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second.",
+    "developers": [
+      "Rockstar North"
+    ],
+    "publishers": [
+      "Rockstar Games"
+    ],
+    "is_free": false,
+    "required_age": 17,
+    "release_date": "13 Apr, 2015",
+    "platforms": [
+      "windows"
+    ],
+    "metacritic_score": 96,
+    "metacritic_url": "https://www.metacritic.com/game/pc/grand-theft-auto-v?ftag=MCD-06-10aaa1f",
+    "categories": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Steam Achievements",
+      "Full controller support",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV"
+    ],
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
+    "price_info": {
+      "currency": "USD",
+      "price": 0,
+      "is_free": true,
+      "discount": 0
+    },
+    "tags": {
+      "Open World": 32676,
+      "Action": 23557,
+      "Multiplayer": 21773,
+      "Crime": 19442,
+      "Automobile Sim": 18788,
+      "Third Person": 18682,
+      "First-Person": 18291,
+      "Mature": 15317,
+      "Shooter": 14971,
+      "Adventure": 13658,
+      "Singleplayer": 12528,
+      "Third-Person Shooter": 12002,
+      "Racing": 11591,
+      "Co-op": 10287,
+      "Sandbox": 10014,
+      "Atmospheric": 9945,
+      "Funny": 9411,
+      "Great Soundtrack": 8745,
+      "Comedy": 8613,
+      "Moddable": 7098
+    }
+  },
+  {
+    "app_id": 578080,
+    "name": "PUBG: BATTLEGROUNDS",
+    "type": "game",
+    "description": "PUBG: BATTLEGROUNDS, the high-stakes winner-take-all shooter that started the Battle Royale craze, is free-to-play! Drop into diverse maps, loot unique weapons and supplies, and survive in an ever-shrinking zone where every turn could be your last.",
+    "developers": [
+      "PUBG Corporation"
+    ],
+    "publishers": [
+      "KRAFTON, Inc."
+    ],
+    "is_free": true,
+    "required_age": 0,
+    "release_date": "21 Dec, 2017",
+    "platforms": [
+      "windows"
+    ],
+    "metacritic_score": null,
+    "metacritic_url": null,
+    "categories": [
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Stats",
+      "Remote Play on Phone",
+      "Remote Play on Tablet"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Massively Multiplayer",
+      "Free To Play"
+    ],
+    "price_info": {
+      "currency": "USD",
+      "price": 0,
+      "is_free": true,
+      "discount": 0
+    },
+    "tags": {
+      "Survival": 14893,
+      "Shooter": 12788,
+      "Battle Royale": 10936,
+      "Multiplayer": 10884,
+      "FPS": 8483,
+      "PvP": 7734,
+      "Third-Person Shooter": 7341,
+      "Action": 6044,
+      "Online Co-Op": 5400,
+      "Tactical": 5080,
+      "Co-op": 4364,
+      "First-Person": 4116,
+      "Strategy": 3138,
+      "Early Access": 2840,
+      "Competitive": 2461,
+      "Third Person": 2385,
+      "Team-Based": 2108,
+      "Difficult": 1766,
+      "Simulation": 1411,
+      "Stealth": 1310
+    }
+  }
+]

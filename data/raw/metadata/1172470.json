@@ -1,0 +1,67 @@
+{
+  "app_id": 1172470,
+  "name": "Apex Legends\u2122",
+  "type": "game",
+  "description": "Apex Legends is the award-winning, free-to-play Hero Shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities, and experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter and Battle Royale.",
+  "developers": [
+    "Respawn"
+  ],
+  "publishers": [
+    "Electronic Arts"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "4 Nov, 2020",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 88,
+  "metacritic_url": "https://www.metacritic.com/game/pc/apex-legends?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "In-App Purchases",
+    "Chat Speech-to-text",
+    "Playable without Timed Input"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Free to Play": 2232,
+    "Battle Royale": 1511,
+    "Multiplayer": 1510,
+    "FPS": 1474,
+    "Shooter": 1385,
+    "First-Person": 1116,
+    "PvP": 948,
+    "Action": 837,
+    "Hero Shooter": 777,
+    "Team-Based": 748,
+    "Tactical": 568,
+    "Sci-fi": 505,
+    "Loot": 501,
+    "Survival": 498,
+    "Co-op": 489,
+    "Character Customization": 481,
+    "Funny": 460,
+    "Lore-Rich": 374,
+    "Cyberpunk": 364,
+    "Cinematic": 299
+  },
+  "collected_at": "2025-10-23 16:23:21"
+}

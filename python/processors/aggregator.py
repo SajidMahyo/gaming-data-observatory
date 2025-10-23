@@ -50,14 +50,10 @@ class KPIAggregator:
         if not self.db_manager:
             return
 
-        # Recreate table with PRIMARY KEY constraint
-        # Note: We use separate CREATE and INSERT because DuckDB doesn't support
-        # PRIMARY KEY in CREATE OR REPLACE TABLE ... AS SELECT
-        self.db_manager.query("DROP TABLE IF EXISTS daily_kpis")
-
+        # Create table if it doesn't exist (with PRIMARY KEY)
         self.db_manager.query(
             """
-            CREATE TABLE daily_kpis (
+            CREATE TABLE IF NOT EXISTS daily_kpis (
                 date DATE,
                 game_name VARCHAR,
                 app_id INTEGER,
@@ -70,10 +66,11 @@ class KPIAggregator:
         """
         )
 
-        # Populate with all historical data from steam_raw
+        # Update ONLY TODAY'S data from steam_raw (incremental update)
+        # This preserves all historical data while updating current day
         self.db_manager.query(
             """
-            INSERT INTO daily_kpis
+            INSERT OR REPLACE INTO daily_kpis
             SELECT
                 CAST(timestamp AS DATE) as date,
                 game_name,
@@ -83,6 +80,7 @@ class KPIAggregator:
                 MIN(player_count) as min_ccu,
                 COUNT(*) as samples
             FROM steam_raw
+            WHERE CAST(timestamp AS DATE) = CURRENT_DATE
             GROUP BY CAST(timestamp AS DATE), game_name, app_id
         """
         )
@@ -229,6 +227,69 @@ class KPIAggregator:
         if self.db_manager:
             self.db_manager.export_to_json(table_name="daily_kpis", output_path=output_path)
 
+    def export_weekly_kpis(self, output_path: Path) -> None:
+        """Export all weekly KPIs to JSON.
+
+        Args:
+            output_path: Path to output JSON file
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(table_name="weekly_kpis", output_path=output_path)
+
+    def export_monthly_kpis(self, output_path: Path) -> None:
+        """Export all monthly KPIs to JSON.
+
+        Args:
+            output_path: Path to output JSON file
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(table_name="monthly_kpis", output_path=output_path)
+
+    def export_game_metadata(self, output_path: Path) -> None:
+        """Export game metadata with parsed JSON fields.
+
+        Args:
+            output_path: Path to output JSON file
+        """
+        import json
+
+        if not self.db_manager:
+            return
+
+        # Query all metadata
+        result = self.db_manager.query(
+            """
+            SELECT
+                app_id, name, type, description, developers, publishers,
+                is_free, required_age, release_date, platforms,
+                metacritic_score, metacritic_url, categories, genres,
+                price_info, tags
+            FROM game_metadata
+            ORDER BY name
+        """
+        )
+
+        games = result.to_dict(orient="records")
+
+        # Parse JSON strings back to objects
+        for game in games:
+            for field in [
+                "developers",
+                "publishers",
+                "platforms",
+                "categories",
+                "genres",
+                "price_info",
+                "tags",
+            ]:
+                if game.get(field):
+                    game[field] = json.loads(game[field])
+
+        # Write to file
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_path, "w") as f:
+            json.dump(games, f, indent=2)
+
     def cleanup_old_raw_data(self, retention_days: int = 7) -> int:
         """Delete raw Steam data older than retention period.
 
@@ -343,7 +404,10 @@ class KPIAggregator:
         if files_deleted > 0:
             print(f"🧹 Deleted {files_deleted:,} old Parquet files (>7 days)")
 
-        # Export all KPIs
+        # Export all KPIs and metadata
         self.export_all_daily_kpis(output_path=output_dir / "daily_kpis.json")
         self.export_latest_kpis(output_path=output_dir / "latest_kpis.json", days=7)
         self.export_game_rankings(output_path=output_dir / "game_rankings.json")
+        self.export_weekly_kpis(output_path=output_dir / "weekly_kpis.json")
+        self.export_monthly_kpis(output_path=output_dir / "monthly_kpis.json")
+        self.export_game_metadata(output_path=output_dir / "game-metadata.json")

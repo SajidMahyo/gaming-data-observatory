@@ -82,7 +82,7 @@ def store() -> None:
 @click.option(
     "--output-dir",
     "-o",
-    default="data/exports/observable",
+    default="src/data",
     help="Output directory for JSON exports",
     type=click.Path(),
 )
@@ -102,9 +102,12 @@ def aggregate(db_path: str, output_dir: str) -> None:
             aggregator.run_full_aggregation(output_dir=output_dir_obj)
 
         click.echo(f"✅ KPIs aggregated and exported to {output_dir}/")
+        click.echo("  • game-metadata.json")
+        click.echo("  • game_rankings.json")
         click.echo("  • daily_kpis.json")
         click.echo("  • latest_kpis.json (last 7 days)")
-        click.echo("  • game_rankings.json")
+        click.echo("  • weekly_kpis.json")
+        click.echo("  • monthly_kpis.json")
 
     except Exception as e:
         click.echo(f"❌ Error during aggregation: {e}", err=True)
@@ -126,7 +129,14 @@ def aggregate(db_path: str, output_dir: str) -> None:
     help="Output directory for metadata JSON files",
     type=click.Path(),
 )
-def metadata(app_ids: str, output: str) -> None:
+@click.option(
+    "--db-path",
+    "-d",
+    default="data/duckdb/gaming.db",
+    help="Path to DuckDB database",
+    type=click.Path(),
+)
+def metadata(app_ids: str, output: str, db_path: str) -> None:
     """Collect game metadata from Steam Store and SteamSpy APIs."""
     click.echo("🎮 Collecting game metadata from Steam Store API...\n")
 
@@ -162,6 +172,17 @@ def metadata(app_ids: str, output: str) -> None:
 
         click.echo(f"\n✅ Successfully collected metadata for {len(metadata_list)} games")
         click.echo(f"💾 Saved to {output}/\n")
+
+        # Save to DuckDB
+        from python.storage.duckdb_manager import DuckDBManager
+
+        db_path_obj = Path(db_path)
+        with DuckDBManager(db_path=db_path_obj) as db:
+            db.create_game_metadata_table()
+            for metadata in metadata_list:
+                db.upsert_game_metadata(metadata)
+
+        click.echo(f"💾 Saved to DuckDB: {db_path}\n")
 
         # Display summary
         for metadata in metadata_list:

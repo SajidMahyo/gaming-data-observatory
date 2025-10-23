@@ -68,22 +68,19 @@ class TestKPIAggregator:
         with patch.object(aggregator, "db_manager", mock_db_manager):
             aggregator.create_daily_kpis()
 
-        # Verify query was called 3 times (DROP + CREATE + INSERT)
-        assert mock_db_manager.query.call_count == 3
+        # Verify query was called 2 times (CREATE IF NOT EXISTS + INSERT OR REPLACE)
+        assert mock_db_manager.query.call_count == 2
 
-        # Verify first call drops old table
+        # Verify first call creates table if not exists
         first_call = mock_db_manager.query.call_args_list[0][0][0]
-        assert "DROP TABLE IF EXISTS daily_kpis" in first_call
+        assert "CREATE TABLE IF NOT EXISTS daily_kpis" in first_call
+        assert "PRIMARY KEY (date, app_id)" in first_call
 
-        # Verify second call creates table with PRIMARY KEY
+        # Verify second call inserts only today's data (incremental)
         second_call = mock_db_manager.query.call_args_list[1][0][0]
-        assert "CREATE TABLE daily_kpis" in second_call
-        assert "PRIMARY KEY (date, app_id)" in second_call
-
-        # Verify third call inserts all historical data
-        third_call = mock_db_manager.query.call_args_list[2][0][0]
-        assert "INSERT INTO daily_kpis" in third_call
-        assert "GROUP BY CAST(timestamp AS DATE), game_name, app_id" in third_call
+        assert "INSERT OR REPLACE INTO daily_kpis" in second_call
+        assert "WHERE CAST(timestamp AS DATE) = CURRENT_DATE" in second_call
+        assert "GROUP BY CAST(timestamp AS DATE), game_name, app_id" in second_call
 
     def test_export_latest_kpis(self, mock_db_manager, tmp_path):
         """Test export of latest 7 days KPIs."""
@@ -139,17 +136,57 @@ class TestKPIAggregator:
         """Test full aggregation pipeline."""
         output_dir = tmp_path / "exports"
 
+        # Mock different return values based on query
+        def query_side_effect(sql):
+            if "COUNT(*) as count FROM steam_raw" in sql:
+                # Return count for cleanup
+                return pd.DataFrame([{"count": 100}])
+            elif "FROM game_metadata" in sql:
+                # Return metadata for export_game_metadata
+                return pd.DataFrame(
+                    [
+                        {
+                            "app_id": 730,
+                            "name": "Counter-Strike 2",
+                            "type": "game",
+                            "description": "Test game",
+                            "developers": '["Valve"]',
+                            "publishers": '["Valve"]',
+                            "is_free": True,
+                            "required_age": 0,
+                            "release_date": "2012-08-21",
+                            "platforms": '["windows"]',
+                            "metacritic_score": None,
+                            "metacritic_url": None,
+                            "categories": '["Multi-player"]',
+                            "genres": '["Action"]',
+                            "price_info": '{"price": 0, "currency": "USD"}',
+                            "tags": '{"FPS": 1000}',
+                        }
+                    ]
+                )
+            else:
+                # Return empty DataFrame for other queries
+                return pd.DataFrame()
+
+        mock_db_manager.query.side_effect = query_side_effect
+
         aggregator = KPIAggregator(db_path=Path("test.db"))
 
         with patch.object(aggregator, "db_manager", mock_db_manager):
             aggregator.run_full_aggregation(output_dir=output_dir)
 
         # Verify all methods were called
-        assert mock_db_manager.query.called  # create_daily_kpis
-        assert mock_db_manager.export_to_json.call_count == 3  # 3 exports
+        assert mock_db_manager.query.called  # create_daily_kpis and others
+        assert (
+            mock_db_manager.export_to_json.call_count == 5
+        )  # 5 exports (not including game_metadata)
 
         # Verify output directory was created
         assert output_dir.exists()
+
+        # Verify game metadata file was created
+        assert (output_dir / "game-metadata.json").exists()
 
     def test_date_filtering_uses_cast(self, mock_db_manager, tmp_path):
         """Test that date filtering properly casts date column to DATE type."""

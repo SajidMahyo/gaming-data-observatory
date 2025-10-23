@@ -1,0 +1,69 @@
+{
+  "app_id": 570,
+  "name": "Dota 2",
+  "type": "game",
+  "description": "Every day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it's their 10th hour of play or 1,000th, there's always something new to discover. With regular updates that ensure a constant evolution of gameplay, features, and heroes, Dota 2 has taken on a life of its own.",
+  "developers": [
+    "Valve"
+  ],
+  "publishers": [
+    "Valve"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "9 Jul, 2013",
+  "platforms": [
+    "windows",
+    "mac",
+    "linux"
+  ],
+  "metacritic_score": 90,
+  "metacritic_url": "https://www.metacritic.com/game/pc/dota-2?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Multi-player",
+    "Co-op",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "SteamVR Collectibles",
+    "In-App Purchases",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Valve Anti-Cheat enabled",
+    "Steam Timeline"
+  ],
+  "genres": [
+    "Action",
+    "Strategy",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Free to Play": 60040,
+    "MOBA": 20225,
+    "Multiplayer": 15411,
+    "Strategy": 14289,
+    "e-sports": 11816,
+    "Team-Based": 10989,
+    "Competitive": 8324,
+    "Action": 7939,
+    "Online Co-Op": 7495,
+    "PvP": 6073,
+    "Difficult": 5376,
+    "Co-op": 4338,
+    "RTS": 4127,
+    "RPG": 3807,
+    "Tower Defense": 3796,
+    "Fantasy": 3764,
+    "Character Customization": 2944,
+    "Replay Value": 2766,
+    "Action RPG": 2471,
+    "Simulation": 1987
+  },
+  "collected_at": "2025-10-23 16:23:18"
+}
