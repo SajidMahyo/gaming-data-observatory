@@ -85,6 +85,55 @@ class KPIAggregator:
         """
         )
 
+    def create_hourly_kpis(self) -> None:
+        """Create or update hourly KPIs table from raw Steam data.
+
+        Uses incremental update: only updates the last 48 hours of data.
+        Aggregates from steam_raw with hourly granularity.
+
+        Hourly metrics:
+        - Average CCU for the hour
+        - Peak CCU for the hour
+        - Minimum CCU for the hour
+        - Number of samples in the hour
+        """
+        if not self.db_manager:
+            return
+
+        # Create table if it doesn't exist
+        self.db_manager.query(
+            """
+            CREATE TABLE IF NOT EXISTS hourly_kpis (
+                hour TIMESTAMP,
+                game_name VARCHAR,
+                app_id INTEGER,
+                avg_ccu DOUBLE,
+                peak_ccu INTEGER,
+                min_ccu INTEGER,
+                samples INTEGER,
+                PRIMARY KEY (hour, app_id)
+            )
+        """
+        )
+
+        # Update only last 48 hours (incremental update)
+        self.db_manager.query(
+            """
+            INSERT OR REPLACE INTO hourly_kpis
+            SELECT
+                DATE_TRUNC('hour', CAST(timestamp AS TIMESTAMP)) as hour,
+                game_name,
+                app_id,
+                AVG(player_count) as avg_ccu,
+                MAX(player_count) as peak_ccu,
+                MIN(player_count) as min_ccu,
+                COUNT(*) as samples
+            FROM steam_raw
+            WHERE CAST(timestamp AS TIMESTAMP) >= CURRENT_TIMESTAMP - INTERVAL '48 hours'
+            GROUP BY DATE_TRUNC('hour', CAST(timestamp AS TIMESTAMP)), game_name, app_id
+        """
+        )
+
     def create_weekly_kpis(self) -> None:
         """Create or update weekly KPIs table from daily KPIs.
 
@@ -194,6 +243,21 @@ class KPIAggregator:
             SELECT * FROM daily_kpis
             WHERE CAST(date AS DATE) >= CURRENT_DATE - INTERVAL '{days}' DAY
             ORDER BY date DESC, peak_ccu DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
+    def export_hourly_kpis(self, output_path: Path, hours: int = 48) -> None:
+        """Export latest N hours of KPIs to JSON.
+
+        Args:
+            output_path: Path to output JSON file
+            hours: Number of hours to include (default: 48)
+        """
+        sql = f"""
+            SELECT * FROM hourly_kpis
+            WHERE hour >= CURRENT_TIMESTAMP - INTERVAL '{hours}' HOUR
+            ORDER BY hour DESC, peak_ccu DESC
         """
         if self.db_manager:
             self.db_manager.export_to_json(query=sql, output_path=output_path)
@@ -329,6 +393,45 @@ class KPIAggregator:
 
         return int(count_before - count_after)
 
+    def cleanup_old_hourly_kpis(self, retention_days: int = 7) -> int:
+        """Delete hourly KPIs older than retention period.
+
+        Implements data retention policy: keep only recent hourly KPIs,
+        while preserving all aggregated daily/weekly/monthly KPIs.
+
+        Args:
+            retention_days: Number of days of hourly KPIs to keep (default: 7)
+
+        Returns:
+            Number of rows deleted
+
+        Example:
+            >>> rows_deleted = aggregator.cleanup_old_hourly_kpis(retention_days=7)
+            >>> print(f"Cleaned up {rows_deleted} old hourly KPI records")
+        """
+        if not self.db_manager:
+            return 0
+
+        # Count rows before deletion
+        count_before = self.db_manager.query("SELECT COUNT(*) as count FROM hourly_kpis").iloc[0][
+            "count"
+        ]
+
+        # Delete data older than retention period
+        self.db_manager.query(
+            f"""
+            DELETE FROM hourly_kpis
+            WHERE hour < CURRENT_TIMESTAMP - INTERVAL '{retention_days}' DAY
+        """
+        )
+
+        # Count rows after deletion
+        count_after = self.db_manager.query("SELECT COUNT(*) as count FROM hourly_kpis").iloc[0][
+            "count"
+        ]
+
+        return int(count_before - count_after)
+
     def cleanup_old_parquet_files(self, raw_data_path: Path, retention_days: int = 7) -> int:
         """Delete Parquet files older than retention period.
 
@@ -388,7 +491,8 @@ class KPIAggregator:
         # Create output directory
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        # Cascading aggregation: raw → daily → weekly → monthly
+        # Cascading aggregation: raw → hourly → daily → weekly → monthly
+        self.create_hourly_kpis()
         self.create_daily_kpis()
         self.create_weekly_kpis()
         self.create_monthly_kpis()
@@ -398,6 +502,11 @@ class KPIAggregator:
         if rows_deleted > 0:
             print(f"🧹 Cleaned up {rows_deleted:,} old raw records (>7 days)")
 
+        # Clean up old hourly KPIs (retention: 7 days)
+        hourly_deleted = self.cleanup_old_hourly_kpis(retention_days=7)
+        if hourly_deleted > 0:
+            print(f"🧹 Cleaned up {hourly_deleted:,} old hourly KPI records (>7 days)")
+
         # Clean up old Parquet files (retention: 7 days)
         raw_steam_path = Path("data/raw/steam")
         files_deleted = self.cleanup_old_parquet_files(raw_steam_path, retention_days=7)
@@ -405,6 +514,7 @@ class KPIAggregator:
             print(f"🧹 Deleted {files_deleted:,} old Parquet files (>7 days)")
 
         # Export all KPIs and metadata
+        self.export_hourly_kpis(output_path=output_dir / "hourly_kpis.json", hours=48)
         self.export_all_daily_kpis(output_path=output_dir / "daily_kpis.json")
         self.export_latest_kpis(output_path=output_dir / "latest_kpis.json", days=7)
         self.export_game_rankings(output_path=output_dir / "game_rankings.json")

@@ -141,6 +141,9 @@ class TestKPIAggregator:
             if "COUNT(*) as count FROM steam_raw" in sql:
                 # Return count for cleanup
                 return pd.DataFrame([{"count": 100}])
+            elif "COUNT(*) as count FROM hourly_kpis" in sql:
+                # Return count for hourly KPI cleanup
+                return pd.DataFrame([{"count": 50}])
             elif "FROM game_metadata" in sql:
                 # Return metadata for export_game_metadata
                 return pd.DataFrame(
@@ -179,8 +182,8 @@ class TestKPIAggregator:
         # Verify all methods were called
         assert mock_db_manager.query.called  # create_daily_kpis and others
         assert (
-            mock_db_manager.export_to_json.call_count == 5
-        )  # 5 exports (not including game_metadata)
+            mock_db_manager.export_to_json.call_count == 6
+        )  # 6 exports: hourly, daily, latest, rankings, weekly, monthly (not including game_metadata)
 
         # Verify output directory was created
         assert output_dir.exists()
