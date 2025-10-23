@@ -141,9 +141,9 @@ repl:
 dashboard:
     npm run dev
 
-# Build Observable Framework static site
+# Build Observable Framework static site (data loaders run automatically with uv)
 [group('dev')]
-build-dashboard:
+build:
     npm run build
 
 # Clean build artifacts, caches, and test outputs

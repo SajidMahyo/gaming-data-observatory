@@ -11,6 +11,11 @@ export default {
   // GitHub Pages deployment
   base: "/gaming-data-observatory/",
 
+  // Use uv for Python data loaders (enables DuckDB and dependencies)
+  interpreters: {
+    ".py": ["uv", "run", "python"]
+  },
+
   // Theme and styling
   theme: "dark",
 
@@ -32,7 +37,7 @@ export default {
 
   // Pages
   pages: [
-    {name: "Dashboard", path: "/index"},
+    {name: "Rankings", path: "/index"},
     {name: "About", path: "/about"}
   ]
 };
