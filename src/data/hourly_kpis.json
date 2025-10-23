@@ -1528,32 +1528,5 @@
     "peak_ccu":982381,
     "min_ccu":982381,
     "samples":1
-  },
-  {
-    "hour":"2025-10-21T20:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":1045535.0,
-    "peak_ccu":1045535,
-    "min_ccu":1045535,
-    "samples":1
-  },
-  {
-    "hour":"2025-10-21T19:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":956082.0,
-    "peak_ccu":956082,
-    "min_ccu":956082,
-    "samples":1
-  },
-  {
-    "hour":"2025-10-21T18:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_ccu":976451.0,
-    "peak_ccu":976451,
-    "min_ccu":976451,
-    "samples":1
   }
 ]

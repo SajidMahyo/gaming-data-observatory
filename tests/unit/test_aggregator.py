@@ -182,8 +182,8 @@ class TestKPIAggregator:
         # Verify all methods were called
         assert mock_db_manager.query.called  # create_daily_kpis and others
         assert (
-            mock_db_manager.export_to_json.call_count == 6
-        )  # 6 exports: hourly, daily, latest, rankings, weekly, monthly (not including game_metadata)
+            mock_db_manager.export_to_json.call_count == 4
+        )  # 4 exports: rankings, hourly, daily, monthly (metadata uses to_json directly)
 
         # Verify output directory was created
         assert output_dir.exists()
@@ -212,3 +212,107 @@ class TestKPIAggregator:
         with KPIAggregator(db_path=db_path) as aggregator:
             assert aggregator is not None
             assert hasattr(aggregator, "db_manager")
+
+    def test_export_weekly_kpis(self, mock_db_manager, tmp_path):
+        """Test export of weekly KPIs."""
+        output_path = tmp_path / "weekly_kpis.json"
+        aggregator = KPIAggregator(db_path=Path("test.db"))
+
+        with patch.object(aggregator, "db_manager", mock_db_manager):
+            aggregator.export_weekly_kpis(output_path=output_path)
+
+        # Verify export_to_json was called with correct parameters
+        mock_db_manager.export_to_json.assert_called_once_with(
+            table_name="weekly_kpis", output_path=output_path
+        )
+
+    def test_export_monthly_kpis(self, mock_db_manager, tmp_path):
+        """Test export of all monthly KPIs."""
+        output_path = tmp_path / "monthly_kpis.json"
+        aggregator = KPIAggregator(db_path=Path("test.db"))
+
+        with patch.object(aggregator, "db_manager", mock_db_manager):
+            aggregator.export_monthly_kpis(output_path=output_path)
+
+        # Verify export_to_json was called with correct parameters
+        mock_db_manager.export_to_json.assert_called_once_with(
+            table_name="monthly_kpis", output_path=output_path
+        )
+
+    def test_export_monthly_kpis_limited(self, mock_db_manager, tmp_path):
+        """Test export of limited monthly KPIs (last N months)."""
+        output_path = tmp_path / "monthly_kpis.json"
+        aggregator = KPIAggregator(db_path=Path("test.db"))
+
+        with patch.object(aggregator, "db_manager", mock_db_manager):
+            aggregator.export_monthly_kpis_limited(output_path=output_path, months=12)
+
+        # Verify export_to_json was called with a query
+        assert mock_db_manager.export_to_json.called
+        call_kwargs = mock_db_manager.export_to_json.call_args[1]
+        assert "query" in call_kwargs
+        assert "INTERVAL '12' MONTH" in call_kwargs["query"]
+
+    def test_export_hourly_kpis(self, mock_db_manager, tmp_path):
+        """Test export of hourly KPIs with time limit."""
+        output_path = tmp_path / "hourly_kpis.json"
+        aggregator = KPIAggregator(db_path=Path("test.db"))
+
+        with patch.object(aggregator, "db_manager", mock_db_manager):
+            aggregator.export_hourly_kpis(output_path=output_path, hours=48)
+
+        # Verify export_to_json was called with a query
+        assert mock_db_manager.export_to_json.called
+        call_kwargs = mock_db_manager.export_to_json.call_args[1]
+        assert "query" in call_kwargs
+        assert "INTERVAL '48' HOUR" in call_kwargs["query"]
+
+    def test_export_methods_handle_none_db_manager(self, tmp_path):
+        """Test that export methods handle None db_manager gracefully."""
+        output_path = tmp_path / "test.json"
+        aggregator = KPIAggregator(db_path=Path("test.db"))
+
+        # Set db_manager to None
+        aggregator.db_manager = None
+
+        # These should not raise exceptions
+        aggregator.export_weekly_kpis(output_path=output_path)
+        aggregator.export_monthly_kpis(output_path=output_path)
+        aggregator.export_monthly_kpis_limited(output_path=output_path, months=12)
+        aggregator.export_hourly_kpis(output_path=output_path, hours=48)
+
+    def test_cleanup_old_raw_data(self, mock_db_manager):
+        """Test cleanup of old raw data."""
+        # Mock query to return different counts (before: 100, after: 0)
+        mock_db_manager.query.side_effect = [
+            pd.DataFrame([{"count": 100}]),  # count before
+            None,  # DELETE statement
+            pd.DataFrame([{"count": 0}]),  # count after
+        ]
+
+        aggregator = KPIAggregator(db_path=Path("test.db"))
+
+        with patch.object(aggregator, "db_manager", mock_db_manager):
+            rows_deleted = aggregator.cleanup_old_raw_data(retention_days=7)
+
+        # Verify query was called 3 times (count before, delete, count after)
+        assert mock_db_manager.query.call_count == 3
+        assert rows_deleted == 100
+
+    def test_cleanup_old_hourly_kpis(self, mock_db_manager):
+        """Test cleanup of old hourly KPIs."""
+        # Mock query to return different counts (before: 50, after: 0)
+        mock_db_manager.query.side_effect = [
+            pd.DataFrame([{"count": 50}]),  # count before
+            None,  # DELETE statement
+            pd.DataFrame([{"count": 0}]),  # count after
+        ]
+
+        aggregator = KPIAggregator(db_path=Path("test.db"))
+
+        with patch.object(aggregator, "db_manager", mock_db_manager):
+            rows_deleted = aggregator.cleanup_old_hourly_kpis(retention_days=7)
+
+        # Verify query was called 3 times
+        assert mock_db_manager.query.call_count == 3
+        assert rows_deleted == 50

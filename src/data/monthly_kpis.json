@@ -1,21 +1,30 @@
 [
   {
     "month_start":"2025-10-01T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1014699.1904761904,
+    "max_peak":1154148,
+    "total_samples":437,
+    "weeks_in_month":3
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "game_name":"Dota 2",
+    "app_id":570,
+    "avg_peak":550616.0,
+    "max_peak":591852,
+    "total_samples":24,
+    "weeks_in_month":1
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
     "avg_peak":255043.5,
     "max_peak":329858,
     "total_samples":24,
     "weeks_in_month":1
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_peak":1014699.1904761904,
-    "max_peak":1154148,
-    "total_samples":420,
-    "weeks_in_month":3
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
@@ -28,10 +37,19 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "game_name":"Team Fortress 2",
-    "app_id":440,
-    "avg_peak":37727.0,
-    "max_peak":37771,
+    "game_name":"Apex Legends",
+    "app_id":1172470,
+    "avg_peak":62355.0,
+    "max_peak":73220,
+    "total_samples":20,
+    "weeks_in_month":1
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "game_name":"Grand Theft Auto V",
+    "app_id":271590,
+    "avg_peak":57644.0,
+    "max_peak":60031,
     "total_samples":20,
     "weeks_in_month":1
   },
@@ -46,28 +64,10 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "game_name":"Palworld",
-    "app_id":1623730,
-    "avg_peak":23080.5,
-    "max_peak":25932,
-    "total_samples":20,
-    "weeks_in_month":1
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "game_name":"Dota 2",
-    "app_id":570,
-    "avg_peak":550616.0,
-    "max_peak":591852,
-    "total_samples":24,
-    "weeks_in_month":1
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "game_name":"Grand Theft Auto V",
-    "app_id":271590,
-    "avg_peak":57644.0,
-    "max_peak":60031,
+    "game_name":"Team Fortress 2",
+    "app_id":440,
+    "avg_peak":37727.0,
+    "max_peak":37771,
     "total_samples":20,
     "weeks_in_month":1
   },
@@ -82,12 +82,21 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "game_name":"Apex Legends",
-    "app_id":1172470,
-    "avg_peak":62355.0,
-    "max_peak":73220,
+    "game_name":"Palworld",
+    "app_id":1623730,
+    "avg_peak":23080.5,
+    "max_peak":25932,
     "total_samples":20,
     "weeks_in_month":1
+  },
+  {
+    "month_start":"2025-09-01T00:00:00.000",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_peak":1002300.3714285716,
+    "max_peak":1195665,
+    "total_samples":840,
+    "weeks_in_month":5
   },
   {
     "month_start":"2025-08-01T00:00:00.000",
@@ -115,14 +124,5 @@
     "max_peak":1177122,
     "total_samples":288,
     "weeks_in_month":2
-  },
-  {
-    "month_start":"2025-09-01T00:00:00.000",
-    "game_name":"Counter-Strike 2",
-    "app_id":730,
-    "avg_peak":1002300.3714285716,
-    "max_peak":1195665,
-    "total_samples":840,
-    "weeks_in_month":5
   }
 ]

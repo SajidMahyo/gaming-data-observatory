@@ -309,6 +309,21 @@ class KPIAggregator:
         if self.db_manager:
             self.db_manager.export_to_json(table_name="monthly_kpis", output_path=output_path)
 
+    def export_monthly_kpis_limited(self, output_path: Path, months: int = 12) -> None:
+        """Export limited monthly KPIs to JSON (last N months).
+
+        Args:
+            output_path: Path to output JSON file
+            months: Number of months to include (default: 12)
+        """
+        sql = f"""
+            SELECT * FROM monthly_kpis
+            WHERE month_start >= CURRENT_DATE - INTERVAL '{months}' MONTH
+            ORDER BY month_start DESC, avg_peak DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
     def export_game_metadata(self, output_path: Path) -> None:
         """Export game metadata with parsed JSON fields.
 
@@ -483,7 +498,7 @@ class KPIAggregator:
         2. Update current week's weekly KPIs from daily data
         3. Update current month's monthly KPIs from weekly data
         4. Clean up old raw data (keep only 7 days)
-        5. Export aggregated data to JSON
+        5. Export global optimized JSON files (with server-side date filtering)
 
         Args:
             output_dir: Directory to write JSON exports
@@ -513,11 +528,11 @@ class KPIAggregator:
         if files_deleted > 0:
             print(f"🧹 Deleted {files_deleted:,} old Parquet files (>7 days)")
 
-        # Export all KPIs and metadata
-        self.export_hourly_kpis(output_path=output_dir / "hourly_kpis.json", hours=48)
-        self.export_all_daily_kpis(output_path=output_dir / "daily_kpis.json")
-        self.export_latest_kpis(output_path=output_dir / "latest_kpis.json", days=7)
+        # Export shared metadata files
         self.export_game_rankings(output_path=output_dir / "game_rankings.json")
-        self.export_weekly_kpis(output_path=output_dir / "weekly_kpis.json")
-        self.export_monthly_kpis(output_path=output_dir / "monthly_kpis.json")
         self.export_game_metadata(output_path=output_dir / "game-metadata.json")
+
+        # Export global optimized KPI files (with server-side date filtering)
+        self.export_hourly_kpis(output_path=output_dir / "hourly_kpis.json", hours=48)
+        self.export_latest_kpis(output_path=output_dir / "daily_kpis.json", days=30)
+        self.export_monthly_kpis_limited(output_path=output_dir / "monthly_kpis.json", months=12)

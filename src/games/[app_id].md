@@ -1,17 +1,20 @@
-# Counter-Strike 2
-
 ```js
-// Load all game metadata and KPIs
+// Load shared metadata and optimized KPIs (all games, but with date filtering)
 const gameMetadata = FileAttachment("../data/game-metadata.json").json();
 const gameRankings = FileAttachment("../data/game_rankings.json").json();
+
+// Load KPIs (pre-filtered by date on server, but contains all games)
+// - hourly: last 48 hours only
+// - daily: last 30 days only
+// - monthly: last 12 months only
 const hourlyKpis = FileAttachment("../data/hourly_kpis.json").json();
 const dailyKpis = FileAttachment("../data/daily_kpis.json").json();
 const monthlyKpis = FileAttachment("../data/monthly_kpis.json").json();
 ```
 
 ```js
-// Find this specific game (app_id 730)
-const APP_ID = 730;
+// Get app_id from URL parameter (Observable Framework syntax: observable.params.param)
+const APP_ID = parseInt(observable.params.app_id);
 const game = gameMetadata.find(g => g.app_id === APP_ID);
 const ranking = gameRankings.find(g => g.app_id === APP_ID);
 
@@ -22,24 +25,29 @@ function getSteamImage(appId) {
 ```
 
 ```js
-html`<div class="back-link">
-  <a href="../">← Back to Rankings</a>
-</div>`
+// Get top tags for hero banner
+const topTags = game.tags
+  ? Object.entries(game.tags).sort(([,a], [,b]) => b - a).slice(0, 5)
+  : [];
 ```
 
-## Game Overview
-
 ```js
-html`<div class="game-header">
-  <img src="${getSteamImage(game.app_id)}" alt="${game.name}" class="header-image" />
-  <div class="header-info">
-    <h1 class="title">${game.name}</h1>
-    <div class="meta-row">
+html`<div class="hero-banner" style="background-image: url('${getSteamImage(game.app_id)}')">
+  <div class="hero-overlay"></div>
+  <a href="../" class="back-link-hero">← Back to Rankings</a>
+  <div class="hero-content">
+    <h1 class="hero-title">${game.name}</h1>
+    <div class="hero-tags">
+      ${topTags.map(([tag]) => html`<span class="hero-tag">${tag}</span>`)}
+    </div>
+    <div class="hero-meta">
       <span class="badge">${game.type}</span>
       ${game.is_free ? html`<span class="badge free">FREE</span>` : ''}
       ${game.metacritic_score ? html`<span class="badge metacritic">⭐ ${game.metacritic_score}/100</span>` : ''}
     </div>
-    <p class="description">${game.description}</p>
+  </div>
+  <div class="hero-description">
+    <p>${game.description}</p>
   </div>
 </div>`
 ```
@@ -66,7 +74,7 @@ ranking && html`<div class="stats-grid">
 ## Player Trends
 
 ```js
-// Custom period selector with beautiful UI
+// Period selector
 const period = view((() => {
   const form = html`<div class="period-selector">
     <button class="period-btn" data-value="day">📊 Last 48 Hours</button>
@@ -90,109 +98,57 @@ const period = view((() => {
 ```
 
 ```js
-// Prepare data based on selected period
-function getChartData(period) {
-  const now = new Date();
-
-  if (period === "day") {
-    // For 24h view, use real hourly data from last 48 hours
-    const fortyEightHoursAgo = new Date(now);
-    fortyEightHoursAgo.setHours(fortyEightHoursAgo.getHours() - 48);
-
-    return hourlyKpis
-      .filter(d => d.app_id === APP_ID && new Date(d.hour) >= fortyEightHoursAgo)
-      .sort((a, b) => new Date(a.hour) - new Date(b.hour))
-      .map(d => ({
-        time: new Date(d.hour),
-        value: d.peak_ccu,
-        label: new Date(d.hour).toLocaleString('en-US', {
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        })
-      }));
-  } else if (period === "month") {
-    // Show last 30 days
-    const thirtyDaysAgo = new Date(now);
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-
-    return dailyKpis
-      .filter(d => d.app_id === APP_ID && new Date(d.date) >= thirtyDaysAgo)
-      .sort((a, b) => new Date(a.date) - new Date(b.date))
-      .map(d => ({
-        time: new Date(d.date),
-        value: d.peak_ccu,
-        label: new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-      }));
-  } else {
-    // Show last 12 months
-    const twelveMonthsAgo = new Date(now);
-    twelveMonthsAgo.setMonth(twelveMonthsAgo.getMonth() - 12);
-
-    return monthlyKpis
-      .filter(d => d.app_id === APP_ID && new Date(d.month_start) >= twelveMonthsAgo)
-      .sort((a, b) => new Date(a.month_start) - new Date(b.month_start))
-      .map(d => ({
-        time: new Date(d.month_start),
-        value: Math.round(d.avg_peak),
-        label: new Date(d.month_start).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-      }));
-  }
-}
-
-const chartData = getChartData(period);
+// Select data based on period and filter by app_id
+// Data is already filtered by date on server (48h/30d/12m), just need to filter by game
+const filteredData = (period === "day"
+  ? hourlyKpis.filter(d => d.app_id == APP_ID).sort((a, b) => new Date(a.hour) - new Date(b.hour))
+  : period === "month"
+  ? dailyKpis.filter(d => d.app_id == APP_ID).sort((a, b) => new Date(a.date) - new Date(b.date))
+  : monthlyKpis.filter(d => d.app_id == APP_ID).sort((a, b) => new Date(a.month_start) - new Date(b.month_start))
+);
 ```
 
 ```js
-// Display chart
-if (chartData.length > 0) {
-  display(Plot.plot({
-    width: 800,
-    height: 400,
-    marginLeft: 80,
-    marginBottom: 50,
-    y: {
-      grid: true,
-      label: "Peak Concurrent Players",
-      tickFormat: "~s"
-    },
-    x: {
-      label: period === "day" ? "Hour" : period === "month" ? "Date" : "Month",
-      type: "time"
-    },
-    marks: [
-      Plot.lineY(chartData, {
-        x: "time",
-        y: "value",
-        stroke: "#60a5fa",
-        strokeWidth: 3,
-        curve: "catmull-rom"
-      }),
-      Plot.areaY(chartData, {
-        x: "time",
-        y: "value",
-        fill: "#60a5fa",
-        fillOpacity: 0.1,
-        curve: "catmull-rom"
-      }),
-      Plot.dot(chartData, {
-        x: "time",
-        y: "value",
-        fill: "#60a5fa",
-        r: 5,
-        title: d => `${d.label}: ${d.value.toLocaleString()} players`
-      }),
-      Plot.ruleY([0])
-    ],
-    style: {
-      background: "transparent",
-      color: "#e2e8f0"
-    }
-  }));
-} else {
-  display(html`<div style="padding: 2rem; text-align: center; color: #94a3b8;">No historical data available yet. Check back soon!</div>`);
-}
+// Player trend chart
+Plot.plot({
+  width: 1000,
+  height: 400,
+  marginLeft: 60,
+  x: {
+    type: "time",
+    label: period === "day" ? "Hour" : period === "month" ? "Date" : "Month"
+  },
+  y: {
+    label: "Players",
+    grid: true
+  },
+  marks: [
+    Plot.lineY(filteredData, {
+      x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+      y: "peak_ccu",
+      stroke: "#60a5fa",
+      strokeWidth: 2,
+      curve: "catmull-rom"
+    }),
+    Plot.areaY(filteredData, {
+      x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+      y: "peak_ccu",
+      fill: "#60a5fa",
+      fillOpacity: 0.1,
+      curve: "catmull-rom"
+    }),
+    Plot.dot(filteredData, {
+      x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+      y: "peak_ccu",
+      fill: "#60a5fa",
+      r: 3
+    })
+  ],
+  style: {
+    background: "transparent",
+    color: "#e2e8f0"
+  }
+})
 ```
 
 ## Game Information
@@ -245,12 +201,6 @@ html`<div class="tags-section">
 ## Popular Tags
 
 ```js
-const topTags = game.tags
-  ? Object.entries(game.tags).sort(([,a], [,b]) => b - a).slice(0, 15)
-  : [];
-```
-
-```js
 topTags.length > 0 && html`<div class="tags-section">
   <h4>Community Tags</h4>
   <div class="tags">
@@ -273,129 +223,220 @@ game.price_info && html`<div class="price-section">
 ```
 
 <style>
-  .back-link {
-    margin: 1rem 0;
-  }
-
-  .back-link a {
-    color: #60a5fa;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-
-  .back-link a:hover {
-    color: #93c5fd;
-  }
-
-  .period-selector {
-    display: flex;
-    gap: 1rem;
-    margin: 2rem 0;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .period-btn {
-    padding: 0.875rem 2rem;
-    border: 2px solid #334155;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    color: #94a3b8;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  .hero-banner {
     position: relative;
+    height: 500px;
+    margin: -2rem -2rem 2rem -2rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: transform 0.3s ease;
     overflow: hidden;
   }
 
-  .period-btn::before {
-    content: '';
+  .hero-banner:hover {
+    transform: scale(1.01);
+  }
+
+  .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    background: linear-gradient(to bottom,
+      rgba(15, 23, 42, 0.7) 0%,
+      rgba(15, 23, 42, 0.85) 50%,
+      rgba(15, 23, 42, 0.95) 100%
+    );
+    z-index: 1;
   }
 
-  .period-btn:hover {
-    border-color: #60a5fa;
+  .back-link-hero {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    z-index: 4;
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+
+  .back-link-hero:hover {
+    color: #93c5fd;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 3rem 3.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
     color: #e2e8f0;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(96, 165, 250, 0.2);
-  }
-
-  .period-btn:hover::before {
-    opacity: 1;
-  }
-
-  .period-btn.active {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    border-color: #60a5fa;
-    color: #ffffff;
-    box-shadow: 0 10px 30px -5px rgba(96, 165, 250, 0.4);
-  }
-
-  .period-btn.active::before {
-    opacity: 0;
-  }
-
-  .game-header {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 2rem 0;
-    border: 1px solid #334155;
-  }
-
-  .header-image {
-    width: 100%;
-    height: auto;
-  }
-
-  .header-info {
-    padding: 2rem;
-  }
-
-  .title {
-    font-size: 2.5rem;
     margin: 0 0 1rem 0;
-    color: #e2e8f0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: -1px;
   }
 
-  .meta-row {
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-tag {
+    background: rgba(96, 165, 250, 0.2);
+    backdrop-filter: blur(10px);
+    color: #93c5fd;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-meta {
     display: flex;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
   }
 
   .badge {
     background: rgba(59, 130, 246, 0.2);
+    backdrop-filter: blur(10px);
     color: #60a5fa;
-    padding: 0.4rem 0.9rem;
+    padding: 0.5rem 1rem;
     border-radius: 12px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
+    border: 1px solid rgba(59, 130, 246, 0.3);
   }
 
   .badge.free {
     background: rgba(34, 197, 94, 0.2);
     color: #4ade80;
+    border-color: rgba(34, 197, 94, 0.3);
   }
 
   .badge.metacritic {
     background: rgba(251, 191, 36, 0.2);
     color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.3);
   }
 
-  .description {
+  .hero-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.98);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero-banner:hover .hero-description {
+    opacity: 1;
+  }
+
+  .hero-description p {
     color: #cbd5e1;
-    line-height: 1.6;
-    font-size: 1.1rem;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    max-width: 800px;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Modern section titles */
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 3rem 0 2rem 0;
+    padding-bottom: 0.75rem;
+    position: relative;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 50%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  h2::before {
+    content: '▸';
+    position: absolute;
+    left: -1.5rem;
+    color: #60a5fa;
+    font-size: 1.5rem;
+    opacity: 0.6;
+  }
+
+  /* Period Selector */
+  .period-selector {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .period-btn {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    color: #94a3b8;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .period-btn:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(147, 51, 234, 0.2) 100%);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #60a5fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  }
+
+  .period-btn.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
+    border-color: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
   }
 
   .stats-grid {
