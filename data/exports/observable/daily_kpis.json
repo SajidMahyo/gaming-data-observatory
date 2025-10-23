@@ -1,92 +1,182 @@
 [
   {
+    "date":"2025-10-23",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_ccu":678419.0,
+    "peak_ccu":678419,
+    "min_ccu":678419,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Dota 2",
+    "app_id":570,
+    "avg_ccu":357342.0,
+    "peak_ccu":357342,
+    "min_ccu":357342,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"PUBG: BATTLEGROUNDS",
+    "app_id":578080,
+    "avg_ccu":83456.0,
+    "peak_ccu":83456,
+    "min_ccu":83456,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Rust",
+    "app_id":252490,
+    "avg_ccu":60093.0,
+    "peak_ccu":60093,
+    "min_ccu":60093,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Call of Duty",
+    "app_id":1938090,
+    "avg_ccu":43162.0,
+    "peak_ccu":43162,
+    "min_ccu":43162,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Apex Legends",
+    "app_id":1172470,
+    "avg_ccu":39424.0,
+    "peak_ccu":39424,
+    "min_ccu":39424,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Grand Theft Auto V",
+    "app_id":271590,
+    "avg_ccu":32413.0,
+    "peak_ccu":32413,
+    "min_ccu":32413,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Elden Ring",
+    "app_id":2357570,
+    "avg_ccu":30577.0,
+    "peak_ccu":30577,
+    "min_ccu":30577,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Team Fortress 2",
+    "app_id":440,
+    "avg_ccu":29177.0,
+    "peak_ccu":29177,
+    "min_ccu":29177,
+    "samples":1
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Palworld",
+    "app_id":1623730,
+    "avg_ccu":18253.0,
+    "peak_ccu":18253,
+    "min_ccu":18253,
+    "samples":1
+  },
+  {
     "date":"2025-10-22",
     "game_name":"Counter-Strike 2",
     "app_id":730,
-    "avg_ccu":913019.5,
+    "avg_ccu":876977.1666666666,
     "peak_ccu":1050028,
-    "min_ccu":805456,
-    "samples":8
+    "min_ccu":654026,
+    "samples":12
   },
   {
     "date":"2025-10-22",
     "game_name":"Dota 2",
     "app_id":570,
-    "avg_ccu":521669.375,
+    "avg_ccu":500047.3333333333,
     "peak_ccu":591852,
-    "min_ccu":410895,
-    "samples":8
+    "min_ccu":383584,
+    "samples":12
   },
   {
     "date":"2025-10-22",
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
-    "avg_ccu":147345.875,
+    "avg_ccu":138721.8333333333,
     "peak_ccu":180229,
-    "min_ccu":117709,
-    "samples":8
+    "min_ccu":88461,
+    "samples":12
   },
   {
     "date":"2025-10-22",
     "game_name":"Rust",
     "app_id":252490,
-    "avg_ccu":86110.4,
+    "avg_ccu":83046.25,
     "peak_ccu":93243,
-    "min_ccu":78625,
-    "samples":5
+    "min_ccu":69809,
+    "samples":8
   },
   {
     "date":"2025-10-22",
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
-    "avg_ccu":52781.6,
+    "avg_ccu":50128.0,
     "peak_ccu":60031,
-    "min_ccu":44890,
-    "samples":5
+    "min_ccu":39772,
+    "samples":8
   },
   {
     "date":"2025-10-22",
     "game_name":"Apex Legends",
     "app_id":1172470,
-    "avg_ccu":46876.2,
+    "avg_ccu":45098.75,
     "peak_ccu":51490,
-    "min_ccu":41971,
-    "samples":5
+    "min_ccu":37973,
+    "samples":8
   },
   {
     "date":"2025-10-22",
     "game_name":"Call of Duty",
     "app_id":1938090,
-    "avg_ccu":39684.6,
+    "avg_ccu":39583.5,
     "peak_ccu":40710,
     "min_ccu":38995,
-    "samples":5
+    "samples":8
   },
   {
     "date":"2025-10-22",
     "game_name":"Team Fortress 2",
     "app_id":440,
-    "avg_ccu":33178.2,
+    "avg_ccu":31738.625,
     "peak_ccu":37683,
     "min_ccu":26143,
-    "samples":5
+    "samples":8
   },
   {
     "date":"2025-10-22",
     "game_name":"Elden Ring",
     "app_id":2357570,
-    "avg_ccu":31385.4,
+    "avg_ccu":30778.0,
     "peak_ccu":33080,
-    "min_ccu":29555,
-    "samples":5
+    "min_ccu":28487,
+    "samples":8
   },
   {
     "date":"2025-10-22",
     "game_name":"Palworld",
     "app_id":1623730,
-    "avg_ccu":19285.6,
+    "avg_ccu":18887.125,
     "peak_ccu":20229,
-    "min_ccu":18148,
-    "samples":5
+    "min_ccu":17268,
+    "samples":8
   }
 ]
