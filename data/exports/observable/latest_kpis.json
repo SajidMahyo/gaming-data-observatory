@@ -3,91 +3,91 @@
     "date":"2025-10-23",
     "game_name":"Counter-Strike 2",
     "app_id":730,
-    "avg_ccu":678419.0,
-    "peak_ccu":678419,
+    "avg_ccu":697616.0,
+    "peak_ccu":716813,
     "min_ccu":678419,
-    "samples":1
+    "samples":2
   },
   {
     "date":"2025-10-23",
     "game_name":"Dota 2",
     "app_id":570,
-    "avg_ccu":357342.0,
-    "peak_ccu":357342,
+    "avg_ccu":367909.5,
+    "peak_ccu":378477,
     "min_ccu":357342,
-    "samples":1
+    "samples":2
   },
   {
     "date":"2025-10-23",
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
-    "avg_ccu":83456.0,
-    "peak_ccu":83456,
+    "avg_ccu":105268.0,
+    "peak_ccu":127080,
     "min_ccu":83456,
-    "samples":1
+    "samples":2
   },
   {
     "date":"2025-10-23",
     "game_name":"Rust",
     "app_id":252490,
-    "avg_ccu":60093.0,
+    "avg_ccu":56897.0,
     "peak_ccu":60093,
-    "min_ccu":60093,
-    "samples":1
-  },
-  {
-    "date":"2025-10-23",
-    "game_name":"Call of Duty",
-    "app_id":1938090,
-    "avg_ccu":43162.0,
-    "peak_ccu":43162,
-    "min_ccu":43162,
-    "samples":1
+    "min_ccu":53701,
+    "samples":2
   },
   {
     "date":"2025-10-23",
     "game_name":"Apex Legends",
     "app_id":1172470,
-    "avg_ccu":39424.0,
-    "peak_ccu":39424,
+    "avg_ccu":42373.0,
+    "peak_ccu":45322,
     "min_ccu":39424,
-    "samples":1
+    "samples":2
+  },
+  {
+    "date":"2025-10-23",
+    "game_name":"Call of Duty",
+    "app_id":1938090,
+    "avg_ccu":41361.0,
+    "peak_ccu":43162,
+    "min_ccu":39560,
+    "samples":2
   },
   {
     "date":"2025-10-23",
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
-    "avg_ccu":32413.0,
+    "avg_ccu":31142.5,
     "peak_ccu":32413,
-    "min_ccu":32413,
-    "samples":1
+    "min_ccu":29872,
+    "samples":2
   },
   {
     "date":"2025-10-23",
     "game_name":"Elden Ring",
     "app_id":2357570,
-    "avg_ccu":30577.0,
+    "avg_ccu":30337.0,
     "peak_ccu":30577,
-    "min_ccu":30577,
-    "samples":1
+    "min_ccu":30097,
+    "samples":2
   },
   {
     "date":"2025-10-23",
     "game_name":"Team Fortress 2",
     "app_id":440,
-    "avg_ccu":29177.0,
+    "avg_ccu":28700.0,
     "peak_ccu":29177,
-    "min_ccu":29177,
-    "samples":1
+    "min_ccu":28223,
+    "samples":2
   },
   {
     "date":"2025-10-23",
     "game_name":"Palworld",
     "app_id":1623730,
-    "avg_ccu":18253.0,
-    "peak_ccu":18253,
+    "avg_ccu":18953.0,
+    "peak_ccu":19653,
     "min_ccu":18253,
-    "samples":1
+    "samples":2
   },
   {
     "date":"2025-10-22",
