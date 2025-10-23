@@ -170,7 +170,7 @@ class KPIAggregator:
             """
             INSERT OR REPLACE INTO weekly_kpis
             SELECT
-                DATE_TRUNC('week', date) as week_start,
+                DATE_TRUNC('week', CAST(date AS TIMESTAMP)) as week_start,
                 game_name,
                 app_id,
                 AVG(peak_ccu) as avg_peak,
@@ -178,7 +178,7 @@ class KPIAggregator:
                 SUM(samples) as total_samples,
                 COUNT(DISTINCT date) as days_in_week
             FROM daily_kpis
-            WHERE DATE_TRUNC('week', date) = DATE_TRUNC('week', CURRENT_DATE)
+            WHERE DATE_TRUNC('week', CAST(date AS TIMESTAMP)) = DATE_TRUNC('week', CURRENT_TIMESTAMP)
             GROUP BY week_start, game_name, app_id
         """
         )
@@ -219,7 +219,7 @@ class KPIAggregator:
             """
             INSERT OR REPLACE INTO monthly_kpis
             SELECT
-                DATE_TRUNC('month', week_start) as month_start,
+                DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) as month_start,
                 game_name,
                 app_id,
                 AVG(avg_peak) as avg_peak,
@@ -227,7 +227,7 @@ class KPIAggregator:
                 SUM(total_samples) as total_samples,
                 COUNT(DISTINCT week_start) as weeks_in_month
             FROM weekly_kpis
-            WHERE DATE_TRUNC('month', week_start) = DATE_TRUNC('month', CURRENT_DATE)
+            WHERE DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) = DATE_TRUNC('month', CURRENT_TIMESTAMP)
             GROUP BY month_start, game_name, app_id
         """
         )
