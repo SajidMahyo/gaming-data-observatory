@@ -115,6 +115,121 @@ class DuckDBManager:
         df = self.query(sql)
         df.to_json(output_path, orient="records", date_format="iso", indent=2)
 
+    def create_game_metadata_table(self) -> None:
+        """Create game_metadata table for storing Steam game metadata.
+
+        Table schema includes:
+        - app_id (INTEGER PRIMARY KEY): Steam application ID
+        - name, type, description, release_date: Text fields
+        - developers, publishers, platforms, categories, genres: JSON arrays
+        - metacritic_score, required_age: Numeric fields
+        - metacritic_url: Text field
+        - price_info, tags: JSON objects
+        - is_free: Boolean
+        - collected_at: Timestamp
+        """
+        self.conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS game_metadata (
+                app_id INTEGER PRIMARY KEY,
+                name VARCHAR,
+                type VARCHAR,
+                description TEXT,
+                developers JSON,
+                publishers JSON,
+                is_free BOOLEAN,
+                required_age INTEGER,
+                release_date VARCHAR,
+                platforms JSON,
+                metacritic_score INTEGER,
+                metacritic_url VARCHAR,
+                categories JSON,
+                genres JSON,
+                price_info JSON,
+                tags JSON,
+                collected_at VARCHAR
+            )
+        """
+        )
+
+    def upsert_game_metadata(self, metadata: dict[str, Any]) -> None:
+        """Insert or update game metadata in the database.
+
+        Uses INSERT OR REPLACE to handle both new and existing games.
+
+        Args:
+            metadata: Dictionary containing game metadata from SteamStoreCollector.
+                     Must include at minimum: app_id, name, type
+
+        Example:
+            >>> metadata = collector.collect_full_metadata(730)
+            >>> manager.upsert_game_metadata(metadata)
+        """
+        import json
+
+        # Prepare JSON fields
+        developers_json = json.dumps(metadata.get("developers", []))
+        publishers_json = json.dumps(metadata.get("publishers", []))
+        platforms_json = json.dumps(metadata.get("platforms", []))
+        categories_json = json.dumps(metadata.get("categories", []))
+        genres_json = json.dumps(metadata.get("genres", []))
+        price_info_json = json.dumps(metadata.get("price_info", {}))
+        tags_json = json.dumps(metadata.get("tags", {}))
+
+        # Use parameterized query to avoid SQL injection
+        self.conn.execute(
+            """
+            INSERT OR REPLACE INTO game_metadata (
+                app_id, name, type, description, developers, publishers,
+                is_free, required_age, release_date, platforms,
+                metacritic_score, metacritic_url, categories, genres,
+                price_info, tags, collected_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+            [
+                metadata["app_id"],
+                metadata.get("name", ""),
+                metadata.get("type", ""),
+                metadata.get("description", ""),
+                developers_json,
+                publishers_json,
+                metadata.get("is_free", False),
+                metadata.get("required_age", 0),
+                metadata.get("release_date", ""),
+                platforms_json,
+                metadata.get("metacritic_score"),
+                metadata.get("metacritic_url"),
+                categories_json,
+                genres_json,
+                price_info_json,
+                tags_json,
+                metadata.get("collected_at", ""),
+            ],
+        )
+
+    def get_game_metadata(self, app_id: int) -> dict[str, Any] | None:
+        """Retrieve game metadata by app_id.
+
+        Args:
+            app_id: Steam application ID
+
+        Returns:
+            Dictionary with game metadata, or None if not found
+
+        Example:
+            >>> metadata = manager.get_game_metadata(730)
+            >>> print(metadata['name'])
+            'Counter-Strike 2'
+        """
+        result = self.query(f"SELECT * FROM game_metadata WHERE app_id = {app_id}")
+
+        if len(result) == 0:
+            return None
+
+        # Convert row to dictionary
+        row = result.iloc[0]
+        return row.to_dict()
+
     def close(self) -> None:
         """Close the DuckDB connection."""
         if self.conn:
