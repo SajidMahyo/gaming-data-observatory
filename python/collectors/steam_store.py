@@ -26,7 +26,7 @@ class SteamStoreCollector:
             Dictionary with game details or None if failed
         """
         try:
-            params: dict[str, Any] = {"appids": app_id}
+            params: dict[str, Any] = {"appids": app_id, "l": "english"}
             response = self.session.get(self.store_api_base, params=params, timeout=10)
 
             if response.status_code != 200:
