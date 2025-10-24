@@ -1,0 +1,66 @@
+{
+  "app_id": 2694490,
+  "name": "Path of Exile 2",
+  "type": "game",
+  "description": "Path of Exile 2 is a next generation Action RPG from Grinding Gear Games, featuring co-op for up to six players. Set years after the original Path of Exile, you will return to the dark world of Wraeclast and seek to end the corruption that is spreading.",
+  "developers": [
+    "Grinding Gear Games"
+  ],
+  "publishers": [
+    "Grinding Gear Games"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "6 Dec, 2024",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "MMO",
+    "Co-op",
+    "Online Co-op",
+    "Full controller support",
+    "HDR available"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Massively Multiplayer",
+    "RPG",
+    "Early Access"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 27.75,
+    "initial_price": 27.75,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Action RPG": 583,
+    "Hack and Slash": 458,
+    "RPG": 415,
+    "Souls-like": 399,
+    "MMORPG": 364,
+    "Dark Fantasy": 363,
+    "Isometric": 362,
+    "Action": 357,
+    "Loot": 326,
+    "Dungeon Crawler": 326,
+    "Adventure": 305,
+    "Multiplayer": 269,
+    "Online Co-Op": 205,
+    "Character Customization": 184,
+    "Early Access": 175,
+    "Inventory Management": 172,
+    "Crafting": 161,
+    "Horror": 153,
+    "Dark": 145,
+    "Free to Play": 118
+  },
+  "collected_at": "2025-10-24 12:59:19"
+}

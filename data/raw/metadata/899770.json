@@ -1,0 +1,65 @@
+{
+  "app_id": 899770,
+  "name": "Last Epoch",
+  "type": "game",
+  "description": "Uncover the Past, Reforge the Future. Ascend into one of 15 mastery classes and explore dangerous dungeons, hunt epic loot, craft legendary weapons, and wield the power of over a hundred transformative skill trees. Last Epoch is being developed by a team of passionate Action RPG enthusiasts.",
+  "developers": [
+    "Eleventh Hour Games"
+  ],
+  "publishers": [
+    "Eleventh Hour Games"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "Feb 21, 2024",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 80,
+  "metacritic_url": "https://www.metacritic.com/game/pc/last-epoch?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Full controller support",
+    "In-App Purchases",
+    "Steam Cloud"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 34.99,
+    "initial_price": 34.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Action RPG": 412,
+    "Loot": 348,
+    "Hack and Slash": 300,
+    "RPG": 272,
+    "Isometric": 206,
+    "Multiplayer": 199,
+    "Action": 133,
+    "Co-op": 122,
+    "Adventure": 118,
+    "Top-Down": 117,
+    "Dungeon Crawler": 108,
+    "Indie": 96,
+    "Singleplayer": 87,
+    "Fantasy": 75,
+    "Gore": 61,
+    "MMORPG": 60,
+    "Character Customization": 60,
+    "Magic": 53,
+    "Violent": 50,
+    "Time Travel": 35
+  },
+  "collected_at": "2025-10-24 12:59:45"
+}

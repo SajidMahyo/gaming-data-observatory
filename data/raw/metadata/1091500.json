@@ -1,0 +1,72 @@
+{
+  "app_id": 1091500,
+  "name": "Cyberpunk 2077",
+  "type": "game",
+  "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City \u2014 a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.",
+  "developers": [
+    "CD PROJEKT RED"
+  ],
+  "publishers": [
+    "CD PROJEKT RED"
+  ],
+  "is_free": false,
+  "required_age": "18",
+  "release_date": "9 Dec, 2020",
+  "platforms": [
+    "windows",
+    "mac"
+  ],
+  "metacritic_score": 86,
+  "metacritic_url": "https://www.metacritic.com/game/pc/cyberpunk-2077?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "Save Anytime",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "HKD",
+    "price": 399.0,
+    "initial_price": 399.0,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Cyberpunk": 6625,
+    "Open World": 6081,
+    "Nudity": 5287,
+    "RPG": 5037,
+    "Singleplayer": 4975,
+    "Sci-fi": 4609,
+    "FPS": 4591,
+    "Story Rich": 4567,
+    "Mature": 4556,
+    "Futuristic": 4547,
+    "First-Person": 4204,
+    "Atmospheric": 3964,
+    "Exploration": 3794,
+    "Action": 3165,
+    "Violent": 2751,
+    "Great Soundtrack": 2486,
+    "Action RPG": 2421,
+    "Adventure": 2259,
+    "Character Customization": 2003,
+    "Immersive Sim": 1185
+  },
+  "collected_at": "2025-10-24 12:59:48"
+}

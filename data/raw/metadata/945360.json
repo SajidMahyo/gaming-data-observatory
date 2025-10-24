@@ -1,0 +1,70 @@
+{
+  "app_id": 945360,
+  "name": "Among Us",
+  "type": "game",
+  "description": "An online and local party game of teamwork and betrayal for 4-15 players...in space!",
+  "developers": [
+    "Innersloth"
+  ],
+  "publishers": [
+    "Innersloth"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "Nov 16, 2018",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 85,
+  "metacritic_url": "https://www.metacritic.com/game/pc/among-us?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "LAN PvP",
+    "Co-op",
+    "Online Co-op",
+    "LAN Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "In-App Purchases",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Casual"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 4.99,
+    "initial_price": 4.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Multiplayer": 1961,
+    "Social Deduction": 1346,
+    "Online Co-Op": 1339,
+    "Space": 1265,
+    "Survival": 1048,
+    "2D": 1019,
+    "Funny": 981,
+    "Psychological": 867,
+    "Party Game": 852,
+    "Co-op": 845,
+    "Cartoony": 765,
+    "Local Multiplayer": 741,
+    "Casual": 697,
+    "Action": 676,
+    "Sci-fi": 673,
+    "PvP": 673,
+    "Top-Down": 666,
+    "Colorful": 665,
+    "Minigames": 664,
+    "Aliens": 661
+  },
+  "collected_at": "2025-10-24 12:59:57"
+}

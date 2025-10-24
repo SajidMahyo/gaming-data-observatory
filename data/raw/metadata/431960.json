@@ -1,0 +1,65 @@
+{
+  "app_id": 431960,
+  "name": "Wallpaper Engine",
+  "type": "game",
+  "description": "Use stunning live wallpapers on your desktop. Animate your own images to create new wallpapers or import videos/websites and share them on the Steam Workshop!",
+  "developers": [
+    "Wallpaper Engine Team"
+  ],
+  "publishers": [
+    "Wallpaper Engine Team"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "16 Nov, 2018",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Steam Workshop",
+    "Includes level editor"
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Animation & Modeling",
+    "Design & Illustration",
+    "Photo Editing",
+    "Utilities"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 4.99,
+    "initial_price": 4.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Mature": 3947,
+    "Utilities": 2610,
+    "Anime": 2119,
+    "Software": 2080,
+    "Design & Illustration": 1567,
+    "Animation & Modeling": 1263,
+    "First-Person": 1058,
+    "NSFW": 1056,
+    "Indie": 845,
+    "Memes": 783,
+    "Cute": 756,
+    "Action": 710,
+    "Singleplayer": 662,
+    "Funny": 608,
+    "Early Access": 490,
+    "Photo Editing": 460,
+    "Sandbox": 404,
+    "Horror": 338,
+    "Gaming": 330,
+    "Game Development": 320
+  },
+  "collected_at": "2025-10-24 12:59:20"
+}

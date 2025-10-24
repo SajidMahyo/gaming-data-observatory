@@ -1,0 +1,74 @@
+{
+  "app_id": 105600,
+  "name": "Terraria",
+  "type": "game",
+  "description": "Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!",
+  "developers": [
+    "Re-Logic"
+  ],
+  "publishers": [
+    "Re-Logic"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "16 May, 2011",
+  "platforms": [
+    "windows",
+    "mac",
+    "linux"
+  ],
+  "metacritic_score": 83,
+  "metacritic_url": "https://www.metacritic.com/game/pc/terraria?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 9.75,
+    "initial_price": 9.75,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Open World Survival Craft": 16503,
+    "Sandbox": 16196,
+    "Survival": 12888,
+    "2D": 12753,
+    "Multiplayer": 12688,
+    "Adventure": 11676,
+    "Pixel Graphics": 11520,
+    "Crafting": 10691,
+    "Building": 10202,
+    "Exploration": 9018,
+    "Co-op": 7947,
+    "Open World": 7689,
+    "Online Co-Op": 6222,
+    "Indie": 6178,
+    "Action": 5731,
+    "RPG": 5401,
+    "Singleplayer": 5245,
+    "Replay Value": 4412,
+    "Platformer": 4068,
+    "Atmospheric": 3602
+  },
+  "collected_at": "2025-10-24 12:59:17"
+}

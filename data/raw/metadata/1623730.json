@@ -1,0 +1,68 @@
+{
+  "app_id": 1623730,
+  "name": "Palworld",
+  "type": "game",
+  "description": "Fight, farm, build and work alongside mysterious creatures called &quot;Pals&quot; in this completely new multiplayer, open world survival and crafting game!",
+  "developers": [
+    "Pocketpair"
+  ],
+  "publishers": [
+    "Pocketpair"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "18 Jan, 2024",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "RPG",
+    "Early Access"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 21.74,
+    "initial_price": 28.99,
+    "is_free": false,
+    "discount": 25
+  },
+  "tags": {
+    "Open World": 1508,
+    "Survival": 1382,
+    "Creature Collector": 1364,
+    "Multiplayer": 1356,
+    "Open World Survival Craft": 1248,
+    "Online Co-Op": 965,
+    "Crafting": 958,
+    "Co-op": 915,
+    "Adventure": 836,
+    "Base-Building": 729,
+    "Sandbox": 728,
+    "Building": 612,
+    "Third-Person Shooter": 562,
+    "Automation": 557,
+    "Action": 513,
+    "RPG": 505,
+    "Anime": 476,
+    "Early Access": 475,
+    "Exploration": 456,
+    "Farming": 435
+  },
+  "collected_at": "2025-10-24 12:58:56"
+}

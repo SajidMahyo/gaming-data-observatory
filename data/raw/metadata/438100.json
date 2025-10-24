@@ -1,0 +1,71 @@
+{
+  "app_id": 438100,
+  "name": "VRChat",
+  "type": "game",
+  "description": "Join our growing community as you explore, play, and help craft the future of social VR. Create worlds and custom avatars. Welcome to VRChat.",
+  "developers": [
+    "VRChat Inc."
+  ],
+  "publishers": [
+    "VRChat Inc."
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "1 Feb, 2017",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Multi-player",
+    "MMO",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Cross-Platform Multiplayer",
+    "Full controller support",
+    "Tracked Controller Support",
+    "VR Supported",
+    "In-App Purchases"
+  ],
+  "genres": [
+    "Adventure",
+    "Casual",
+    "Massively Multiplayer",
+    "Simulation",
+    "Sports",
+    "Free To Play",
+    "Early Access"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "VR": 1995,
+    "Free to Play": 1909,
+    "Multiplayer": 1375,
+    "Anime": 1290,
+    "Memes": 1285,
+    "Funny": 1190,
+    "Massively Multiplayer": 1120,
+    "First-Person": 839,
+    "Open World": 779,
+    "Early Access": 742,
+    "Simulation": 710,
+    "Casual": 660,
+    "Adventure": 523,
+    "MMORPG": 311,
+    "Comedy": 304,
+    "Sandbox": 292,
+    "Dating Sim": 207,
+    "Survival Horror": 187,
+    "Action": 180,
+    "Atmospheric": 116
+  },
+  "collected_at": "2025-10-24 12:59:53"
+}

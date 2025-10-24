@@ -1,0 +1,73 @@
+{
+  "app_id": 49520,
+  "name": "Borderlands 2",
+  "type": "game",
+  "description": "The Ultimate Vault Hunter\u2019s Upgrade lets you get the most out of the Borderlands 2 experience.",
+  "developers": [
+    "Gearbox Software",
+    "Aspyr (Mac)",
+    "Aspyr (Linux)"
+  ],
+  "publishers": [
+    "2K",
+    "Aspyr (Mac)",
+    "Aspyr (Linux)"
+  ],
+  "is_free": false,
+  "required_age": "17",
+  "release_date": "20 Sep, 2012",
+  "platforms": [
+    "windows",
+    "mac",
+    "linux"
+  ],
+  "metacritic_score": 89,
+  "metacritic_url": "https://www.metacritic.com/game/pc/borderlands-2?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 29.99,
+    "initial_price": 29.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Loot": 9751,
+    "Shooter": 9248,
+    "Action": 9132,
+    "Multiplayer": 7583,
+    "Co-op": 7462,
+    "Looter Shooter": 7173,
+    "FPS": 6896,
+    "RPG": 5544,
+    "First-Person": 5411,
+    "Funny": 5078,
+    "Comedy": 4851,
+    "Open World": 3522,
+    "Combat": 2976,
+    "Online Co-Op": 2144,
+    "Adventure": 2035,
+    "Action RPG": 1793,
+    "Dark Humor": 1710,
+    "Singleplayer": 1396,
+    "Memes": 1361,
+    "Sci-fi": 1328
+  },
+  "collected_at": "2025-10-24 13:00:00"
+}

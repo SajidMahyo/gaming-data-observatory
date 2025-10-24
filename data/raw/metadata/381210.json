@@ -1,0 +1,69 @@
+{
+  "app_id": 381210,
+  "name": "Dead by Daylight",
+  "type": "game",
+  "description": "Trapped forever in a realm of eldritch evil where even death is not an escape, four determined Survivors face a bloodthirsty Killer in a vicious game of nerve and wits. Pick a side and step into a world of tension and terror with horror gaming's best asymmetrical multiplayer.",
+  "developers": [
+    "Behaviour Interactive Inc."
+  ],
+  "publishers": [
+    "Behaviour Interactive Inc."
+  ],
+  "is_free": false,
+  "required_age": "18",
+  "release_date": "14 Jun, 2016",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 7.99,
+    "initial_price": 19.99,
+    "is_free": false,
+    "discount": 60
+  },
+  "tags": {
+    "Horror": 40366,
+    "Multiplayer": 9580,
+    "Survival Horror": 9547,
+    "Online Co-Op": 7348,
+    "Co-op": 6919,
+    "Survival": 6885,
+    "Gore": 6831,
+    "Team-Based": 6749,
+    "Blood": 6696,
+    "Stealth": 6678,
+    "Third Person": 6677,
+    "Violent": 6659,
+    "First-Person": 6643,
+    "Psychological Horror": 6596,
+    "Action": 6564,
+    "Atmospheric": 6499,
+    "Strategy": 2207,
+    "Comedy": 2152,
+    "Mature": 1932,
+    "Difficult": 1556
+  },
+  "collected_at": "2025-10-24 12:59:50"
+}

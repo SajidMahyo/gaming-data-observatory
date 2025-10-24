@@ -1,0 +1,76 @@
+{
+  "app_id": 2246340,
+  "name": "Monster Hunter Wilds",
+  "type": "game",
+  "description": "The unbridled force of nature runs wild and relentless, with environments transforming drastically from one moment to the next. This is a story of monsters and humans and their struggles to live in harmony in a world of duality.",
+  "developers": [
+    "CAPCOM Co., Ltd."
+  ],
+  "publishers": [
+    "CAPCOM Co., Ltd."
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "27 Feb, 2025",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Keyboard Only Option",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Steam Cloud",
+    "HDR available",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "HKD",
+    "price": 498.0,
+    "initial_price": 498.0,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Hunting": 2273,
+    "Action": 1946,
+    "Multiplayer": 1855,
+    "Online Co-Op": 1674,
+    "Co-op": 1621,
+    "Dating Sim": 1523,
+    "Character Customization": 1493,
+    "Dragons": 1482,
+    "Open World": 1471,
+    "Third Person": 1429,
+    "Action RPG": 1374,
+    "Adventure": 1313,
+    "Fantasy": 1266,
+    "Cute": 1202,
+    "RPG": 1201,
+    "Singleplayer": 1132,
+    "Atmospheric": 1098,
+    "Great Soundtrack": 849,
+    "Underwater": 510,
+    "Souls-like": 117
+  },
+  "collected_at": "2025-10-24 12:59:10"
+}

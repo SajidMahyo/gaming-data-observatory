@@ -1,0 +1,72 @@
+{
+  "app_id": 227300,
+  "name": "Euro Truck Simulator 2",
+  "type": "game",
+  "description": "Travel across Europe as king of the road, a trucker who delivers important cargo across impressive distances! With dozens of cities to explore, your endurance, skill and speed will all be pushed to their limits.",
+  "developers": [
+    "SCS Software"
+  ],
+  "publishers": [
+    "SCS Software"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "12 Oct, 2012",
+  "platforms": [
+    "windows",
+    "mac",
+    "linux"
+  ],
+  "metacritic_score": 79,
+  "metacritic_url": "https://www.metacritic.com/game/pc/euro-truck-simulator-2?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Includes level editor",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Indie",
+    "Simulation"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 19.99,
+    "initial_price": 19.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Driving": 12933,
+    "Transportation": 12686,
+    "Simulation": 12637,
+    "Open World": 12555,
+    "Automobile Sim": 12444,
+    "Realistic": 12419,
+    "Moddable": 12286,
+    "Relaxing": 12189,
+    "Exploration": 12037,
+    "Economy": 11998,
+    "Immersive Sim": 11987,
+    "Management": 11960,
+    "Atmospheric": 11922,
+    "Multiplayer": 5047,
+    "Controller": 4019,
+    "Family Friendly": 3897,
+    "Third Person": 3887,
+    "Adventure": 3855,
+    "Casual": 3851,
+    "Indie": 3809
+  },
+  "collected_at": "2025-10-24 13:00:02"
+}

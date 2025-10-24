@@ -1,0 +1,76 @@
+{
+  "app_id": 346110,
+  "name": "ARK: Survival Evolved",
+  "type": "game",
+  "description": "Stranded on the shores of a mysterious island, you must learn to survive. Use your cunning to kill or tame the primeval creatures roaming the land, and encounter other players to survive, dominate... and escape!",
+  "developers": [
+    "Studio Wildcard",
+    "Instinct Games",
+    "Efecto Studios",
+    "Virtual Basement LLC"
+  ],
+  "publishers": [
+    "Studio Wildcard",
+    "Snail Games USA"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "27 Aug, 2017",
+  "platforms": [
+    "windows",
+    "mac"
+  ],
+  "metacritic_score": 70,
+  "metacritic_url": "https://www.metacritic.com/game/pc/ark-survival-evolved?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "MMO",
+    "Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Valve Anti-Cheat enabled",
+    "Includes level editor",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Massively Multiplayer",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 14.79,
+    "initial_price": 14.79,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Open World Survival Craft": 12961,
+    "Survival": 12273,
+    "Multiplayer": 9699,
+    "Open World": 9550,
+    "Dinosaurs": 9172,
+    "Crafting": 7822,
+    "Building": 7492,
+    "Adventure": 6602,
+    "Base-Building": 5996,
+    "Co-op": 5532,
+    "Action": 4901,
+    "Sandbox": 4490,
+    "First-Person": 4488,
+    "Massively Multiplayer": 4291,
+    "Singleplayer": 4081,
+    "Early Access": 3458,
+    "RPG": 3271,
+    "Dragons": 3262,
+    "Sci-fi": 2659,
+    "Indie": 2144
+  },
+  "collected_at": "2025-10-24 12:59:32"
+}

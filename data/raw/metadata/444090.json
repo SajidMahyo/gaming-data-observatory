@@ -1,0 +1,68 @@
+{
+  "app_id": 444090,
+  "name": "Paladins\u00ae",
+  "type": "game",
+  "description": "Paladins is the ultimate fantasy team-based shooter experience, with over 50 customizable Champions fighting in 5v5 action across a diverse Realm of modes and maps!",
+  "developers": [
+    "Evil Mojo Games"
+  ],
+  "publishers": [
+    "Hi-Rez Studios"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "8 May, 2018",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 83,
+  "metacritic_url": "https://www.metacritic.com/game/pc/paladins?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "In-App Purchases",
+    "Remote Play on Phone",
+    "Remote Play on Tablet"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Massively Multiplayer",
+    "Strategy",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Hero Shooter": 50389,
+    "Free to Play": 5346,
+    "Multiplayer": 3342,
+    "FPS": 3222,
+    "Shooter": 2824,
+    "Action": 2267,
+    "Team-Based": 2239,
+    "First-Person": 1823,
+    "PvP": 1772,
+    "MOBA": 1690,
+    "Online Co-Op": 1570,
+    "Fantasy": 1235,
+    "Controller": 1186,
+    "Strategy": 1117,
+    "Co-op": 1101,
+    "Character Customization": 1086,
+    "Massively Multiplayer": 1080,
+    "Colorful": 1074,
+    "Adventure": 1070,
+    "Funny": 1059
+  },
+  "collected_at": "2025-10-24 13:00:07"
+}

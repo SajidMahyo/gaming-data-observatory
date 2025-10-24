@@ -1,0 +1,74 @@
+{
+  "app_id": 252490,
+  "name": "Rust",
+  "type": "game",
+  "description": "The only aim in Rust is to survive. Everything wants you to die - the island\u2019s wildlife, other inhabitants, the environment, and other survivors. Do whatever it takes to last another night.",
+  "developers": [
+    "Facepunch Studios"
+  ],
+  "publishers": [
+    "Facepunch Studios"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "8 Feb, 2018",
+  "platforms": [
+    "windows",
+    "mac"
+  ],
+  "metacritic_score": 69,
+  "metacritic_url": "https://www.metacritic.com/game/pc/rust?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Multi-player",
+    "MMO",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "In-App Purchases",
+    "Valve Anti-Cheat enabled",
+    "Stats",
+    "Remote Play on Tablet"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Massively Multiplayer",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "HKD",
+    "price": 142.8,
+    "initial_price": 238.0,
+    "is_free": false,
+    "discount": 40
+  },
+  "tags": {
+    "Survival": 18782,
+    "Crafting": 11939,
+    "Multiplayer": 11898,
+    "Open World": 11339,
+    "Open World Survival Craft": 8896,
+    "Building": 8456,
+    "PvP": 7743,
+    "Sandbox": 7297,
+    "Adventure": 5917,
+    "First-Person": 5414,
+    "Action": 4960,
+    "Nudity": 4872,
+    "FPS": 4808,
+    "Shooter": 3944,
+    "Co-op": 3871,
+    "Online Co-Op": 3821,
+    "Indie": 3125,
+    "Post-apocalyptic": 3016,
+    "Early Access": 2931,
+    "Simulation": 2638
+  },
+  "collected_at": "2025-10-24 12:58:52"
+}

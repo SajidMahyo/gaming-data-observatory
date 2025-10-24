@@ -1,0 +1,66 @@
+{
+  "app_id": 2358720,
+  "name": "Black Myth: Wukong",
+  "type": "game",
+  "description": "Black Myth: Wukong is an action RPG rooted in Chinese mythology. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.",
+  "developers": [
+    "Game Science"
+  ],
+  "publishers": [
+    "Game Science"
+  ],
+  "is_free": false,
+  "required_age": "16",
+  "release_date": "19 Aug, 2024",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Playable without Timed Input",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "HKD",
+    "price": 298.0,
+    "initial_price": 298.0,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Mythology": 9480,
+    "Action RPG": 7769,
+    "Action": 7245,
+    "Souls-like": 6655,
+    "RPG": 6434,
+    "Combat": 5458,
+    "Story Rich": 5303,
+    "Singleplayer": 5160,
+    "Action-Adventure": 4445,
+    "Drama": 4413,
+    "Dark Fantasy": 4208,
+    "Atmospheric": 3675,
+    "Adventure": 3631,
+    "3D": 3101,
+    "Fantasy": 2877,
+    "Hack and Slash": 2563,
+    "Difficult": 868,
+    "Third Person": 865,
+    "Music": 728,
+    "Violent": 483
+  },
+  "collected_at": "2025-10-24 12:59:01"
+}

@@ -1,0 +1,62 @@
+{
+  "app_id": 553850,
+  "name": "HELLDIVERS\u2122 2",
+  "type": "game",
+  "description": "The Galaxy\u2019s Last Line of Offence. Enlist in the Helldivers and join the fight for freedom across a hostile galaxy in a fast, frantic, and ferocious third-person shooter.",
+  "developers": [
+    "Arrowhead Game Studios"
+  ],
+  "publishers": [
+    "PlayStation Publishing LLC"
+  ],
+  "is_free": false,
+  "required_age": "18",
+  "release_date": "8 Feb, 2024",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "In-App Purchases",
+    "Partial Controller Support",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "price_info": {
+    "currency": "HKD",
+    "price": 308.0,
+    "initial_price": 308.0,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Online Co-Op": 1016,
+    "PvE": 907,
+    "Third-Person Shooter": 894,
+    "Multiplayer": 875,
+    "Action": 800,
+    "Shooter": 764,
+    "Co-op": 736,
+    "Sci-fi": 699,
+    "Capitalism": 666,
+    "Space": 624,
+    "Extraction Shooter": 596,
+    "Third Person": 566,
+    "Comedy": 533,
+    "Gore": 465,
+    "Violent": 441,
+    "Great Soundtrack": 430,
+    "Difficult": 363,
+    "Psychological Horror": 307,
+    "Singleplayer": 243,
+    "Open World": 227
+  },
+  "collected_at": "2025-10-24 12:59:12"
+}

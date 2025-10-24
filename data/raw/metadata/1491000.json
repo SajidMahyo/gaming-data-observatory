@@ -1,0 +1,69 @@
+{
+  "app_id": 1491000,
+  "name": "War Robots: Frontiers",
+  "type": "game",
+  "description": "Gear up for tactical mech action in War Robots: Frontiers, a free-to-play multiplayer mech shooter. Construct and customize, squad up with Pilots online, and fire up your engines in massive intergalactic battles.",
+  "developers": [
+    "MY.GAMES"
+  ],
+  "publishers": [
+    "MY.GAMES"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "4 Mar, 2025",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "In-App Purchases",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Playable without Timed Input",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound"
+  ],
+  "genres": [
+    "Action",
+    "Simulation",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Free to Play": 24058,
+    "Third-Person Shooter": 20143,
+    "Mechs": 18130,
+    "PvP": 16099,
+    "Multiplayer": 14088,
+    "Action": 12145,
+    "Arena Shooter": 10001,
+    "Robots": 8129,
+    "Sci-fi": 6077,
+    "Futuristic": 4115,
+    "Shooter": 2141,
+    "Third Person": 1729,
+    "Online Co-Op": 1365,
+    "Team-Based": 1002,
+    "Combat": 996,
+    "3D": 804,
+    "Controller": 700,
+    "Destruction": 621,
+    "Massively Multiplayer": 500,
+    "Simulation": 225
+  },
+  "collected_at": "2025-10-24 12:59:38"
+}

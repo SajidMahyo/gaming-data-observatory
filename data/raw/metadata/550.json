@@ -1,0 +1,85 @@
+{
+  "app_id": 550,
+  "name": "Left 4 Dead 2",
+  "type": "game",
+  "description": "Set in the zombie apocalypse, Left 4 Dead 2 (L4D2) is the highly anticipated sequel to the award-winning Left 4 Dead, the #1 co-op game of 2008. This co-operative action horror FPS takes you and your friends through the cities, swamps and cemeteries of the Deep South, from Savannah to New Orleans across five expansive campaigns.",
+  "developers": [
+    "Valve"
+  ],
+  "publishers": [
+    "Valve"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "16 Nov, 2009",
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "metacritic_score": 89,
+  "metacritic_url": "https://www.metacritic.com/game/pc/left-4-dead-2?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Captions available",
+    "Steam Workshop",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "Valve Anti-Cheat enabled",
+    "Stats",
+    "Includes Source SDK",
+    "Commentary available",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing",
+    "Steam Timeline"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 9.75,
+    "initial_price": 9.75,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Zombies": 21321,
+    "Co-op": 11476,
+    "FPS": 10103,
+    "Multiplayer": 9521,
+    "Shooter": 7133,
+    "Online Co-Op": 6849,
+    "Action": 6709,
+    "Survival": 5795,
+    "Horror": 5581,
+    "First-Person": 4609,
+    "Gore": 4335,
+    "Team-Based": 3639,
+    "Moddable": 3152,
+    "Survival Horror": 3053,
+    "Post-apocalyptic": 2941,
+    "Singleplayer": 2507,
+    "Adventure": 2227,
+    "Local Co-Op": 2195,
+    "Replay Value": 2126,
+    "Tactical": 2042
+  },
+  "collected_at": "2025-10-24 12:59:03"
+}

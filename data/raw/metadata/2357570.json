@@ -1,0 +1,43 @@
+{
+  "app_id": 2357570,
+  "name": "Overwatch\u00ae 2",
+  "type": "game",
+  "description": "Overwatch 2 is a critically acclaimed, team-based shooter game set in an optimistic future with an evolving roster of heroes. Team up with friends and jump in today.",
+  "developers": [
+    "Blizzard Entertainment, Inc."
+  ],
+  "publishers": [
+    "Blizzard Entertainment, Inc."
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "10 Aug, 2023",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "In-App Purchases"
+  ],
+  "genres": [
+    "Action",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": [],
+  "collected_at": "2025-10-24 12:58:58"
+}

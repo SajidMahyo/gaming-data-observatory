@@ -1,0 +1,81 @@
+{
+  "app_id": 1086940,
+  "name": "Baldur's Gate 3",
+  "type": "game",
+  "description": "Baldur\u2019s Gate 3 is a story-rich, party-based RPG set in the universe of Dungeons &amp; Dragons, where your choices shape a tale of fellowship and betrayal, survival and sacrifice, and the lure of absolute power.",
+  "developers": [
+    "Larian Studios"
+  ],
+  "publishers": [
+    "Larian Studios"
+  ],
+  "is_free": false,
+  "required_age": "18",
+  "release_date": "3 Aug, 2023",
+  "platforms": [
+    "windows",
+    "mac"
+  ],
+  "metacritic_score": 96,
+  "metacritic_url": "https://www.metacritic.com/game/pc/baldurs-gate-3?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "LAN Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "Save Anytime",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Steam Cloud",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Adventure",
+    "RPG",
+    "Strategy"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 59.99,
+    "initial_price": 59.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "RPG": 4536,
+    "Character Customization": 3522,
+    "Choices Matter": 3475,
+    "Story Rich": 3416,
+    "Turn-Based Combat": 3370,
+    "Dungeons & Dragons": 3237,
+    "CRPG": 2637,
+    "Fantasy": 2619,
+    "Adventure": 2578,
+    "Sexual Content": 2483,
+    "Romance": 2448,
+    "Online Co-Op": 2361,
+    "Multiplayer": 2273,
+    "Strategy": 2082,
+    "Singleplayer": 2044,
+    "Co-op Campaign": 1925,
+    "Nudity": 1817,
+    "Class-Based": 1814,
+    "Dark Fantasy": 1628,
+    "Combat": 1507
+  },
+  "collected_at": "2025-10-24 12:59:22"
+}

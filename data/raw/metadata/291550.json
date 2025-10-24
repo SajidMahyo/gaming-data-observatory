@@ -1,0 +1,74 @@
+{
+  "app_id": 291550,
+  "name": "Brawlhalla",
+  "type": "game",
+  "description": "An epic platform fighter for up to 8 players online or local. Try casual free-for-alls, ranked matches, or invite friends to a private room. And it's free! Play cross-platform with millions of players on PlayStation, Xbox, Nintendo Switch, iOS, Android &amp; Steam! Frequent updates. Over sixty Legends.",
+  "developers": [
+    "Blue Mammoth Games"
+  ],
+  "publishers": [
+    "Ubisoft"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "17 Oct, 2017",
+  "platforms": [
+    "windows",
+    "mac"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Partial Controller Support",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Free to Play": 4147,
+    "Multiplayer": 3007,
+    "Fighting": 2864,
+    "2D Fighter": 2185,
+    "2D Platformer": 2103,
+    "Casual": 2048,
+    "Local Multiplayer": 1987,
+    "Co-op": 1974,
+    "Controller": 1969,
+    "Platformer": 1967,
+    "Action": 1950,
+    "Online Co-Op": 1931,
+    "Local Co-Op": 1923,
+    "Fantasy": 1920,
+    "4 Player Local": 1900,
+    "Family Friendly": 1888,
+    "e-sports": 1886,
+    "Cartoony": 1884,
+    "Singleplayer": 1868,
+    "Indie": 1846
+  },
+  "collected_at": "2025-10-24 12:59:24"
+}

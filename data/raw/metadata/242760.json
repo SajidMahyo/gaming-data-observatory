@@ -1,0 +1,68 @@
+{
+  "app_id": 242760,
+  "name": "The Forest",
+  "type": "game",
+  "description": "As the lone survivor of a passenger jet crash, you find yourself in a mysterious forest battling to stay alive against a society of cannibalistic mutants. Build, explore, survive in this terrifying first person survival horror simulator.",
+  "developers": [
+    "Endnight Games Ltd"
+  ],
+  "publishers": [
+    "Endnight Games Ltd"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "30 Apr, 2018",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 83,
+  "metacritic_url": "https://www.metacritic.com/game/pc/the-forest?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "LAN Co-op",
+    "Tracked Controller Support",
+    "VR Supported",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Simulation"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 16.79,
+    "initial_price": 16.79,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Open World Survival Craft": 12535,
+    "Survival": 12166,
+    "Open World": 8863,
+    "Horror": 8844,
+    "Crafting": 6539,
+    "Adventure": 5702,
+    "Building": 5620,
+    "Survival Horror": 5336,
+    "First-Person": 4687,
+    "Action": 3797,
+    "Exploration": 3697,
+    "Sandbox": 3371,
+    "Singleplayer": 3002,
+    "Atmospheric": 2811,
+    "Simulation": 2599,
+    "Gore": 2530,
+    "Realistic": 2454,
+    "Indie": 2294,
+    "Zombies": 1743,
+    "Early Access": 1595
+  },
+  "collected_at": "2025-10-24 12:59:36"
+}

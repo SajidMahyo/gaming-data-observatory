@@ -4,6 +4,7 @@ from pathlib import Path
 
 import click
 
+from python.collectors.game_discovery import GameDiscovery
 from python.collectors.steam import SteamCollector
 from python.collectors.steam_store import SteamStoreCollector
 from python.processors.aggregator import KPIAggregator
@@ -27,17 +28,20 @@ def cli() -> None:
 @click.option(
     "--limit",
     "-l",
-    default=10,
-    help="Number of top games to collect",
+    default=None,
+    help="Number of games to collect (default: all tracked games)",
     type=int,
 )
-def collect(output: str, limit: int) -> None:
-    """Collect data from Steam API for top games."""
-    click.echo(f"🎮 Collecting data for top {limit} Steam games...")
-
+def collect(output: str, limit: int | None) -> None:
+    """Collect data from Steam API for tracked games."""
     # Initialize collector and writer
     collector = SteamCollector()
     writer = ParquetWriter(base_path=Path(output))
+
+    total_games = len(collector.get_top_games())
+    games_to_collect = limit if limit is not None else total_games
+
+    click.echo(f"🎮 Collecting data for {games_to_collect}/{total_games} tracked games...")
 
     # Collect data
     try:
@@ -66,9 +70,74 @@ def process() -> None:
 
 
 @cli.command()
-def store() -> None:
-    """Store data in DuckDB and Parquet."""
-    click.echo("Storing data...")
+@click.option(
+    "--db-path",
+    "-d",
+    default="data/duckdb/gaming.db",
+    help="Path to DuckDB database",
+    type=click.Path(),
+)
+@click.option(
+    "--parquet-path",
+    "-p",
+    default="data/raw/steam",
+    help="Path to Parquet files directory",
+    type=click.Path(),
+)
+def store(db_path: str, parquet_path: str) -> None:
+    """Load Parquet files into DuckDB."""
+    click.echo("📦 Loading Parquet files into DuckDB...")
+
+    from python.storage.duckdb_manager import DuckDBManager
+
+    db_path_obj = Path(db_path)
+    parquet_path_obj = Path(parquet_path)
+
+    # Find all parquet files
+    parquet_files = list(parquet_path_obj.rglob("*.parquet"))
+
+    if not parquet_files:
+        click.echo(f"⚠️  No Parquet files found in {parquet_path}", err=True)
+        return
+
+    click.echo(f"📁 Found {len(parquet_files)} Parquet files")
+
+    try:
+        with DuckDBManager(db_path=db_path_obj) as db:
+            # Create table from Parquet schema if it doesn't exist
+            db.query(
+                """
+                CREATE TABLE IF NOT EXISTS steam_raw AS
+                SELECT * FROM read_parquet('data/raw/steam/**/*.parquet')
+            """
+            )
+
+            # Insert new data (avoiding duplicates)
+            db.query(
+                """
+                INSERT INTO steam_raw
+                SELECT * FROM read_parquet('data/raw/steam/**/*.parquet')
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM steam_raw s
+                    WHERE s.timestamp = read_parquet.timestamp
+                    AND s.app_id = read_parquet.app_id
+                )
+            """
+            )
+
+            # Get stats
+            count_result = db.query(
+                "SELECT COUNT(*) as count, COUNT(DISTINCT app_id) as games FROM steam_raw"
+            )
+            total_records = count_result["count"][0]
+            total_games = count_result["games"][0]
+
+            click.echo(f"✅ Loaded {total_records:,} records for {total_games} games into DuckDB")
+            click.echo(f"💾 Database: {db_path}")
+
+    except Exception as e:
+        click.echo(f"❌ Error loading data into DuckDB: {e}", err=True)
+        raise click.Abort() from e
 
 
 @cli.command()
@@ -200,6 +269,82 @@ def metadata(app_ids: str, output: str, db_path: str) -> None:
 
     except Exception as e:
         click.echo(f"❌ Error during metadata collection: {e}", err=True)
+        raise click.Abort() from e
+
+
+@cli.command()
+@click.option(
+    "--config",
+    "-c",
+    default="config/games.json",
+    help="Path to games configuration file",
+    type=click.Path(),
+)
+@click.option(
+    "--top-limit",
+    "-t",
+    default=100,
+    help="Number of top games by playtime to discover",
+    type=int,
+)
+@click.option(
+    "--trending-limit",
+    "-r",
+    default=50,
+    help="Number of trending games by CCU to discover",
+    type=int,
+)
+@click.option(
+    "--skip-top",
+    is_flag=True,
+    help="Skip discovering top games by playtime",
+)
+@click.option(
+    "--skip-trending",
+    is_flag=True,
+    help="Skip discovering trending games by CCU",
+)
+@click.option(
+    "--skip-featured",
+    is_flag=True,
+    help="Skip discovering featured games from Steam",
+)
+def discover(
+    config: str,
+    top_limit: int,
+    trending_limit: int,
+    skip_top: bool,
+    skip_trending: bool,
+    skip_featured: bool,
+) -> None:
+    """Discover and add new games to track (append-only).
+
+    Discovers games from multiple sources for diversity:
+    - Top games by playtime (last 2 weeks)
+    - Trending games by current concurrent players
+    - Featured games from Steam Store
+    """
+    click.echo("🔍 Discovering new games from multiple sources...\n")
+
+    config_path = Path(config)
+
+    try:
+        discovery = GameDiscovery(config_path=config_path)
+
+        # Update tracked games (append-only)
+        updated_games = discovery.update_tracked_games(
+            include_top=not skip_top,
+            include_trending=not skip_trending,
+            include_featured=not skip_featured,
+            top_limit=top_limit,
+            trending_limit=trending_limit,
+        )
+
+        click.echo(f"\n✨ Discovery complete! Now tracking {len(updated_games)} games total")
+        click.echo(f"💾 Updated config: {config_path}")
+
+    except Exception as e:
+        click.echo(f"❌ Error during discovery: {e}", err=True)
         raise click.Abort() from e
 
 

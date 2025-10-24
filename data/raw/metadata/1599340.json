@@ -1,0 +1,75 @@
+{
+  "app_id": 1599340,
+  "name": "Lost Ark",
+  "type": "game",
+  "description": "Embark on an odyssey for the Lost Ark in a vast, vibrant world: explore new lands, seek out lost treasures, and test yourself in thrilling action combat in this action-packed free-to-play RPG.",
+  "developers": [
+    "Smilegate RPG"
+  ],
+  "publishers": [
+    "Amazon Games"
+  ],
+  "is_free": true,
+  "required_age": "18",
+  "release_date": "11 Feb, 2022",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "MMO",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "In-App Purchases",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Keyboard Only Option",
+    "Playable without Timed Input",
+    "Save Anytime",
+    "Partial Controller Support"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Massively Multiplayer",
+    "RPG",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "MMORPG": 438,
+    "Free to Play": 380,
+    "Action RPG": 298,
+    "Multiplayer": 286,
+    "Hack and Slash": 277,
+    "Character Customization": 256,
+    "RPG": 255,
+    "Massively Multiplayer": 219,
+    "Action": 200,
+    "Sexual Content": 196,
+    "Adventure": 184,
+    "PvE": 180,
+    "Fantasy": 177,
+    "PvP": 169,
+    "Isometric": 156,
+    "Online Co-Op": 124,
+    "Class-Based": 123,
+    "Singleplayer": 103,
+    "Violent": 95,
+    "Gore": 85
+  },
+  "collected_at": "2025-10-24 12:59:06"
+}

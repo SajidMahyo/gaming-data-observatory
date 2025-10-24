@@ -1,0 +1,75 @@
+{
+  "app_id": 739630,
+  "name": "Phasmophobia",
+  "type": "game",
+  "description": "Phasmophobia is a 4 player online co-op psychological horror. Paranormal activity is on the rise and it\u2019s up to you and your team to use all the ghost-hunting equipment at your disposal in order to gather as much evidence as you can.",
+  "developers": [
+    "Kinetic Games"
+  ],
+  "publishers": [
+    "Kinetic Games"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "18 Sep, 2020",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Tracked Controller Support",
+    "VR Supported",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "Early Access"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 19.5,
+    "initial_price": 19.5,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Horror": 4450,
+    "Online Co-Op": 2973,
+    "Multiplayer": 2702,
+    "Psychological Horror": 2151,
+    "Co-op": 1866,
+    "Supernatural": 1586,
+    "VR": 1585,
+    "First-Person": 1445,
+    "Investigation": 1364,
+    "Dark": 1032,
+    "Demons": 956,
+    "Detective": 952,
+    "Mystery": 894,
+    "Thriller": 668,
+    "3D": 661,
+    "Early Access": 640,
+    "Indie": 582,
+    "Action": 486,
+    "Tactical": 478,
+    "Singleplayer": 389
+  },
+  "collected_at": "2025-10-24 13:00:05"
+}

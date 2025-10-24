@@ -1,0 +1,71 @@
+{
+  "app_id": 990080,
+  "name": "Hogwarts Legacy",
+  "type": "game",
+  "description": "Hogwarts Legacy is an immersive, open-world action RPG. Now you can take control of the action and be at the center of your own adventure in the wizarding world.",
+  "developers": [
+    "Avalanche Software"
+  ],
+  "publishers": [
+    "Warner Bros. Games"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "10 Feb, 2023",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 83,
+  "metacritic_url": "https://www.metacritic.com/game/pc/hogwarts-legacy?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "In-App Purchases",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Narrated Game Menus",
+    "Save Anytime",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "HDR available",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 59.99,
+    "initial_price": 59.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Magic": 4389,
+    "Open World": 3712,
+    "Fantasy": 3690,
+    "Singleplayer": 3380,
+    "Adventure": 3230,
+    "RPG": 3013,
+    "Character Customization": 2738,
+    "Exploration": 2279,
+    "Story Rich": 2021,
+    "Third Person": 1920,
+    "Action-Adventure": 1802,
+    "Atmospheric": 1650,
+    "Action RPG": 1626,
+    "Action": 1435,
+    "Combat": 1427,
+    "Choices Matter": 1102,
+    "Puzzle": 1035,
+    "Great Soundtrack": 906,
+    "Dark": 872,
+    "Family Friendly": 628
+  },
+  "collected_at": "2025-10-24 12:59:51"
+}

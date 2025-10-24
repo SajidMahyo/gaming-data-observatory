@@ -1,0 +1,74 @@
+{
+  "app_id": 1245620,
+  "name": "ELDEN RING",
+  "type": "game",
+  "description": "THE CRITICALLY ACCLAIMED FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
+  "developers": [
+    "FromSoftware, Inc."
+  ],
+  "publishers": [
+    "FromSoftware, Inc.",
+    "Bandai Namco Entertainment"
+  ],
+  "is_free": false,
+  "required_age": "16",
+  "release_date": "24 Feb, 2022",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 94,
+  "metacritic_url": "https://www.metacritic.com/game/pc/elden-ring?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Playable without Timed Input",
+    "Save Anytime",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 59.99,
+    "initial_price": 59.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Souls-like": 6994,
+    "Open World": 5078,
+    "Dark Fantasy": 4953,
+    "RPG": 4707,
+    "Difficult": 4595,
+    "Action RPG": 3584,
+    "Third Person": 3403,
+    "Multiplayer": 3395,
+    "Fantasy": 3226,
+    "Singleplayer": 3119,
+    "Online Co-Op": 3021,
+    "Action": 2840,
+    "Co-op": 2446,
+    "Atmospheric": 2387,
+    "PvP": 2360,
+    "Great Soundtrack": 2351,
+    "Violent": 2279,
+    "3D": 2066,
+    "Character Customization": 1351,
+    "Family Friendly": 1328
+  },
+  "collected_at": "2025-10-24 12:59:15"
+}

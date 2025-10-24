@@ -1,0 +1,75 @@
+{
+  "app_id": 440,
+  "name": "Team Fortress 2",
+  "type": "game",
+  "description": "Nine distinct classes provide a broad range of tactical abilities and personalities. Constantly updated with new game modes, maps, equipment and, most importantly, hats!",
+  "developers": [
+    "Valve"
+  ],
+  "publishers": [
+    "Valve"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "10 Oct, 2007",
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "metacritic_score": 92,
+  "metacritic_url": "https://www.metacritic.com/game/pc/team-fortress-2?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Multi-player",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Captions available",
+    "Steam Workshop",
+    "In-App Purchases",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Stereo Sound",
+    "Surround Sound",
+    "Partial Controller Support",
+    "Valve Anti-Cheat enabled",
+    "Stats",
+    "Includes level editor",
+    "Commentary available",
+    "Remote Play on Phone",
+    "Remote Play on Tablet"
+  ],
+  "genres": [
+    "Action",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Free to Play": 62968,
+    "Hero Shooter": 61037,
+    "Multiplayer": 22968,
+    "FPS": 15857,
+    "Shooter": 12862,
+    "Action": 12193,
+    "Class-Based": 10028,
+    "Team-Based": 9592,
+    "Funny": 9564,
+    "First-Person": 8040,
+    "Online Co-Op": 7427,
+    "Competitive": 7181,
+    "Cartoony": 7169,
+    "Trading": 6881,
+    "Co-op": 5902,
+    "Comedy": 5482,
+    "Robots": 5051,
+    "Tactical": 4066,
+    "Cartoon": 4016,
+    "Crafting": 3739
+  },
+  "collected_at": "2025-10-24 12:58:51"
+}

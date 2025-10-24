@@ -1,0 +1,74 @@
+{
+  "app_id": 413150,
+  "name": "Stardew Valley",
+  "type": "game",
+  "description": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?",
+  "developers": [
+    "ConcernedApe"
+  ],
+  "publishers": [
+    "ConcernedApe"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "26 Feb, 2016",
+  "platforms": [
+    "windows",
+    "mac",
+    "linux"
+  ],
+  "metacritic_score": 89,
+  "metacritic_url": "https://www.metacritic.com/game/pc/stardew-valley?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "LAN Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "genres": [
+    "Indie",
+    "RPG",
+    "Simulation"
+  ],
+  "price_info": {
+    "currency": "HKD",
+    "price": 99.0,
+    "initial_price": 99.0,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Farming Sim": 7935,
+    "Pixel Graphics": 7389,
+    "Multiplayer": 7278,
+    "Life Sim": 7246,
+    "RPG": 6530,
+    "Relaxing": 6286,
+    "Agriculture": 5335,
+    "Simulation": 5307,
+    "Crafting": 4480,
+    "Sandbox": 4378,
+    "Indie": 4324,
+    "Building": 3620,
+    "Singleplayer": 3359,
+    "Casual": 3356,
+    "Open World": 3328,
+    "2D": 2997,
+    "Dating Sim": 2824,
+    "Cute": 2814,
+    "Great Soundtrack": 2561,
+    "Fishing": 2287
+  },
+  "collected_at": "2025-10-24 12:59:34"
+}

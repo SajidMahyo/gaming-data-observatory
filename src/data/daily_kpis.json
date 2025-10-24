@@ -1,93 +1,552 @@
 [
   {
+    "date":"2025-10-24",
+    "game_name":"Counter-Strike 2",
+    "app_id":730,
+    "avg_ccu":808754.6153846154,
+    "peak_ccu":1415625,
+    "min_ccu":618438,
+    "samples":13
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Dota 2",
+    "app_id":570,
+    "avg_ccu":434378.6153846154,
+    "peak_ccu":659039,
+    "min_ccu":373826,
+    "samples":13
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"PUBG: BATTLEGROUNDS",
+    "app_id":578080,
+    "avg_ccu":235152.1538461538,
+    "peak_ccu":590003,
+    "min_ccu":78350,
+    "samples":13
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Apex Legends",
+    "app_id":1172470,
+    "avg_ccu":60467.6153846154,
+    "peak_ccu":139674,
+    "min_ccu":39041,
+    "samples":13
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Rust",
+    "app_id":252490,
+    "avg_ccu":75726.9090909091,
+    "peak_ccu":123074,
+    "min_ccu":59938,
+    "samples":11
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Wallpaper Engine",
+    "app_id":431960,
+    "avg_ccu":103297.0,
+    "peak_ccu":103297,
+    "min_ccu":103297,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Grand Theft Auto V",
+    "app_id":271590,
+    "avg_ccu":49695.5384615385,
+    "peak_ccu":93743,
+    "min_ccu":30862,
+    "samples":13
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"War Thunder",
+    "app_id":236390,
+    "avg_ccu":57917.6666666667,
+    "peak_ccu":79575,
+    "min_ccu":47089,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"NARAKA: BLADEPOINT",
+    "app_id":1203220,
+    "avg_ccu":72975.0,
+    "peak_ccu":72975,
+    "min_ccu":72975,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Warframe",
+    "app_id":230410,
+    "avg_ccu":49895.6666666667,
+    "peak_ccu":61405,
+    "min_ccu":44141,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Monster Hunter Wilds",
+    "app_id":2246340,
+    "avg_ccu":37606.0,
+    "peak_ccu":56078,
+    "min_ccu":28370,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Stardew Valley",
+    "app_id":413150,
+    "avg_ccu":53723.0,
+    "peak_ccu":53723,
+    "min_ccu":53723,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Team Fortress 2",
+    "app_id":440,
+    "avg_ccu":34011.8181818182,
+    "peak_ccu":44887,
+    "min_ccu":27925,
+    "samples":11
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Call of Duty",
+    "app_id":1938090,
+    "avg_ccu":28036.6363636364,
+    "peak_ccu":44281,
+    "min_ccu":17104,
+    "samples":11
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Dead by Daylight",
+    "app_id":381210,
+    "avg_ccu":38382.0,
+    "peak_ccu":38382,
+    "min_ccu":38382,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Palworld",
+    "app_id":1623730,
+    "avg_ccu":24189.1818181818,
+    "peak_ccu":37972,
+    "min_ccu":19557,
+    "samples":11
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"World of Warships",
+    "app_id":552990,
+    "avg_ccu":32416.0,
+    "peak_ccu":32416,
+    "min_ccu":32416,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Elden Ring",
+    "app_id":2357570,
+    "avg_ccu":23235.8181818182,
+    "peak_ccu":29774,
+    "min_ccu":16211,
+    "samples":11
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Baldur's Gate 3",
+    "app_id":1086940,
+    "avg_ccu":28570.0,
+    "peak_ccu":28570,
+    "min_ccu":28570,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"New World: Aeternum",
+    "app_id":1063730,
+    "avg_ccu":23651.0,
+    "peak_ccu":28051,
+    "min_ccu":21451,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"HELLDIVERS 2",
+    "app_id":553850,
+    "avg_ccu":20713.3333333333,
+    "peak_ccu":27688,
+    "min_ccu":17226,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"ELDEN RING",
+    "app_id":1245620,
+    "avg_ccu":19477.3333333333,
+    "peak_ccu":24954,
+    "min_ccu":16739,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"VRChat",
+    "app_id":438100,
+    "avg_ccu":24867.0,
+    "peak_ccu":24867,
+    "min_ccu":24867,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Left 4 Dead 2",
+    "app_id":550,
+    "avg_ccu":16342.6666666667,
+    "peak_ccu":24434,
+    "min_ccu":12297,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Euro Truck Simulator 2",
+    "app_id":227300,
+    "avg_ccu":24328.0,
+    "peak_ccu":24328,
+    "min_ccu":24328,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Tom Clancy's Rainbow Six Siege",
+    "app_id":359550,
+    "avg_ccu":24047.0,
+    "peak_ccu":24047,
+    "min_ccu":24047,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Cyberpunk 2077",
+    "app_id":1091500,
+    "avg_ccu":23087.0,
+    "peak_ccu":23087,
+    "min_ccu":23087,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"PAYDAY 2",
+    "app_id":218620,
+    "avg_ccu":22952.0,
+    "peak_ccu":22952,
+    "min_ccu":22952,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Path of Exile 2",
+    "app_id":2694490,
+    "avg_ccu":21338.0,
+    "peak_ccu":21338,
+    "min_ccu":21338,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Black Myth: Wukong",
+    "app_id":2358720,
+    "avg_ccu":15981.0,
+    "peak_ccu":21115,
+    "min_ccu":13414,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Terraria",
+    "app_id":105600,
+    "avg_ccu":19587.0,
+    "peak_ccu":19587,
+    "min_ccu":19587,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"ARK: Survival Evolved",
+    "app_id":346110,
+    "avg_ccu":16747.0,
+    "peak_ccu":16747,
+    "min_ccu":16747,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Hogwarts Legacy",
+    "app_id":990080,
+    "avg_ccu":16672.0,
+    "peak_ccu":16672,
+    "min_ccu":16672,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Garry's Mod",
+    "app_id":4000,
+    "avg_ccu":14735.0,
+    "peak_ccu":14735,
+    "min_ccu":14735,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Valheim",
+    "app_id":892970,
+    "avg_ccu":12709.0,
+    "peak_ccu":12709,
+    "min_ccu":12709,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Unturned",
+    "app_id":304930,
+    "avg_ccu":9965.0,
+    "peak_ccu":10981,
+    "min_ccu":9457,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Destiny 2",
+    "app_id":1085660,
+    "avg_ccu":10285.0,
+    "peak_ccu":10285,
+    "min_ccu":10285,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"The Witcher 3: Wild Hunt",
+    "app_id":292030,
+    "avg_ccu":10238.0,
+    "peak_ccu":10238,
+    "min_ccu":10238,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Lost Ark",
+    "app_id":1599340,
+    "avg_ccu":8989.0,
+    "peak_ccu":9991,
+    "min_ccu":8488,
+    "samples":3
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Phasmophobia",
+    "app_id":739630,
+    "avg_ccu":7265.0,
+    "peak_ccu":7265,
+    "min_ccu":7265,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Brawlhalla",
+    "app_id":291550,
+    "avg_ccu":6364.0,
+    "peak_ccu":6364,
+    "min_ccu":6364,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Path of Exile",
+    "app_id":238960,
+    "avg_ccu":4653.0,
+    "peak_ccu":4653,
+    "min_ccu":4653,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"The Forest",
+    "app_id":242760,
+    "avg_ccu":3063.0,
+    "peak_ccu":3063,
+    "min_ccu":3063,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Among Us",
+    "app_id":945360,
+    "avg_ccu":2489.0,
+    "peak_ccu":2489,
+    "min_ccu":2489,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Last Epoch",
+    "app_id":899770,
+    "avg_ccu":1962.0,
+    "peak_ccu":1962,
+    "min_ccu":1962,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Borderlands 2",
+    "app_id":49520,
+    "avg_ccu":1746.0,
+    "peak_ccu":1746,
+    "min_ccu":1746,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Paladins",
+    "app_id":444090,
+    "avg_ccu":526.0,
+    "peak_ccu":526,
+    "min_ccu":526,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Fall Guys: Ultimate Knockout",
+    "app_id":1097150,
+    "avg_ccu":304.0,
+    "peak_ccu":304,
+    "min_ccu":304,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"War Robots: Frontiers",
+    "app_id":1491000,
+    "avg_ccu":219.0,
+    "peak_ccu":219,
+    "min_ccu":219,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Warface: Clutch",
+    "app_id":291480,
+    "avg_ccu":217.0,
+    "peak_ccu":217,
+    "min_ccu":217,
+    "samples":2
+  },
+  {
+    "date":"2025-10-24",
+    "game_name":"Half-Life 2: Lost Coast",
+    "app_id":340,
+    "avg_ccu":1.0,
+    "peak_ccu":1,
+    "min_ccu":1,
+    "samples":2
+  },
+  {
     "date":"2025-10-23",
     "game_name":"Counter-Strike 2",
     "app_id":730,
-    "avg_ccu":997845.4210526316,
+    "avg_ccu":978913.5238095238,
     "peak_ccu":1539350,
     "min_ccu":661490,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"Dota 2",
     "app_id":570,
-    "avg_ccu":504234.0,
+    "avg_ccu":498454.8095238095,
     "peak_ccu":725211,
     "min_ccu":352202,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
-    "avg_ccu":297803.3684210526,
+    "avg_ccu":278600.9047619047,
     "peak_ccu":622406,
     "min_ccu":83456,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"Apex Legends",
     "app_id":1172470,
-    "avg_ccu":69865.0,
+    "avg_ccu":67023.5238095238,
     "peak_ccu":148819,
     "min_ccu":17658,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"Rust",
     "app_id":252490,
-    "avg_ccu":73341.2631578947,
+    "avg_ccu":75323.1904761905,
     "peak_ccu":122275,
     "min_ccu":46416,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
-    "avg_ccu":51886.7894736842,
+    "avg_ccu":51164.3333333333,
     "peak_ccu":79750,
     "min_ccu":28369,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"Team Fortress 2",
     "app_id":440,
-    "avg_ccu":33878.3684210526,
+    "avg_ccu":34696.8571428571,
     "peak_ccu":48221,
     "min_ccu":21604,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"Call of Duty",
     "app_id":1938090,
-    "avg_ccu":28818.7894736842,
+    "avg_ccu":30050.2857142857,
     "peak_ccu":43228,
     "min_ccu":16889,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"Palworld",
     "app_id":1623730,
-    "avg_ccu":25093.5263157895,
+    "avg_ccu":24499.4285714286,
     "peak_ccu":38261,
     "min_ccu":18253,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-23",
     "game_name":"Elden Ring",
     "app_id":2357570,
-    "avg_ccu":24578.7368421053,
+    "avg_ccu":24964.7142857143,
     "peak_ccu":32565,
     "min_ccu":15912,
-    "samples":19
+    "samples":21
   },
   {
     "date":"2025-10-22",

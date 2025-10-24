@@ -1,0 +1,72 @@
+{
+  "app_id": 238960,
+  "name": "Path of Exile",
+  "type": "game",
+  "description": "You are an Exile, struggling to survive on the dark continent of Wraeclast, as you fight to earn power that will allow you to exact your revenge against those who wronged you. Path of Exile is an online Action RPG set in a dark fantasy world. The game is completely free and will never be pay-to-win.",
+  "developers": [
+    "Grinding Gear Games"
+  ],
+  "publishers": [
+    "Grinding Gear Games"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "23 Oct, 2013",
+  "platforms": [
+    "windows",
+    "mac"
+  ],
+  "metacritic_score": 86,
+  "metacritic_url": "https://www.metacritic.com/game/pc/path-of-exile?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "MMO",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "In-App Purchases",
+    "Remote Play on Tablet"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Massively Multiplayer",
+    "RPG",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Free to Play": 17303,
+    "Dark Fantasy": 3967,
+    "Action RPG": 3907,
+    "Hack and Slash": 3568,
+    "Loot": 3205,
+    "MMORPG": 3165,
+    "Multiplayer": 3135,
+    "Dungeon Crawler": 3107,
+    "Isometric": 3088,
+    "Character Customization": 3068,
+    "RPG": 3066,
+    "Online Co-Op": 3040,
+    "Singleplayer": 3036,
+    "Inventory Management": 3032,
+    "Action": 3016,
+    "PvP": 2983,
+    "Horror": 2973,
+    "Massively Multiplayer": 2244,
+    "Fantasy": 1444,
+    "Adventure": 1331
+  },
+  "collected_at": "2025-10-24 12:59:39"
+}

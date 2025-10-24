@@ -1,0 +1,73 @@
+{
+  "app_id": 1938090,
+  "name": "Call of Duty\u00ae",
+  "type": "game",
+  "description": "The Call of Duty\u00ae experience supports Call of Duty\u00ae: Black Ops 7, Call of Duty\u00ae: Black Ops 6, and Call of Duty\u00ae: Warzone\u2122.",
+  "developers": [
+    "Treyarch",
+    "Raven Software",
+    "Beenox",
+    "High Moon Studios",
+    "Activision Shanghai",
+    "Sledgehammer Games",
+    "Infinity Ward",
+    "Demonware",
+    "Toys for Bob"
+  ],
+  "publishers": [
+    "Activision"
+  ],
+  "is_free": false,
+  "required_age": "18",
+  "release_date": "27 Oct, 2022",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Captions available",
+    "In-App Purchases"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "FPS": 2144,
+    "Multiplayer": 1900,
+    "Shooter": 1803,
+    "Singleplayer": 1750,
+    "Action": 1734,
+    "Military": 1658,
+    "First-Person": 1573,
+    "War": 1518,
+    "Modern": 1422,
+    "Tactical": 1338,
+    "Violent": 1327,
+    "Co-op": 1304,
+    "Realistic": 1283,
+    "Story Rich": 1233,
+    "Atmospheric": 1061,
+    "Mature": 568,
+    "Online Co-Op": 499,
+    "Gore": 370,
+    "Third-Person Shooter": 263,
+    "Third Person": 259
+  },
+  "collected_at": "2025-10-24 12:58:54"
+}

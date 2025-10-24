@@ -1,0 +1,66 @@
+{
+  "app_id": 359550,
+  "name": "Tom Clancy's Rainbow Six\u00ae Siege X",
+  "type": "game",
+  "description": "Rainbow Six Siege X is the reference in tactical team shooters, where elite strategy and execution triumph. Enjoy free access to Quick Match, Unranked and Dual Front game modes with a selection of operators.",
+  "developers": [
+    "Ubisoft Montreal"
+  ],
+  "publishers": [
+    "Ubisoft"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "1 Dec, 2015",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Full controller support",
+    "Steam Trading Cards",
+    "In-App Purchases",
+    "Remote Play on Phone",
+    "Remote Play on Tablet"
+  ],
+  "genres": [
+    "Action",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "FPS": 9892,
+    "PvP": 9194,
+    "Multiplayer": 9103,
+    "Tactical": 9103,
+    "e-sports": 9102,
+    "Shooter": 9091,
+    "Competitive": 9007,
+    "Online Co-Op": 8969,
+    "Action": 8949,
+    "Hero Shooter": 8901,
+    "Team-Based": 5663,
+    "Military": 4984,
+    "Strategy": 4941,
+    "First-Person": 4927,
+    "Co-op": 4900,
+    "Realistic": 4887,
+    "War": 4879,
+    "Destruction": 4879,
+    "Difficult": 2123,
+    "3D": 1907
+  },
+  "collected_at": "2025-10-24 12:59:29"
+}

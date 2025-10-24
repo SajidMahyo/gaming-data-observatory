@@ -41,6 +41,23 @@ jobs:
         run: uv sync --all-extras
 
       # ========================================================================
+      # DISCOVER NEW GAMES (once per day at 8 AM UTC)
+      # ========================================================================
+
+      - name: Discover new games (daily at 8 AM UTC)
+        run: |
+          HOUR=$(date -u +%H)
+          if [ "$HOUR" = "08" ]; then
+            echo "🔍 Discovering new games from multiple sources..."
+            uv run python -m python.main discover \
+              --top-limit 100 \
+              --trending-limit 50
+            echo "✅ Game discovery complete"
+          else
+            echo "⏭️  Skipping discovery (runs only at 8 AM UTC, current hour: $HOUR)"
+          fi
+
+      # ========================================================================
       # COLLECT STEAM DATA
       # ========================================================================
 
@@ -55,41 +72,7 @@ jobs:
       # ========================================================================
 
       - name: Load data into DuckDB
-        run: |
-          echo "💾 Loading Parquet files into DuckDB..."
-          uv run python -c "
-          from pathlib import Path
-          import pandas as pd
-          from python.storage.duckdb_manager import DuckDBManager
-
-          db_path = Path('data/duckdb/gaming.db')
-          parquet_path = Path('data/raw/steam')
-
-          # Find all parquet files
-          parquet_files = list(parquet_path.rglob('*.parquet'))
-
-          if parquet_files:
-              with DuckDBManager(db_path=db_path) as db:
-                  # Read all parquet files into DuckDB
-                  db.query('''
-                      CREATE TABLE IF NOT EXISTS steam_raw AS
-                      SELECT * FROM read_parquet('data/raw/steam/**/*.parquet')
-                  ''')
-
-                  # Insert new data (avoiding duplicates)
-                  db.query('''
-                      INSERT INTO steam_raw
-                      SELECT * FROM read_parquet('data/raw/steam/**/*.parquet')
-                      WHERE NOT EXISTS (
-                          SELECT 1 FROM steam_raw s
-                          WHERE s.timestamp = read_parquet.timestamp
-                          AND s.app_id = read_parquet.app_id
-                      )
-                  ''')
-              print(f'✅ Loaded {len(parquet_files)} parquet files into DuckDB')
-          else:
-              print('⚠️  No parquet files found')
-          "
+        run: uv run python -m python.main store
 
       # ========================================================================
       # AGGREGATE KPIs

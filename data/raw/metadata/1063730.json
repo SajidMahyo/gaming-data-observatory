@@ -1,0 +1,79 @@
+{
+  "app_id": 1063730,
+  "name": "New World: Aeternum",
+  "type": "game",
+  "description": "Experience a thrilling action RPG set on the supernatural island of Aeternum. Forge your destiny on an adventure filled with danger and opportunity.",
+  "developers": [
+    "Amazon Games"
+  ],
+  "publishers": [
+    "Amazon Games"
+  ],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "28 Sep, 2021",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Multi-player",
+    "MMO",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "In-App Purchases",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Chat Speech-to-text",
+    "Chat Text-to-speech",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Keyboard Only Option",
+    "Playable without Timed Input",
+    "Save Anytime",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Partial Controller Support"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Massively Multiplayer",
+    "RPG"
+  ],
+  "price_info": {
+    "currency": "EUR",
+    "price": 59.99,
+    "initial_price": 59.99,
+    "is_free": false,
+    "discount": 0
+  },
+  "tags": {
+    "Open World": 841,
+    "Massively Multiplayer": 805,
+    "MMORPG": 784,
+    "RPG": 652,
+    "Adventure": 575,
+    "Action": 495,
+    "PvP": 481,
+    "PvE": 469,
+    "Multiplayer": 406,
+    "Fantasy": 343,
+    "Character Customization": 335,
+    "Walking Simulator": 307,
+    "Crafting": 294,
+    "Third Person": 262,
+    "Co-op": 220,
+    "Open World Survival Craft": 218,
+    "Sandbox": 171,
+    "Violent": 157,
+    "Sexual Content": 126,
+    "Singleplayer": 103
+  },
+  "collected_at": "2025-10-24 12:59:00"
+}

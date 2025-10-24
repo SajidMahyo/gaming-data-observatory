@@ -1,0 +1,65 @@
+{
+  "app_id": 1203220,
+  "name": "NARAKA: BLADEPOINT",
+  "type": "game",
+  "description": "Dive into the legends of the Far East in NARAKA: BLADEPOINT; team up with friends in fast-paced melee fights for a Battle Royale experience unlike any other. Find your playstyle with a varied cast of heroes with unique skills. More than 20 million players have already joined the fray, play free now!",
+  "developers": [
+    "24 Entertainment"
+  ],
+  "publishers": [
+    "NetEase Games Global"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "11 Aug, 2021",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": null,
+  "metacritic_url": null,
+  "categories": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "In-App Purchases",
+    "Partial Controller Support",
+    "HDR available"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Massively Multiplayer",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Battle Royale": 1119,
+    "Multiplayer": 1108,
+    "Martial Arts": 975,
+    "Mature": 941,
+    "PvP": 935,
+    "Action": 906,
+    "Female Protagonist": 901,
+    "Character Customization": 892,
+    "Massively Multiplayer": 868,
+    "Fighting": 867,
+    "Survival": 861,
+    "Third Person": 854,
+    "Swordplay": 829,
+    "Hack and Slash": 820,
+    "Anime": 779,
+    "Parkour": 741,
+    "Adventure": 726,
+    "Free to Play": 645,
+    "Violent": 377,
+    "Gore": 289
+  },
+  "collected_at": "2025-10-24 13:00:09"
+}

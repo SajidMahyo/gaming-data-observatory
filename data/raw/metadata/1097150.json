@@ -1,0 +1,67 @@
+{
+  "app_id": 1097150,
+  "name": "Fall Guys",
+  "type": "game",
+  "description": "Fall Guys is a free, cross-platform massively multiplayer party royale game. Clumsily compete in absurd obstacle courses with friends or build your very own chaotic course to share with the community.",
+  "developers": [
+    "Mediatonic"
+  ],
+  "publishers": [],
+  "is_free": false,
+  "required_age": 0,
+  "release_date": "3 Aug, 2020",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 80,
+  "metacritic_url": "https://www.metacritic.com/game/pc/fall-guys-ultimate-knockout?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Multi-player",
+    "MMO",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "In-App Purchases",
+    "Partial Controller Support",
+    "Remote Play on Phone",
+    "Remote Play on Tablet"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie",
+    "Massively Multiplayer",
+    "Sports"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Multiplayer": 1604,
+    "Party Game": 1539,
+    "Battle Royale": 1533,
+    "Family Friendly": 1531,
+    "Massively Multiplayer": 1489,
+    "Platformer": 1319,
+    "Cute": 1314,
+    "Funny": 1311,
+    "PvP": 1286,
+    "3D Platformer": 1267,
+    "Controller": 960,
+    "Casual": 953,
+    "Colorful": 948,
+    "Action": 934,
+    "Online Co-Op": 917,
+    "Co-op": 910,
+    "Comedy": 906,
+    "Physics": 897,
+    "Indie": 422,
+    "Difficult": 209
+  },
+  "collected_at": "2025-10-24 12:59:58"
+}

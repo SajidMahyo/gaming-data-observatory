@@ -1,0 +1,65 @@
+{
+  "app_id": 1085660,
+  "name": "Destiny 2",
+  "type": "game",
+  "description": "Destiny 2 is an action MMO with a single evolving world that you and your friends can join anytime, anywhere, absolutely free.",
+  "developers": [
+    "Bungie"
+  ],
+  "publishers": [
+    "Bungie"
+  ],
+  "is_free": true,
+  "required_age": 0,
+  "release_date": "1 Oct, 2019",
+  "platforms": [
+    "windows"
+  ],
+  "metacritic_score": 83,
+  "metacritic_url": "https://www.metacritic.com/game/pc/destiny-2?ftag=MCD-06-10aaa1f",
+  "categories": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "In-App Purchases",
+    "Partial Controller Support"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Free To Play"
+  ],
+  "price_info": {
+    "currency": "USD",
+    "price": 0,
+    "is_free": true,
+    "discount": 0
+  },
+  "tags": {
+    "Free to Play": 3565,
+    "Open World": 3106,
+    "Multiplayer": 3066,
+    "Looter Shooter": 3061,
+    "MMORPG": 3025,
+    "FPS": 3005,
+    "Co-op": 2969,
+    "PvE": 2862,
+    "PvP": 2783,
+    "Shooter": 2673,
+    "Massively Multiplayer": 2544,
+    "Loot": 2539,
+    "First-Person": 2505,
+    "Sci-fi": 2485,
+    "Action": 2471,
+    "Adventure": 2400,
+    "Lore-Rich": 2381,
+    "Space": 2364,
+    "Competitive": 2219,
+    "Atmospheric": 2210
+  },
+  "collected_at": "2025-10-24 12:59:27"
+}

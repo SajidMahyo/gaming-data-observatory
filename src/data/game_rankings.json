@@ -2,71 +2,358 @@
   {
     "game_name":"Counter-Strike 2",
     "app_id":730,
-    "avg_peak":1294689.0,
+    "avg_peak":1335001.0,
     "all_time_peak":1539350,
-    "days_tracked":2
+    "days_tracked":3
   },
   {
     "game_name":"Dota 2",
     "app_id":570,
-    "avg_peak":658531.5,
+    "avg_peak":658700.6666666666,
     "all_time_peak":725211,
-    "days_tracked":2
+    "days_tracked":3
   },
   {
     "game_name":"PUBG: BATTLEGROUNDS",
     "app_id":578080,
-    "avg_peak":401317.5,
+    "avg_peak":464212.6666666667,
     "all_time_peak":622406,
-    "days_tracked":2
-  },
-  {
-    "game_name":"Rust",
-    "app_id":252490,
-    "avg_peak":107759.0,
-    "all_time_peak":122275,
-    "days_tracked":2
+    "days_tracked":3
   },
   {
     "game_name":"Apex Legends",
     "app_id":1172470,
-    "avg_peak":100154.5,
+    "avg_peak":113327.6666666667,
     "all_time_peak":148819,
-    "days_tracked":2
+    "days_tracked":3
+  },
+  {
+    "game_name":"Rust",
+    "app_id":252490,
+    "avg_peak":112864.0,
+    "all_time_peak":123074,
+    "days_tracked":3
+  },
+  {
+    "game_name":"Wallpaper Engine",
+    "app_id":431960,
+    "avg_peak":103297.0,
+    "all_time_peak":103297,
+    "days_tracked":1
+  },
+  {
+    "game_name":"War Thunder",
+    "app_id":236390,
+    "avg_peak":79575.0,
+    "all_time_peak":79575,
+    "days_tracked":1
   },
   {
     "game_name":"Grand Theft Auto V",
     "app_id":271590,
-    "avg_peak":69890.5,
-    "all_time_peak":79750,
-    "days_tracked":2
+    "avg_peak":77841.3333333333,
+    "all_time_peak":93743,
+    "days_tracked":3
+  },
+  {
+    "game_name":"NARAKA: BLADEPOINT",
+    "app_id":1203220,
+    "avg_peak":72975.0,
+    "all_time_peak":72975,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Warframe",
+    "app_id":230410,
+    "avg_peak":61405.0,
+    "all_time_peak":61405,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Monster Hunter Wilds",
+    "app_id":2246340,
+    "avg_peak":56078.0,
+    "all_time_peak":56078,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Stardew Valley",
+    "app_id":413150,
+    "avg_peak":53723.0,
+    "all_time_peak":53723,
+    "days_tracked":1
   },
   {
     "game_name":"Team Fortress 2",
     "app_id":440,
-    "avg_peak":42952.0,
+    "avg_peak":43597.0,
     "all_time_peak":48221,
-    "days_tracked":2
+    "days_tracked":3
   },
   {
     "game_name":"Call of Duty",
     "app_id":1938090,
-    "avg_peak":41969.0,
-    "all_time_peak":43228,
-    "days_tracked":2
+    "avg_peak":42739.6666666667,
+    "all_time_peak":44281,
+    "days_tracked":3
   },
   {
-    "game_name":"Elden Ring",
-    "app_id":2357570,
-    "avg_peak":32822.5,
-    "all_time_peak":33080,
-    "days_tracked":2
+    "game_name":"Dead by Daylight",
+    "app_id":381210,
+    "avg_peak":38382.0,
+    "all_time_peak":38382,
+    "days_tracked":1
+  },
+  {
+    "game_name":"World of Warships",
+    "app_id":552990,
+    "avg_peak":32416.0,
+    "all_time_peak":32416,
+    "days_tracked":1
   },
   {
     "game_name":"Palworld",
     "app_id":1623730,
-    "avg_peak":29245.0,
+    "avg_peak":32154.0,
     "all_time_peak":38261,
-    "days_tracked":2
+    "days_tracked":3
+  },
+  {
+    "game_name":"Elden Ring",
+    "app_id":2357570,
+    "avg_peak":31806.3333333333,
+    "all_time_peak":33080,
+    "days_tracked":3
+  },
+  {
+    "game_name":"Baldur's Gate 3",
+    "app_id":1086940,
+    "avg_peak":28570.0,
+    "all_time_peak":28570,
+    "days_tracked":1
+  },
+  {
+    "game_name":"New World: Aeternum",
+    "app_id":1063730,
+    "avg_peak":28051.0,
+    "all_time_peak":28051,
+    "days_tracked":1
+  },
+  {
+    "game_name":"HELLDIVERS 2",
+    "app_id":553850,
+    "avg_peak":27688.0,
+    "all_time_peak":27688,
+    "days_tracked":1
+  },
+  {
+    "game_name":"ELDEN RING",
+    "app_id":1245620,
+    "avg_peak":24954.0,
+    "all_time_peak":24954,
+    "days_tracked":1
+  },
+  {
+    "game_name":"VRChat",
+    "app_id":438100,
+    "avg_peak":24867.0,
+    "all_time_peak":24867,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Left 4 Dead 2",
+    "app_id":550,
+    "avg_peak":24434.0,
+    "all_time_peak":24434,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Euro Truck Simulator 2",
+    "app_id":227300,
+    "avg_peak":24328.0,
+    "all_time_peak":24328,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Tom Clancy's Rainbow Six Siege",
+    "app_id":359550,
+    "avg_peak":24047.0,
+    "all_time_peak":24047,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Cyberpunk 2077",
+    "app_id":1091500,
+    "avg_peak":23087.0,
+    "all_time_peak":23087,
+    "days_tracked":1
+  },
+  {
+    "game_name":"PAYDAY 2",
+    "app_id":218620,
+    "avg_peak":22952.0,
+    "all_time_peak":22952,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Path of Exile 2",
+    "app_id":2694490,
+    "avg_peak":21338.0,
+    "all_time_peak":21338,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Black Myth: Wukong",
+    "app_id":2358720,
+    "avg_peak":21115.0,
+    "all_time_peak":21115,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Terraria",
+    "app_id":105600,
+    "avg_peak":19587.0,
+    "all_time_peak":19587,
+    "days_tracked":1
+  },
+  {
+    "game_name":"ARK: Survival Evolved",
+    "app_id":346110,
+    "avg_peak":16747.0,
+    "all_time_peak":16747,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Hogwarts Legacy",
+    "app_id":990080,
+    "avg_peak":16672.0,
+    "all_time_peak":16672,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Garry's Mod",
+    "app_id":4000,
+    "avg_peak":14735.0,
+    "all_time_peak":14735,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Valheim",
+    "app_id":892970,
+    "avg_peak":12709.0,
+    "all_time_peak":12709,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Unturned",
+    "app_id":304930,
+    "avg_peak":10981.0,
+    "all_time_peak":10981,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Destiny 2",
+    "app_id":1085660,
+    "avg_peak":10285.0,
+    "all_time_peak":10285,
+    "days_tracked":1
+  },
+  {
+    "game_name":"The Witcher 3: Wild Hunt",
+    "app_id":292030,
+    "avg_peak":10238.0,
+    "all_time_peak":10238,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Lost Ark",
+    "app_id":1599340,
+    "avg_peak":9991.0,
+    "all_time_peak":9991,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Phasmophobia",
+    "app_id":739630,
+    "avg_peak":7265.0,
+    "all_time_peak":7265,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Brawlhalla",
+    "app_id":291550,
+    "avg_peak":6364.0,
+    "all_time_peak":6364,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Path of Exile",
+    "app_id":238960,
+    "avg_peak":4653.0,
+    "all_time_peak":4653,
+    "days_tracked":1
+  },
+  {
+    "game_name":"The Forest",
+    "app_id":242760,
+    "avg_peak":3063.0,
+    "all_time_peak":3063,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Among Us",
+    "app_id":945360,
+    "avg_peak":2489.0,
+    "all_time_peak":2489,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Last Epoch",
+    "app_id":899770,
+    "avg_peak":1962.0,
+    "all_time_peak":1962,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Borderlands 2",
+    "app_id":49520,
+    "avg_peak":1746.0,
+    "all_time_peak":1746,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Paladins",
+    "app_id":444090,
+    "avg_peak":526.0,
+    "all_time_peak":526,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Fall Guys: Ultimate Knockout",
+    "app_id":1097150,
+    "avg_peak":304.0,
+    "all_time_peak":304,
+    "days_tracked":1
+  },
+  {
+    "game_name":"War Robots: Frontiers",
+    "app_id":1491000,
+    "avg_peak":219.0,
+    "all_time_peak":219,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Warface: Clutch",
+    "app_id":291480,
+    "avg_peak":217.0,
+    "all_time_peak":217,
+    "days_tracked":1
+  },
+  {
+    "game_name":"Half-Life 2: Lost Coast",
+    "app_id":340,
+    "avg_peak":1.0,
+    "all_time_peak":1,
+    "days_tracked":1
   }
 ]
