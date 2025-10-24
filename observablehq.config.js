@@ -59,7 +59,7 @@ export default {
           border: 1px solid rgba(96, 165, 250, 0.3);
         " onmouseover="this.style.background='linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(147, 51, 234, 0.25) 100%)'; this.style.borderColor='rgba(96, 165, 250, 0.5)'; this.style.color='#60a5fa'"
            onmouseout="this.style.background='linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%)'; this.style.borderColor='rgba(96, 165, 250, 0.3)'; this.style.color='#e2e8f0'">
-          About this app
+          About this project
         </a>
         <a href="./about-me" style="
           color: #e2e8f0;
