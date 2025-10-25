@@ -185,99 +185,16 @@ def aggregate(db_path: str, output_dir: str) -> None:
 
 @cli.command()
 @click.option(
-    "--app-ids",
-    "-a",
-    default="730,570,578080",
-    help="Comma-separated Steam app IDs (default: CS2, Dota 2, PUBG)",
-    type=str,
+    "--full-refresh",
+    "-f",
+    is_flag=True,
+    help="Refresh metadata for all games (not just new ones)",
 )
-@click.option(
-    "--output",
-    "-o",
-    default="data/raw/metadata",
-    help="Output directory for metadata JSON files",
-    type=click.Path(),
-)
-@click.option(
-    "--db-path",
-    "-d",
-    default="data/duckdb/gaming.db",
-    help="Path to DuckDB database",
-    type=click.Path(),
-)
-def metadata(app_ids: str, output: str, db_path: str) -> None:
-    """Collect game metadata from Steam Store and SteamSpy APIs."""
-    click.echo("🎮 Collecting game metadata from Steam Store API...\n")
-
-    # Parse app IDs
-    try:
-        game_ids = [int(app_id.strip()) for app_id in app_ids.split(",")]
-    except ValueError:
-        click.echo("❌ Invalid app IDs format. Use comma-separated integers.", err=True)
-        raise click.Abort() from None
-
-    # Initialize collector
-    collector = SteamStoreCollector()
-    output_path = Path(output)
-    output_path.mkdir(parents=True, exist_ok=True)
-
-    # Collect metadata
-    try:
-        click.echo(f"📡 Collecting metadata for {len(game_ids)} games...")
-        metadata_list = collector.collect_top_games_metadata(game_ids, delay=1.5)
-
-        if not metadata_list:
-            click.echo("❌ No metadata collected", err=True)
-            raise click.Abort()
-
-        # Save each game's metadata to JSON
-        import json
-
-        for metadata in metadata_list:
-            app_id = metadata["app_id"]
-            json_path = output_path / f"{app_id}.json"
-            with open(json_path, "w") as f:
-                json.dump(metadata, f, indent=2)
-
-        click.echo(f"\n✅ Successfully collected metadata for {len(metadata_list)} games")
-        click.echo(f"💾 Saved to {output}/\n")
-
-        # Save to DuckDB
-        from python.storage.duckdb_manager import DuckDBManager
-
-        db_path_obj = Path(db_path)
-        with DuckDBManager(db_path=db_path_obj) as db:
-            db.create_game_metadata_table()
-            for metadata in metadata_list:
-                db.upsert_game_metadata(metadata)
-
-        click.echo(f"💾 Saved to DuckDB: {db_path}\n")
-
-        # Display summary
-        for metadata in metadata_list:
-            click.echo(f"  📦 {metadata['name']} (ID: {metadata['app_id']})")
-            click.echo(f"     • Type: {metadata['type']}")
-            click.echo(f"     • Developer: {', '.join(metadata['developers'])}")
-            click.echo(f"     • Genres: {', '.join(metadata['genres'])}")
-            click.echo(f"     • Free: {'Yes' if metadata['is_free'] else 'No'}")
-            if metadata.get("metacritic_score"):
-                click.echo(f"     • Metacritic: {metadata['metacritic_score']}/100")
-            click.echo(f"     • Tags: {len(metadata['tags'])} tags")
-            click.echo()
-
-        click.echo("✨ Metadata collection complete!")
-
-    except Exception as e:
-        click.echo(f"❌ Error during metadata collection: {e}", err=True)
-        raise click.Abort() from e
-
-
-@cli.command()
 @click.option(
     "--limit",
     "-l",
-    default=100,
-    help="Number of popular games to discover from IGDB",
+    default=None,
+    help="Limit number of games to enrich (default: all pending)",
     type=int,
 )
 @click.option(
@@ -293,84 +210,190 @@ def metadata(app_ids: str, output: str, db_path: str) -> None:
     help="Delay between API calls (rate limiting)",
     type=float,
 )
-def discover(limit: int, db_path: str, delay: float) -> None:
-    """Discover games from IGDB and enrich with metadata.
+def metadata(full_refresh: bool, limit: int | None, db_path: str, delay: float) -> None:
+    """Enrich games with metadata from all platforms.
 
-    Uses IGDB API as the universal source of truth for game discovery.
-    Discovers popular games by rating count and enriches with:
-    - IGDB metadata (ratings, genres, themes, cover art)
-    - Platform IDs (Steam, Twitch, YouTube, Epic, GOG, etc.)
-    - Stores everything in unified game_metadata table
+    Collects metadata for games in game_list that haven't been enriched yet.
+    Enriches with data from IGDB, Steam, Twitch, and other platforms.
+
+    Use --full-refresh to re-collect metadata for all games.
     """
     import time
 
     from python.collectors.igdb import IGDBCollector
     from python.storage.duckdb_manager import DuckDBManager
 
-    click.echo(f"🎮 Discovering {limit} popular games from IGDB...\n")
-
     db_path_obj = Path(db_path)
 
+    try:
+        with DuckDBManager(db_path=db_path_obj) as db:
+            # Create tables
+            db.create_game_list_table()
+            db.create_game_metadata_table()
+
+            # Get games to enrich
+            if full_refresh:
+                games_to_enrich = db.get_all_games_for_metadata_refresh()
+                click.echo("🔄 Full refresh: enriching ALL games with metadata...\n")
+            else:
+                games_to_enrich = db.get_games_needing_metadata(limit=limit)
+                click.echo(f"📦 Enriching {len(games_to_enrich)} games with metadata...\n")
+
+            if not games_to_enrich:
+                click.echo("✅ No games need metadata enrichment!")
+                return
+
+            # Initialize collector
+            collector = IGDBCollector()
+
+            enriched_count = 0
+            failed_count = 0
+
+            for i, game in enumerate(games_to_enrich, 1):
+                igdb_id = game["igdb_id"]
+                game_name = game["game_name"]
+
+                click.echo(f"[{i}/{len(games_to_enrich)}] Enriching: {game_name} (IGDB: {igdb_id})")
+
+                try:
+                    # Enrich with IGDB + external IDs
+                    enriched = collector.enrich_game(igdb_id)
+
+                    if enriched:
+                        # Upsert into game_metadata
+                        db.upsert_game_metadata(enriched)
+
+                        # Mark as collected in game_list
+                        db.mark_metadata_collected(igdb_id)
+
+                        enriched_count += 1
+                        click.echo(f"  ✅ Steam: {enriched.get('steam_app_id') or 'N/A'}, "
+                                   f"Twitch: {enriched.get('twitch_game_id') or 'N/A'}")
+                    else:
+                        failed_count += 1
+                        click.echo("  ❌ Failed to enrich")
+
+                except Exception as e:
+                    failed_count += 1
+                    click.echo(f"  ⚠️  Error: {e}")
+                    continue
+
+                # Rate limiting
+                if delay > 0 and i < len(games_to_enrich):
+                    time.sleep(delay)
+
+        click.echo("\n✅ Metadata enrichment complete!")
+        click.echo(f"   ✅ {enriched_count} games enriched successfully")
+        if failed_count > 0:
+            click.echo(f"   ⚠️  {failed_count} games failed")
+        click.echo(f"   💾 Database: {db_path}")
+
+    except Exception as e:
+        click.echo(f"❌ Error during metadata enrichment: {e}", err=True)
+        raise click.Abort() from e
+
+
+@cli.command()
+@click.option(
+    "--source",
+    "-s",
+    default="igdb-popular",
+    help="Discovery source (igdb-popular, igdb-recent, steam-top-ccu, etc.)",
+    type=str,
+)
+@click.option(
+    "--limit",
+    "-l",
+    default=100,
+    help="Number of games to discover",
+    type=int,
+)
+@click.option(
+    "--db-path",
+    "-d",
+    default="data/duckdb/gaming.db",
+    help="Path to DuckDB database",
+    type=click.Path(),
+)
+def discover(source: str, limit: int, db_path: str) -> None:
+    """Discover games and add to game list (without metadata enrichment).
+
+    Decoupled discovery: finds games and adds them to game_list table.
+    Use 'metadata' command to enrich discovered games with full metadata.
+
+    Available sources:
+    - igdb-popular: Popular games by rating count (default)
+    - igdb-recent: Recently released games
+    - steam-top-ccu: Top concurrent players on Steam (coming soon)
+    """
+    import time
+
+    from python.collectors.igdb import IGDBCollector
+    from python.storage.duckdb_manager import DuckDBManager
+
+    click.echo(f"🔍 Discovering {limit} games from source: {source}...\n")
+
+    db_path_obj = Path(db_path)
     start_time = time.time()
-    games_discovered = 0
-    games_updated = 0
 
     try:
         # Initialize IGDB collector
         collector = IGDBCollector()
 
-        # Discover and enrich games
-        enriched_games = collector.discover_and_enrich(limit=limit, delay=delay)
+        # Discover games (without enrichment)
+        if source == "igdb-popular":
+            discovered_games = collector.discover_popular_games(limit=limit)
+        elif source == "igdb-recent":
+            click.echo("❌ Source 'igdb-recent' not yet implemented", err=True)
+            raise click.Abort()
+        else:
+            click.echo(f"❌ Unknown source: {source}", err=True)
+            raise click.Abort()
 
-        if not enriched_games:
+        if not discovered_games:
             click.echo("❌ No games discovered", err=True)
             raise click.Abort()
 
-        click.echo(f"\n💾 Storing {len(enriched_games)} games in DuckDB...")
+        # Convert to simple format for game_list
+        games_for_list = [
+            {"igdb_id": game["id"], "game_name": game.get("name", f"Game {game['id']}")}
+            for game in discovered_games
+        ]
+
+        click.echo(f"✅ Discovered {len(games_for_list)} games\n")
 
         # Store in database
         with DuckDBManager(db_path=db_path_obj) as db:
             # Create tables
-            db.create_game_metadata_table()
+            db.create_game_list_table()
             db.create_discovery_history_table()
 
-            # Upsert each game
-            for game in enriched_games:
-                # Check if game already exists
-                existing = db.get_game_metadata(igdb_id=game["igdb_id"])
-
-                if existing:
-                    games_updated += 1
-                else:
-                    games_discovered += 1
-
-                db.upsert_game_metadata(game)
+            # Insert discovered games
+            new_count, skipped_count = db.insert_discovered_games(games_for_list, source)
 
             # Log discovery operation
             execution_time = time.time() - start_time
             db.log_discovery(
-                source="igdb_popular",
-                games_discovered=games_discovered,
-                games_updated=games_updated,
+                source=source,
+                games_discovered=new_count,
+                games_updated=0,
                 execution_time=execution_time,
-                notes=f"Discovered top {limit} games by rating count",
+                notes=f"Discovered {limit} games from {source}",
             )
 
         click.echo("\n✅ Discovery complete!")
-        click.echo(f"   📊 {games_discovered} new games discovered")
-        click.echo(f"   🔄 {games_updated} existing games updated")
+        click.echo(f"   📊 {new_count} new games added to game_list")
+        click.echo(f"   ⏭️  {skipped_count} games already in list")
         click.echo(f"   ⏱️  Completed in {execution_time:.1f}s")
         click.echo(f"   💾 Database: {db_path}")
 
-        # Display sample of discovered games
+        # Display sample
         click.echo("\n🎯 Sample of discovered games:")
-        for game in enriched_games[:5]:
-            steam_id = game.get("steam_app_id")
-            twitch_id = game.get("twitch_game_id")
-            click.echo(
-                f"  • {game['game_name']} (IGDB: {game['igdb_id']}, "
-                f"Steam: {steam_id or 'N/A'}, Twitch: {twitch_id or 'N/A'})"
-            )
+        for game in games_for_list[:5]:
+            click.echo(f"  • {game['game_name']} (IGDB ID: {game['igdb_id']})")
+
+        if new_count > 0:
+            click.echo(f"\n💡 Run 'metadata' command to enrich {new_count} new games with full metadata")
 
     except ValueError as e:
         click.echo(f"❌ Authentication error: {e}", err=True)
@@ -381,7 +404,7 @@ def discover(limit: int, db_path: str, delay: float) -> None:
         raise click.Abort() from e
 
     except Exception as e:
-        click.echo(f"❌ Error during IGDB discovery: {e}", err=True)
+        click.echo(f"❌ Error during discovery: {e}", err=True)
         raise click.Abort() from e
 
 
