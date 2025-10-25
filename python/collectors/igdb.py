@@ -227,7 +227,7 @@ class IGDBCollector:
         Returns:
             Dictionary mapping platform names to their IDs
         """
-        query = f"where game = {igdb_id}; fields game,category,uid,name;"
+        query = f"where game = {igdb_id}; fields game,external_game_source,uid,name;"
 
         try:
             external_games = self._make_request("external_games", query)
@@ -235,20 +235,20 @@ class IGDBCollector:
             platform_ids = {}
 
             for external in external_games:
-                category = external.get("category")
+                source_id = external.get("external_game_source")
                 uid = external.get("uid")
 
-                if not uid or not isinstance(category, int):
+                if not uid or not isinstance(source_id, int):
                     continue
 
-                # Map category to platform name
-                platform_name = self.PLATFORM_CATEGORIES.get(category)
+                # Map external_game_source to platform name
+                platform_name = self.PLATFORM_CATEGORIES.get(source_id)
 
                 if platform_name:
                     platform_ids[platform_name] = uid
-                elif category:
-                    # Store unknown categories for debugging
-                    platform_ids[f"unknown_{category}"] = uid
+                elif source_id:
+                    # Store unknown sources for debugging
+                    platform_ids[f"unknown_{source_id}"] = uid
 
             return platform_ids
 

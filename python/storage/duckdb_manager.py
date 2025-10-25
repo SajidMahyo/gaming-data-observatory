@@ -116,6 +116,39 @@ class DuckDBManager:
         df = self.query(sql)
         df.to_json(output_path, orient="records", date_format="iso", indent=2)
 
+    def create_game_list_table(self) -> None:
+        """Create game_list table for discovered games.
+
+        Lightweight table tracking discovered games and metadata collection status.
+        Decouples discovery from metadata enrichment.
+        """
+        self.conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS game_list (
+                igdb_id INTEGER PRIMARY KEY,
+                game_name VARCHAR NOT NULL,
+                metadata_collected BOOLEAN DEFAULT false,
+                discovered_at TIMESTAMP NOT NULL,
+                discovery_source VARCHAR NOT NULL,
+                discovery_rank INTEGER
+            )
+        """
+        )
+
+        # Create indexes
+        self.conn.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_game_list_metadata_collected
+            ON game_list(metadata_collected)
+        """
+        )
+        self.conn.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_game_list_source
+            ON game_list(discovery_source)
+        """
+        )
+
     def create_game_metadata_table(self) -> None:
         """Create unified game_metadata table with IGDB as primary key.
 
@@ -381,10 +414,15 @@ class DuckDBManager:
 
         Table tracks all discovery operations and their results.
         """
+        # Create sequence for auto-incrementing ID
+        self.conn.execute(
+            "CREATE SEQUENCE IF NOT EXISTS discovery_history_seq START 1"
+        )
+
         self.conn.execute(
             """
             CREATE TABLE IF NOT EXISTS discovery_history (
-                id INTEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY DEFAULT nextval('discovery_history_seq'),
                 discovery_date TIMESTAMP NOT NULL,
                 discovery_source VARCHAR NOT NULL,
                 games_discovered INTEGER,
@@ -429,6 +467,104 @@ class DuckDBManager:
                 execution_time,
                 notes,
             ],
+        )
+
+    def insert_discovered_games(
+        self, games: list[dict[str, Any]], source: str
+    ) -> tuple[int, int]:
+        """Insert discovered games into game_list table.
+
+        Args:
+            games: List of game dictionaries with igdb_id and game_name
+            source: Discovery source (e.g., "igdb-popular", "steam-top-ccu")
+
+        Returns:
+            Tuple of (new_games_added, existing_games_skipped)
+        """
+        from datetime import UTC, datetime
+
+        new_count = 0
+        skipped_count = 0
+
+        for rank, game in enumerate(games, 1):
+            # Check if game already exists
+            existing = self.query(
+                f"SELECT igdb_id FROM game_list WHERE igdb_id = {game['igdb_id']}"
+            )
+
+            if len(existing) > 0:
+                skipped_count += 1
+                continue
+
+            # Insert new game
+            self.conn.execute(
+                """
+                INSERT INTO game_list (
+                    igdb_id, game_name, metadata_collected,
+                    discovered_at, discovery_source, discovery_rank
+                ) VALUES (?, ?, ?, ?, ?, ?)
+            """,
+                [
+                    game["igdb_id"],
+                    game["game_name"],
+                    False,
+                    datetime.now(UTC).isoformat(),
+                    source,
+                    rank,
+                ],
+            )
+            new_count += 1
+
+        return new_count, skipped_count
+
+    def get_games_needing_metadata(self, limit: int | None = None) -> list[dict[str, Any]]:
+        """Get games that need metadata collection.
+
+        Args:
+            limit: Maximum number of games to return (default: all)
+
+        Returns:
+            List of game dictionaries with igdb_id and game_name
+        """
+        query = """
+            SELECT igdb_id, game_name, discovered_at, discovery_source
+            FROM game_list
+            WHERE metadata_collected = false
+            ORDER BY discovered_at ASC
+        """
+
+        if limit:
+            query += f" LIMIT {limit}"
+
+        result = self.query(query)
+        games_list: list[dict[str, Any]] = result.to_dict("records")  # type: ignore[assignment]
+        return games_list
+
+    def get_all_games_for_metadata_refresh(self) -> list[dict[str, Any]]:
+        """Get all games for full metadata refresh.
+
+        Returns:
+            List of all game dictionaries with igdb_id and game_name
+        """
+        result = self.query(
+            """
+            SELECT igdb_id, game_name, discovered_at, discovery_source
+            FROM game_list
+            ORDER BY discovered_at ASC
+        """
+        )
+        games_list: list[dict[str, Any]] = result.to_dict("records")  # type: ignore[assignment]
+        return games_list
+
+    def mark_metadata_collected(self, igdb_id: int) -> None:
+        """Mark a game's metadata as collected.
+
+        Args:
+            igdb_id: IGDB game ID
+        """
+        self.conn.execute(
+            "UPDATE game_list SET metadata_collected = true WHERE igdb_id = ?",
+            [igdb_id],
         )
 
     def close(self) -> None:
