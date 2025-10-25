@@ -323,8 +323,9 @@ def discover(source: str, limit: int, db_path: str) -> None:
 
     Available sources:
     - igdb-popular: Popular games by rating count (default)
-    - igdb-recent: Recently released games
-    - steam-top-ccu: Top concurrent players on Steam (coming soon)
+    - igdb-recent: Recently released games (last 90 days)
+    - igdb-highest-rated: Highest rated games
+    - igdb-upcoming: Upcoming games (next 180 days)
     """
     import time
 
@@ -344,10 +345,18 @@ def discover(source: str, limit: int, db_path: str) -> None:
         if source == "igdb-popular":
             discovered_games = collector.discover_popular_games(limit=limit)
         elif source == "igdb-recent":
-            click.echo("❌ Source 'igdb-recent' not yet implemented", err=True)
-            raise click.Abort()
+            discovered_games = collector.discover_recent_games(limit=limit, days_back=90)
+        elif source == "igdb-highest-rated":
+            discovered_games = collector.discover_highest_rated_games(limit=limit)
+        elif source == "igdb-upcoming":
+            discovered_games = collector.discover_upcoming_games(limit=limit, days_ahead=180)
         else:
             click.echo(f"❌ Unknown source: {source}", err=True)
+            click.echo("\nAvailable sources:", err=True)
+            click.echo("  • igdb-popular: Popular games by rating count", err=True)
+            click.echo("  • igdb-recent: Recently released games (last 90 days)", err=True)
+            click.echo("  • igdb-highest-rated: Highest rated games", err=True)
+            click.echo("  • igdb-upcoming: Upcoming games (next 180 days)", err=True)
             raise click.Abort()
 
         if not discovered_games:

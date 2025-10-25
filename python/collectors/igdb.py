@@ -85,7 +85,7 @@ class IGDBCollector:
 
         return self.access_token
 
-    def _make_request(self, endpoint: str, query: str) -> list[dict]:
+    def _make_request(self, endpoint: str, query: str) -> list[dict[str, Any]]:
         """Make authenticated request to IGDB API."""
         url = f"{self.API_BASE_URL}/{endpoint}"
         headers = {
@@ -100,7 +100,7 @@ class IGDBCollector:
                     url, headers=headers, data=query, timeout=self.TIMEOUT_SECONDS
                 )
                 response.raise_for_status()
-                result: list[dict] = response.json()
+                result: list[dict[str, Any]] = response.json()
                 return result
 
             except requests.HTTPError as e:
@@ -122,7 +122,7 @@ class IGDBCollector:
 
         raise requests.RequestException("Max retries exceeded")
 
-    def discover_popular_games(self, limit: int = 100) -> list[dict]:
+    def discover_popular_games(self, limit: int = 100) -> list[dict[str, Any]]:
         """
         Discover popular games by total rating count.
 
@@ -146,6 +146,101 @@ class IGDBCollector:
 
         except requests.RequestException as e:
             print(f"❌ Error discovering games: {e}")
+            return []
+
+    def discover_recent_games(self, limit: int = 100, days_back: int = 90) -> list[dict[str, Any]]:
+        """
+        Discover recently released games.
+
+        Args:
+            limit: Maximum number of games to return
+            days_back: Look back this many days from today (default: 90)
+
+        Returns:
+            List of dicts with basic game info
+        """
+        import time
+        from datetime import UTC, datetime, timedelta
+
+        # Calculate timestamp for days_back
+        cutoff_date = datetime.now(UTC) - timedelta(days=days_back)
+        cutoff_timestamp = int(cutoff_date.timestamp())
+
+        query = f"""
+        fields id,name,slug,first_release_date,rating,aggregated_rating,total_rating_count;
+        where first_release_date >= {cutoff_timestamp} & total_rating_count > 10;
+        sort first_release_date desc;
+        limit {limit};
+        """
+
+        try:
+            games = self._make_request("games", query)
+            print(f"✅ Discovered {len(games)} recent games from IGDB")
+            return games
+
+        except requests.RequestException as e:
+            print(f"❌ Error discovering recent games: {e}")
+            return []
+
+    def discover_highest_rated_games(self, limit: int = 100, min_ratings: int = 100) -> list[dict[str, Any]]:
+        """
+        Discover highest rated games.
+
+        Args:
+            limit: Maximum number of games to return
+            min_ratings: Minimum number of ratings required (default: 100)
+
+        Returns:
+            List of dicts with basic game info
+        """
+        query = f"""
+        fields id,name,slug,first_release_date,rating,aggregated_rating,total_rating_count;
+        where total_rating_count >= {min_ratings} & aggregated_rating != null;
+        sort aggregated_rating desc;
+        limit {limit};
+        """
+
+        try:
+            games = self._make_request("games", query)
+            print(f"✅ Discovered {len(games)} highest rated games from IGDB")
+            return games
+
+        except requests.RequestException as e:
+            print(f"❌ Error discovering highest rated games: {e}")
+            return []
+
+    def discover_upcoming_games(self, limit: int = 100, days_ahead: int = 180) -> list[dict[str, Any]]:
+        """
+        Discover upcoming games (not yet released).
+
+        Args:
+            limit: Maximum number of games to return
+            days_ahead: Look ahead this many days from today (default: 180)
+
+        Returns:
+            List of dicts with basic game info
+        """
+        import time
+        from datetime import UTC, datetime, timedelta
+
+        # Calculate timestamps
+        now_timestamp = int(datetime.now(UTC).timestamp())
+        future_timestamp = int((datetime.now(UTC) + timedelta(days=days_ahead)).timestamp())
+
+        query = f"""
+        fields id,name,slug,first_release_date,rating,aggregated_rating,total_rating_count;
+        where first_release_date > {now_timestamp} & first_release_date < {future_timestamp};
+        sort first_release_date asc;
+        limit {limit};
+        """
+
+        try:
+            games = self._make_request("games", query)
+            print(f"✅ Discovered {len(games)} upcoming games from IGDB")
+            return games
+
+        except requests.RequestException as e:
+            print(f"❌ Error discovering upcoming games: {e}")
             return []
 
     def get_game_metadata(self, igdb_id: int) -> dict[str, Any] | None:
@@ -217,7 +312,7 @@ class IGDBCollector:
             print(f"❌ Error fetching metadata for game {igdb_id}: {e}")
             return None
 
-    def get_external_ids(self, igdb_id: int) -> dict[str, str]:
+    def get_external_ids(self, igdb_id: int) -> dict[str, Any]:
         """
         Get external platform IDs for a game.
 
@@ -290,7 +385,7 @@ class IGDBCollector:
 
         return metadata
 
-    def _extract_websites(self, websites: list[dict]) -> dict[str, str]:
+    def _extract_websites(self, websites: list[dict[str, Any]]) -> dict[str, str]:
         """Extract and categorize website URLs."""
         # Website category mapping (from IGDB docs)
         categories = {
