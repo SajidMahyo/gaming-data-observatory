@@ -58,38 +58,46 @@ class TestKPIAggregator:
         assert aggregator.db_path == db_path
 
     def test_create_daily_kpis_table(self, mock_db_manager, sample_steam_data):
-        """Test creation of daily KPIs aggregation table with PRIMARY KEY."""
+        """Test creation of daily KPIs aggregation tables (Steam, Twitch, IGDB)."""
         # Mock the query method to return sample data
         mock_db_manager.query.return_value = sample_steam_data
 
         aggregator = KPIAggregator(db_path=Path("test.db"))
 
-        # Test the SQL generation
+        # Test the SQL generation - create_daily_kpis() calls all 3 source methods
         with patch.object(aggregator, "db_manager", mock_db_manager):
             aggregator.create_daily_kpis()
 
-        # Verify query was called 2 times (CREATE IF NOT EXISTS + INSERT OR REPLACE)
-        assert mock_db_manager.query.call_count == 2
+        # Verify query was called 6 times (3 sources × 2 queries each: CREATE + INSERT)
+        assert mock_db_manager.query.call_count == 6
 
-        # Verify first call creates table if not exists
-        first_call = mock_db_manager.query.call_args_list[0][0][0]
-        assert "CREATE TABLE IF NOT EXISTS daily_kpis" in first_call
-        assert "PRIMARY KEY (date, app_id)" in first_call
+        # Verify Steam table creation
+        steam_create_call = mock_db_manager.query.call_args_list[0][0][0]
+        assert "CREATE TABLE IF NOT EXISTS steam_daily_kpis" in steam_create_call
+        assert "PRIMARY KEY (date, steam_app_id)" in steam_create_call
 
-        # Verify second call inserts only today's data (incremental)
-        second_call = mock_db_manager.query.call_args_list[1][0][0]
-        assert "INSERT OR REPLACE INTO daily_kpis" in second_call
-        assert "WHERE CAST(timestamp AS DATE) = CURRENT_DATE" in second_call
-        assert "GROUP BY CAST(timestamp AS DATE), game_name, app_id" in second_call
+        # Verify Steam data insert
+        steam_insert_call = mock_db_manager.query.call_args_list[1][0][0]
+        assert "INSERT OR REPLACE INTO steam_daily_kpis" in steam_insert_call
+        assert "FROM steam_raw s" in steam_insert_call
+        assert "LEFT JOIN game_metadata m ON s.steam_app_id = m.steam_app_id" in steam_insert_call
+
+        # Verify Twitch table creation
+        twitch_create_call = mock_db_manager.query.call_args_list[2][0][0]
+        assert "CREATE TABLE IF NOT EXISTS twitch_daily_kpis" in twitch_create_call
+
+        # Verify IGDB table creation
+        igdb_create_call = mock_db_manager.query.call_args_list[4][0][0]
+        assert "CREATE TABLE IF NOT EXISTS igdb_ratings_snapshot" in igdb_create_call
 
     def test_export_latest_kpis(self, mock_db_manager, tmp_path):
-        """Test export of latest 7 days KPIs."""
-        output_path = tmp_path / "latest_kpis.json"
+        """Test export of latest Steam daily KPIs."""
+        output_path = tmp_path / "steam_daily_kpis.json"
 
         aggregator = KPIAggregator(db_path=Path("test.db"))
 
         with patch.object(aggregator, "db_manager", mock_db_manager):
-            aggregator.export_latest_kpis(output_path=output_path, days=7)
+            aggregator.export_steam_daily_kpis(output_path=output_path, days=30)
 
         # Verify export_to_json was called
         mock_db_manager.export_to_json.assert_called_once()
@@ -97,17 +105,18 @@ class TestKPIAggregator:
         # Check the query parameter
         call_kwargs = mock_db_manager.export_to_json.call_args[1]
         assert "query" in call_kwargs
-        assert "INTERVAL '7' DAY" in call_kwargs["query"]
+        assert "FROM steam_daily_kpis" in call_kwargs["query"]
+        assert "INTERVAL '30' DAY" in call_kwargs["query"]
         assert call_kwargs["output_path"] == output_path
 
     def test_export_game_rankings(self, mock_db_manager, tmp_path):
-        """Test export of game rankings."""
-        output_path = tmp_path / "game_rankings.json"
+        """Test export of Steam game rankings."""
+        output_path = tmp_path / "steam_rankings.json"
 
         aggregator = KPIAggregator(db_path=Path("test.db"))
 
         with patch.object(aggregator, "db_manager", mock_db_manager):
-            aggregator.export_game_rankings(output_path=output_path)
+            aggregator.export_steam_rankings(output_path=output_path)
 
         # Verify export_to_json was called
         mock_db_manager.export_to_json.assert_called_once()
@@ -115,22 +124,26 @@ class TestKPIAggregator:
         # Check the query parameter
         call_kwargs = mock_db_manager.export_to_json.call_args[1]
         assert "query" in call_kwargs
-        assert "AVG(peak_ccu) as avg_peak" in call_kwargs["query"]
-        assert "GROUP BY game_name, app_id" in call_kwargs["query"]
+        assert "AVG(peak_ccu) as avg_peak_ccu" in call_kwargs["query"]
+        assert "FROM steam_daily_kpis" in call_kwargs["query"]
+        assert "GROUP BY game_name, steam_app_id, igdb_id" in call_kwargs["query"]
 
-    def test_export_all_daily_kpis(self, mock_db_manager, tmp_path):
-        """Test export of all daily KPIs."""
-        output_path = tmp_path / "daily_kpis.json"
+    def test_export_unified_daily_kpis(self, mock_db_manager, tmp_path):
+        """Test export of unified daily KPIs (Steam + Twitch + IGDB)."""
+        output_path = tmp_path / "unified_daily_kpis.json"
 
         aggregator = KPIAggregator(db_path=Path("test.db"))
 
         with patch.object(aggregator, "db_manager", mock_db_manager):
-            aggregator.export_all_daily_kpis(output_path=output_path)
+            aggregator.export_unified_daily_kpis(output_path=output_path, days=30)
 
-        # Verify export_to_json was called with table_name
+        # Verify export_to_json was called with query
         mock_db_manager.export_to_json.assert_called_once()
         call_kwargs = mock_db_manager.export_to_json.call_args[1]
-        assert call_kwargs["table_name"] == "daily_kpis"
+        assert "query" in call_kwargs
+        assert "FROM steam_daily_kpis s" in call_kwargs["query"]
+        assert "FULL OUTER JOIN twitch_daily_kpis t" in call_kwargs["query"]
+        assert "FULL OUTER JOIN igdb_ratings_snapshot i" in call_kwargs["query"]
 
     def test_run_full_aggregation(self, mock_db_manager, tmp_path):
         """Test full aggregation pipeline."""
@@ -182,8 +195,11 @@ class TestKPIAggregator:
         # Verify all methods were called
         assert mock_db_manager.query.called  # create_daily_kpis and others
         assert (
-            mock_db_manager.export_to_json.call_count == 4
-        )  # 4 exports: rankings, hourly, daily, monthly (metadata uses to_json directly)
+            mock_db_manager.export_to_json.call_count == 9
+        )  # 9 exports: steam_rankings, twitch_rankings, unified_rankings,
+        #  steam_daily_kpis, twitch_daily_kpis, igdb_ratings_snapshot,
+        #  unified_daily_kpis, hourly_kpis, monthly_kpis_limited
+        #  (game_metadata uses json.dump directly, not export_to_json)
 
         # Verify output directory was created
         assert output_dir.exists()
@@ -192,18 +208,19 @@ class TestKPIAggregator:
         assert (output_dir / "game-metadata.json").exists()
 
     def test_date_filtering_uses_cast(self, mock_db_manager, tmp_path):
-        """Test that date filtering properly casts date column to DATE type."""
-        output_path = tmp_path / "latest_kpis.json"
+        """Test that date filtering properly filters by date column."""
+        output_path = tmp_path / "steam_daily_kpis.json"
 
         aggregator = KPIAggregator(db_path=Path("test.db"))
 
         with patch.object(aggregator, "db_manager", mock_db_manager):
-            aggregator.export_latest_kpis(output_path=output_path, days=7)
+            aggregator.export_steam_daily_kpis(output_path=output_path, days=30)
 
-        # Check that the query uses CAST or :: for type conversion
+        # Check that the query filters by date
         call_kwargs = mock_db_manager.export_to_json.call_args[1]
         query = call_kwargs["query"]
-        assert "CAST(date AS DATE)" in query or "date::DATE" in query
+        assert "WHERE date >=" in query
+        assert "INTERVAL '30' DAY" in query
 
     def test_aggregator_context_manager(self, tmp_path):
         """Test that aggregator works as a context manager."""

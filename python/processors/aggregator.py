@@ -35,8 +35,8 @@ class KPIAggregator:
         if self.db_manager:
             self.db_manager.__exit__(exc_type, exc_val, exc_tb)
 
-    def create_daily_kpis(self) -> None:
-        """Create or update daily KPIs table from raw Steam data.
+    def create_steam_daily_kpis(self) -> None:
+        """Create or update Steam daily KPIs table from steam_raw.
 
         Uses incremental update: only updates the current day's data.
         This is called every hour to update today's aggregated stats.
@@ -53,37 +53,149 @@ class KPIAggregator:
         # Create table if it doesn't exist (with PRIMARY KEY)
         self.db_manager.query(
             """
-            CREATE TABLE IF NOT EXISTS daily_kpis (
+            CREATE TABLE IF NOT EXISTS steam_daily_kpis (
                 date DATE,
+                igdb_id INTEGER,
+                steam_app_id INTEGER,
                 game_name VARCHAR,
-                app_id INTEGER,
                 avg_ccu DOUBLE,
                 peak_ccu INTEGER,
                 min_ccu INTEGER,
                 samples INTEGER,
-                PRIMARY KEY (date, app_id)
+                PRIMARY KEY (date, steam_app_id)
             )
         """
         )
 
         # Update ONLY TODAY'S data from steam_raw (incremental update)
-        # This preserves all historical data while updating current day
+        # Join with game_metadata to get igdb_id
         self.db_manager.query(
             """
-            INSERT OR REPLACE INTO daily_kpis
+            INSERT OR REPLACE INTO steam_daily_kpis
             SELECT
-                CAST(timestamp AS DATE) as date,
-                game_name,
-                app_id,
-                AVG(player_count) as avg_ccu,
-                MAX(player_count) as peak_ccu,
-                MIN(player_count) as min_ccu,
+                CAST(s.timestamp AS DATE) as date,
+                m.igdb_id,
+                s.steam_app_id,
+                s.game_name,
+                AVG(s.player_count) as avg_ccu,
+                MAX(s.player_count) as peak_ccu,
+                MIN(s.player_count) as min_ccu,
                 COUNT(*) as samples
-            FROM steam_raw
-            WHERE CAST(timestamp AS DATE) = CURRENT_DATE
-            GROUP BY CAST(timestamp AS DATE), game_name, app_id
+            FROM steam_raw s
+            LEFT JOIN game_metadata m ON s.steam_app_id = m.steam_app_id
+            WHERE CAST(s.timestamp AS DATE) = CURRENT_DATE
+            GROUP BY CAST(s.timestamp AS DATE), m.igdb_id, s.steam_app_id, s.game_name
         """
         )
+
+    def create_twitch_daily_kpis(self) -> None:
+        """Create or update Twitch daily KPIs table from twitch_raw.
+
+        Aggregates Twitch viewership data into daily metrics:
+        - Average viewers
+        - Peak viewers
+        - Average channel count
+        - Number of samples per day
+        """
+        if not self.db_manager:
+            return
+
+        # Create table if it doesn't exist
+        self.db_manager.query(
+            """
+            CREATE TABLE IF NOT EXISTS twitch_daily_kpis (
+                date DATE,
+                igdb_id INTEGER,
+                twitch_game_id VARCHAR,
+                game_name VARCHAR,
+                avg_viewers DOUBLE,
+                peak_viewers INTEGER,
+                min_viewers INTEGER,
+                avg_channels DOUBLE,
+                samples INTEGER,
+                PRIMARY KEY (date, twitch_game_id)
+            )
+        """
+        )
+
+        # Update ONLY TODAY'S data from twitch_raw
+        self.db_manager.query(
+            """
+            INSERT OR REPLACE INTO twitch_daily_kpis
+            SELECT
+                CAST(t.timestamp AS DATE) as date,
+                m.igdb_id,
+                t.twitch_game_id,
+                t.game_name,
+                AVG(t.viewer_count) as avg_viewers,
+                MAX(t.viewer_count) as peak_viewers,
+                MIN(t.viewer_count) as min_viewers,
+                AVG(t.channel_count) as avg_channels,
+                COUNT(*) as samples
+            FROM twitch_raw t
+            LEFT JOIN game_metadata m ON t.twitch_game_id = m.twitch_game_id
+            WHERE CAST(t.timestamp AS DATE) = CURRENT_DATE
+            GROUP BY CAST(t.timestamp AS DATE), m.igdb_id, t.twitch_game_id, t.game_name
+        """
+        )
+
+    def create_igdb_ratings_snapshot(self) -> None:
+        """Create or update IGDB ratings snapshot from igdb_ratings_raw.
+
+        Takes the latest rating for each game per day (ratings change slowly).
+        """
+        if not self.db_manager:
+            return
+
+        # Create table if it doesn't exist
+        self.db_manager.query(
+            """
+            CREATE TABLE IF NOT EXISTS igdb_ratings_snapshot (
+                date DATE,
+                igdb_id INTEGER,
+                game_name VARCHAR,
+                rating DOUBLE,
+                aggregated_rating DOUBLE,
+                total_rating_count INTEGER,
+                PRIMARY KEY (date, igdb_id)
+            )
+        """
+        )
+
+        # Update with latest rating for TODAY
+        # Use ROW_NUMBER to get the most recent rating of the day
+        self.db_manager.query(
+            """
+            INSERT OR REPLACE INTO igdb_ratings_snapshot
+            SELECT
+                CAST(i.timestamp AS DATE) as date,
+                i.igdb_id,
+                m.game_name,
+                i.rating,
+                i.aggregated_rating,
+                i.total_rating_count
+            FROM (
+                SELECT
+                    timestamp, igdb_id, rating, aggregated_rating, total_rating_count,
+                    ROW_NUMBER() OVER (PARTITION BY igdb_id, CAST(timestamp AS DATE) ORDER BY timestamp DESC) as rn
+                FROM igdb_ratings_raw
+                WHERE CAST(timestamp AS DATE) = CURRENT_DATE
+            ) i
+            LEFT JOIN game_metadata m ON i.igdb_id = m.igdb_id
+            WHERE i.rn = 1
+        """
+        )
+
+    def create_daily_kpis(self) -> None:
+        """Create all daily KPIs from all sources (Steam, Twitch, IGDB).
+
+        Deprecated: Use create_steam_daily_kpis(), create_twitch_daily_kpis(),
+        and create_igdb_ratings_snapshot() instead.
+        """
+        # Call all source-specific methods
+        self.create_steam_daily_kpis()
+        self.create_twitch_daily_kpis()
+        self.create_igdb_ratings_snapshot()
 
     def create_hourly_kpis(self) -> None:
         """Create or update hourly KPIs table from raw Steam data.
@@ -232,17 +344,88 @@ class KPIAggregator:
         """
         )
 
-    def export_latest_kpis(self, output_path: Path, days: int = 7) -> None:
-        """Export latest N days of KPIs to JSON.
+    def export_steam_daily_kpis(self, output_path: Path, days: int = 30) -> None:
+        """Export latest N days of Steam KPIs to JSON.
 
         Args:
             output_path: Path to output JSON file
-            days: Number of days to include (default: 7)
+            days: Number of days to include (default: 30)
         """
         sql = f"""
-            SELECT * FROM daily_kpis
-            WHERE CAST(date AS DATE) >= CURRENT_DATE - INTERVAL '{days}' DAY
+            SELECT * FROM steam_daily_kpis
+            WHERE date >= CURRENT_DATE - INTERVAL '{days}' DAY
             ORDER BY date DESC, peak_ccu DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
+    def export_twitch_daily_kpis(self, output_path: Path, days: int = 30) -> None:
+        """Export latest N days of Twitch KPIs to JSON.
+
+        Args:
+            output_path: Path to output JSON file
+            days: Number of days to include (default: 30)
+        """
+        sql = f"""
+            SELECT * FROM twitch_daily_kpis
+            WHERE date >= CURRENT_DATE - INTERVAL '{days}' DAY
+            ORDER BY date DESC, peak_viewers DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
+    def export_igdb_ratings_snapshot(self, output_path: Path, days: int = 30) -> None:
+        """Export latest N days of IGDB ratings to JSON.
+
+        Args:
+            output_path: Path to output JSON file
+            days: Number of days to include (default: 30)
+        """
+        sql = f"""
+            SELECT * FROM igdb_ratings_snapshot
+            WHERE date >= CURRENT_DATE - INTERVAL '{days}' DAY
+            ORDER BY date DESC, aggregated_rating DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
+    def export_unified_daily_kpis(self, output_path: Path, days: int = 30) -> None:
+        """Export unified daily KPIs from all sources joined by igdb_id.
+
+        Combines Steam, Twitch, and IGDB data for games that have an igdb_id.
+
+        Args:
+            output_path: Path to output JSON file
+            days: Number of days to include (default: 30)
+        """
+        sql = f"""
+            SELECT
+                COALESCE(s.date, t.date, i.date) as date,
+                COALESCE(s.igdb_id, t.igdb_id, i.igdb_id) as igdb_id,
+                COALESCE(s.game_name, t.game_name, i.game_name) as game_name,
+                s.steam_app_id,
+                s.avg_ccu,
+                s.peak_ccu,
+                s.min_ccu as min_ccu_steam,
+                s.samples as steam_samples,
+                t.twitch_game_id,
+                t.avg_viewers,
+                t.peak_viewers,
+                t.min_viewers,
+                t.avg_channels,
+                t.samples as twitch_samples,
+                i.rating,
+                i.aggregated_rating,
+                i.total_rating_count
+            FROM steam_daily_kpis s
+            FULL OUTER JOIN twitch_daily_kpis t
+                ON s.igdb_id = t.igdb_id AND s.date = t.date
+            FULL OUTER JOIN igdb_ratings_snapshot i
+                ON COALESCE(s.igdb_id, t.igdb_id) = i.igdb_id
+                AND COALESCE(s.date, t.date) = i.date
+            WHERE COALESCE(s.date, t.date, i.date) >= CURRENT_DATE - INTERVAL '{days}' DAY
+            ORDER BY COALESCE(s.date, t.date, i.date) DESC,
+                     COALESCE(s.peak_ccu, 0) + COALESCE(t.peak_viewers, 0) DESC
         """
         if self.db_manager:
             self.db_manager.export_to_json(query=sql, output_path=output_path)
@@ -262,8 +445,8 @@ class KPIAggregator:
         if self.db_manager:
             self.db_manager.export_to_json(query=sql, output_path=output_path)
 
-    def export_game_rankings(self, output_path: Path) -> None:
-        """Export game rankings based on average peak players.
+    def export_steam_rankings(self, output_path: Path) -> None:
+        """Export Steam game rankings based on average peak CCU.
 
         Args:
             output_path: Path to output JSON file
@@ -271,25 +454,88 @@ class KPIAggregator:
         sql = """
             SELECT
                 game_name,
-                app_id,
-                AVG(peak_ccu) as avg_peak,
-                MAX(peak_ccu) as all_time_peak,
+                steam_app_id,
+                igdb_id,
+                AVG(peak_ccu) as avg_peak_ccu,
+                MAX(peak_ccu) as all_time_peak_ccu,
+                AVG(avg_ccu) as avg_ccu,
                 COUNT(DISTINCT date) as days_tracked
-            FROM daily_kpis
-            GROUP BY game_name, app_id
-            ORDER BY avg_peak DESC
+            FROM steam_daily_kpis
+            GROUP BY game_name, steam_app_id, igdb_id
+            ORDER BY avg_peak_ccu DESC
         """
         if self.db_manager:
             self.db_manager.export_to_json(query=sql, output_path=output_path)
 
-    def export_all_daily_kpis(self, output_path: Path) -> None:
-        """Export all daily KPIs to JSON.
+    def export_twitch_rankings(self, output_path: Path) -> None:
+        """Export Twitch game rankings based on average peak viewers.
 
         Args:
             output_path: Path to output JSON file
         """
+        sql = """
+            SELECT
+                game_name,
+                twitch_game_id,
+                igdb_id,
+                AVG(peak_viewers) as avg_peak_viewers,
+                MAX(peak_viewers) as all_time_peak_viewers,
+                AVG(avg_viewers) as avg_viewers,
+                AVG(avg_channels) as avg_channels,
+                COUNT(DISTINCT date) as days_tracked
+            FROM twitch_daily_kpis
+            GROUP BY game_name, twitch_game_id, igdb_id
+            ORDER BY avg_peak_viewers DESC
+        """
         if self.db_manager:
-            self.db_manager.export_to_json(table_name="daily_kpis", output_path=output_path)
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
+    def export_unified_rankings(self, output_path: Path) -> None:
+        """Export unified game rankings combining Steam and Twitch metrics.
+
+        Args:
+            output_path: Path to output JSON file
+        """
+        sql = """
+            SELECT
+                COALESCE(s.game_name, t.game_name) as game_name,
+                COALESCE(s.igdb_id, t.igdb_id) as igdb_id,
+                s.steam_app_id,
+                t.twitch_game_id,
+                s.avg_peak_ccu,
+                s.all_time_peak_ccu,
+                s.avg_ccu,
+                s.days_tracked as steam_days_tracked,
+                t.avg_peak_viewers,
+                t.all_time_peak_viewers,
+                t.avg_viewers,
+                t.avg_channels,
+                t.days_tracked as twitch_days_tracked
+            FROM (
+                SELECT
+                    game_name, steam_app_id, igdb_id,
+                    AVG(peak_ccu) as avg_peak_ccu,
+                    MAX(peak_ccu) as all_time_peak_ccu,
+                    AVG(avg_ccu) as avg_ccu,
+                    COUNT(DISTINCT date) as days_tracked
+                FROM steam_daily_kpis
+                GROUP BY game_name, steam_app_id, igdb_id
+            ) s
+            FULL OUTER JOIN (
+                SELECT
+                    game_name, twitch_game_id, igdb_id,
+                    AVG(peak_viewers) as avg_peak_viewers,
+                    MAX(peak_viewers) as all_time_peak_viewers,
+                    AVG(avg_viewers) as avg_viewers,
+                    AVG(avg_channels) as avg_channels,
+                    COUNT(DISTINCT date) as days_tracked
+                FROM twitch_daily_kpis
+                GROUP BY game_name, twitch_game_id, igdb_id
+            ) t ON s.igdb_id = t.igdb_id
+            ORDER BY COALESCE(s.avg_peak_ccu, 0) + COALESCE(t.avg_peak_viewers, 0) DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
 
     def export_weekly_kpis(self, output_path: Path) -> None:
         """Export all weekly KPIs to JSON.
@@ -494,11 +740,11 @@ class KPIAggregator:
         """Run full cascading aggregation pipeline and export all KPIs.
 
         Implements incremental aggregation strategy:
-        1. Update today's daily KPIs from raw data
+        1. Update today's daily KPIs from raw data (Steam, Twitch, IGDB)
         2. Update current week's weekly KPIs from daily data
         3. Update current month's monthly KPIs from weekly data
         4. Clean up old raw data (keep only 7 days)
-        5. Export global optimized JSON files (with server-side date filtering)
+        5. Export optimized JSON files for all sources
 
         Args:
             output_dir: Directory to write JSON exports
@@ -508,7 +754,7 @@ class KPIAggregator:
 
         # Cascading aggregation: raw → hourly → daily → weekly → monthly
         self.create_hourly_kpis()
-        self.create_daily_kpis()
+        self.create_daily_kpis()  # Calls all 3 source-specific methods
         self.create_weekly_kpis()
         self.create_monthly_kpis()
 
@@ -528,11 +774,22 @@ class KPIAggregator:
         if files_deleted > 0:
             print(f"🧹 Deleted {files_deleted:,} old Parquet files (>7 days)")
 
-        # Export shared metadata files
-        self.export_game_rankings(output_path=output_dir / "game_rankings.json")
+        # Export metadata
         self.export_game_metadata(output_path=output_dir / "game-metadata.json")
 
-        # Export global optimized KPI files (with server-side date filtering)
+        # Export rankings (separate by source + unified)
+        self.export_steam_rankings(output_path=output_dir / "steam_rankings.json")
+        self.export_twitch_rankings(output_path=output_dir / "twitch_rankings.json")
+        self.export_unified_rankings(output_path=output_dir / "unified_rankings.json")
+
+        # Export daily KPIs (separate by source + unified)
+        self.export_steam_daily_kpis(output_path=output_dir / "steam_daily_kpis.json", days=30)
+        self.export_twitch_daily_kpis(output_path=output_dir / "twitch_daily_kpis.json", days=30)
+        self.export_igdb_ratings_snapshot(
+            output_path=output_dir / "igdb_ratings_snapshot.json", days=30
+        )
+        self.export_unified_daily_kpis(output_path=output_dir / "unified_daily_kpis.json", days=30)
+
+        # Export hourly and monthly KPIs
         self.export_hourly_kpis(output_path=output_dir / "hourly_kpis.json", hours=48)
-        self.export_latest_kpis(output_path=output_dir / "daily_kpis.json", days=30)
         self.export_monthly_kpis_limited(output_path=output_dir / "monthly_kpis.json", months=12)
