@@ -176,19 +176,15 @@ class DuckDBManager:
                 epic_id VARCHAR,
                 gog_id VARCHAR,
 
-                -- IGDB metadata
+                -- IGDB metadata (ratings removed - collected via collect igdb-ratings)
                 igdb_summary TEXT,
-                igdb_rating REAL,
-                igdb_aggregated_rating REAL,
-                igdb_total_rating_count INTEGER,
                 first_release_date TIMESTAMP,
                 cover_url VARCHAR,
 
-                -- Steam metadata
+                -- Steam metadata (metacritic removed - will be in metacritic_raw)
                 steam_description TEXT,
                 steam_is_free BOOLEAN,
                 steam_price_cents INTEGER,
-                steam_metacritic_score INTEGER,
                 steam_required_age INTEGER,
 
                 -- Categories (JSON)

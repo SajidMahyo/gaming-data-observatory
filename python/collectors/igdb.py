@@ -257,8 +257,7 @@ class IGDBCollector:
         """
         query = f"""
         where id = {igdb_id};
-        fields name,slug,summary,first_release_date,rating,aggregated_rating,
-               total_rating_count,cover.url,
+        fields name,slug,summary,first_release_date,cover.url,
                genres.name,themes.name,platforms.name,game_modes.name,
                player_perspectives.name,
                involved_companies.company.name,involved_companies.developer,
@@ -274,7 +273,7 @@ class IGDBCollector:
 
             game = results[0]
 
-            # Extract and structure the data
+            # Extract and structure the data (KPIs removed, collected via collect igdb-ratings)
             return {
                 "igdb_id": game["id"],
                 "game_name": game.get("name"),
@@ -285,9 +284,6 @@ class IGDBCollector:
                     if game.get("first_release_date")
                     else None
                 ),
-                "igdb_rating": game.get("rating"),
-                "igdb_aggregated_rating": game.get("aggregated_rating"),
-                "igdb_total_rating_count": game.get("total_rating_count"),
                 "cover_url": (
                     f"https:{game['cover']['url'].replace('t_thumb', 't_cover_big')}"
                     if game.get("cover")
