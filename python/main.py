@@ -1,5 +1,6 @@
 """Gaming Data Observatory - Main CLI entrypoint."""
 
+from datetime import UTC, datetime
 from pathlib import Path
 
 import click
@@ -358,6 +359,99 @@ def forecast() -> None:
 def export() -> None:
     """Export data to JSON for Observable Framework."""
     click.echo("Exporting data...")
+
+
+@cli.command()
+@click.option(
+    "--output",
+    "-o",
+    default="data/raw/twitch",
+    help="Output directory for Twitch data",
+    type=click.Path(),
+)
+@click.option(
+    "--config",
+    "-c",
+    default="config/games.json",
+    help="Path to games configuration file",
+    type=click.Path(),
+)
+@click.option(
+    "--limit",
+    "-l",
+    default=None,
+    help="Number of games to collect (default: all tracked games)",
+    type=int,
+)
+def twitch_collect(output: str, config: str, limit: int | None) -> None:
+    """Collect viewership data from Twitch API for tracked games."""
+    from python.collectors.twitch import TwitchCollector
+
+    click.echo("🎮 Collecting Twitch viewership data...\n")
+
+    # Load tracked games
+    config_path = Path(config)
+    if not config_path.exists():
+        click.echo(f"❌ Config file not found: {config}", err=True)
+        raise click.Abort()
+
+    try:
+        import json
+
+        with open(config_path) as f:
+            games_dict = json.load(f)
+            games = {int(app_id): name for app_id, name in games_dict.items()}
+
+        # Limit games if specified
+        if limit is not None:
+            games = dict(list(games.items())[:limit])
+
+        total_games = len(games)
+        click.echo(f"📊 Collecting data for {total_games} tracked games...\n")
+
+        # Initialize collector
+        collector = TwitchCollector()
+
+        # Collect data
+        twitch_data = collector.collect_multiple_games(games, delay=1.0)
+
+        click.echo(f"\n✅ Collected data for {len(twitch_data)}/{total_games} games")
+
+        # Save to JSON (for now, we'll add Parquet later)
+        output_path = Path(output)
+        output_path.mkdir(parents=True, exist_ok=True)
+
+        timestamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
+        output_file = output_path / f"twitch_data_{timestamp}.json"
+
+        with open(output_file, "w") as f:
+            json.dump(twitch_data, f, indent=2)
+
+        click.echo(f"💾 Saved to {output_file}")
+
+        # Display summary
+        if twitch_data:
+            click.echo("\n📊 Summary:")
+            sorted_data = sorted(twitch_data, key=lambda x: x["viewer_count"], reverse=True)
+            for data in sorted_data[:10]:
+                click.echo(
+                    f"  • {data['game_name']}: {data['viewer_count']:,} viewers, "
+                    f"{data['channel_count']} channels"
+                )
+
+        click.echo("\n✨ Twitch collection complete!")
+
+    except ValueError as e:
+        click.echo(f"❌ Authentication error: {e}", err=True)
+        click.echo("\n💡 Make sure to set your Twitch credentials in .env file:", err=True)
+        click.echo("   TWITCH_CLIENT_ID=your_client_id", err=True)
+        click.echo("   TWITCH_CLIENT_SECRET=your_client_secret", err=True)
+        click.echo("\n   Get credentials at: https://dev.twitch.tv/console", err=True)
+        raise click.Abort() from e
+
+    except Exception as e:
+        click.echo(f"❌ Error during Twitch collection: {e}", err=True)
+        raise click.Abort() from e
 
 
 if __name__ == "__main__":

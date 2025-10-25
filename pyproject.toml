@@ -11,6 +11,7 @@ dependencies = [
     "prophet>=1.1.5",
     "requests>=2.31.0",
     "click>=8.1.0",
+    "python-dotenv>=1.0.0",
 ]
 
 [project.optional-dependencies]
@@ -88,4 +89,9 @@ exclude_lines = [
     "raise AssertionError",
     "raise NotImplementedError",
     "if __name__ == .__main__.:",
+]
+
+[dependency-groups]
+dev = [
+    "types-requests>=2.32.4.20250913",
 ]
