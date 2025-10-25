@@ -3,6 +3,7 @@
 import os
 import time
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
 import requests
@@ -22,6 +23,7 @@ class TwitchCollector:
         client_secret: str | None = None,
         max_retries: int = 3,
         retry_delay: float = 1.0,
+        db_path: Path | None = None,
     ) -> None:
         """
         Initialize Twitch collector with OAuth2 authentication.
@@ -31,6 +33,7 @@ class TwitchCollector:
             client_secret: Twitch Client Secret (loaded from .env if not provided)
             max_retries: Maximum number of retry attempts (default: 3)
             retry_delay: Base delay between retries in seconds (default: 1.0)
+            db_path: Path to DuckDB database (default: data/duckdb/gaming.db)
         """
         load_dotenv()
 
@@ -47,6 +50,54 @@ class TwitchCollector:
         self.retry_delay = retry_delay
         self.access_token: str | None = None
         self.token_expires_at: float = 0
+        self.db_path = Path(db_path) if db_path else Path("data/duckdb/gaming.db")
+        self._tracked_games = self._load_tracked_games()
+
+    def _load_tracked_games(self) -> list[dict[str, Any]]:
+        """Load tracked games from DuckDB game_metadata table.
+
+        Returns:
+            List of game dictionaries with twitch_game_id, game_name, steam_app_id
+        """
+        if not self.db_path.exists():
+            print(f"⚠️  Database not found at {self.db_path}, no games to track")
+            return []
+
+        try:
+            from python.storage.duckdb_manager import DuckDBManager
+
+            with DuckDBManager(db_path=self.db_path) as db:
+                games_list = db.get_active_games_for_platform("twitch")
+
+                if not games_list:
+                    print("⚠️  No active Twitch games found in database")
+                    return []
+
+                # Filter only games that have twitch_game_id
+                tracked_games = [
+                    {
+                        "twitch_game_id": game["twitch_game_id"],
+                        "game_name": game["game_name"],
+                        "steam_app_id": game.get("steam_app_id"),
+                    }
+                    for game in games_list
+                    if game.get("twitch_game_id")
+                ]
+
+                print(f"✅ Loaded {len(tracked_games)} tracked games from database")
+                return tracked_games
+
+        except Exception as e:
+            print(f"❌ Error loading games from database: {e}, no games to track")
+            return []
+
+    def get_tracked_games(self) -> list[dict[str, Any]]:
+        """Get the list of tracked games.
+
+        Returns:
+            List of game dictionaries with metadata
+        """
+        return self._tracked_games.copy()
 
     def _get_access_token(self) -> str:
         """
@@ -78,7 +129,7 @@ class TwitchCollector:
 
         return self.access_token
 
-    def _make_request(self, endpoint: str, params: dict[str, Any] | None = None) -> dict:
+    def _make_request(self, endpoint: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
         """
         Make authenticated request to Twitch API with retry logic.
 
@@ -104,7 +155,7 @@ class TwitchCollector:
                     url, headers=headers, params=params, timeout=self.TIMEOUT_SECONDS
                 )
                 response.raise_for_status()
-                result: dict = response.json()
+                result: dict[str, Any] = response.json()
                 return result
 
             except requests.HTTPError as e:
@@ -200,24 +251,22 @@ class TwitchCollector:
             print(f"Error fetching viewership for game {game_id}: {e}")
             return None
 
-    def collect_game_data(self, game_name: str, steam_app_id: int) -> dict[str, Any] | None:
+    def collect_game_data(
+        self, twitch_game_id: str, game_name: str, steam_app_id: int | None = None
+    ) -> dict[str, Any] | None:
         """
-        Collect Twitch data for a game.
+        Collect Twitch data for a game using pre-mapped Twitch game ID.
 
         Args:
+            twitch_game_id: Twitch game ID (already mapped from IGDB)
             game_name: Name of the game
-            steam_app_id: Steam application ID (for reference)
+            steam_app_id: Steam application ID (for reference, optional)
 
         Returns:
             Dictionary with Twitch data or None if failed
         """
-        # Get Twitch game ID
-        game_id = self.get_game_id(game_name)
-        if not game_id:
-            return None
-
-        # Get viewership data
-        viewership = self.get_game_viewership(game_id)
+        # Get viewership data using the mapped ID
+        viewership = self.get_game_viewership(twitch_game_id)
         if not viewership:
             return None
 
@@ -225,18 +274,61 @@ class TwitchCollector:
         return {
             "steam_app_id": steam_app_id,
             "game_name": game_name,
-            "twitch_game_id": game_id,
+            "twitch_game_id": twitch_game_id,
             "viewer_count": viewership["viewer_count"],
             "channel_count": viewership["channel_count"],
             "top_streams": viewership["top_streams"],
             "timestamp": datetime.now(UTC).isoformat(),
         }
 
+    def collect_tracked_games(self, limit: int | None = None, delay: float = 1.0) -> list[dict[str, Any]]:
+        """
+        Collect Twitch data for tracked games from database.
+
+        Args:
+            limit: Number of games to collect. If None, collects all tracked games.
+            delay: Delay between requests in seconds (rate limiting)
+
+        Returns:
+            List of dictionaries with Twitch data (skips games with errors)
+        """
+        results = []
+        games_to_collect = self._tracked_games[:limit] if limit else self._tracked_games
+
+        for game in games_to_collect:
+            try:
+                data = self.collect_game_data(
+                    twitch_game_id=game["twitch_game_id"],
+                    game_name=game["game_name"],
+                    steam_app_id=game.get("steam_app_id"),
+                )
+
+                if data:
+                    results.append(data)
+                    print(
+                        f"✓ {game['game_name']}: {data['viewer_count']:,} viewers, "
+                        f"{data['channel_count']} channels"
+                    )
+                else:
+                    print(f"✗ {game['game_name']}: No Twitch data found")
+
+            except Exception as e:
+                print(f"⚠️  Skipping {game['game_name']}: {e}")
+                continue
+
+            # Rate limiting
+            if delay > 0:
+                time.sleep(delay)
+
+        return results
+
     def collect_multiple_games(
         self, games: dict[int, str], delay: float = 1.0
     ) -> list[dict[str, Any]]:
         """
-        Collect Twitch data for multiple games.
+        Collect Twitch data for multiple games (legacy method).
+
+        DEPRECATED: Use collect_tracked_games() instead to leverage pre-mapped IDs.
 
         Args:
             games: Dictionary mapping Steam app_id to game name
@@ -248,7 +340,15 @@ class TwitchCollector:
         results = []
 
         for app_id, game_name in games.items():
-            data = self.collect_game_data(game_name, app_id)
+            # Legacy behavior: look up Twitch game ID by name
+            game_id = self.get_game_id(game_name)
+            if not game_id:
+                print(f"✗ {game_name}: Twitch game ID not found")
+                continue
+
+            data = self.collect_game_data(
+                twitch_game_id=game_id, game_name=game_name, steam_app_id=app_id
+            )
 
             if data:
                 results.append(data)
