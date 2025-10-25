@@ -326,10 +326,14 @@ def discover(source: str, limit: int, db_path: str) -> None:
     - igdb-recent: Recently released games (last 90 days)
     - igdb-highest-rated: Highest rated games
     - igdb-upcoming: Upcoming games (next 180 days)
+    - steam-top-ccu: Top concurrent players on Steam
+    - twitch-trending: Trending games on Twitch by viewership
     """
     import time
 
     from python.collectors.igdb import IGDBCollector
+    from python.collectors.steam import SteamCollector
+    from python.collectors.twitch import TwitchCollector
     from python.storage.duckdb_manager import DuckDBManager
 
     click.echo(f"🔍 Discovering {limit} games from source: {source}...\n")
@@ -338,18 +342,32 @@ def discover(source: str, limit: int, db_path: str) -> None:
     start_time = time.time()
 
     try:
-        # Initialize IGDB collector
-        collector = IGDBCollector()
+        discovered_games = []
 
-        # Discover games (without enrichment)
+        # IGDB sources
         if source == "igdb-popular":
+            collector = IGDBCollector()
             discovered_games = collector.discover_popular_games(limit=limit)
         elif source == "igdb-recent":
+            collector = IGDBCollector()
             discovered_games = collector.discover_recent_games(limit=limit, days_back=90)
         elif source == "igdb-highest-rated":
+            collector = IGDBCollector()
             discovered_games = collector.discover_highest_rated_games(limit=limit)
         elif source == "igdb-upcoming":
+            collector = IGDBCollector()
             discovered_games = collector.discover_upcoming_games(limit=limit, days_ahead=180)
+
+        # Steam sources
+        elif source == "steam-top-ccu":
+            collector = SteamCollector(db_path=db_path_obj)
+            discovered_games = collector.discover_top_ccu_games(limit=limit)
+
+        # Twitch sources
+        elif source == "twitch-trending":
+            collector = TwitchCollector(db_path=db_path_obj)
+            discovered_games = collector.discover_trending_games(limit=limit)
+
         else:
             click.echo(f"❌ Unknown source: {source}", err=True)
             click.echo("\nAvailable sources:", err=True)
@@ -357,6 +375,8 @@ def discover(source: str, limit: int, db_path: str) -> None:
             click.echo("  • igdb-recent: Recently released games (last 90 days)", err=True)
             click.echo("  • igdb-highest-rated: Highest rated games", err=True)
             click.echo("  • igdb-upcoming: Upcoming games (next 180 days)", err=True)
+            click.echo("  • steam-top-ccu: Top concurrent players on Steam", err=True)
+            click.echo("  • twitch-trending: Trending games on Twitch", err=True)
             raise click.Abort()
 
         if not discovered_games:
@@ -364,10 +384,19 @@ def discover(source: str, limit: int, db_path: str) -> None:
             raise click.Abort()
 
         # Convert to simple format for game_list
-        games_for_list = [
-            {"igdb_id": game["id"], "game_name": game.get("name", f"Game {game['id']}")}
-            for game in discovered_games
-        ]
+        # Handle different return formats (IGDB vs Steam/Twitch)
+        games_for_list = []
+        for game in discovered_games:
+            if "igdb_id" in game:
+                # Already in correct format (Steam/Twitch sources)
+                games_for_list.append(
+                    {"igdb_id": game["igdb_id"], "game_name": game["game_name"]}
+                )
+            else:
+                # IGDB format: {"id": ..., "name": ...}
+                games_for_list.append(
+                    {"igdb_id": game["id"], "game_name": game.get("name", f"Game {game['id']}")}
+                )
 
         click.echo(f"✅ Discovered {len(games_for_list)} games\n")
 

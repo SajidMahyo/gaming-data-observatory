@@ -202,6 +202,76 @@ class TwitchCollector:
             print(f"Error fetching game ID for {game_name}: {e}")
             return None
 
+    def discover_trending_games(self, limit: int = 50) -> list[dict[str, Any]]:
+        """
+        Discover trending games on Twitch by current viewership.
+
+        Fetches top games by viewer count, then finds their IGDB IDs for discovery.
+
+        Args:
+            limit: Number of top games to fetch from Twitch (default: 50)
+
+        Returns:
+            List of dicts with igdb_id, game_name for discovery
+        """
+        from python.collectors.igdb import IGDBCollector
+
+        try:
+            # Get top games from Twitch
+            data = self._make_request("/games/top", params={"first": min(limit, 100)})
+            twitch_games = data.get("data", [])
+
+            if not twitch_games:
+                print("⚠️  No trending games found on Twitch")
+                return []
+
+            print(f"📊 Found {len(twitch_games)} trending games on Twitch")
+            print(f"🔍 Resolving IGDB IDs via external_games API...")
+
+            # Find IGDB IDs for these Twitch games
+            igdb_collector = IGDBCollector()
+            discovered_games = []
+
+            for twitch_game in twitch_games[:limit]:
+                twitch_game_id = str(twitch_game["id"])
+                twitch_name = twitch_game["name"]
+
+                try:
+                    # Search IGDB external_games for this twitch_game_id
+                    igdb_id = igdb_collector.find_igdb_id_by_twitch(twitch_game_id)
+
+                    if igdb_id:
+                        discovered_games.append(
+                            {
+                                "igdb_id": igdb_id,
+                                "game_name": twitch_name,
+                                "twitch_game_id": twitch_game_id,
+                            }
+                        )
+                        print(f"  ✅ {twitch_name}: IGDB {igdb_id}")
+                    else:
+                        print(f"  ⚠️  {twitch_name}: IGDB ID not found")
+
+                except Exception as e:
+                    print(f"  ❌ {twitch_name}: {e}")
+                    continue
+
+            print(f"\n✅ Discovered {len(discovered_games)} games from Twitch trending")
+
+            if len(discovered_games) < len(twitch_games[:limit]):
+                print(
+                    f"ℹ️  {len(twitch_games[:limit]) - len(discovered_games)} Twitch games not found in IGDB"
+                )
+
+            return discovered_games
+
+        except requests.RequestException as e:
+            print(f"❌ Error discovering Twitch trending games: {e}")
+            return []
+        except Exception as e:
+            print(f"❌ Error resolving IGDB IDs: {e}")
+            return []
+
     def get_game_viewership(self, game_id: str) -> dict[str, Any] | None:
         """
         Get current viewership data for a game.

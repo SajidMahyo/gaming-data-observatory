@@ -312,6 +312,62 @@ class IGDBCollector:
             print(f"❌ Error fetching metadata for game {igdb_id}: {e}")
             return None
 
+    def find_igdb_id_by_steam(self, steam_app_id: int) -> int | None:
+        """
+        Find IGDB game ID from Steam app ID.
+
+        Args:
+            steam_app_id: Steam application ID
+
+        Returns:
+            IGDB game ID or None if not found
+        """
+        query = f"""
+        where uid = "{steam_app_id}" & external_game_source = 1;
+        fields game;
+        """
+
+        try:
+            results = self._make_request("external_games", query)
+
+            if results and len(results) > 0:
+                igdb_id: int = results[0]["game"]
+                return igdb_id
+
+            return None
+
+        except requests.RequestException as e:
+            print(f"❌ Error finding IGDB ID for Steam {steam_app_id}: {e}")
+            return None
+
+    def find_igdb_id_by_twitch(self, twitch_game_id: str) -> int | None:
+        """
+        Find IGDB game ID from Twitch game ID.
+
+        Args:
+            twitch_game_id: Twitch game ID (string)
+
+        Returns:
+            IGDB game ID or None if not found
+        """
+        query = f"""
+        where uid = "{twitch_game_id}" & external_game_source = 14;
+        fields game;
+        """
+
+        try:
+            results = self._make_request("external_games", query)
+
+            if results and len(results) > 0:
+                igdb_id: int = results[0]["game"]
+                return igdb_id
+
+            return None
+
+        except requests.RequestException as e:
+            print(f"❌ Error finding IGDB ID for Twitch {twitch_game_id}: {e}")
+            return None
+
     def get_external_ids(self, igdb_id: int) -> dict[str, Any]:
         """
         Get external platform IDs for a game.

@@ -173,3 +173,76 @@ class SteamCollector:
             Dictionary mapping app_id to game_name
         """
         return self._tracked_games.copy()
+
+    def discover_top_ccu_games(self, limit: int = 50) -> list[dict[str, Any]]:
+        """
+        Discover top games by current concurrent players (CCU) on Steam.
+
+        Uses TOP_GAMES as seed, fetches their current CCU, sorts by CCU,
+        then finds their IGDB IDs for discovery.
+
+        Args:
+            limit: Number of top games to return (default: 50)
+
+        Returns:
+            List of dicts with igdb_id, game_name for discovery
+        """
+        from python.collectors.igdb import IGDBCollector
+
+        results: list[dict[str, Any]] = []
+
+        # Use TOP_GAMES as seed
+        print(f"📊 Fetching CCU for {len(self.TOP_GAMES)} popular Steam games...")
+
+        ccu_data: list[dict[str, Any]] = []
+        for app_id, game_name in self.TOP_GAMES.items():
+            try:
+                player_count = self.get_player_count(app_id)
+                ccu_data.append(
+                    {
+                        "steam_app_id": app_id,
+                        "game_name": game_name,
+                        "player_count": player_count,
+                    }
+                )
+            except Exception as e:
+                print(f"⚠️  Skipping {game_name} ({app_id}): {e}")
+                continue
+
+        # Sort by CCU descending
+        ccu_data.sort(key=lambda x: int(x["player_count"]), reverse=True)
+        top_ccu = ccu_data[:limit]
+
+        print(f"✅ Found top {len(top_ccu)} games by CCU")
+        print(f"🔍 Resolving IGDB IDs via external_games API...")
+
+        # Find IGDB IDs for these Steam games
+        igdb_collector = IGDBCollector()
+        discovered_games: list[dict[str, Any]] = []
+
+        for game in top_ccu:
+            try:
+                # Search IGDB external_games for this steam_app_id
+                igdb_id = igdb_collector.find_igdb_id_by_steam(int(game["steam_app_id"]))
+
+                if igdb_id:
+                    discovered_games.append(
+                        {
+                            "igdb_id": igdb_id,
+                            "game_name": game["game_name"],
+                            "steam_app_id": game["steam_app_id"],
+                            "player_count": game["player_count"],
+                        }
+                    )
+                    print(
+                        f"  ✅ {game['game_name']}: IGDB {igdb_id}, CCU {game['player_count']:,}"
+                    )
+                else:
+                    print(f"  ⚠️  {game['game_name']}: IGDB ID not found")
+
+            except Exception as e:
+                print(f"  ❌ {game['game_name']}: {e}")
+                continue
+
+        print(f"\n✅ Discovered {len(discovered_games)} games from Steam top CCU")
+        return discovered_games
