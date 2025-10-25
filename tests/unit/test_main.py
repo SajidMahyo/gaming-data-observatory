@@ -107,30 +107,52 @@ def test_discover_command_help() -> None:
     runner = CliRunner()
     result = runner.invoke(cli, ["discover", "--help"])
     assert result.exit_code == 0
-    assert "Discover and add new games" in result.output
-    assert "--top-limit" in result.output
-    assert "--trending-limit" in result.output
-    assert "--skip-featured" in result.output
+    assert "Discover games from IGDB" in result.output
+    assert "--limit" in result.output
+    assert "--db-path" in result.output
+    assert "--delay" in result.output
 
 
 def test_discover_command_with_mocked_data(tmp_path: Path) -> None:
-    """Test discover command with mocked GameDiscovery."""
+    """Test discover command with mocked IGDB collector."""
     runner = CliRunner()
-    config_path = tmp_path / "games.json"
+    db_path = tmp_path / "test.db"
 
-    with patch("python.main.GameDiscovery") as mock_discovery_class:
-        mock_discovery = Mock()
-        mock_discovery.update_tracked_games.return_value = {
-            730: "Counter-Strike 2",
-            570: "Dota 2",
-        }
-        mock_discovery_class.return_value = mock_discovery
+    with (
+        patch("python.collectors.igdb.IGDBCollector") as mock_collector_class,
+        patch("python.storage.duckdb_manager.DuckDBManager") as mock_db_class,
+    ):
+        # Mock IGDBCollector
+        mock_collector = Mock()
+        mock_collector.discover_and_enrich.return_value = [
+            {
+                "igdb_id": 1234,
+                "game_name": "Counter-Strike 2",
+                "steam_app_id": 730,
+                "twitch_game_id": "32399",
+            },
+            {
+                "igdb_id": 2963,
+                "game_name": "Dota 2",
+                "steam_app_id": 570,
+                "twitch_game_id": "29595",
+            },
+        ]
+        mock_collector_class.return_value = mock_collector
 
-        result = runner.invoke(cli, ["discover", "--config", str(config_path), "--top-limit", "10"])
+        # Mock DuckDBManager
+        mock_db = Mock()
+        mock_db.get_game_metadata.return_value = None  # All games are new
+        mock_db.__enter__ = Mock(return_value=mock_db)
+        mock_db.__exit__ = Mock(return_value=False)
+        mock_db_class.return_value = mock_db
+
+        result = runner.invoke(cli, ["discover", "--limit", "2", "--db-path", str(db_path)])
 
         assert result.exit_code == 0
         assert "Discovery complete" in result.output
-        mock_discovery.update_tracked_games.assert_called_once()
+        assert "2 new games discovered" in result.output
+        mock_collector.discover_and_enrich.assert_called_once_with(limit=2, delay=0.5)
 
 
 def test_metadata_command_help() -> None:

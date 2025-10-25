@@ -5,7 +5,6 @@ from pathlib import Path
 
 import click
 
-from python.collectors.game_discovery import GameDiscovery
 from python.collectors.steam import SteamCollector
 from python.collectors.steam_store import SteamStoreCollector
 from python.processors.aggregator import KPIAggregator
@@ -275,77 +274,114 @@ def metadata(app_ids: str, output: str, db_path: str) -> None:
 
 @cli.command()
 @click.option(
-    "--config",
-    "-c",
-    default="config/games.json",
-    help="Path to games configuration file",
+    "--limit",
+    "-l",
+    default=100,
+    help="Number of popular games to discover from IGDB",
+    type=int,
+)
+@click.option(
+    "--db-path",
+    "-d",
+    default="data/duckdb/gaming.db",
+    help="Path to DuckDB database",
     type=click.Path(),
 )
 @click.option(
-    "--top-limit",
-    "-t",
-    default=100,
-    help="Number of top games by playtime to discover",
-    type=int,
+    "--delay",
+    default=0.5,
+    help="Delay between API calls (rate limiting)",
+    type=float,
 )
-@click.option(
-    "--trending-limit",
-    "-r",
-    default=50,
-    help="Number of trending games by CCU to discover",
-    type=int,
-)
-@click.option(
-    "--skip-top",
-    is_flag=True,
-    help="Skip discovering top games by playtime",
-)
-@click.option(
-    "--skip-trending",
-    is_flag=True,
-    help="Skip discovering trending games by CCU",
-)
-@click.option(
-    "--skip-featured",
-    is_flag=True,
-    help="Skip discovering featured games from Steam",
-)
-def discover(
-    config: str,
-    top_limit: int,
-    trending_limit: int,
-    skip_top: bool,
-    skip_trending: bool,
-    skip_featured: bool,
-) -> None:
-    """Discover and add new games to track (append-only).
+def discover(limit: int, db_path: str, delay: float) -> None:
+    """Discover games from IGDB and enrich with metadata.
 
-    Discovers games from multiple sources for diversity:
-    - Top games by playtime (last 2 weeks)
-    - Trending games by current concurrent players
-    - Featured games from Steam Store
+    Uses IGDB API as the universal source of truth for game discovery.
+    Discovers popular games by rating count and enriches with:
+    - IGDB metadata (ratings, genres, themes, cover art)
+    - Platform IDs (Steam, Twitch, YouTube, Epic, GOG, etc.)
+    - Stores everything in unified game_metadata table
     """
-    click.echo("🔍 Discovering new games from multiple sources...\n")
+    import time
 
-    config_path = Path(config)
+    from python.collectors.igdb import IGDBCollector
+    from python.storage.duckdb_manager import DuckDBManager
+
+    click.echo(f"🎮 Discovering {limit} popular games from IGDB...\n")
+
+    db_path_obj = Path(db_path)
+
+    start_time = time.time()
+    games_discovered = 0
+    games_updated = 0
 
     try:
-        discovery = GameDiscovery(config_path=config_path)
+        # Initialize IGDB collector
+        collector = IGDBCollector()
 
-        # Update tracked games (append-only)
-        updated_games = discovery.update_tracked_games(
-            include_top=not skip_top,
-            include_trending=not skip_trending,
-            include_featured=not skip_featured,
-            top_limit=top_limit,
-            trending_limit=trending_limit,
-        )
+        # Discover and enrich games
+        enriched_games = collector.discover_and_enrich(limit=limit, delay=delay)
 
-        click.echo(f"\n✨ Discovery complete! Now tracking {len(updated_games)} games total")
-        click.echo(f"💾 Updated config: {config_path}")
+        if not enriched_games:
+            click.echo("❌ No games discovered", err=True)
+            raise click.Abort()
+
+        click.echo(f"\n💾 Storing {len(enriched_games)} games in DuckDB...")
+
+        # Store in database
+        with DuckDBManager(db_path=db_path_obj) as db:
+            # Create tables
+            db.create_game_metadata_table()
+            db.create_discovery_history_table()
+
+            # Upsert each game
+            for game in enriched_games:
+                # Check if game already exists
+                existing = db.get_game_metadata(igdb_id=game["igdb_id"])
+
+                if existing:
+                    games_updated += 1
+                else:
+                    games_discovered += 1
+
+                db.upsert_game_metadata(game)
+
+            # Log discovery operation
+            execution_time = time.time() - start_time
+            db.log_discovery(
+                source="igdb_popular",
+                games_discovered=games_discovered,
+                games_updated=games_updated,
+                execution_time=execution_time,
+                notes=f"Discovered top {limit} games by rating count",
+            )
+
+        click.echo("\n✅ Discovery complete!")
+        click.echo(f"   📊 {games_discovered} new games discovered")
+        click.echo(f"   🔄 {games_updated} existing games updated")
+        click.echo(f"   ⏱️  Completed in {execution_time:.1f}s")
+        click.echo(f"   💾 Database: {db_path}")
+
+        # Display sample of discovered games
+        click.echo("\n🎯 Sample of discovered games:")
+        for game in enriched_games[:5]:
+            steam_id = game.get("steam_app_id")
+            twitch_id = game.get("twitch_game_id")
+            click.echo(
+                f"  • {game['game_name']} (IGDB: {game['igdb_id']}, "
+                f"Steam: {steam_id or 'N/A'}, Twitch: {twitch_id or 'N/A'})"
+            )
+
+    except ValueError as e:
+        click.echo(f"❌ Authentication error: {e}", err=True)
+        click.echo("\n💡 Make sure to set your Twitch credentials in .env file:", err=True)
+        click.echo("   TWITCH_CLIENT_ID=your_client_id", err=True)
+        click.echo("   TWITCH_CLIENT_SECRET=your_client_secret", err=True)
+        click.echo("\n   Get credentials at: https://dev.twitch.tv/console", err=True)
+        raise click.Abort() from e
 
     except Exception as e:
-        click.echo(f"❌ Error during discovery: {e}", err=True)
+        click.echo(f"❌ Error during IGDB discovery: {e}", err=True)
         raise click.Abort() from e
 
 
