@@ -159,7 +159,6 @@ class IGDBCollector:
         Returns:
             List of dicts with basic game info
         """
-        import time
         from datetime import UTC, datetime, timedelta
 
         # Calculate timestamp for days_back
@@ -182,7 +181,9 @@ class IGDBCollector:
             print(f"❌ Error discovering recent games: {e}")
             return []
 
-    def discover_highest_rated_games(self, limit: int = 100, min_ratings: int = 100) -> list[dict[str, Any]]:
+    def discover_highest_rated_games(
+        self, limit: int = 100, min_ratings: int = 100
+    ) -> list[dict[str, Any]]:
         """
         Discover highest rated games.
 
@@ -209,7 +210,9 @@ class IGDBCollector:
             print(f"❌ Error discovering highest rated games: {e}")
             return []
 
-    def discover_upcoming_games(self, limit: int = 100, days_ahead: int = 180) -> list[dict[str, Any]]:
+    def discover_upcoming_games(
+        self, limit: int = 100, days_ahead: int = 180
+    ) -> list[dict[str, Any]]:
         """
         Discover upcoming games (not yet released).
 
@@ -220,7 +223,6 @@ class IGDBCollector:
         Returns:
             List of dicts with basic game info
         """
-        import time
         from datetime import UTC, datetime, timedelta
 
         # Calculate timestamps
@@ -477,6 +479,41 @@ class IGDBCollector:
                 result[category] = url
 
         return result
+
+    def get_game_ratings(self, igdb_id: int) -> dict[str, Any] | None:
+        """
+        Get rating data for a game (time-series KPI).
+
+        Args:
+            igdb_id: IGDB game ID
+
+        Returns:
+            Dictionary with rating data or None if failed
+        """
+        query = f"""
+        where id = {igdb_id};
+        fields rating,aggregated_rating,total_rating_count;
+        """
+
+        try:
+            results = self._make_request("games", query)
+
+            if not results:
+                return None
+
+            game = results[0]
+
+            return {
+                "igdb_id": igdb_id,
+                "rating": game.get("rating"),
+                "aggregated_rating": game.get("aggregated_rating"),
+                "total_rating_count": game.get("total_rating_count"),
+                "timestamp": datetime.now(UTC).isoformat(),
+            }
+
+        except requests.RequestException as e:
+            print(f"❌ Error fetching ratings for game {igdb_id}: {e}")
+            return None
 
     def discover_and_enrich(self, limit: int = 100, delay: float = 0.5) -> list[dict[str, Any]]:
         """
