@@ -1,20 +1,80 @@
 ```js
-// Load data
-const gameRankings = FileAttachment("data/game_rankings.json").json();
+// Load multi-source data
+const steamRankings = FileAttachment("data/steam_rankings.json").json();
+const twitchRankings = FileAttachment("data/twitch_rankings.json").json();
+const unifiedRankings = FileAttachment("data/unified_rankings.json").json();
 const gameMetadata = FileAttachment("data/game-metadata.json").json();
 ```
 
 ```js
-// Merge rankings with metadata
-const gamesWithMetadata = gameRankings.map(game => {
-  const metadata = gameMetadata.find(m => m.app_id === game.app_id);
-  return { ...game, ...metadata };
-});
-
 // Helper function to get Steam image URL
 function getSteamImage(appId) {
   return `https://cdn.cloudflare.steamstatic.com/steam/apps/${appId}/header.jpg`;
 }
+
+// Helper function to get game display info
+function getGameDisplayInfo(game, platform) {
+  if (platform === 'steam') {
+    return {
+      id: game.steam_app_id,
+      name: game.game_name,
+      avgMetric: game.avg_peak_ccu,
+      peakMetric: game.all_time_peak_ccu,
+      avgLabel: 'Avg Peak CCU',
+      peakLabel: 'All-Time Peak CCU',
+      metricSuffix: ''
+    };
+  } else if (platform === 'twitch') {
+    return {
+      id: game.twitch_game_id,
+      name: game.game_name,
+      avgMetric: game.avg_peak_viewers,
+      peakMetric: game.all_time_peak_viewers,
+      avgLabel: 'Avg Peak Viewers',
+      peakLabel: 'All-Time Peak Viewers',
+      metricSuffix: ''
+    };
+  } else { // unified
+    return {
+      id: game.steam_app_id || game.igdb_id,
+      name: game.game_name,
+      avgMetric: (game.avg_peak_ccu || 0) + (game.avg_peak_viewers || 0),
+      peakMetric: (game.all_time_peak_ccu || 0) + (game.all_time_peak_viewers || 0),
+      avgLabel: 'Combined Avg Peak',
+      peakLabel: 'Combined All-Time Peak',
+      steamCCU: game.avg_peak_ccu,
+      twitchViewers: game.avg_peak_viewers,
+      metricSuffix: ''
+    };
+  }
+}
+```
+
+```js
+// Platform selector
+const platform = view((() => {
+  const form = html`<div class="criterion-selector">
+    <div class="selector-label">Platform:</div>
+    <div class="selector-buttons">
+      <button class="criterion-btn active" data-value="unified">🌐 Unified</button>
+      <button class="criterion-btn" data-value="steam">🎮 Steam</button>
+      <button class="criterion-btn" data-value="twitch">📺 Twitch</button>
+    </div>
+  </div>`;
+
+  form.value = "unified";
+
+  form.addEventListener("click", (e) => {
+    if (e.target.classList.contains("criterion-btn")) {
+      form.querySelectorAll(".criterion-btn").forEach(btn => btn.classList.remove("active"));
+      e.target.classList.add("active");
+      form.value = e.target.dataset.value;
+      form.dispatchEvent(new Event("input", {bubbles: true}));
+    }
+  });
+
+  return form;
+})());
 ```
 
 ```js
@@ -44,8 +104,19 @@ const rankingCriterion = view((() => {
 ```
 
 ```js
+// Select data based on platform
+const currentRankings = platform === 'steam' ? steamRankings :
+                        platform === 'twitch' ? twitchRankings :
+                        unifiedRankings;
+
 // Sort games by selected criterion
-const sortedGames = [...gamesWithMetadata].sort((a, b) => b[rankingCriterion] - a[rankingCriterion]);
+const sortedGames = [...currentRankings].sort((a, b) => {
+  const aInfo = getGameDisplayInfo(a, platform);
+  const bInfo = getGameDisplayInfo(b, platform);
+  const aValue = rankingCriterion === 'avg_peak' ? aInfo.avgMetric : aInfo.peakMetric;
+  const bValue = rankingCriterion === 'avg_peak' ? bInfo.avgMetric : bInfo.peakMetric;
+  return bValue - aValue;
+});
 
 // Get top 3 and rest
 const top3 = sortedGames.slice(0, 3);
@@ -54,83 +125,74 @@ const restOfGames = sortedGames.slice(3);
 
 ```js
 html`<div class="podium-container">
-  <!-- Silver - #2 -->
-  <a href="./games/${top3[1].app_id}" class="podium-card silver">
-    <div class="podium-rank">
-      <span class="rank-number">2</span>
-      <span class="medal">🥈</span>
-    </div>
-    <img src="${getSteamImage(top3[1].app_id)}" alt="${top3[1].game_name}" class="podium-image" />
-    <div class="podium-content">
-      <h3 class="podium-title">${top3[1].game_name}</h3>
-      <div class="podium-stat">
-        <span class="podium-value">${Math.round(top3[1][rankingCriterion]).toLocaleString()}</span>
-        <span class="podium-label">${rankingCriterion === 'avg_peak' ? 'Avg Peak' : 'All-Time Peak'}</span>
-      </div>
-    </div>
-  </a>
+  ${[1, 0, 2].map(i => {
+    const game = top3[i];
+    const info = getGameDisplayInfo(game, platform);
+    const value = rankingCriterion === 'avg_peak' ? info.avgMetric : info.peakMetric;
+    const label = rankingCriterion === 'avg_peak' ? info.avgLabel : info.peakLabel;
+    const rank = i === 0 ? 1 : i === 1 ? 2 : 3;
+    const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : '🥉';
+    const cardClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : 'bronze';
+    const appId = game.steam_app_id || game.igdb_id;
 
-  <!-- Gold - #1 (center, larger) -->
-  <a href="./games/${top3[0].app_id}" class="podium-card gold">
-    <div class="podium-rank">
-      <span class="rank-number">1</span>
-      <span class="medal">🥇</span>
-    </div>
-    <img src="${getSteamImage(top3[0].app_id)}" alt="${top3[0].game_name}" class="podium-image" />
-    <div class="podium-content">
-      <h3 class="podium-title">${top3[0].game_name}</h3>
-      <div class="podium-stat">
-        <span class="podium-value">${Math.round(top3[0][rankingCriterion]).toLocaleString()}</span>
-        <span class="podium-label">${rankingCriterion === 'avg_peak' ? 'Avg Peak' : 'All-Time Peak'}</span>
-      </div>
-    </div>
-  </a>
-
-  <!-- Bronze - #3 -->
-  <a href="./games/${top3[2].app_id}" class="podium-card bronze">
-    <div class="podium-rank">
-      <span class="rank-number">3</span>
-      <span class="medal">🥉</span>
-    </div>
-    <img src="${getSteamImage(top3[2].app_id)}" alt="${top3[2].game_name}" class="podium-image" />
-    <div class="podium-content">
-      <h3 class="podium-title">${top3[2].game_name}</h3>
-      <div class="podium-stat">
-        <span class="podium-value">${Math.round(top3[2][rankingCriterion]).toLocaleString()}</span>
-        <span class="podium-label">${rankingCriterion === 'avg_peak' ? 'Avg Peak' : 'All-Time Peak'}</span>
-      </div>
-    </div>
-  </a>
+    return html`
+      <a href="./games/${appId}" class="podium-card ${cardClass}">
+        <div class="podium-rank">
+          <span class="rank-number">${rank}</span>
+          <span class="medal">${medal}</span>
+        </div>
+        ${appId ? html`<img src="${getSteamImage(appId)}" alt="${info.name}" class="podium-image" />` : ''}
+        <div class="podium-content">
+          <h3 class="podium-title">${info.name}</h3>
+          <div class="podium-stat">
+            <span class="podium-value">${Math.round(value).toLocaleString()}</span>
+            <span class="podium-label">${label}</span>
+          </div>
+          ${platform === 'unified' && info.steamCCU && info.twitchViewers ? html`
+            <div class="podium-details">
+              <span class="detail-item">🎮 ${Math.round(info.steamCCU).toLocaleString()} CCU</span>
+              <span class="detail-item">📺 ${Math.round(info.twitchViewers).toLocaleString()} viewers</span>
+            </div>
+          ` : ''}
+        </div>
+      </a>
+    `;
+  })}
 </div>`
 ```
 
 ```js
 html`<div class="rankings-list">
-  ${restOfGames.map((game, index) => html`
-    <a href="./games/${game.app_id}" class="ranking-row">
-      <div class="rank-badge">#${index + 4}</div>
-      <img src="${getSteamImage(game.app_id)}" alt="${game.game_name}" class="ranking-thumbnail" />
-      <div class="ranking-info">
-        <h4 class="ranking-name">${game.game_name}</h4>
-        <div class="ranking-stats">
-          <span class="ranking-stat">
-            <span class="stat-label">Avg Peak:</span>
-            <span class="stat-value">${Math.round(game.avg_peak).toLocaleString()}</span>
-          </span>
-          <span class="ranking-stat">
-            <span class="stat-label">All-Time:</span>
-            <span class="stat-value">${game.all_time_peak.toLocaleString()}</span>
-          </span>
-          ${game.genres ? html`
+  ${restOfGames.map((game, index) => {
+    const info = getGameDisplayInfo(game, platform);
+    const appId = game.steam_app_id || game.igdb_id;
+
+    return html`
+      <a href="./games/${appId}" class="ranking-row">
+        <div class="rank-badge">#${index + 4}</div>
+        ${appId ? html`<img src="${getSteamImage(appId)}" alt="${info.name}" class="ranking-thumbnail" />` : ''}
+        <div class="ranking-info">
+          <h4 class="ranking-name">${info.name}</h4>
+          <div class="ranking-stats">
             <span class="ranking-stat">
-              <span class="stat-label">${game.genres.slice(0, 2).join(', ')}</span>
+              <span class="stat-label">${info.avgLabel}:</span>
+              <span class="stat-value">${Math.round(info.avgMetric).toLocaleString()}</span>
             </span>
-          ` : ''}
+            <span class="ranking-stat">
+              <span class="stat-label">${info.peakLabel}:</span>
+              <span class="stat-value">${Math.round(info.peakMetric).toLocaleString()}</span>
+            </span>
+            ${platform === 'unified' && info.steamCCU && info.twitchViewers ? html`
+              <span class="ranking-stat">
+                <span class="stat-label">🎮 ${Math.round(info.steamCCU).toLocaleString()} | 📺 ${Math.round(info.twitchViewers).toLocaleString()}</span>
+              </span>
+            ` : ''}
+          </div>
         </div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-  `)}
+        <div class="arrow">→</div>
+      </a>
+    `;
+  })}
 </div>`
 ```
 
@@ -318,6 +380,23 @@ html`<div class="rankings-list">
     color: #94a3b8;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+  }
+
+  .podium-details {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .detail-item {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    padding: 0.25rem 0.75rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 6px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
   }
 
   /* Rankings List */
