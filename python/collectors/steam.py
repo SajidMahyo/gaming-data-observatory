@@ -1,6 +1,5 @@
 """Steam API collector for player count data."""
 
-import json
 import time
 from datetime import UTC, datetime
 from pathlib import Path
@@ -12,7 +11,7 @@ import requests
 class SteamCollector:
     """Collector for Steam API player statistics."""
 
-    # Top 10 Steam games by concurrent players (fallback if config file not found)
+    # Top 10 Steam games by concurrent players (fallback if database not available)
     TOP_GAMES: dict[int, str] = {
         730: "Counter-Strike 2",
         570: "Dota 2",
@@ -33,7 +32,7 @@ class SteamCollector:
         self,
         max_retries: int = 3,
         retry_delay: float = 1.0,
-        games_config_path: Path | None = None,
+        db_path: Path | None = None,
     ) -> None:
         """
         Initialize Steam collector.
@@ -41,33 +40,39 @@ class SteamCollector:
         Args:
             max_retries: Maximum number of retry attempts (default: 3)
             retry_delay: Base delay between retries in seconds (default: 1.0)
-            games_config_path: Path to games config file (default: config/games.json)
+            db_path: Path to DuckDB database (default: data/duckdb/gaming.db)
         """
         self.max_retries = max_retries
         self.retry_delay = retry_delay
-        self.games_config_path = (
-            Path(games_config_path) if games_config_path else Path("config/games.json")
-        )
+        self.db_path = Path(db_path) if db_path else Path("data/duckdb/gaming.db")
         self._tracked_games = self._load_tracked_games()
 
     def _load_tracked_games(self) -> dict[int, str]:
-        """Load tracked games from config file.
+        """Load tracked games from DuckDB game_metadata table.
 
         Returns:
-            Dictionary mapping app_id to game_name
+            Dictionary mapping steam_app_id to game_name
         """
-        if not self.games_config_path.exists():
-            print(f"⚠️  Games config not found at {self.games_config_path}, using default TOP_GAMES")
+        if not self.db_path.exists():
+            print(f"⚠️  Database not found at {self.db_path}, using default TOP_GAMES")
             return self.TOP_GAMES.copy()
 
         try:
-            with open(self.games_config_path) as f:
-                data = json.load(f)
-                games = {int(app_id): name for app_id, name in data.items()}
-                print(f"✅ Loaded {len(games)} tracked games from {self.games_config_path}")
+            from python.storage.duckdb_manager import DuckDBManager
+
+            with DuckDBManager(db_path=self.db_path) as db:
+                games_list = db.get_active_games_for_platform("steam")
+
+                if not games_list:
+                    print("⚠️  No active Steam games found in database, using default TOP_GAMES")
+                    return self.TOP_GAMES.copy()
+
+                games = {int(game["steam_app_id"]): game["game_name"] for game in games_list}
+                print(f"✅ Loaded {len(games)} tracked games from database")
                 return games
-        except (json.JSONDecodeError, ValueError) as e:
-            print(f"❌ Error loading games config: {e}, using default TOP_GAMES")
+
+        except Exception as e:
+            print(f"❌ Error loading games from database: {e}, using default TOP_GAMES")
             return self.TOP_GAMES.copy()
 
     def get_player_count(self, app_id: int) -> int:
