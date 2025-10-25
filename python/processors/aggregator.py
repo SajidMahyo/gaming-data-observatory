@@ -246,17 +246,15 @@ class KPIAggregator:
         """
         )
 
-    def create_weekly_kpis(self) -> None:
-        """Create or update weekly KPIs table from daily KPIs.
+    def create_steam_weekly_kpis(self) -> None:
+        """Create or update Steam weekly KPIs from steam_daily_kpis.
 
-        Uses incremental update: only updates the current week's data.
-        Aggregates from daily_kpis for the current week.
-
-        Weekly metrics:
+        Aggregates Steam CCU data into weekly metrics:
         - Average of daily peak CCU
         - Maximum peak CCU for the week
-        - Total samples across all days
-        - Number of days tracked in the week
+        - Average of avg_ccu
+        - Total samples
+        - Number of days tracked
         """
         if not self.db_manager:
             return
@@ -264,15 +262,17 @@ class KPIAggregator:
         # Create table if it doesn't exist
         self.db_manager.query(
             """
-            CREATE TABLE IF NOT EXISTS weekly_kpis (
+            CREATE TABLE IF NOT EXISTS steam_weekly_kpis (
                 week_start DATE,
+                igdb_id INTEGER,
+                steam_app_id INTEGER,
                 game_name VARCHAR,
-                app_id INTEGER,
-                avg_peak DOUBLE,
-                max_peak INTEGER,
+                avg_peak_ccu DOUBLE,
+                max_peak_ccu INTEGER,
+                avg_ccu DOUBLE,
                 total_samples INTEGER,
                 days_in_week INTEGER,
-                PRIMARY KEY (week_start, app_id)
+                PRIMARY KEY (week_start, steam_app_id)
             )
         """
         )
@@ -280,69 +280,289 @@ class KPIAggregator:
         # Update only CURRENT WEEK's data (incremental update)
         self.db_manager.query(
             """
-            INSERT OR REPLACE INTO weekly_kpis
+            INSERT OR REPLACE INTO steam_weekly_kpis
             SELECT
                 DATE_TRUNC('week', CAST(date AS TIMESTAMP)) as week_start,
+                igdb_id,
+                steam_app_id,
                 game_name,
-                app_id,
-                AVG(peak_ccu) as avg_peak,
-                MAX(peak_ccu) as max_peak,
+                AVG(peak_ccu) as avg_peak_ccu,
+                MAX(peak_ccu) as max_peak_ccu,
+                AVG(avg_ccu) as avg_ccu,
                 SUM(samples) as total_samples,
                 COUNT(DISTINCT date) as days_in_week
-            FROM daily_kpis
+            FROM steam_daily_kpis
             WHERE DATE_TRUNC('week', CAST(date AS TIMESTAMP)) = DATE_TRUNC('week', CURRENT_TIMESTAMP)
-            GROUP BY week_start, game_name, app_id
+            GROUP BY week_start, igdb_id, steam_app_id, game_name
         """
         )
 
-    def create_monthly_kpis(self) -> None:
-        """Create or update monthly KPIs table from weekly KPIs.
+    def create_twitch_weekly_kpis(self) -> None:
+        """Create or update Twitch weekly KPIs from twitch_daily_kpis.
 
-        Uses incremental update: only updates the current month's data.
-        Aggregates from weekly_kpis for the current month.
-
-        Monthly metrics:
-        - Average of weekly peak CCU
-        - Maximum peak CCU for the month
-        - Total samples across all weeks
-        - Number of weeks tracked in the month
+        Aggregates Twitch viewership data into weekly metrics:
+        - Average of daily peak viewers
+        - Maximum peak viewers for the week
+        - Average viewers and channels
+        - Total samples
+        - Number of days tracked
         """
         if not self.db_manager:
             return
 
-        # Create table if it doesn't exist
         self.db_manager.query(
             """
-            CREATE TABLE IF NOT EXISTS monthly_kpis (
-                month_start DATE,
+            CREATE TABLE IF NOT EXISTS twitch_weekly_kpis (
+                week_start DATE,
+                igdb_id INTEGER,
+                twitch_game_id VARCHAR,
                 game_name VARCHAR,
-                app_id INTEGER,
-                avg_peak DOUBLE,
-                max_peak INTEGER,
+                avg_peak_viewers DOUBLE,
+                max_peak_viewers INTEGER,
+                avg_viewers DOUBLE,
+                avg_channels DOUBLE,
                 total_samples INTEGER,
-                weeks_in_month INTEGER,
-                PRIMARY KEY (month_start, app_id)
+                days_in_week INTEGER,
+                PRIMARY KEY (week_start, twitch_game_id)
             )
         """
         )
 
-        # Update only CURRENT MONTH's data (incremental update)
         self.db_manager.query(
             """
-            INSERT OR REPLACE INTO monthly_kpis
+            INSERT OR REPLACE INTO twitch_weekly_kpis
             SELECT
-                DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) as month_start,
+                DATE_TRUNC('week', CAST(date AS TIMESTAMP)) as week_start,
+                igdb_id,
+                twitch_game_id,
                 game_name,
-                app_id,
-                AVG(avg_peak) as avg_peak,
-                MAX(max_peak) as max_peak,
-                SUM(total_samples) as total_samples,
-                COUNT(DISTINCT week_start) as weeks_in_month
-            FROM weekly_kpis
-            WHERE DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) = DATE_TRUNC('month', CURRENT_TIMESTAMP)
-            GROUP BY month_start, game_name, app_id
+                AVG(peak_viewers) as avg_peak_viewers,
+                MAX(peak_viewers) as max_peak_viewers,
+                AVG(avg_viewers) as avg_viewers,
+                AVG(avg_channels) as avg_channels,
+                SUM(samples) as total_samples,
+                COUNT(DISTINCT date) as days_in_week
+            FROM twitch_daily_kpis
+            WHERE DATE_TRUNC('week', CAST(date AS TIMESTAMP)) = DATE_TRUNC('week', CURRENT_TIMESTAMP)
+            GROUP BY week_start, igdb_id, twitch_game_id, game_name
         """
         )
+
+    def create_igdb_ratings_weekly(self) -> None:
+        """Create or update IGDB weekly ratings from igdb_ratings_snapshot.
+
+        Aggregates IGDB ratings into weekly snapshots (latest rating of the week).
+        """
+        if not self.db_manager:
+            return
+
+        self.db_manager.query(
+            """
+            CREATE TABLE IF NOT EXISTS igdb_ratings_weekly (
+                week_start DATE,
+                igdb_id INTEGER,
+                game_name VARCHAR,
+                rating DOUBLE,
+                aggregated_rating DOUBLE,
+                total_rating_count INTEGER,
+                PRIMARY KEY (week_start, igdb_id)
+            )
+        """
+        )
+
+        # Get latest rating of the week (ratings change slowly)
+        self.db_manager.query(
+            """
+            INSERT OR REPLACE INTO igdb_ratings_weekly
+            SELECT
+                DATE_TRUNC('week', CAST(i.date AS TIMESTAMP)) as week_start,
+                i.igdb_id,
+                i.game_name,
+                i.rating,
+                i.aggregated_rating,
+                i.total_rating_count
+            FROM (
+                SELECT
+                    date, igdb_id, game_name, rating, aggregated_rating, total_rating_count,
+                    ROW_NUMBER() OVER (
+                        PARTITION BY igdb_id, DATE_TRUNC('week', CAST(date AS TIMESTAMP))
+                        ORDER BY date DESC
+                    ) as rn
+                FROM igdb_ratings_snapshot
+                WHERE DATE_TRUNC('week', CAST(date AS TIMESTAMP)) = DATE_TRUNC('week', CURRENT_TIMESTAMP)
+            ) i
+            WHERE i.rn = 1
+        """
+        )
+
+    def create_weekly_kpis(self) -> None:
+        """Create all weekly KPIs from all sources (Steam, Twitch, IGDB).
+
+        Deprecated: Use create_steam_weekly_kpis(), create_twitch_weekly_kpis(),
+        and create_igdb_ratings_weekly() instead.
+        """
+        # Call all source-specific methods
+        self.create_steam_weekly_kpis()
+        self.create_twitch_weekly_kpis()
+        self.create_igdb_ratings_weekly()
+
+    def create_steam_monthly_kpis(self) -> None:
+        """Create or update Steam monthly KPIs from steam_weekly_kpis.
+
+        Aggregates Steam weekly data into monthly metrics:
+        - Average of weekly peak CCU
+        - Maximum peak CCU for the month
+        - Average CCU
+        - Total samples
+        - Number of weeks tracked
+        """
+        if not self.db_manager:
+            return
+
+        self.db_manager.query(
+            """
+            CREATE TABLE IF NOT EXISTS steam_monthly_kpis (
+                month_start DATE,
+                igdb_id INTEGER,
+                steam_app_id INTEGER,
+                game_name VARCHAR,
+                avg_peak_ccu DOUBLE,
+                max_peak_ccu INTEGER,
+                avg_ccu DOUBLE,
+                total_samples INTEGER,
+                weeks_in_month INTEGER,
+                PRIMARY KEY (month_start, steam_app_id)
+            )
+        """
+        )
+
+        self.db_manager.query(
+            """
+            INSERT OR REPLACE INTO steam_monthly_kpis
+            SELECT
+                DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) as month_start,
+                igdb_id,
+                steam_app_id,
+                game_name,
+                AVG(avg_peak_ccu) as avg_peak_ccu,
+                MAX(max_peak_ccu) as max_peak_ccu,
+                AVG(avg_ccu) as avg_ccu,
+                SUM(total_samples) as total_samples,
+                COUNT(DISTINCT week_start) as weeks_in_month
+            FROM steam_weekly_kpis
+            WHERE DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) = DATE_TRUNC('month', CURRENT_TIMESTAMP)
+            GROUP BY month_start, igdb_id, steam_app_id, game_name
+        """
+        )
+
+    def create_twitch_monthly_kpis(self) -> None:
+        """Create or update Twitch monthly KPIs from twitch_weekly_kpis.
+
+        Aggregates Twitch weekly data into monthly metrics:
+        - Average of weekly peak viewers
+        - Maximum peak viewers for the month
+        - Average viewers and channels
+        - Total samples
+        - Number of weeks tracked
+        """
+        if not self.db_manager:
+            return
+
+        self.db_manager.query(
+            """
+            CREATE TABLE IF NOT EXISTS twitch_monthly_kpis (
+                month_start DATE,
+                igdb_id INTEGER,
+                twitch_game_id VARCHAR,
+                game_name VARCHAR,
+                avg_peak_viewers DOUBLE,
+                max_peak_viewers INTEGER,
+                avg_viewers DOUBLE,
+                avg_channels DOUBLE,
+                total_samples INTEGER,
+                weeks_in_month INTEGER,
+                PRIMARY KEY (month_start, twitch_game_id)
+            )
+        """
+        )
+
+        self.db_manager.query(
+            """
+            INSERT OR REPLACE INTO twitch_monthly_kpis
+            SELECT
+                DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) as month_start,
+                igdb_id,
+                twitch_game_id,
+                game_name,
+                AVG(avg_peak_viewers) as avg_peak_viewers,
+                MAX(max_peak_viewers) as max_peak_viewers,
+                AVG(avg_viewers) as avg_viewers,
+                AVG(avg_channels) as avg_channels,
+                SUM(total_samples) as total_samples,
+                COUNT(DISTINCT week_start) as weeks_in_month
+            FROM twitch_weekly_kpis
+            WHERE DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) = DATE_TRUNC('month', CURRENT_TIMESTAMP)
+            GROUP BY month_start, igdb_id, twitch_game_id, game_name
+        """
+        )
+
+    def create_igdb_ratings_monthly(self) -> None:
+        """Create or update IGDB monthly ratings from igdb_ratings_weekly.
+
+        Aggregates IGDB weekly ratings into monthly snapshots (latest rating of the month).
+        """
+        if not self.db_manager:
+            return
+
+        self.db_manager.query(
+            """
+            CREATE TABLE IF NOT EXISTS igdb_ratings_monthly (
+                month_start DATE,
+                igdb_id INTEGER,
+                game_name VARCHAR,
+                rating DOUBLE,
+                aggregated_rating DOUBLE,
+                total_rating_count INTEGER,
+                PRIMARY KEY (month_start, igdb_id)
+            )
+        """
+        )
+
+        # Get latest rating of the month
+        self.db_manager.query(
+            """
+            INSERT OR REPLACE INTO igdb_ratings_monthly
+            SELECT
+                DATE_TRUNC('month', CAST(i.week_start AS TIMESTAMP)) as month_start,
+                i.igdb_id,
+                i.game_name,
+                i.rating,
+                i.aggregated_rating,
+                i.total_rating_count
+            FROM (
+                SELECT
+                    week_start, igdb_id, game_name, rating, aggregated_rating, total_rating_count,
+                    ROW_NUMBER() OVER (
+                        PARTITION BY igdb_id, DATE_TRUNC('month', CAST(week_start AS TIMESTAMP))
+                        ORDER BY week_start DESC
+                    ) as rn
+                FROM igdb_ratings_weekly
+                WHERE DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) = DATE_TRUNC('month', CURRENT_TIMESTAMP)
+            ) i
+            WHERE i.rn = 1
+        """
+        )
+
+    def create_monthly_kpis(self) -> None:
+        """Create all monthly KPIs from all sources (Steam, Twitch, IGDB).
+
+        Deprecated: Use create_steam_monthly_kpis(), create_twitch_monthly_kpis(),
+        and create_igdb_ratings_monthly() instead.
+        """
+        # Call all source-specific methods
+        self.create_steam_monthly_kpis()
+        self.create_twitch_monthly_kpis()
+        self.create_igdb_ratings_monthly()
 
     def export_steam_daily_kpis(self, output_path: Path, days: int = 30) -> None:
         """Export latest N days of Steam KPIs to JSON.
@@ -537,35 +757,92 @@ class KPIAggregator:
         if self.db_manager:
             self.db_manager.export_to_json(query=sql, output_path=output_path)
 
-    def export_weekly_kpis(self, output_path: Path) -> None:
-        """Export all weekly KPIs to JSON.
+    def export_steam_weekly_kpis(self, output_path: Path, weeks: int = 12) -> None:
+        """Export Steam weekly KPIs to JSON.
 
         Args:
             output_path: Path to output JSON file
+            weeks: Number of weeks to include (default: 12)
+        """
+        sql = f"""
+            SELECT * FROM steam_weekly_kpis
+            WHERE week_start >= CURRENT_DATE - INTERVAL '{weeks}' WEEK
+            ORDER BY week_start DESC, max_peak_ccu DESC
         """
         if self.db_manager:
-            self.db_manager.export_to_json(table_name="weekly_kpis", output_path=output_path)
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
 
-    def export_monthly_kpis(self, output_path: Path) -> None:
-        """Export all monthly KPIs to JSON.
+    def export_twitch_weekly_kpis(self, output_path: Path, weeks: int = 12) -> None:
+        """Export Twitch weekly KPIs to JSON.
 
         Args:
             output_path: Path to output JSON file
+            weeks: Number of weeks to include (default: 12)
+        """
+        sql = f"""
+            SELECT * FROM twitch_weekly_kpis
+            WHERE week_start >= CURRENT_DATE - INTERVAL '{weeks}' WEEK
+            ORDER BY week_start DESC, max_peak_viewers DESC
         """
         if self.db_manager:
-            self.db_manager.export_to_json(table_name="monthly_kpis", output_path=output_path)
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
 
-    def export_monthly_kpis_limited(self, output_path: Path, months: int = 12) -> None:
-        """Export limited monthly KPIs to JSON (last N months).
+    def export_igdb_ratings_weekly(self, output_path: Path, weeks: int = 12) -> None:
+        """Export IGDB weekly ratings to JSON.
+
+        Args:
+            output_path: Path to output JSON file
+            weeks: Number of weeks to include (default: 12)
+        """
+        sql = f"""
+            SELECT * FROM igdb_ratings_weekly
+            WHERE week_start >= CURRENT_DATE - INTERVAL '{weeks}' WEEK
+            ORDER BY week_start DESC, aggregated_rating DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
+    def export_steam_monthly_kpis(self, output_path: Path, months: int = 12) -> None:
+        """Export Steam monthly KPIs to JSON.
 
         Args:
             output_path: Path to output JSON file
             months: Number of months to include (default: 12)
         """
         sql = f"""
-            SELECT * FROM monthly_kpis
+            SELECT * FROM steam_monthly_kpis
             WHERE month_start >= CURRENT_DATE - INTERVAL '{months}' MONTH
-            ORDER BY month_start DESC, avg_peak DESC
+            ORDER BY month_start DESC, max_peak_ccu DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
+    def export_twitch_monthly_kpis(self, output_path: Path, months: int = 12) -> None:
+        """Export Twitch monthly KPIs to JSON.
+
+        Args:
+            output_path: Path to output JSON file
+            months: Number of months to include (default: 12)
+        """
+        sql = f"""
+            SELECT * FROM twitch_monthly_kpis
+            WHERE month_start >= CURRENT_DATE - INTERVAL '{months}' MONTH
+            ORDER BY month_start DESC, max_peak_viewers DESC
+        """
+        if self.db_manager:
+            self.db_manager.export_to_json(query=sql, output_path=output_path)
+
+    def export_igdb_ratings_monthly(self, output_path: Path, months: int = 12) -> None:
+        """Export IGDB monthly ratings to JSON.
+
+        Args:
+            output_path: Path to output JSON file
+            months: Number of months to include (default: 12)
+        """
+        sql = f"""
+            SELECT * FROM igdb_ratings_monthly
+            WHERE month_start >= CURRENT_DATE - INTERVAL '{months}' MONTH
+            ORDER BY month_start DESC, aggregated_rating DESC
         """
         if self.db_manager:
             self.db_manager.export_to_json(query=sql, output_path=output_path)
@@ -790,6 +1067,21 @@ class KPIAggregator:
         )
         self.export_unified_daily_kpis(output_path=output_dir / "unified_daily_kpis.json", days=30)
 
-        # Export hourly and monthly KPIs
+        # Export weekly KPIs (separate by source)
+        self.export_steam_weekly_kpis(output_path=output_dir / "steam_weekly_kpis.json", weeks=12)
+        self.export_twitch_weekly_kpis(output_path=output_dir / "twitch_weekly_kpis.json", weeks=12)
+        self.export_igdb_ratings_weekly(
+            output_path=output_dir / "igdb_ratings_weekly.json", weeks=12
+        )
+
+        # Export monthly KPIs (separate by source)
+        self.export_steam_monthly_kpis(output_path=output_dir / "steam_monthly_kpis.json", months=12)
+        self.export_twitch_monthly_kpis(
+            output_path=output_dir / "twitch_monthly_kpis.json", months=12
+        )
+        self.export_igdb_ratings_monthly(
+            output_path=output_dir / "igdb_ratings_monthly.json", months=12
+        )
+
+        # Export hourly KPIs
         self.export_hourly_kpis(output_path=output_dir / "hourly_kpis.json", hours=48)
-        self.export_monthly_kpis_limited(output_path=output_dir / "monthly_kpis.json", months=12)
