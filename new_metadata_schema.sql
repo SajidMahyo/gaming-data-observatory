@@ -52,32 +52,13 @@ CREATE TABLE IF NOT EXISTS game_metadata (
     -- Tracking flags
     track_steam BOOLEAN DEFAULT true,      -- Collect Steam data
     track_twitch BOOLEAN DEFAULT true,     -- Collect Twitch data
-    track_reddit BOOLEAN DEFAULT false,    -- Collect Reddit data (future)
-
-    UNIQUE(steam_app_id),
-    UNIQUE(twitch_game_id)
+    track_reddit BOOLEAN DEFAULT false     -- Collect Reddit data (future)
 );
 
 -- Index for fast lookups
 CREATE INDEX IF NOT EXISTS idx_game_metadata_steam ON game_metadata(steam_app_id);
 CREATE INDEX IF NOT EXISTS idx_game_metadata_twitch ON game_metadata(twitch_game_id);
 CREATE INDEX IF NOT EXISTS idx_game_metadata_active ON game_metadata(is_active);
-
--- ============================================================================
--- EXTERNAL IDS MAPPING (normalized for future platforms)
--- ============================================================================
-
-CREATE TABLE IF NOT EXISTS game_external_ids (
-    id INTEGER PRIMARY KEY,
-    igdb_id INTEGER NOT NULL,
-    platform_name VARCHAR NOT NULL,        -- "steam", "twitch", "youtube", "epic", etc.
-    platform_category INTEGER,             -- IGDB category code
-    platform_uid VARCHAR NOT NULL,         -- External UID
-    discovered_date TIMESTAMP,
-
-    FOREIGN KEY (igdb_id) REFERENCES game_metadata(igdb_id),
-    UNIQUE(platform_name, platform_uid)
-);
 
 -- ============================================================================
 -- DISCOVERY HISTORY (audit trail)

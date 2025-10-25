@@ -45,13 +45,14 @@ class DuckDBManager:
         self.conn.register("temp_df", df)
 
         # Check if table exists
-        table_exists = self.conn.execute(
+        result = self.conn.execute(
             f"""
             SELECT COUNT(*)
             FROM information_schema.tables
             WHERE table_name = '{table_name}'
         """
-        ).fetchone()[0]
+        ).fetchone()
+        table_exists = result[0] if result else 0
 
         if table_exists:
             # Append to existing table
@@ -116,39 +117,87 @@ class DuckDBManager:
         df.to_json(output_path, orient="records", date_format="iso", indent=2)
 
     def create_game_metadata_table(self) -> None:
-        """Create game_metadata table for storing Steam game metadata.
+        """Create unified game_metadata table with IGDB as primary key.
 
         Table schema includes:
-        - app_id (INTEGER PRIMARY KEY): Steam application ID
-        - name, type, description, release_date: Text fields
-        - developers, publishers, platforms, categories, genres: JSON arrays
-        - metacritic_score, required_age: Numeric fields
-        - metacritic_url: Text field
-        - price_info, tags: JSON objects
-        - is_free: Boolean
-        - collected_at: Timestamp
+        - igdb_id (INTEGER PRIMARY KEY): IGDB ID as source of truth
+        - game_name: Canonical game name
+        - Platform IDs: steam_app_id, twitch_game_id, youtube_channel_id, etc.
+        - IGDB metadata: ratings, summary, release date, cover
+        - Steam metadata: description, price, metacritic
+        - Categories: genres, themes, platforms, game_modes, developers, publishers (JSON)
+        - Tracking: discovery_source, dates, is_active flags
         """
         self.conn.execute(
             """
             CREATE TABLE IF NOT EXISTS game_metadata (
-                app_id INTEGER PRIMARY KEY,
-                name VARCHAR,
-                type VARCHAR,
-                description TEXT,
+                -- Primary identifiers
+                igdb_id INTEGER PRIMARY KEY,
+                game_name VARCHAR NOT NULL,
+                slug VARCHAR,
+
+                -- Platform-specific IDs
+                steam_app_id INTEGER,
+                twitch_game_id VARCHAR,
+                youtube_channel_id VARCHAR,
+                epic_id VARCHAR,
+                gog_id VARCHAR,
+
+                -- IGDB metadata
+                igdb_summary TEXT,
+                igdb_rating REAL,
+                igdb_aggregated_rating REAL,
+                igdb_total_rating_count INTEGER,
+                first_release_date TIMESTAMP,
+                cover_url VARCHAR,
+
+                -- Steam metadata
+                steam_description TEXT,
+                steam_is_free BOOLEAN,
+                steam_price_cents INTEGER,
+                steam_metacritic_score INTEGER,
+                steam_required_age INTEGER,
+
+                -- Categories (JSON)
+                genres JSON,
+                themes JSON,
+                platforms JSON,
+                game_modes JSON,
                 developers JSON,
                 publishers JSON,
-                is_free BOOLEAN,
-                required_age INTEGER,
-                release_date VARCHAR,
-                platforms JSON,
-                metacritic_score INTEGER,
-                metacritic_url VARCHAR,
-                categories JSON,
-                genres JSON,
-                price_info JSON,
-                tags JSON,
-                collected_at VARCHAR
+                websites JSON,
+
+                -- Metadata
+                discovery_source VARCHAR,
+                discovery_date TIMESTAMP,
+                last_updated TIMESTAMP,
+                is_active BOOLEAN DEFAULT true,
+
+                -- Tracking flags
+                track_steam BOOLEAN DEFAULT true,
+                track_twitch BOOLEAN DEFAULT true,
+                track_reddit BOOLEAN DEFAULT false
             )
+        """
+        )
+
+        # Create indexes
+        self.conn.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_game_metadata_steam
+            ON game_metadata(steam_app_id)
+        """
+        )
+        self.conn.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_game_metadata_twitch
+            ON game_metadata(twitch_game_id)
+        """
+        )
+        self.conn.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_game_metadata_active
+            ON game_metadata(is_active)
         """
         )
 
@@ -158,77 +207,229 @@ class DuckDBManager:
         Uses INSERT OR REPLACE to handle both new and existing games.
 
         Args:
-            metadata: Dictionary containing game metadata from SteamStoreCollector.
-                     Must include at minimum: app_id, name, type
+            metadata: Dictionary containing enriched game metadata from IGDBCollector.
+                     Must include at minimum: igdb_id, game_name
 
         Example:
-            >>> metadata = collector.collect_full_metadata(730)
+            >>> metadata = igdb_collector.enrich_game(2963)
             >>> manager.upsert_game_metadata(metadata)
         """
         import json
 
         # Prepare JSON fields
+        genres_json = json.dumps(metadata.get("genres", []))
+        themes_json = json.dumps(metadata.get("themes", []))
+        platforms_json = json.dumps(metadata.get("platforms", []))
+        game_modes_json = json.dumps(metadata.get("game_modes", []))
         developers_json = json.dumps(metadata.get("developers", []))
         publishers_json = json.dumps(metadata.get("publishers", []))
-        platforms_json = json.dumps(metadata.get("platforms", []))
-        categories_json = json.dumps(metadata.get("categories", []))
-        genres_json = json.dumps(metadata.get("genres", []))
-        price_info_json = json.dumps(metadata.get("price_info", {}))
-        tags_json = json.dumps(metadata.get("tags", {}))
+        websites_json = json.dumps(metadata.get("websites", {}))
 
-        # Use parameterized query to avoid SQL injection
+        # Build values list
+        values = [
+            metadata["igdb_id"],
+            metadata["game_name"],
+            metadata.get("slug"),
+            metadata.get("steam_app_id"),
+            metadata.get("twitch_game_id"),
+            metadata.get("youtube_channel_id"),
+            metadata.get("epic_id"),
+            metadata.get("gog_id"),
+            metadata.get("igdb_summary"),
+            metadata.get("igdb_rating"),
+            metadata.get("igdb_aggregated_rating"),
+            metadata.get("igdb_total_rating_count"),
+            metadata.get("first_release_date"),
+            metadata.get("cover_url"),
+            metadata.get("steam_description"),
+            metadata.get("steam_is_free"),
+            metadata.get("steam_price_cents"),
+            metadata.get("steam_metacritic_score"),
+            metadata.get("steam_required_age"),
+            genres_json,
+            themes_json,
+            platforms_json,
+            game_modes_json,
+            developers_json,
+            publishers_json,
+            websites_json,
+            metadata.get("discovery_source"),
+            metadata.get("discovery_date"),
+            metadata.get("last_updated"),
+            metadata.get("is_active", True),
+            metadata.get("track_steam", True),
+            metadata.get("track_twitch", True),
+            metadata.get("track_reddit", False),
+        ]
+
+        # Use parameterized query with ON CONFLICT (more reliable than INSERT OR REPLACE for complex tables)
         self.conn.execute(
             """
-            INSERT OR REPLACE INTO game_metadata (
-                app_id, name, type, description, developers, publishers,
-                is_free, required_age, release_date, platforms,
-                metacritic_score, metacritic_url, categories, genres,
-                price_info, tags, collected_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO game_metadata (
+                igdb_id, game_name, slug,
+                steam_app_id, twitch_game_id, youtube_channel_id, epic_id, gog_id,
+                igdb_summary, igdb_rating, igdb_aggregated_rating, igdb_total_rating_count,
+                first_release_date, cover_url,
+                steam_description, steam_is_free, steam_price_cents,
+                steam_metacritic_score, steam_required_age,
+                genres, themes, platforms, game_modes, developers, publishers, websites,
+                discovery_source, discovery_date, last_updated, is_active,
+                track_steam, track_twitch, track_reddit
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT (igdb_id) DO UPDATE SET
+                game_name = EXCLUDED.game_name,
+                slug = EXCLUDED.slug,
+                steam_app_id = EXCLUDED.steam_app_id,
+                twitch_game_id = EXCLUDED.twitch_game_id,
+                youtube_channel_id = EXCLUDED.youtube_channel_id,
+                epic_id = EXCLUDED.epic_id,
+                gog_id = EXCLUDED.gog_id,
+                igdb_summary = EXCLUDED.igdb_summary,
+                igdb_rating = EXCLUDED.igdb_rating,
+                igdb_aggregated_rating = EXCLUDED.igdb_aggregated_rating,
+                igdb_total_rating_count = EXCLUDED.igdb_total_rating_count,
+                first_release_date = EXCLUDED.first_release_date,
+                cover_url = EXCLUDED.cover_url,
+                steam_description = EXCLUDED.steam_description,
+                steam_is_free = EXCLUDED.steam_is_free,
+                steam_price_cents = EXCLUDED.steam_price_cents,
+                steam_metacritic_score = EXCLUDED.steam_metacritic_score,
+                steam_required_age = EXCLUDED.steam_required_age,
+                genres = EXCLUDED.genres,
+                themes = EXCLUDED.themes,
+                platforms = EXCLUDED.platforms,
+                game_modes = EXCLUDED.game_modes,
+                developers = EXCLUDED.developers,
+                publishers = EXCLUDED.publishers,
+                websites = EXCLUDED.websites,
+                discovery_source = EXCLUDED.discovery_source,
+                discovery_date = EXCLUDED.discovery_date,
+                last_updated = EXCLUDED.last_updated,
+                is_active = EXCLUDED.is_active,
+                track_steam = EXCLUDED.track_steam,
+                track_twitch = EXCLUDED.track_twitch,
+                track_reddit = EXCLUDED.track_reddit
         """,
-            [
-                metadata["app_id"],
-                metadata.get("name", ""),
-                metadata.get("type", ""),
-                metadata.get("description", ""),
-                developers_json,
-                publishers_json,
-                metadata.get("is_free", False),
-                metadata.get("required_age", 0),
-                metadata.get("release_date", ""),
-                platforms_json,
-                metadata.get("metacritic_score"),
-                metadata.get("metacritic_url"),
-                categories_json,
-                genres_json,
-                price_info_json,
-                tags_json,
-                metadata.get("collected_at", ""),
-            ],
+            values,
         )
 
-    def get_game_metadata(self, app_id: int) -> dict[str, Any] | None:
-        """Retrieve game metadata by app_id.
+    def get_game_metadata(
+        self, igdb_id: int | None = None, steam_app_id: int | None = None
+    ) -> dict[str, Any] | None:
+        """Retrieve game metadata by IGDB ID or Steam app ID.
 
         Args:
-            app_id: Steam application ID
+            igdb_id: IGDB game ID (preferred)
+            steam_app_id: Steam application ID (fallback)
 
         Returns:
             Dictionary with game metadata, or None if not found
 
         Example:
-            >>> metadata = manager.get_game_metadata(730)
-            >>> print(metadata['name'])
-            'Counter-Strike 2'
+            >>> metadata = manager.get_game_metadata(igdb_id=2963)
+            >>> metadata = manager.get_game_metadata(steam_app_id=730)
+            >>> print(metadata['game_name'])
+            'Dota 2'
         """
-        result = self.query(f"SELECT * FROM game_metadata WHERE app_id = {app_id}")
+        if igdb_id is not None:
+            result = self.query(f"SELECT * FROM game_metadata WHERE igdb_id = {igdb_id}")
+        elif steam_app_id is not None:
+            result = self.query(f"SELECT * FROM game_metadata WHERE steam_app_id = {steam_app_id}")
+        else:
+            raise ValueError("Must provide either igdb_id or steam_app_id")
 
         if len(result) == 0:
             return None
 
         # Convert row to dictionary
         row = result.iloc[0]
-        return row.to_dict()
+        metadata_dict: dict[str, Any] = row.to_dict()
+        return metadata_dict
+
+    def get_active_games_for_platform(self, platform: str) -> list[dict[str, Any]]:
+        """Get all active games that have an ID for the specified platform.
+
+        Args:
+            platform: Platform name ("steam", "twitch", "reddit")
+
+        Returns:
+            List of dictionaries with game metadata
+
+        Example:
+            >>> steam_games = manager.get_active_games_for_platform("steam")
+            >>> for game in steam_games:
+            ...     print(f"{game['game_name']}: {game['steam_app_id']}")
+        """
+        platform_column = f"{platform}_app_id" if platform == "steam" else f"{platform}_game_id"
+        track_column = f"track_{platform}"
+
+        result = self.query(
+            f"""
+            SELECT *
+            FROM game_metadata
+            WHERE is_active = true
+              AND {track_column} = true
+              AND {platform_column} IS NOT NULL
+        """
+        )
+
+        games_list: list[dict[str, Any]] = result.to_dict("records")  # type: ignore[assignment]
+        return games_list
+
+    def create_discovery_history_table(self) -> None:
+        """Create discovery_history table for audit trail.
+
+        Table tracks all discovery operations and their results.
+        """
+        self.conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS discovery_history (
+                id INTEGER PRIMARY KEY,
+                discovery_date TIMESTAMP NOT NULL,
+                discovery_source VARCHAR NOT NULL,
+                games_discovered INTEGER,
+                games_updated INTEGER,
+                execution_time_seconds REAL,
+                notes TEXT
+            )
+        """
+        )
+
+    def log_discovery(
+        self,
+        source: str,
+        games_discovered: int,
+        games_updated: int,
+        execution_time: float,
+        notes: str | None = None,
+    ) -> None:
+        """Log a discovery operation to the history table.
+
+        Args:
+            source: Discovery source (e.g., "igdb_popular", "manual")
+            games_discovered: Number of new games found
+            games_updated: Number of existing games updated
+            execution_time: Execution time in seconds
+            notes: Optional notes about the operation
+        """
+        from datetime import UTC, datetime
+
+        self.conn.execute(
+            """
+            INSERT INTO discovery_history (
+                discovery_date, discovery_source, games_discovered,
+                games_updated, execution_time_seconds, notes
+            ) VALUES (?, ?, ?, ?, ?, ?)
+        """,
+            [
+                datetime.now(UTC).isoformat(),
+                source,
+                games_discovered,
+                games_updated,
+                execution_time,
+                notes,
+            ],
+        )
 
     def close(self) -> None:
         """Close the DuckDB connection."""

@@ -258,36 +258,37 @@ class TestDuckDBManager:
             )
             column_names = result["column_name"].tolist()
 
-            # Check that essential columns exist
-            assert "app_id" in column_names
-            assert "name" in column_names
+            # Check that essential columns exist (new schema)
+            assert "igdb_id" in column_names
+            assert "game_name" in column_names
+            assert "steam_app_id" in column_names
+            assert "twitch_game_id" in column_names
             assert "developers" in column_names
             assert "genres" in column_names
-            assert "tags" in column_names
-            assert "collected_at" in column_names
+            assert "discovery_source" in column_names
 
     def test_upsert_game_metadata(self, tmp_path: Path) -> None:
         """Test upserting game metadata (insert or replace)."""
         db_path = tmp_path / "test.db"
 
         game_metadata = {
-            "app_id": 730,
-            "name": "Counter-Strike 2",
-            "type": "game",
-            "description": "FPS game",
+            "igdb_id": 1234,
+            "game_name": "Counter-Strike 2",
+            "slug": "counter-strike-2",
+            "steam_app_id": 730,
+            "twitch_game_id": "32399",
+            "igdb_summary": "Tactical FPS game",
+            "igdb_rating": 85.5,
+            "first_release_date": "2023-09-27T00:00:00+00:00",
             "developers": ["Valve"],
             "publishers": ["Valve"],
-            "is_free": True,
-            "required_age": 0,
-            "release_date": "2023-09-27",
-            "platforms": ["windows", "linux"],
-            "metacritic_score": None,
-            "metacritic_url": None,
-            "categories": ["Multi-player", "Online Multi-Player"],
-            "genres": ["Action", "Free To Play"],
-            "price_info": {"currency": "USD", "price": 0, "is_free": True},
-            "tags": {"FPS": 1000, "Shooter": 900},
-            "collected_at": "2025-10-23 10:00:00",
+            "genres": ["Action", "Shooter"],
+            "themes": ["Warfare"],
+            "platforms": ["PC"],
+            "steam_is_free": True,
+            "discovery_source": "igdb",
+            "discovery_date": "2025-10-23T10:00:00+00:00",
+            "last_updated": "2025-10-23T10:00:00+00:00",
         }
 
         with DuckDBManager(db_path=db_path) as manager:
@@ -295,53 +296,41 @@ class TestDuckDBManager:
             manager.upsert_game_metadata(game_metadata)
 
             # Verify data was inserted
-            result = manager.query("SELECT * FROM game_metadata WHERE app_id = 730")
+            result = manager.query("SELECT * FROM game_metadata WHERE igdb_id = 1234")
             assert len(result) == 1
-            assert result.iloc[0]["name"] == "Counter-Strike 2"
-            assert result.iloc[0]["is_free"] == True  # noqa: E712
+            assert result.iloc[0]["game_name"] == "Counter-Strike 2"
+            assert result.iloc[0]["steam_app_id"] == 730
 
     def test_upsert_game_metadata_updates_existing(self, tmp_path: Path) -> None:
         """Test that upserting existing game updates the record."""
         db_path = tmp_path / "test.db"
 
         game_v1 = {
-            "app_id": 730,
-            "name": "Counter-Strike 2",
-            "type": "game",
-            "description": "Old description",
+            "igdb_id": 1234,
+            "game_name": "Counter-Strike 2",
+            "steam_app_id": 730,
+            "igdb_summary": "Old description",
+            "igdb_rating": 80.0,
             "developers": ["Valve"],
-            "publishers": ["Valve"],
-            "is_free": True,
-            "required_age": 0,
-            "release_date": "2023-09-27",
-            "platforms": ["windows"],
-            "metacritic_score": None,
-            "metacritic_url": None,
-            "categories": ["Multi-player"],
             "genres": ["Action"],
-            "price_info": {"currency": "USD", "price": 0},
-            "tags": {"FPS": 1000},
-            "collected_at": "2025-10-23 10:00:00",
+            "discovery_source": "igdb",
+            "discovery_date": "2025-10-23T10:00:00+00:00",
+            "last_updated": "2025-10-23T10:00:00+00:00",
         }
 
         game_v2 = {
-            "app_id": 730,
-            "name": "Counter-Strike 2",
-            "type": "game",
-            "description": "Updated description",
+            "igdb_id": 1234,
+            "game_name": "Counter-Strike 2",
+            "steam_app_id": 730,
+            "twitch_game_id": "32399",
+            "igdb_summary": "Updated description",
+            "igdb_rating": 85.0,
+            "steam_metacritic_score": 85,
             "developers": ["Valve"],
-            "publishers": ["Valve"],
-            "is_free": True,
-            "required_age": 0,
-            "release_date": "2023-09-27",
-            "platforms": ["windows", "linux"],
-            "metacritic_score": 85,
-            "metacritic_url": "https://metacritic.com/cs2",
-            "categories": ["Multi-player", "Online Multi-Player"],
-            "genres": ["Action", "Free To Play"],
-            "price_info": {"currency": "USD", "price": 0, "is_free": True},
-            "tags": {"FPS": 2000, "Shooter": 1500},
-            "collected_at": "2025-10-23 12:00:00",
+            "genres": ["Action", "Shooter"],
+            "discovery_source": "igdb",
+            "discovery_date": "2025-10-23T10:00:00+00:00",
+            "last_updated": "2025-10-23T12:00:00+00:00",
         }
 
         with DuckDBManager(db_path=db_path) as manager:
@@ -358,53 +347,36 @@ class TestDuckDBManager:
             assert result2.iloc[0]["count"] == 1
 
             # Verify data was updated
-            result3 = manager.query("SELECT * FROM game_metadata WHERE app_id = 730")
-            assert result3.iloc[0]["description"] == "Updated description"
-            assert result3.iloc[0]["metacritic_score"] == 85
-            assert result3.iloc[0]["collected_at"] == "2025-10-23 12:00:00"
+            result3 = manager.query("SELECT * FROM game_metadata WHERE igdb_id = 1234")
+            assert result3.iloc[0]["igdb_summary"] == "Updated description"
+            assert result3.iloc[0]["steam_metacritic_score"] == 85
+            assert result3.iloc[0]["twitch_game_id"] == "32399"
 
     def test_get_game_metadata_by_app_id(self, tmp_path: Path) -> None:
-        """Test retrieving game metadata by app_id."""
+        """Test retrieving game metadata by igdb_id and steam_app_id."""
         db_path = tmp_path / "test.db"
 
         game1 = {
-            "app_id": 730,
-            "name": "Counter-Strike 2",
-            "type": "game",
-            "description": "FPS",
+            "igdb_id": 1234,
+            "game_name": "Counter-Strike 2",
+            "steam_app_id": 730,
+            "igdb_summary": "FPS",
             "developers": ["Valve"],
-            "publishers": ["Valve"],
-            "is_free": True,
-            "required_age": 0,
-            "release_date": "2023-09-27",
-            "platforms": ["windows"],
-            "metacritic_score": None,
-            "metacritic_url": None,
-            "categories": ["Multi-player"],
             "genres": ["Action"],
-            "price_info": {"currency": "USD", "price": 0},
-            "tags": {"FPS": 1000},
-            "collected_at": "2025-10-23 10:00:00",
+            "steam_is_free": True,
+            "discovery_source": "igdb",
         }
 
         game2 = {
-            "app_id": 570,
-            "name": "Dota 2",
-            "type": "game",
-            "description": "MOBA",
+            "igdb_id": 2963,
+            "game_name": "Dota 2",
+            "steam_app_id": 570,
+            "igdb_summary": "MOBA",
             "developers": ["Valve"],
-            "publishers": ["Valve"],
-            "is_free": True,
-            "required_age": 0,
-            "release_date": "2013-07-09",
-            "platforms": ["windows", "linux"],
-            "metacritic_score": 90,
-            "metacritic_url": "https://metacritic.com/dota2",
-            "categories": ["Multi-player"],
             "genres": ["Strategy"],
-            "price_info": {"currency": "USD", "price": 0},
-            "tags": {"MOBA": 2000},
-            "collected_at": "2025-10-23 10:00:00",
+            "steam_is_free": True,
+            "steam_metacritic_score": 90,
+            "discovery_source": "igdb",
         }
 
         with DuckDBManager(db_path=db_path) as manager:
@@ -412,12 +384,18 @@ class TestDuckDBManager:
             manager.upsert_game_metadata(game1)
             manager.upsert_game_metadata(game2)
 
-            # Get specific game
-            result = manager.get_game_metadata(730)
+            # Get by igdb_id
+            result = manager.get_game_metadata(igdb_id=1234)
             assert result is not None
-            assert result["name"] == "Counter-Strike 2"
-            assert result["app_id"] == 730
+            assert result["game_name"] == "Counter-Strike 2"
+            assert result["igdb_id"] == 1234
+
+            # Get by steam_app_id
+            result2 = manager.get_game_metadata(steam_app_id=570)
+            assert result2 is not None
+            assert result2["game_name"] == "Dota 2"
+            assert result2["steam_app_id"] == 570
 
             # Test non-existent game
-            result_none = manager.get_game_metadata(99999)
+            result_none = manager.get_game_metadata(igdb_id=99999)
             assert result_none is None
