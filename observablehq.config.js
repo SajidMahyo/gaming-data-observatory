@@ -128,9 +128,9 @@ export default {
       const data = await readFile(metadataPath, "utf-8");
       const games = JSON.parse(data);
 
-      // Generate a path for each game: /games/[app_id]
+      // Generate a path for each game: /games/[igdb_id]
       for (const game of games) {
-        yield `/games/${game.app_id}`;
+        yield `/games/${game.igdb_id}`;
       }
     } catch (error) {
       console.warn("Could not load game metadata for dynamic paths:", error.message);
