@@ -36,15 +36,17 @@ class KPIAggregator:
             self.db_manager.__exit__(exc_type, exc_val, exc_tb)
 
     def create_steam_daily_kpis(self) -> None:
-        """Create or update Steam daily KPIs table from steam_raw.
+        """Create or update Steam daily KPIs table from steam_kpis.
 
         Uses incremental update: only updates the current day's data.
         This is called every hour to update today's aggregated stats.
 
-        Aggregates hourly player counts into daily metrics:
+        Aggregates hourly data into daily metrics:
         - Average CCU (Concurrent Users)
         - Peak CCU
         - Minimum CCU
+        - Average Metacritic score
+        - Average price (cents)
         - Number of samples per day
         """
         if not self.db_manager:
@@ -61,13 +63,15 @@ class KPIAggregator:
                 avg_ccu DOUBLE,
                 peak_ccu INTEGER,
                 min_ccu INTEGER,
+                avg_metacritic_score DOUBLE,
+                avg_price_cents DOUBLE,
                 samples INTEGER,
                 PRIMARY KEY (date, steam_app_id)
             )
         """
         )
 
-        # Update ONLY TODAY'S data from steam_raw (incremental update)
+        # Update ONLY TODAY'S data from steam_kpis (incremental update)
         # Join with game_metadata to get igdb_id
         self.db_manager.query(
             """
@@ -80,8 +84,10 @@ class KPIAggregator:
                 AVG(s.player_count) as avg_ccu,
                 MAX(s.player_count) as peak_ccu,
                 MIN(s.player_count) as min_ccu,
+                AVG(s.metacritic_score) as avg_metacritic_score,
+                AVG(s.price_cents) as avg_price_cents,
                 COUNT(*) as samples
-            FROM steam_raw s
+            FROM steam_kpis s
             LEFT JOIN game_metadata m ON s.steam_app_id = m.steam_app_id
             WHERE CAST(s.timestamp AS DATE) = CURRENT_DATE
             GROUP BY CAST(s.timestamp AS DATE), m.igdb_id, s.steam_app_id, s.game_name
@@ -198,15 +204,17 @@ class KPIAggregator:
         self.create_igdb_ratings_snapshot()
 
     def create_hourly_kpis(self) -> None:
-        """Create or update hourly KPIs table from raw Steam data.
+        """Create or update hourly KPIs table from Steam KPIs data.
 
         Uses incremental update: only updates the last 48 hours of data.
-        Aggregates from steam_raw with hourly granularity.
+        Aggregates from steam_kpis with hourly granularity.
 
         Hourly metrics:
         - Average CCU for the hour
         - Peak CCU for the hour
         - Minimum CCU for the hour
+        - Average Metacritic score
+        - Average price (cents)
         - Number of samples in the hour
         """
         if not self.db_manager:
@@ -218,12 +226,14 @@ class KPIAggregator:
             CREATE TABLE IF NOT EXISTS hourly_kpis (
                 hour TIMESTAMP,
                 game_name VARCHAR,
-                app_id INTEGER,
+                steam_app_id INTEGER,
                 avg_ccu DOUBLE,
                 peak_ccu INTEGER,
                 min_ccu INTEGER,
+                avg_metacritic_score DOUBLE,
+                avg_price_cents DOUBLE,
                 samples INTEGER,
-                PRIMARY KEY (hour, app_id)
+                PRIMARY KEY (hour, steam_app_id)
             )
         """
         )
@@ -235,14 +245,16 @@ class KPIAggregator:
             SELECT
                 DATE_TRUNC('hour', CAST(timestamp AS TIMESTAMP)) as hour,
                 game_name,
-                app_id,
+                steam_app_id,
                 AVG(player_count) as avg_ccu,
                 MAX(player_count) as peak_ccu,
                 MIN(player_count) as min_ccu,
+                AVG(metacritic_score) as avg_metacritic_score,
+                AVG(price_cents) as avg_price_cents,
                 COUNT(*) as samples
-            FROM steam_raw
+            FROM steam_kpis
             WHERE CAST(timestamp AS TIMESTAMP) >= CURRENT_TIMESTAMP - INTERVAL '48 hours'
-            GROUP BY DATE_TRUNC('hour', CAST(timestamp AS TIMESTAMP)), game_name, app_id
+            GROUP BY DATE_TRUNC('hour', CAST(timestamp AS TIMESTAMP)), game_name, steam_app_id
         """
         )
 
@@ -282,7 +294,7 @@ class KPIAggregator:
             """
             INSERT OR REPLACE INTO steam_weekly_kpis
             SELECT
-                DATE_TRUNC('week', CAST(date AS TIMESTAMP)) as week_start,
+                CAST(CAST(DATE_TRUNC('week', CAST(date AS TIMESTAMP)) AS DATE) AS DATE) as week_start,
                 igdb_id,
                 steam_app_id,
                 game_name,
@@ -292,7 +304,7 @@ class KPIAggregator:
                 SUM(samples) as total_samples,
                 COUNT(DISTINCT date) as days_in_week
             FROM steam_daily_kpis
-            WHERE DATE_TRUNC('week', CAST(date AS TIMESTAMP)) = DATE_TRUNC('week', CURRENT_TIMESTAMP)
+            WHERE CAST(CAST(DATE_TRUNC('week', CAST(date AS TIMESTAMP)) AS DATE) AS DATE) = CAST(CAST(DATE_TRUNC('week', CURRENT_TIMESTAMP) AS DATE) AS DATE)
             GROUP BY week_start, igdb_id, steam_app_id, game_name
         """
         )
@@ -332,7 +344,7 @@ class KPIAggregator:
             """
             INSERT OR REPLACE INTO twitch_weekly_kpis
             SELECT
-                DATE_TRUNC('week', CAST(date AS TIMESTAMP)) as week_start,
+                CAST(DATE_TRUNC('week', CAST(date AS TIMESTAMP)) AS DATE) as week_start,
                 igdb_id,
                 twitch_game_id,
                 game_name,
@@ -343,7 +355,7 @@ class KPIAggregator:
                 SUM(samples) as total_samples,
                 COUNT(DISTINCT date) as days_in_week
             FROM twitch_daily_kpis
-            WHERE DATE_TRUNC('week', CAST(date AS TIMESTAMP)) = DATE_TRUNC('week', CURRENT_TIMESTAMP)
+            WHERE CAST(DATE_TRUNC('week', CAST(date AS TIMESTAMP)) AS DATE) = CAST(DATE_TRUNC('week', CURRENT_TIMESTAMP) AS DATE)
             GROUP BY week_start, igdb_id, twitch_game_id, game_name
         """
         )
@@ -385,11 +397,11 @@ class KPIAggregator:
                 SELECT
                     date, igdb_id, game_name, rating, aggregated_rating, total_rating_count,
                     ROW_NUMBER() OVER (
-                        PARTITION BY igdb_id, DATE_TRUNC('week', CAST(date AS TIMESTAMP))
+                        PARTITION BY igdb_id, CAST(DATE_TRUNC('week', CAST(date AS TIMESTAMP)) AS DATE)
                         ORDER BY date DESC
                     ) as rn
                 FROM igdb_ratings_snapshot
-                WHERE DATE_TRUNC('week', CAST(date AS TIMESTAMP)) = DATE_TRUNC('week', CURRENT_TIMESTAMP)
+                WHERE CAST(DATE_TRUNC('week', CAST(date AS TIMESTAMP)) AS DATE) = CAST(DATE_TRUNC('week', CURRENT_TIMESTAMP) AS DATE)
             ) i
             WHERE i.rn = 1
         """
@@ -440,7 +452,7 @@ class KPIAggregator:
             """
             INSERT OR REPLACE INTO steam_monthly_kpis
             SELECT
-                DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) as month_start,
+                CAST(DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) AS DATE) as month_start,
                 igdb_id,
                 steam_app_id,
                 game_name,
@@ -450,7 +462,7 @@ class KPIAggregator:
                 SUM(total_samples) as total_samples,
                 COUNT(DISTINCT week_start) as weeks_in_month
             FROM steam_weekly_kpis
-            WHERE DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) = DATE_TRUNC('month', CURRENT_TIMESTAMP)
+            WHERE CAST(DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) AS DATE) = CAST(DATE_TRUNC('month', CURRENT_TIMESTAMP) AS DATE)
             GROUP BY month_start, igdb_id, steam_app_id, game_name
         """
         )
@@ -490,7 +502,7 @@ class KPIAggregator:
             """
             INSERT OR REPLACE INTO twitch_monthly_kpis
             SELECT
-                DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) as month_start,
+                CAST(DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) AS DATE) as month_start,
                 igdb_id,
                 twitch_game_id,
                 game_name,
@@ -501,7 +513,7 @@ class KPIAggregator:
                 SUM(total_samples) as total_samples,
                 COUNT(DISTINCT week_start) as weeks_in_month
             FROM twitch_weekly_kpis
-            WHERE DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) = DATE_TRUNC('month', CURRENT_TIMESTAMP)
+            WHERE CAST(DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) AS DATE) = CAST(DATE_TRUNC('month', CURRENT_TIMESTAMP) AS DATE)
             GROUP BY month_start, igdb_id, twitch_game_id, game_name
         """
         )
@@ -543,11 +555,11 @@ class KPIAggregator:
                 SELECT
                     week_start, igdb_id, game_name, rating, aggregated_rating, total_rating_count,
                     ROW_NUMBER() OVER (
-                        PARTITION BY igdb_id, DATE_TRUNC('month', CAST(week_start AS TIMESTAMP))
+                        PARTITION BY igdb_id, CAST(DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) AS DATE)
                         ORDER BY week_start DESC
                     ) as rn
                 FROM igdb_ratings_weekly
-                WHERE DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) = DATE_TRUNC('month', CURRENT_TIMESTAMP)
+                WHERE CAST(DATE_TRUNC('month', CAST(week_start AS TIMESTAMP)) AS DATE) = CAST(DATE_TRUNC('month', CURRENT_TIMESTAMP) AS DATE)
             ) i
             WHERE i.rn = 1
         """
@@ -602,9 +614,18 @@ class KPIAggregator:
             days: Number of days to include (default: 30)
         """
         sql = f"""
-            SELECT * FROM igdb_ratings_snapshot
-            WHERE date >= CURRENT_DATE - INTERVAL '{days}' DAY
-            ORDER BY date DESC, aggregated_rating DESC
+            SELECT
+                i.date,
+                i.igdb_id,
+                i.game_name,
+                i.rating,
+                i.aggregated_rating,
+                i.total_rating_count,
+                m.steam_app_id
+            FROM igdb_ratings_snapshot i
+            LEFT JOIN game_metadata m ON i.igdb_id = m.igdb_id
+            WHERE i.date >= CURRENT_DATE - INTERVAL '{days}' DAY
+            ORDER BY i.date DESC, i.aggregated_rating DESC
         """
         if self.db_manager:
             self.db_manager.export_to_json(query=sql, output_path=output_path)
@@ -679,6 +700,9 @@ class KPIAggregator:
                 AVG(peak_ccu) as avg_peak_ccu,
                 MAX(peak_ccu) as all_time_peak_ccu,
                 AVG(avg_ccu) as avg_ccu,
+                AVG(avg_metacritic_score) as avg_metacritic_score,
+                MAX(avg_metacritic_score) as latest_metacritic_score,
+                AVG(avg_price_cents) as avg_price_cents,
                 COUNT(DISTINCT date) as days_tracked
             FROM steam_daily_kpis
             GROUP BY game_name, steam_app_id, igdb_id
@@ -854,38 +878,55 @@ class KPIAggregator:
             output_path: Path to output JSON file
         """
         import json
+        import numpy as np
 
         if not self.db_manager:
             return
 
-        # Query all metadata
+        # Query all metadata (static only - KPIs/ratings in separate tables)
         result = self.db_manager.query(
             """
             SELECT
-                app_id, name, type, description, developers, publishers,
-                is_free, required_age, release_date, platforms,
-                metacritic_score, metacritic_url, categories, genres,
-                price_info, tags
+                igdb_id, game_name, slug,
+                steam_app_id, twitch_game_id, youtube_channel_id, epic_id, gog_id,
+                igdb_summary, first_release_date, cover_url,
+                steam_description, steam_required_age,
+                genres, themes, platforms, game_modes, developers, publishers,
+                websites,
+                discovery_source, discovery_date, last_updated,
+                is_active, track_steam, track_twitch, track_reddit
             FROM game_metadata
-            ORDER BY name
+            ORDER BY game_name
         """
         )
+
+        # Replace NaN/inf with None before converting to dict
+        result = result.replace([np.nan, np.inf, -np.inf], None)
 
         games = result.to_dict(orient="records")
 
         # Parse JSON strings back to objects
         for game in games:
+            # Convert timestamps to ISO format strings
+            for ts_field in ["first_release_date", "discovery_date", "last_updated"]:
+                if game.get(ts_field) is not None:
+                    game[ts_field] = str(game[ts_field])
+
+            # Parse JSON fields
             for field in [
+                "genres",
+                "themes",
+                "platforms",
+                "game_modes",
                 "developers",
                 "publishers",
-                "platforms",
-                "categories",
-                "genres",
-                "price_info",
-                "tags",
+                "websites",
             ]:
                 if game.get(field):
-                    game[field] = json.loads(game[field])
+                    try:
+                        game[field] = json.loads(game[field])
+                    except (json.JSONDecodeError, TypeError):
+                        pass  # Keep as-is if not valid JSON
 
         # Write to file
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -893,7 +934,7 @@ class KPIAggregator:
             json.dump(games, f, indent=2)
 
     def cleanup_old_raw_data(self, retention_days: int = 7) -> int:
-        """Delete raw Steam data older than retention period.
+        """Delete raw Steam KPIs data older than retention period.
 
         Implements data retention policy: keep only recent raw data,
         while preserving all aggregated daily/weekly/monthly KPIs.
@@ -912,20 +953,20 @@ class KPIAggregator:
             return 0
 
         # Count rows before deletion
-        count_before = self.db_manager.query("SELECT COUNT(*) as count FROM steam_raw").iloc[0][
+        count_before = self.db_manager.query("SELECT COUNT(*) as count FROM steam_kpis").iloc[0][
             "count"
         ]
 
         # Delete data older than retention period
         self.db_manager.query(
             f"""
-            DELETE FROM steam_raw
+            DELETE FROM steam_kpis
             WHERE CAST(timestamp AS DATE) < CURRENT_DATE - INTERVAL '{retention_days}' DAY
         """
         )
 
         # Count rows after deletion
-        count_after = self.db_manager.query("SELECT COUNT(*) as count FROM steam_raw").iloc[0][
+        count_after = self.db_manager.query("SELECT COUNT(*) as count FROM steam_kpis").iloc[0][
             "count"
         ]
 

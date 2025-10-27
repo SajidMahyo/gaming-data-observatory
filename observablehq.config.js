@@ -3,7 +3,7 @@
 
 export default {
   title: "Gaming Data Observatory",
-  description: "Real-time Steam player analytics and insights",
+  description: "Multi-source gaming analytics: Steam players, Twitch viewers, and game rankings",
 
   // Source root directory
   root: "src",
@@ -33,19 +33,35 @@ export default {
       border-bottom: 2px solid #60a5fa;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     ">
-      <a href="./" style="
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        text-decoration: none;
-        color: #f1f5f9;
-        font-weight: 600;
-        font-size: 1.25rem;
-        transition: transform 0.2s;
-      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        <span style="font-size: 2rem;">🎮</span>
-        <span>Gaming Data Observatory</span>
-      </a>
+      <div style="display: flex; align-items: center; gap: 2rem;">
+        <a href="./" style="
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          text-decoration: none;
+          color: #f1f5f9;
+          font-weight: 600;
+          font-size: 1.25rem;
+          transition: transform 0.2s;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <span style="font-size: 2rem;">🎮</span>
+          <span>Gaming Data Observatory</span>
+        </a>
+
+        <a href="./ranking" style="
+          color: #e2e8f0;
+          text-decoration: none;
+          padding: 0.5rem 1.5rem;
+          border-radius: 0.5rem;
+          transition: all 0.2s;
+          font-weight: 600;
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%);
+          border: 1px solid rgba(96, 165, 250, 0.3);
+        " onmouseover="this.style.background='linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(147, 51, 234, 0.25) 100%)'; this.style.borderColor='rgba(96, 165, 250, 0.5)'; this.style.color='#60a5fa'"
+           onmouseout="this.style.background='linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%)'; this.style.borderColor='rgba(96, 165, 250, 0.3)'; this.style.color='#e2e8f0'">
+          🏆 Rankings
+        </a>
+      </div>
 
       <nav style="display: flex; gap: 1.5rem; align-items: center;">
         <a href="./about" style="

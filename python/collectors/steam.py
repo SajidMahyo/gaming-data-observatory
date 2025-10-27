@@ -26,6 +26,7 @@ class SteamCollector:
     }
 
     API_BASE_URL = "https://api.steampowered.com"
+    STORE_API_BASE_URL = "https://store.steampowered.com/api"
     TIMEOUT_SECONDS = 10
 
     def __init__(
@@ -118,32 +119,52 @@ class SteamCollector:
             raise last_exception
         raise RuntimeError("Unexpected retry loop exit")
 
-    def get_game_data(self, app_id: int) -> dict[str, Any]:
+    def get_game_data(self, app_id: int, include_kpis: bool = True) -> dict[str, Any]:
         """
-        Get complete game data including player count and metadata.
+        Get complete game data including player count and KPIs.
 
         Args:
             app_id: Steam application ID
+            include_kpis: If True, also fetch Metacritic, price, etc. from Store API
 
         Returns:
-            Dictionary with app_id, game_name, player_count, timestamp
+            Dictionary with steam_app_id, game_name, player_count, timestamp
+            If include_kpis=True: also metacritic_score, price_cents, is_free
         """
         player_count = self.get_player_count(app_id)
         game_name = self._tracked_games.get(app_id, f"Game {app_id}")
 
-        return {
-            "app_id": app_id,
+        result = {
+            "steam_app_id": app_id,
             "game_name": game_name,
             "player_count": player_count,
             "timestamp": datetime.now(UTC).isoformat(),
         }
 
-    def collect_top_games(self, limit: int | None = None) -> list[dict[str, Any]]:
+        # Fetch additional KPIs from Steam Store API if requested
+        if include_kpis:
+            details = self.get_game_details(app_id)
+            if details:
+                result["metacritic_score"] = details.get("steam_metacritic_score")
+                result["price_cents"] = details.get("steam_price_cents")
+                result["is_free"] = details.get("steam_is_free", False)
+            else:
+                result["metacritic_score"] = None
+                result["price_cents"] = None
+                result["is_free"] = None
+
+        return result
+
+    def collect_top_games(
+        self, limit: int | None = None, include_kpis: bool = True, delay: float = 1.0
+    ) -> list[dict[str, Any]]:
         """
-        Collect player data for tracked games.
+        Collect player data and KPIs for tracked games.
 
         Args:
             limit: Number of games to collect. If None, collects all tracked games.
+            include_kpis: If True, also collect Metacritic, price from Store API
+            delay: Delay in seconds between API calls (only if include_kpis=True)
 
         Returns:
             List of game data dictionaries (skips games with errors)
@@ -154,10 +175,15 @@ class SteamCollector:
         if limit is not None:
             game_ids = game_ids[:limit]
 
-        for app_id in game_ids:
+        for i, app_id in enumerate(game_ids, 1):
             try:
-                game_data = self.get_game_data(app_id)
+                game_data = self.get_game_data(app_id, include_kpis=include_kpis)
                 results.append(game_data)
+
+                # Rate limiting when fetching KPIs (to avoid Steam Store API throttling)
+                if include_kpis and delay > 0 and i < len(game_ids):
+                    time.sleep(delay)
+
             except Exception as e:
                 game_name = self._tracked_games.get(app_id, f"Game {app_id}")
                 print(f"⚠️  Skipping {game_name} (ID: {app_id}): {e}")
@@ -246,3 +272,119 @@ class SteamCollector:
 
         print(f"\n✅ Discovered {len(discovered_games)} games from Steam top CCU")
         return discovered_games
+
+    def get_game_details(self, app_id: int) -> dict[str, Any] | None:
+        """
+        Get detailed game information from Steam Store API.
+
+        Fetches both static metadata (description, age) and temporal KPIs (Metacritic, price).
+
+        Args:
+            app_id: Steam application ID
+
+        Returns:
+            Dictionary with game details or None if failed.
+            Includes: steam_description, steam_required_age (static metadata)
+                     steam_metacritic_score, steam_price_cents, steam_is_free (KPIs)
+        """
+        url = f"{self.STORE_API_BASE_URL}/appdetails"
+        params = {"appids": app_id, "cc": "us", "l": "english"}
+
+        for attempt in range(self.max_retries):
+            try:
+                response = requests.get(url, params=params, timeout=self.TIMEOUT_SECONDS)
+                response.raise_for_status()
+
+                data = response.json()
+
+                # Steam API returns data with app_id as key
+                app_data = data.get(str(app_id))
+
+                if not app_data or not app_data.get("success"):
+                    return None
+
+                game_data = app_data["data"]
+
+                # Extract metadata (static) and KPIs (temporal)
+                details = {
+                    # Static metadata
+                    "steam_description": game_data.get("short_description"),
+                    "steam_required_age": game_data.get("required_age", 0),
+                    # Temporal KPIs
+                    "steam_is_free": game_data.get("is_free", False),
+                    "steam_metacritic_score": (
+                        game_data["metacritic"]["score"]
+                        if game_data.get("metacritic")
+                        else None
+                    ),
+                }
+
+                # Get price if not free
+                if not details["steam_is_free"] and game_data.get("price_overview"):
+                    details["steam_price_cents"] = game_data["price_overview"].get("final")
+
+                return details
+
+            except requests.exceptions.RequestException as e:
+                if attempt < self.max_retries - 1:
+                    delay = self.retry_delay * (2**attempt)
+                    time.sleep(delay)
+                    continue
+                print(f"⚠️  Error fetching details for Steam {app_id}: {e}")
+                return None
+
+            except (KeyError, ValueError) as e:
+                print(f"⚠️  Error parsing details for Steam {app_id}: {e}")
+                return None
+
+        return None
+
+    def collect_metadata(
+        self, limit: int | None = None, delay: float = 1.0
+    ) -> list[dict[str, Any]]:
+        """
+        Collect static metadata (descriptions, required age) for all tracked games.
+
+        Args:
+            limit: Number of games to collect metadata for (None = all)
+            delay: Delay between requests in seconds to avoid rate limiting
+
+        Returns:
+            List of dicts with steam_app_id and metadata
+        """
+        results = []
+        game_ids = list(self._tracked_games.keys())
+
+        if limit is not None:
+            game_ids = game_ids[:limit]
+
+        print(f"📦 Collecting Steam metadata for {len(game_ids)} games...")
+
+        for i, app_id in enumerate(game_ids, 1):
+            game_name = self._tracked_games.get(app_id, f"Game {app_id}")
+
+            try:
+                details = self.get_game_details(app_id)
+
+                if details:
+                    details["steam_app_id"] = app_id
+                    details["game_name"] = game_name
+                    results.append(details)
+
+                    metacritic = details.get("steam_metacritic_score")
+                    print(
+                        f"[{i}/{len(game_ids)}] ✓ {game_name}: "
+                        f"Metacritic: {metacritic if metacritic else 'N/A'}"
+                    )
+                else:
+                    print(f"[{i}/{len(game_ids)}] ⚠️  {game_name}: No data available")
+
+                # Rate limiting
+                if delay > 0 and i < len(game_ids):
+                    time.sleep(delay)
+
+            except Exception as e:
+                print(f"[{i}/{len(game_ids)}] ❌ {game_name}: {e}")
+                continue
+
+        return results

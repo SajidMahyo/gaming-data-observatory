@@ -50,36 +50,93 @@ jobs:
           if [ "$HOUR" = "08" ]; then
             echo "🔍 Discovering new games from multiple sources..."
             uv run python -m python.main discover \
-              --top-limit 100 \
-              --trending-limit 50
+              --top-limit 200 \
+              --trending-limit 100
             echo "✅ Game discovery complete"
           else
             echo "⏭️  Skipping discovery (runs only at 8 AM UTC, current hour: $HOUR)"
           fi
 
       # ========================================================================
-      # COLLECT STEAM DATA
+      # ENRICH METADATA WITH IGDB (once per day at 8:30 AM UTC)
       # ========================================================================
 
-      - name: Collect Steam player data
+      - name: Enrich game metadata from IGDB (daily at 8:30 AM UTC)
+        env:
+          IGDB_CLIENT_ID: ${{ secrets.IGDB_CLIENT_ID }}
+          IGDB_CLIENT_SECRET: ${{ secrets.IGDB_CLIENT_SECRET }}
         run: |
-          echo "🎮 Collecting Steam player data..."
-          uv run python -m python.main collect
-          echo "✅ Data collection complete"
+          HOUR=$(date -u +%H)
+          MINUTE=$(date -u +%M)
+          if [ "$HOUR" = "08" ] && [ "$MINUTE" -ge "30" ]; then
+            echo "🎯 Enriching game metadata from IGDB..."
+            uv run python -m python.main metadata --delay 0.5
+            echo "✅ Metadata enrichment complete"
+          else
+            echo "⏭️  Skipping metadata enrichment (runs only at 8:30 AM UTC)"
+          fi
 
       # ========================================================================
-      # STORE IN DUCKDB
+      # COLLECT DATA FROM MULTIPLE SOURCES (PARALLEL)
       # ========================================================================
 
-      - name: Load data into DuckDB
-        run: uv run python -m python.main store
+      - name: Collect data from Steam and Twitch (parallel)
+        env:
+          TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+          TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+        run: |
+          echo "🚀 Starting parallel data collection..."
+
+          # Start Steam collection in background
+          echo "🎮 Starting Steam collection..."
+          uv run python -m python.main collect steam --kpi-delay 1.5 &
+          STEAM_PID=$!
+          echo "Steam collection started (PID: $STEAM_PID)"
+
+          # Start Twitch collection in background
+          echo "📺 Starting Twitch collection..."
+          uv run python -m python.main collect twitch --kpi-delay 1.5 &
+          TWITCH_PID=$!
+          echo "Twitch collection started (PID: $TWITCH_PID)"
+
+          # Wait for both to complete
+          echo "⏳ Waiting for Steam collection..."
+          wait $STEAM_PID
+          STEAM_EXIT=$?
+          echo "✅ Steam collection complete (exit code: $STEAM_EXIT)"
+
+          echo "⏳ Waiting for Twitch collection..."
+          wait $TWITCH_PID
+          TWITCH_EXIT=$?
+          echo "✅ Twitch collection complete (exit code: $TWITCH_EXIT)"
+
+          # Check if both succeeded
+          if [ $STEAM_EXIT -ne 0 ] || [ $TWITCH_EXIT -ne 0 ]; then
+            echo "❌ One or more collections failed"
+            exit 1
+          fi
+
+          echo "🎉 All data collection complete successfully"
 
       # ========================================================================
-      # AGGREGATE KPIs
+      # STORE IN DUCKDB (ALL SOURCES)
       # ========================================================================
 
-      - name: Aggregate KPIs from DuckDB
-        run: uv run python -m python.main aggregate
+      - name: Load all data into DuckDB
+        run: |
+          echo "📦 Loading collected data into DuckDB..."
+          uv run python -m python.main store
+          echo "✅ All data stored in DuckDB"
+
+      # ========================================================================
+      # AGGREGATE KPIs (ALL SOURCES)
+      # ========================================================================
+
+      - name: Aggregate KPIs and generate rankings
+        run: |
+          echo "📊 Aggregating KPIs from all sources..."
+          uv run python -m python.main aggregate
+          echo "✅ KPIs aggregated and rankings generated"
 
       # ========================================================================
       # BUILD OBSERVABLE DASHBOARD
@@ -119,8 +176,8 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Add new data files
-          git add data/raw/steam/ data/duckdb/ data/exports/
+          # Add new data files from all sources
+          git add data/raw/steam/ data/raw/twitch/ data/duckdb/ src/data/
 
           if git diff --staged --quiet; then
             echo "📭 No new data to commit"

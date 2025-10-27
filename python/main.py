@@ -35,17 +35,24 @@ def collect() -> None:
     help="Path to DuckDB database",
     type=click.Path(),
 )
-def steam(limit: int | None, db_path: str) -> None:
-    """Collect Steam concurrent player counts (CCU) for tracked games.
+@click.option(
+    "--kpi-delay",
+    default=1.5,
+    help="Delay between API requests in seconds (rate limiting)",
+    type=float,
+)
+def steam(limit: int | None, db_path: str, kpi_delay: float) -> None:
+    """Collect Steam KPIs for tracked games.
 
+    Collects temporal KPIs: CCU, Metacritic scores, prices, is_free status.
     Reads games from game_metadata table (requires steam_app_id).
-    Saves time-series data to steam_raw table in DuckDB.
+    Saves time-series data to steam_kpis table in DuckDB.
     """
     from python.storage.duckdb_manager import DuckDBManager
 
     db_path_obj = Path(db_path)
 
-    click.echo("🎮 Collecting Steam CCU data...\n")
+    click.echo("🎮 Collecting Steam KPIs...\n")
 
     try:
         # Initialize collector
@@ -54,12 +61,17 @@ def steam(limit: int | None, db_path: str) -> None:
         total_games = len(collector.get_top_games())
         games_to_collect = limit if limit is not None else total_games
 
-        click.echo(f"📊 Collecting data for {games_to_collect}/{total_games} tracked games...\n")
+        click.echo(f"📊 Collecting KPIs for {games_to_collect}/{total_games} tracked games...")
+        click.echo("   • CCU (concurrent players)")
+        click.echo("   • Metacritic scores")
+        click.echo("   • Prices\n")
 
-        # Collect data
-        games_data = collector.collect_top_games(limit=limit)
+        # Collect all KPIs (CCU + Metacritic + Price)
+        games_data = collector.collect_top_games(
+            limit=limit, include_kpis=True, delay=kpi_delay
+        )
 
-        click.echo(f"\n✅ Collected data for {len(games_data)} games")
+        click.echo(f"\n✅ Collected KPIs for {len(games_data)} games")
 
         if not games_data:
             click.echo("⚠️  No data collected")
@@ -67,14 +79,17 @@ def steam(limit: int | None, db_path: str) -> None:
 
         # Save to DuckDB
         with DuckDBManager(db_path=db_path_obj) as db:
-            # Create steam_raw table if not exists
+            # Create steam_kpis table if not exists
             db.conn.execute(
                 """
-                CREATE TABLE IF NOT EXISTS steam_raw (
+                CREATE TABLE IF NOT EXISTS steam_kpis (
                     timestamp TIMESTAMP NOT NULL,
                     steam_app_id INTEGER NOT NULL,
                     game_name VARCHAR NOT NULL,
                     player_count INTEGER NOT NULL,
+                    metacritic_score INTEGER,
+                    price_cents INTEGER,
+                    is_free BOOLEAN,
                     PRIMARY KEY (timestamp, steam_app_id)
                 )
             """
@@ -84,35 +99,72 @@ def steam(limit: int | None, db_path: str) -> None:
             for data in games_data:
                 db.conn.execute(
                     """
-                    INSERT INTO steam_raw (timestamp, steam_app_id, game_name, player_count)
-                    VALUES (?, ?, ?, ?)
+                    INSERT INTO steam_kpis (
+                        timestamp, steam_app_id, game_name, player_count,
+                        metacritic_score, price_cents, is_free
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT (timestamp, steam_app_id) DO UPDATE SET
-                        player_count = EXCLUDED.player_count
+                        player_count = EXCLUDED.player_count,
+                        metacritic_score = EXCLUDED.metacritic_score,
+                        price_cents = EXCLUDED.price_cents,
+                        is_free = EXCLUDED.is_free
                     """,
                     [
                         data["timestamp"],
-                        data["app_id"],
+                        data["steam_app_id"],
                         data["game_name"],
                         data["player_count"],
+                        data.get("metacritic_score"),
+                        data.get("price_cents"),
+                        data.get("is_free"),
                     ],
                 )
 
             # Get stats
             count_result = db.query(
-                "SELECT COUNT(*) as count, COUNT(DISTINCT steam_app_id) as games FROM steam_raw"
+                """
+                SELECT
+                    COUNT(*) as count,
+                    COUNT(DISTINCT steam_app_id) as games,
+                    COUNT(metacritic_score) as with_metacritic,
+                    COUNT(price_cents) as with_price
+                FROM steam_kpis
+                """
             )
             total_records = int(count_result["count"][0])
             total_games_in_db = int(count_result["games"][0])
+            with_metacritic = int(count_result["with_metacritic"][0])
+            with_price = int(count_result["with_price"][0])
 
-            click.echo("💾 Saved to steam_raw table")
+            click.echo("\n💾 Saved to steam_kpis table")
             click.echo(f"   📊 Total records: {total_records:,}")
-            click.echo(f"   🎮 Total games tracked: {total_games_in_db}")
+            click.echo(f"   🎮 Unique games: {total_games_in_db}")
+            click.echo(f"   ⭐ Records with Metacritic: {with_metacritic:,}")
+            click.echo(f"   💰 Records with price: {with_price:,}")
 
         # Display summary of current collection
-        click.echo("\n📊 Current collection summary:")
-        sorted_data = sorted(games_data, key=lambda x: x["player_count"], reverse=True)
-        for data in sorted_data[:10]:
-            click.echo(f"  • {data['game_name']}: {data['player_count']:,} concurrent players")
+        click.echo("\n📊 Top games by CCU:")
+        sorted_by_ccu = sorted(games_data, key=lambda x: x["player_count"], reverse=True)
+        for data in sorted_by_ccu[:10]:
+            metacritic = data.get("metacritic_score")
+            metacritic_str = f"⭐ {metacritic}" if metacritic else "⭐ N/A"
+            click.echo(
+                f"  • {data['game_name']}: {data['player_count']:,} players | {metacritic_str}"
+            )
+
+        # Show Metacritic summary
+        with_scores = [d for d in games_data if d.get("metacritic_score")]
+        if with_scores:
+            click.echo("\n🏆 Top Metacritic scores:")
+            sorted_by_metacritic = sorted(
+                with_scores, key=lambda x: x["metacritic_score"], reverse=True
+            )[:5]
+            for data in sorted_by_metacritic:
+                click.echo(
+                    f"  • {data['game_name']}: {data['metacritic_score']} "
+                    f"({data['player_count']:,} players)"
+                )
 
         click.echo(f"\n✨ Steam collection complete! Data saved to {db_path}")
 
@@ -285,22 +337,25 @@ def all(limit: int | None, db_path: str) -> None:
         "igdb_ratings": {"collected": 0, "failed": 0, "error": None},
     }
 
-    # 1. Collect Steam CCU
-    click.echo("\n📊 [1/3] Collecting Steam CCU data...")
+    # 1. Collect Steam KPIs
+    click.echo("\n📊 [1/3] Collecting Steam KPIs data...")
     click.echo("-" * 60)
     try:
         collector = SteamCollector(db_path=db_path_obj)
-        games_data = collector.collect_top_games(limit=limit)
+        games_data = collector.collect_top_games(limit=limit, include_kpis=True, delay=1.5)
 
         if games_data:
             with DuckDBManager(db_path=db_path_obj) as db:
                 db.conn.execute(
                     """
-                    CREATE TABLE IF NOT EXISTS steam_raw (
+                    CREATE TABLE IF NOT EXISTS steam_kpis (
                         timestamp TIMESTAMP NOT NULL,
                         steam_app_id INTEGER NOT NULL,
                         game_name VARCHAR NOT NULL,
                         player_count INTEGER NOT NULL,
+                        metacritic_score INTEGER,
+                        price_cents INTEGER,
+                        is_free BOOLEAN,
                         PRIMARY KEY (timestamp, steam_app_id)
                     )
                 """
@@ -309,16 +364,25 @@ def all(limit: int | None, db_path: str) -> None:
                 for data in games_data:
                     db.conn.execute(
                         """
-                        INSERT INTO steam_raw (timestamp, steam_app_id, game_name, player_count)
-                        VALUES (?, ?, ?, ?)
+                        INSERT INTO steam_kpis (
+                            timestamp, steam_app_id, game_name, player_count,
+                            metacritic_score, price_cents, is_free
+                        )
+                        VALUES (?, ?, ?, ?, ?, ?, ?)
                         ON CONFLICT (timestamp, steam_app_id) DO UPDATE SET
-                            player_count = EXCLUDED.player_count
+                            player_count = EXCLUDED.player_count,
+                            metacritic_score = EXCLUDED.metacritic_score,
+                            price_cents = EXCLUDED.price_cents,
+                            is_free = EXCLUDED.is_free
                         """,
                         [
                             data["timestamp"],
-                            data["app_id"],
+                            data["steam_app_id"],
                             data["game_name"],
                             data["player_count"],
+                            data.get("metacritic_score"),
+                            data.get("price_cents"),
+                            data.get("is_free"),
                         ],
                     )
 
@@ -658,8 +722,10 @@ def process() -> None:
     type=click.Path(),
 )
 def store(db_path: str, parquet_path: str) -> None:
-    """Load Parquet files into DuckDB."""
+    """Load Parquet files into DuckDB (DEPRECATED: for legacy data migration only)."""
     click.echo("📦 Loading Parquet files into DuckDB...")
+    click.echo("⚠️  DEPRECATED: This command is for migrating legacy Parquet data only.")
+    click.echo("⚠️  New data collection goes directly to DuckDB.\n")
 
     from python.storage.duckdb_manager import DuckDBManager
 
@@ -678,9 +744,10 @@ def store(db_path: str, parquet_path: str) -> None:
     try:
         with DuckDBManager(db_path=db_path_obj) as db:
             # Create table from Parquet schema if it doesn't exist
+            # Note: Uses steam_kpis instead of steam_raw
             db.query(
                 """
-                CREATE TABLE IF NOT EXISTS steam_raw AS
+                CREATE TABLE IF NOT EXISTS steam_kpis AS
                 SELECT * FROM read_parquet('data/raw/steam/**/*.parquet')
             """
             )
@@ -688,19 +755,19 @@ def store(db_path: str, parquet_path: str) -> None:
             # Insert new data (avoiding duplicates)
             db.query(
                 """
-                INSERT INTO steam_raw
+                INSERT INTO steam_kpis
                 SELECT * FROM read_parquet('data/raw/steam/**/*.parquet')
                 WHERE NOT EXISTS (
-                    SELECT 1 FROM steam_raw s
+                    SELECT 1 FROM steam_kpis s
                     WHERE s.timestamp = read_parquet.timestamp
-                    AND s.app_id = read_parquet.app_id
+                    AND s.steam_app_id = read_parquet.steam_app_id
                 )
             """
             )
 
             # Get stats
             count_result = db.query(
-                "SELECT COUNT(*) as count, COUNT(DISTINCT app_id) as games FROM steam_raw"
+                "SELECT COUNT(*) as count, COUNT(DISTINCT steam_app_id) as games FROM steam_kpis"
             )
             total_records = count_result["count"][0]
             total_games = count_result["games"][0]
@@ -794,6 +861,7 @@ def metadata(full_refresh: bool, limit: int | None, db_path: str, delay: float) 
     import time
 
     from python.collectors.igdb import IGDBCollector
+    from python.collectors.steam import SteamCollector
     from python.storage.duckdb_manager import DuckDBManager
 
     db_path_obj = Path(db_path)
@@ -816,11 +884,13 @@ def metadata(full_refresh: bool, limit: int | None, db_path: str, delay: float) 
                 click.echo("✅ No games need metadata enrichment!")
                 return
 
-            # Initialize collector
-            collector = IGDBCollector()
+            # Initialize collectors
+            igdb_collector = IGDBCollector()
+            steam_collector = SteamCollector(db_path=db_path_obj)
 
             enriched_count = 0
             failed_count = 0
+            steam_metadata_count = 0
 
             for i, game in enumerate(games_to_enrich, 1):
                 igdb_id = game["igdb_id"]
@@ -830,9 +900,28 @@ def metadata(full_refresh: bool, limit: int | None, db_path: str, delay: float) 
 
                 try:
                     # Enrich with IGDB + external IDs
-                    enriched = collector.enrich_game(igdb_id)
+                    enriched = igdb_collector.enrich_game(igdb_id)
 
                     if enriched:
+                        # If game has Steam ID, enrich with Steam static metadata
+                        steam_app_id = enriched.get("steam_app_id")
+                        if steam_app_id:
+                            try:
+                                steam_details = steam_collector.get_game_details(steam_app_id)
+                                if steam_details:
+                                    # Add only static metadata (description, required_age)
+                                    # KPIs (metacritic, price) are collected via `collect steam`
+                                    enriched["steam_description"] = steam_details.get(
+                                        "steam_description"
+                                    )
+                                    enriched["steam_required_age"] = steam_details.get(
+                                        "steam_required_age"
+                                    )
+                                    steam_metadata_count += 1
+                                    click.echo(f"     🎮 Steam metadata: ✓")
+                            except Exception as steam_error:
+                                click.echo(f"     ⚠️  Steam metadata failed: {steam_error}")
+
                         # Upsert into game_metadata
                         db.upsert_game_metadata(enriched)
 
@@ -859,6 +948,7 @@ def metadata(full_refresh: bool, limit: int | None, db_path: str, delay: float) 
 
         click.echo("\n✅ Metadata enrichment complete!")
         click.echo(f"   ✅ {enriched_count} games enriched successfully")
+        click.echo(f"   🎮 {steam_metadata_count} games enriched with Steam metadata")
         if failed_count > 0:
             click.echo(f"   ⚠️  {failed_count} games failed")
         click.echo(f"   💾 Database: {db_path}")

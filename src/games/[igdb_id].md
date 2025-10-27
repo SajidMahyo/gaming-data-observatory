@@ -1,22 +1,32 @@
 ```js
-// Load shared metadata and optimized KPIs (all games, but with date filtering)
+// Load shared metadata and multi-source KPIs
 const gameMetadata = FileAttachment("../data/game-metadata.json").json();
-const gameRankings = FileAttachment("../data/game_rankings.json").json();
+const steamRankings = FileAttachment("../data/steam_rankings.json").json();
+const twitchRankings = FileAttachment("../data/twitch_rankings.json").json();
+const unifiedRankings = FileAttachment("../data/unified_rankings.json").json();
 
-// Load KPIs (pre-filtered by date on server, but contains all games)
-// - hourly: last 48 hours only
-// - daily: last 30 days only
-// - monthly: last 12 months only
+// Load KPIs (pre-filtered by date on server)
+// - hourly: last 48 hours (Steam only)
+// - daily: last 30 days (multi-source)
+// - weekly: last 12 weeks (multi-source)
+// - monthly: last 12 months (multi-source)
 const hourlyKpis = FileAttachment("../data/hourly_kpis.json").json();
-const dailyKpis = FileAttachment("../data/daily_kpis.json").json();
-const monthlyKpis = FileAttachment("../data/monthly_kpis.json").json();
+const steamDailyKpis = FileAttachment("../data/steam_daily_kpis.json").json();
+const twitchDailyKpis = FileAttachment("../data/twitch_daily_kpis.json").json();
+const steamMonthlyKpis = FileAttachment("../data/steam_monthly_kpis.json").json();
+const twitchMonthlyKpis = FileAttachment("../data/twitch_monthly_kpis.json").json();
 ```
 
 ```js
-// Get app_id from URL parameter (Observable Framework syntax: observable.params.param)
-const APP_ID = parseInt(observable.params.app_id);
-const game = gameMetadata.find(g => g.app_id === APP_ID);
-const ranking = gameRankings.find(g => g.app_id === APP_ID);
+// Get igdb_id from URL parameter (Observable Framework syntax: observable.params.param)
+const IGDB_ID = parseInt(observable.params.igdb_id);
+const game = gameMetadata.find(g => g.igdb_id === IGDB_ID);
+const steamRanking = steamRankings.find(g => g.igdb_id === IGDB_ID);
+const twitchRanking = twitchRankings.find(g => g.igdb_id === IGDB_ID);
+
+// For backward compatibility with Player Statistics section
+const ranking = steamRanking;
+const APP_ID = game?.steam_app_id;
 
 // Helper function
 function getSteamImage(appId) {
@@ -32,42 +42,76 @@ const topTags = game.tags
 ```
 
 ```js
-html`<div class="hero-banner" style="background-image: url('${getSteamImage(game.app_id)}')">
+html`<div class="hero-banner" style="background-image: url('${game.steam_app_id ? getSteamImage(game.steam_app_id) : ''}')">
   <div class="hero-overlay"></div>
   <a href="../" class="back-link-hero">← Go back</a>
   <div class="hero-content">
-    <h1 class="hero-title">${game.name}</h1>
+    <h1 class="hero-title">${game.game_name}</h1>
     <div class="hero-tags">
       ${topTags.map(([tag]) => html`<span class="hero-tag">${tag}</span>`)}
     </div>
     <div class="hero-meta">
-      <span class="badge">${game.type}</span>
-      ${game.is_free ? html`<span class="badge free">FREE</span>` : ''}
-      ${game.metacritic_score ? html`<span class="badge metacritic">⭐ ${game.metacritic_score}/100</span>` : ''}
+      ${game.steam_is_free ? html`<span class="badge free">FREE</span>` : ''}
+      ${game.platforms ? html`<span class="badge">${game.platforms.slice(0, 3).join(', ')}</span>` : ''}
     </div>
   </div>
   <div class="hero-description">
-    <p>${game.description}</p>
+    <p>${game.steam_description || game.igdb_summary || 'No description available'}</p>
   </div>
 </div>`
 ```
 
-## Player Statistics
+## Game Statistics
 
 ```js
-ranking && html`<div class="stats-grid">
-  <div class="stat-card">
-    <div class="stat-value">${Math.round(ranking.avg_peak).toLocaleString()}</div>
-    <div class="stat-label">Average Peak Players</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-value">${ranking.all_time_peak.toLocaleString()}</div>
-    <div class="stat-label">All-Time Peak</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-value">${ranking.days_tracked}</div>
-    <div class="stat-label">Days Tracked</div>
-  </div>
+html`<div class="stats-section">
+  ${steamRanking ? html`
+    <div class="stats-category">
+      <h3 class="stats-category-title">🎮 Steam Statistics</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">${Math.round(steamRanking.avg_ccu).toLocaleString()}</div>
+          <div class="stat-label">Average Players</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${Math.round(steamRanking.avg_peak_ccu).toLocaleString()}</div>
+          <div class="stat-label">Average Peak</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${steamRanking.all_time_peak_ccu.toLocaleString()}</div>
+          <div class="stat-label">All-Time Peak</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${steamRanking.days_tracked}</div>
+          <div class="stat-label">Days Tracked</div>
+        </div>
+      </div>
+    </div>
+  ` : ''}
+
+  ${twitchRanking ? html`
+    <div class="stats-category">
+      <h3 class="stats-category-title">📺 Twitch Statistics</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">${Math.round(twitchRanking.avg_viewers).toLocaleString()}</div>
+          <div class="stat-label">Average Viewers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${Math.round(twitchRanking.avg_peak_viewers).toLocaleString()}</div>
+          <div class="stat-label">Average Peak Viewers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${twitchRanking.all_time_peak_viewers.toLocaleString()}</div>
+          <div class="stat-label">All-Time Peak Viewers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${Math.round(twitchRanking.avg_channels).toLocaleString()}</div>
+          <div class="stat-label">Average Channels</div>
+        </div>
+      </div>
+    </div>
+  ` : ''}
 </div>`
 ```
 
@@ -98,78 +142,30 @@ const period = view((() => {
 ```
 
 ```js
-// Select data based on period and filter by app_id
-// Data is already filtered by date on server (48h/30d/12m), just need to filter by game
-const filteredData = (period === "day"
+// Select data based on period and filter by igdb_id (universal across all sources)
+// Steam data (for players)
+const steamFilteredData = (period === "day"
   ? hourlyKpis.filter(d => d.app_id == APP_ID).sort((a, b) => new Date(a.hour) - new Date(b.hour))
   : period === "month"
-  ? dailyKpis.filter(d => d.app_id == APP_ID).sort((a, b) => new Date(a.date) - new Date(b.date))
-  : monthlyKpis.filter(d => d.app_id == APP_ID).sort((a, b) => new Date(a.month_start) - new Date(b.month_start))
+  ? steamDailyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.date) - new Date(b.date))
+  : steamMonthlyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.period_start) - new Date(b.period_start))
+);
+
+// Twitch data (for viewers)
+const twitchFilteredData = (period === "month"
+  ? twitchDailyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.date) - new Date(b.date))
+  : twitchMonthlyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.period_start) - new Date(b.period_start))
 );
 ```
 
 ```js
 // Layout à deux colonnes pour les graphiques
 html`<div class="charts-grid">
-  <!-- Graphique 1: Player Trends -->
-  <div class="chart-column">
-    <h3>Peak Players Over Time</h3>
-    ${resize((width) => Plot.plot({
-      width: width - 40, // Prend toute la largeur de la colonne (moins padding)
-      height: 400,
-      marginLeft: 60,
-      marginRight: 20,
-      marginTop: 30,
-      marginBottom: 50,
-      x: {
-        type: "time",
-        label: period === "day" ? "Hour" : period === "month" ? "Date" : "Month",
-        labelAnchor: "center"
-      },
-      y: {
-        label: "Peak CCU",
-        grid: true,
-        labelAnchor: "center"
-      },
-      marks: [
-        Plot.lineY(filteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
-          y: "peak_ccu",
-          stroke: "#60a5fa",
-          strokeWidth: 3,
-          curve: "catmull-rom"
-        }),
-        Plot.areaY(filteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
-          y: "peak_ccu",
-          fill: "#60a5fa",
-          fillOpacity: 0.15,
-          curve: "catmull-rom"
-        }),
-        Plot.dot(filteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
-          y: "peak_ccu",
-          fill: "#60a5fa",
-          r: 4,
-          stroke: "#0f172a",
-          strokeWidth: 1
-        }),
-        Plot.ruleY([0])
-      ],
-      style: {
-        background: "rgba(30, 41, 59, 0.5)",
-        color: "#e2e8f0",
-        borderRadius: "12px",
-        padding: "15px"
-      }
-    }))}
-  </div>
-
-  <!-- Graphique 2: Average Players -->
+  <!-- Graphique 1: Average Players (Steam) -->
   <div class="chart-column">
     <h3>Average Players Over Time</h3>
     ${resize((width) => Plot.plot({
-      width: width - 40, // Prend toute la largeur de la colonne (moins padding)
+      width: width - 40,
       height: 400,
       marginLeft: 60,
       marginRight: 20,
@@ -186,24 +182,24 @@ html`<div class="charts-grid">
         labelAnchor: "center"
       },
       marks: [
-        Plot.lineY(filteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+        Plot.lineY(steamFilteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "period_start",
           y: "avg_ccu",
-          stroke: "#a78bfa",
+          stroke: "#60a5fa",
           strokeWidth: 3,
           curve: "catmull-rom"
         }),
-        Plot.areaY(filteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+        Plot.areaY(steamFilteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "period_start",
           y: "avg_ccu",
-          fill: "#a78bfa",
+          fill: "#60a5fa",
           fillOpacity: 0.15,
           curve: "catmull-rom"
         }),
-        Plot.dot(filteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
+        Plot.dot(steamFilteredData, {
+          x: period === "day" ? "hour" : period === "month" ? "date" : "period_start",
           y: "avg_ccu",
-          fill: "#a78bfa",
+          fill: "#60a5fa",
           r: 4,
           stroke: "#0f172a",
           strokeWidth: 1
@@ -217,6 +213,65 @@ html`<div class="charts-grid">
         padding: "15px"
       }
     }))}
+  </div>
+
+  <!-- Graphique 2: Average Viewers (Twitch) -->
+  <div class="chart-column">
+    <h3>Average Viewers Over Time</h3>
+    ${period === "day"
+      ? html`<div style="padding: 2rem; text-align: center; color: #94a3b8;">
+          <p>Twitch data not available for hourly period</p>
+        </div>`
+      : resize((width) => Plot.plot({
+        width: width - 40,
+        height: 400,
+        marginLeft: 60,
+        marginRight: 20,
+        marginTop: 30,
+        marginBottom: 50,
+        x: {
+          type: "time",
+          label: period === "month" ? "Date" : "Month",
+          labelAnchor: "center"
+        },
+        y: {
+          label: "Avg Viewers",
+          grid: true,
+          labelAnchor: "center"
+        },
+        marks: [
+          Plot.lineY(twitchFilteredData, {
+            x: period === "month" ? "date" : "period_start",
+            y: "avg_viewers",
+            stroke: "#a78bfa",
+            strokeWidth: 3,
+            curve: "catmull-rom"
+          }),
+          Plot.areaY(twitchFilteredData, {
+            x: period === "month" ? "date" : "period_start",
+            y: "avg_viewers",
+            fill: "#a78bfa",
+            fillOpacity: 0.15,
+            curve: "catmull-rom"
+          }),
+          Plot.dot(twitchFilteredData, {
+            x: period === "month" ? "date" : "period_start",
+            y: "avg_viewers",
+            fill: "#a78bfa",
+            r: 4,
+            stroke: "#0f172a",
+            strokeWidth: 1
+          }),
+          Plot.ruleY([0])
+        ],
+        style: {
+          background: "rgba(30, 41, 59, 0.5)",
+          color: "#e2e8f0",
+          borderRadius: "12px",
+          padding: "15px"
+        }
+      }))
+    }
   </div>
 </div>`
 ```
@@ -265,30 +320,6 @@ html`<div class="tags-section">
       </div>
     </div>
   ` : ''}
-</div>`
-```
-
-## Popular Tags
-
-```js
-topTags.length > 0 && html`<div class="tags-section">
-  <h4>Community Tags</h4>
-  <div class="tags">
-    ${topTags.map(([tag, score]) => html`
-      <span class="tag popular" title="${score.toLocaleString()} votes">${tag}</span>
-    `)}
-  </div>
-</div>`
-```
-
-## Price Information
-
-```js
-game.price_info && html`<div class="price-section">
-  ${game.price_info.is_free
-    ? html`<div class="price free-price">Free to Play</div>`
-    : html`<div class="price">$${game.price_info.price}</div>`
-  }
 </div>`
 ```
 
@@ -517,11 +548,32 @@ game.price_info && html`<div class="price-section">
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
   }
 
+  .stats-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 2rem 0;
+  }
+
+  .stats-category {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stats-category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(96, 165, 250, 0.2);
+  }
+
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2rem;
-    margin: 2rem 0;
   }
 
   .stat-card {

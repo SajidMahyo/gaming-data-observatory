@@ -114,6 +114,11 @@ class DuckDBManager:
 
         # Get data as DataFrame and export to JSON
         df = self.query(sql)
+
+        # Replace NaN/inf with None to ensure valid JSON (NaN is not valid JSON)
+        import numpy as np
+        df = df.replace([np.nan, np.inf, -np.inf], None)
+
         df.to_json(output_path, orient="records", date_format="iso", indent=2)
 
     def create_game_list_table(self) -> None:
@@ -156,8 +161,8 @@ class DuckDBManager:
         - igdb_id (INTEGER PRIMARY KEY): IGDB ID as source of truth
         - game_name: Canonical game name
         - Platform IDs: steam_app_id, twitch_game_id, youtube_channel_id, etc.
-        - IGDB metadata: ratings, summary, release date, cover
-        - Steam metadata: description, price, metacritic
+        - IGDB metadata: summary, release date, cover (ratings collected via collect igdb-ratings)
+        - Steam metadata: description, required_age (KPIs in steam_kpis)
         - Categories: genres, themes, platforms, game_modes, developers, publishers (JSON)
         - Tracking: discovery_source, dates, is_active flags
         """
@@ -181,10 +186,8 @@ class DuckDBManager:
                 first_release_date TIMESTAMP,
                 cover_url VARCHAR,
 
-                -- Steam metadata (metacritic removed - will be in metacritic_raw)
+                -- Steam metadata (static only - KPIs in steam_kpis)
                 steam_description TEXT,
-                steam_is_free BOOLEAN,
-                steam_price_cents INTEGER,
                 steam_required_age INTEGER,
 
                 -- Categories (JSON)
@@ -265,15 +268,9 @@ class DuckDBManager:
             metadata.get("epic_id"),
             metadata.get("gog_id"),
             metadata.get("igdb_summary"),
-            metadata.get("igdb_rating"),
-            metadata.get("igdb_aggregated_rating"),
-            metadata.get("igdb_total_rating_count"),
             metadata.get("first_release_date"),
             metadata.get("cover_url"),
             metadata.get("steam_description"),
-            metadata.get("steam_is_free"),
-            metadata.get("steam_price_cents"),
-            metadata.get("steam_metacritic_score"),
             metadata.get("steam_required_age"),
             genres_json,
             themes_json,
@@ -297,14 +294,12 @@ class DuckDBManager:
             INSERT INTO game_metadata (
                 igdb_id, game_name, slug,
                 steam_app_id, twitch_game_id, youtube_channel_id, epic_id, gog_id,
-                igdb_summary, igdb_rating, igdb_aggregated_rating, igdb_total_rating_count,
-                first_release_date, cover_url,
-                steam_description, steam_is_free, steam_price_cents,
-                steam_metacritic_score, steam_required_age,
+                igdb_summary, first_release_date, cover_url,
+                steam_description, steam_required_age,
                 genres, themes, platforms, game_modes, developers, publishers, websites,
                 discovery_source, discovery_date, last_updated, is_active,
                 track_steam, track_twitch, track_reddit
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT (igdb_id) DO UPDATE SET
                 game_name = EXCLUDED.game_name,
                 slug = EXCLUDED.slug,
@@ -314,15 +309,9 @@ class DuckDBManager:
                 epic_id = EXCLUDED.epic_id,
                 gog_id = EXCLUDED.gog_id,
                 igdb_summary = EXCLUDED.igdb_summary,
-                igdb_rating = EXCLUDED.igdb_rating,
-                igdb_aggregated_rating = EXCLUDED.igdb_aggregated_rating,
-                igdb_total_rating_count = EXCLUDED.igdb_total_rating_count,
                 first_release_date = EXCLUDED.first_release_date,
                 cover_url = EXCLUDED.cover_url,
                 steam_description = EXCLUDED.steam_description,
-                steam_is_free = EXCLUDED.steam_is_free,
-                steam_price_cents = EXCLUDED.steam_price_cents,
-                steam_metacritic_score = EXCLUDED.steam_metacritic_score,
                 steam_required_age = EXCLUDED.steam_required_age,
                 genres = EXCLUDED.genres,
                 themes = EXCLUDED.themes,

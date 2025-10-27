@@ -6,11 +6,12 @@ The **Gaming Data Observatory** is a comprehensive data engineering portfolio de
 
 **Key Highlights:**
 
-- Automated hourly data collection from Steam API via GitHub Actions
-- Multi-scale aggregation (hourly, daily, weekly, monthly KPIs)
-- Modern data stack with DuckDB, Parquet, and Observable Framework
+- **Multi-source data collection** from Steam and Twitch APIs via GitHub Actions
+- **Multi-scale aggregation** (hourly, daily, weekly, monthly KPIs) per source
+- **Modern data stack** with DuckDB, Parquet, and Observable Framework
+- **Interactive rankings** with platform selector (Steam/Twitch) and time range filters
+- **Dynamic game pages** with dual charts (Steam players + Twitch viewers)
 - Test-driven development with 80%+ code coverage
-- Interactive dashboards with dynamic game pages
 - Optimized for performance with incremental updates and efficient storage
 
 ---
@@ -21,26 +22,33 @@ The **Gaming Data Observatory** is a comprehensive data engineering portfolio de
 %%{init: {'theme':'dark', 'themeVariables': { 'fontSize':'14px'}}}%%
 flowchart LR
     A[Steam API] --> B[Python<br/>Collectors]
+    A2[Twitch API] --> B
+    A3[IGDB API] --> B2[Metadata<br/>Enrichment]
     B --> C[(Parquet<br/>Files)]
-    C --> D[(DuckDB)]
-    D --> E[KPI<br/>Aggregator]
+    B2 --> D[(DuckDB)]
+    C --> D
+    D --> E[KPI<br/>Aggregator<br/>Multi-Source]
     E --> F[JSON<br/>Export]
-    F --> G[Observable<br/>Dashboard]
+    F --> G[Observable<br/>Dashboard<br/>+ Rankings]
 
     style A fill:#3b82f6,stroke:#60a5fa,color:#fff
+    style A2 fill:#9146ff,stroke:#a970ff,color:#fff
+    style A3 fill:#f59e0b,stroke:#fbbf24,color:#fff
     style D fill:#8b5cf6,stroke:#a78bfa,color:#fff
     style E fill:#ec4899,stroke:#f472b6,color:#fff
     style G fill:#10b981,stroke:#34d399,color:#fff
 ```
 
 **Data Flow:**
-1. **Steam API** provides real-time player statistics
-2. **Python Collectors** fetch data with rate limiting
-3. **Parquet Files** store raw data (partitioned by date/game)
-4. **DuckDB** enables analytical queries with SQL
-5. **KPI Aggregator** calculates multi-scale metrics
-6. **JSON Export** optimizes data for web consumption
-7. **Observable Dashboard** provides interactive visualization
+1. **Steam API** provides real-time player statistics (CCU, peak CCU)
+2. **Twitch API** provides viewership data (viewers, channels streaming)
+3. **IGDB API** enriches game metadata (genres, themes, ratings, cover images)
+4. **Python Collectors** fetch data with rate limiting and error handling
+5. **Parquet Files** store raw time-series data (partitioned by date/source/game)
+6. **DuckDB** enables analytical queries with SQL and ACID transactions
+7. **KPI Aggregator** calculates multi-scale metrics per source (daily → weekly → monthly)
+8. **JSON Export** optimizes data for web consumption with server-side filtering
+9. **Observable Dashboard** provides interactive rankings and game pages
 
 ---
 
@@ -63,12 +71,13 @@ graph LR
 
 **Pipeline Stages:**
 
-1. **Collection** (Every hour) - Fetch concurrent player counts and game metadata with rate limiting
-2. **Storage** (Immediate) - Save to partitioned Parquet files and insert into DuckDB
-3. **Aggregation** (Hourly) - Calculate KPIs at multiple time scales (hourly → daily → weekly → monthly)
-4. **Cleanup** (Automatic) - Remove raw data older than 7 days, keep aggregated KPIs indefinitely
-5. **Export** (After aggregation) - Generate optimized JSON files with server-side filtering
-6. **Deployment** (Automatic) - Build static site and deploy to GitHub Pages
+1. **Discovery** (On demand) - Discover and enrich game metadata from IGDB API
+2. **Collection** (Every hour) - Fetch Steam player counts and Twitch viewership data with rate limiting
+3. **Storage** (Immediate) - Save to partitioned Parquet files and insert into DuckDB per source
+4. **Aggregation** (Hourly) - Calculate KPIs per source at multiple time scales (daily → weekly → monthly)
+5. **Cleanup** (Automatic) - Remove raw data older than 7 days, keep aggregated KPIs indefinitely
+6. **Export** (After aggregation) - Generate optimized JSON files per source (Steam/Twitch/Unified)
+7. **Deployment** (Automatic) - Build static site with Observable Framework and deploy to GitHub Pages
 
 ---
 
@@ -324,25 +333,34 @@ This strategy ensures **efficient processing** (no full table scans), **maintain
 
 ## Tracked Metrics
 
-### Player Engagement Metrics
+### Steam Player Metrics
 
 | Metric | Description | Calculation | Use Case |
 |--------|-------------|-------------|----------|
-| **Peak CCU** | Maximum concurrent users | `MAX(player_count)` | Identify peak activity periods |
+| **Peak CCU** | Maximum concurrent players | `MAX(player_count)` | Identify peak activity periods |
 | **Average CCU** | Mean player count | `AVG(player_count)` | Understand typical engagement |
-| **Min CCU** | Minimum players | `MIN(player_count)` | Detect low-activity periods |
-| **Sample Count** | Data points collected | `COUNT(*)` | Validate data quality |
+| **All-Time Peak** | Historical maximum | `MAX(peak_ccu)` | Track game popularity records |
 
-### Game Metadata
+### Twitch Viewership Metrics
+
+| Metric | Description | Calculation | Use Case |
+|--------|-------------|-------------|----------|
+| **Peak Viewers** | Maximum concurrent viewers | `MAX(viewers)` | Identify peak streaming periods |
+| **Average Viewers** | Mean viewer count | `AVG(viewers)` | Understand streaming popularity |
+| **Average Channels** | Mean active streams | `AVG(channels)` | Track content creator interest |
+| **All-Time Peak Viewers** | Historical maximum | `MAX(peak_viewers)` | Track streaming records |
+
+### Game Metadata (IGDB + Steam)
 
 | Category | Fields | Source | Description |
 |----------|--------|--------|-------------|
-| **Basic Info** | Name, Type, Description | Steam Store API | Core game identification and summary |
-| **Publishing** | Developers, Publishers, Release Date | Steam Store API | Development and publishing details |
-| **Platform** | Windows, macOS, Linux | Steam Store API | Supported operating systems |
-| **Classification** | Genres, Categories, User Tags | Steam Store + SteamSpy | Game categorization and community tags |
-| **Pricing** | Price, Currency, Discounts, Free-to-play | Steam Store API | Current pricing and monetization model |
-| **Quality** | Metacritic Score, Review URL | Steam Store API | Critical reception and review aggregation |
+| **Basic Info** | Name, Summary, Description | IGDB + Steam | Core game identification |
+| **Publishing** | Developers, Publishers, Release Date | IGDB + Steam | Development details |
+| **Platform** | Windows, macOS, Linux, Console | IGDB | Supported platforms |
+| **Classification** | Genres, Themes, Tags | IGDB + Steam | Game categorization |
+| **Visual Assets** | Cover Images, Screenshots | IGDB | Visual presentation |
+| **Ratings** | IGDB Rating, Aggregated Rating | IGDB | Community scores |
+| **Pricing** | Price, Free-to-play Status | Steam | Monetization model |
 
 ---
 
@@ -441,11 +459,13 @@ html`<div class="roadmap">
       </div>
       <ul class="roadmap-list">
         <li class="done">Steam API integration with rate limiting</li>
+        <li class="done">Twitch API integration for viewership data</li>
+        <li class="done">IGDB API for game metadata enrichment</li>
         <li class="done">DuckDB storage with Parquet files</li>
-        <li class="done">Multi-scale KPI aggregation pipeline</li>
+        <li class="done">Multi-scale KPI aggregation per source</li>
         <li class="done">GitHub Actions automation (hourly + CI/CD)</li>
-        <li class="done">Observable Framework dashboard</li>
-        <li class="done">Dynamic game pages with metadata</li>
+        <li class="done">Observable Framework dashboard with rankings</li>
+        <li class="done">Dynamic game pages with dual charts (Steam + Twitch)</li>
       </ul>
     </div>
 
@@ -461,9 +481,9 @@ html`<div class="roadmap">
         </div>
       </div>
       <ul class="roadmap-list">
+        <li class="todo">Homepage dashboard with overview metrics</li>
         <li class="todo">Prophet forecasting (14-day predictions)</li>
         <li class="todo">Hype Index calculation (multi-factor scoring)</li>
-        <li class="todo">Twitch viewership integration</li>
         <li class="todo">Reddit sentiment analysis</li>
         <li class="todo">Real-time alerts for trending games</li>
       </ul>
