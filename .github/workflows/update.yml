@@ -70,7 +70,7 @@ jobs:
           MINUTE=$(date -u +%M)
           if [ "$HOUR" = "08" ] && [ "$MINUTE" -ge "30" ]; then
             echo "🎯 Enriching game metadata from IGDB..."
-            uv run python -m python.main metadata --delay 0.5
+            uv run python -m python.main metadata
             echo "✅ Metadata enrichment complete"
           else
             echo "⏭️  Skipping metadata enrichment (runs only at 8:30 AM UTC)"
@@ -89,13 +89,13 @@ jobs:
 
           # Start Steam collection in background
           echo "🎮 Starting Steam collection..."
-          uv run python -m python.main collect steam --kpi-delay 1.5 &
+          uv run python -m python.main collect steam &
           STEAM_PID=$!
           echo "Steam collection started (PID: $STEAM_PID)"
 
           # Start Twitch collection in background
           echo "📺 Starting Twitch collection..."
-          uv run python -m python.main collect twitch --kpi-delay 1.5 &
+          uv run python -m python.main collect twitch &
           TWITCH_PID=$!
           echo "Twitch collection started (PID: $TWITCH_PID)"
 
@@ -119,18 +119,9 @@ jobs:
           echo "🎉 All data collection complete successfully"
 
       # ========================================================================
-      # STORE IN DUCKDB (ALL SOURCES)
-      # ========================================================================
-
-      - name: Load all data into DuckDB
-        run: |
-          echo "📦 Loading collected data into DuckDB..."
-          uv run python -m python.main store
-          echo "✅ All data stored in DuckDB"
-
-      # ========================================================================
       # AGGREGATE KPIs (ALL SOURCES)
       # ========================================================================
+      # Note: Data is already in DuckDB (inserted during collection)
 
       - name: Aggregate KPIs and generate rankings
         run: |
