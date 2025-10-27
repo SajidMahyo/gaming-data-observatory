@@ -65,46 +65,24 @@ jobs:
           fi
 
       # ========================================================================
-      # COLLECT DATA FROM MULTIPLE SOURCES (PARALLEL)
+      # COLLECT DATA FROM MULTIPLE SOURCES (SEQUENTIAL)
       # ========================================================================
+      # Note: DuckDB doesn't support concurrent writes, so we run sequentially
 
-      - name: Collect data from Steam and Twitch (parallel)
+      - name: Collect Steam data
+        run: |
+          echo "🎮 Starting Steam collection..."
+          uv run python -m python.main collect steam
+          echo "✅ Steam collection complete"
+
+      - name: Collect Twitch data
         env:
           TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
           TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
         run: |
-          echo "🚀 Starting parallel data collection..."
-
-          # Start Steam collection in background
-          echo "🎮 Starting Steam collection..."
-          uv run python -m python.main collect steam &
-          STEAM_PID=$!
-          echo "Steam collection started (PID: $STEAM_PID)"
-
-          # Start Twitch collection in background
           echo "📺 Starting Twitch collection..."
-          uv run python -m python.main collect twitch &
-          TWITCH_PID=$!
-          echo "Twitch collection started (PID: $TWITCH_PID)"
-
-          # Wait for both to complete
-          echo "⏳ Waiting for Steam collection..."
-          wait $STEAM_PID
-          STEAM_EXIT=$?
-          echo "✅ Steam collection complete (exit code: $STEAM_EXIT)"
-
-          echo "⏳ Waiting for Twitch collection..."
-          wait $TWITCH_PID
-          TWITCH_EXIT=$?
-          echo "✅ Twitch collection complete (exit code: $TWITCH_EXIT)"
-
-          # Check if both succeeded
-          if [ $STEAM_EXIT -ne 0 ] || [ $TWITCH_EXIT -ne 0 ]; then
-            echo "❌ One or more collections failed"
-            exit 1
-          fi
-
-          echo "🎉 All data collection complete successfully"
+          uv run python -m python.main collect twitch
+          echo "✅ Twitch collection complete"
 
       # ========================================================================
       # AGGREGATE KPIs (ALL SOURCES)
