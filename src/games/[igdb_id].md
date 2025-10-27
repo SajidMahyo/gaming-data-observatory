@@ -145,16 +145,16 @@ const period = view((() => {
 // Select data based on period and filter by igdb_id (universal across all sources)
 // Steam data (for players)
 const steamFilteredData = (period === "day"
-  ? hourlyKpis.filter(d => d.app_id == APP_ID).sort((a, b) => new Date(a.hour) - new Date(b.hour))
+  ? hourlyKpis.filter(d => d.steam_app_id == APP_ID).sort((a, b) => new Date(a.hour) - new Date(b.hour))
   : period === "month"
   ? steamDailyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.date) - new Date(b.date))
-  : steamMonthlyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.period_start) - new Date(b.period_start))
+  : steamMonthlyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.month_start) - new Date(b.month_start))
 );
 
 // Twitch data (for viewers)
 const twitchFilteredData = (period === "month"
   ? twitchDailyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.date) - new Date(b.date))
-  : twitchMonthlyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.period_start) - new Date(b.period_start))
+  : twitchMonthlyKpis.filter(d => d.igdb_id === IGDB_ID).sort((a, b) => new Date(a.month_start) - new Date(b.month_start))
 );
 ```
 
@@ -183,26 +183,38 @@ html`<div class="charts-grid">
       },
       marks: [
         Plot.lineY(steamFilteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "period_start",
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
           y: "avg_ccu",
           stroke: "#60a5fa",
           strokeWidth: 3,
           curve: "catmull-rom"
         }),
         Plot.areaY(steamFilteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "period_start",
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
           y: "avg_ccu",
           fill: "#60a5fa",
           fillOpacity: 0.15,
           curve: "catmull-rom"
         }),
         Plot.dot(steamFilteredData, {
-          x: period === "day" ? "hour" : period === "month" ? "date" : "period_start",
+          x: period === "day" ? "hour" : period === "month" ? "date" : "month_start",
           y: "avg_ccu",
           fill: "#60a5fa",
           r: 4,
           stroke: "#0f172a",
-          strokeWidth: 1
+          strokeWidth: 1,
+          tip: {
+            fill: "rgba(15, 23, 42, 0.95)",
+            stroke: "#60a5fa",
+            strokeWidth: 2,
+            textPadding: 12,
+            fontSize: 14,
+            fontFamily: "system-ui",
+            format: {
+              x: d => new Date(d).toLocaleString(),
+              y: d => `${Math.round(d).toLocaleString()} players`
+            }
+          }
         }),
         Plot.ruleY([0])
       ],
@@ -241,26 +253,40 @@ html`<div class="charts-grid">
         },
         marks: [
           Plot.lineY(twitchFilteredData, {
-            x: period === "month" ? "date" : "period_start",
+            x: period === "month" ? "date" : "month_start",
             y: "avg_viewers",
             stroke: "#a78bfa",
             strokeWidth: 3,
             curve: "catmull-rom"
           }),
           Plot.areaY(twitchFilteredData, {
-            x: period === "month" ? "date" : "period_start",
+            x: period === "month" ? "date" : "month_start",
             y: "avg_viewers",
             fill: "#a78bfa",
             fillOpacity: 0.15,
             curve: "catmull-rom"
           }),
           Plot.dot(twitchFilteredData, {
-            x: period === "month" ? "date" : "period_start",
+            x: period === "month" ? "date" : "month_start",
             y: "avg_viewers",
             fill: "#a78bfa",
             r: 4,
             stroke: "#0f172a",
-            strokeWidth: 1
+            strokeWidth: 1,
+            channels: {channels: "avg_channels"},
+            tip: {
+              fill: "rgba(15, 23, 42, 0.95)",
+              stroke: "#a78bfa",
+              strokeWidth: 2,
+              textPadding: 12,
+              fontSize: 14,
+              fontFamily: "system-ui",
+              format: {
+                x: d => new Date(d).toLocaleString(),
+                y: d => `${Math.round(d).toLocaleString()} viewers`,
+                channels: d => `${Math.round(d || 0).toLocaleString()} channels`
+              }
+            }
           }),
           Plot.ruleY([0])
         ],
