@@ -41,10 +41,13 @@ jobs:
         run: uv sync --all-extras
 
       # ========================================================================
-      # DISCOVER NEW GAMES (once per day at 8 AM UTC)
+      # DISCOVER NEW GAMES AND ENRICH METADATA (once per day at 8 AM UTC)
       # ========================================================================
 
-      - name: Discover new games (daily at 8 AM UTC)
+      - name: Discover new games and enrich metadata (daily at 8 AM UTC)
+        env:
+          IGDB_CLIENT_ID: ${{ secrets.IGDB_CLIENT_ID }}
+          IGDB_CLIENT_SECRET: ${{ secrets.IGDB_CLIENT_SECRET }}
         run: |
           HOUR=$(date -u +%H)
           if [ "$HOUR" = "08" ]; then
@@ -53,27 +56,12 @@ jobs:
               --top-limit 200 \
               --trending-limit 100
             echo "✅ Game discovery complete"
-          else
-            echo "⏭️  Skipping discovery (runs only at 8 AM UTC, current hour: $HOUR)"
-          fi
 
-      # ========================================================================
-      # ENRICH METADATA WITH IGDB (once per day at 8:30 AM UTC)
-      # ========================================================================
-
-      - name: Enrich game metadata from IGDB (daily at 8:30 AM UTC)
-        env:
-          IGDB_CLIENT_ID: ${{ secrets.IGDB_CLIENT_ID }}
-          IGDB_CLIENT_SECRET: ${{ secrets.IGDB_CLIENT_SECRET }}
-        run: |
-          HOUR=$(date -u +%H)
-          MINUTE=$(date -u +%M)
-          if [ "$HOUR" = "08" ] && [ "$MINUTE" -ge "30" ]; then
             echo "🎯 Enriching game metadata from IGDB..."
             uv run python -m python.main metadata
             echo "✅ Metadata enrichment complete"
           else
-            echo "⏭️  Skipping metadata enrichment (runs only at 8:30 AM UTC)"
+            echo "⏭️  Skipping discovery and enrichment (runs only at 8 AM UTC, current hour: $HOUR)"
           fi
 
       # ========================================================================
