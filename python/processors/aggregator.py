@@ -878,6 +878,7 @@ class KPIAggregator:
             output_path: Path to output JSON file
         """
         import json
+
         import numpy as np
 
         if not self.db_manager:
@@ -1116,7 +1117,9 @@ class KPIAggregator:
         )
 
         # Export monthly KPIs (separate by source)
-        self.export_steam_monthly_kpis(output_path=output_dir / "steam_monthly_kpis.json", months=12)
+        self.export_steam_monthly_kpis(
+            output_path=output_dir / "steam_monthly_kpis.json", months=12
+        )
         self.export_twitch_monthly_kpis(
             output_path=output_dir / "twitch_monthly_kpis.json", months=12
         )

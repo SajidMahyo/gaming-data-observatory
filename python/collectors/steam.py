@@ -240,7 +240,7 @@ class SteamCollector:
         top_ccu = ccu_data[:limit]
 
         print(f"✅ Found top {len(top_ccu)} games by CCU")
-        print(f"🔍 Resolving IGDB IDs via external_games API...")
+        print("🔍 Resolving IGDB IDs via external_games API...")
 
         # Find IGDB IDs for these Steam games
         igdb_collector = IGDBCollector()
@@ -260,9 +260,7 @@ class SteamCollector:
                             "player_count": game["player_count"],
                         }
                     )
-                    print(
-                        f"  ✅ {game['game_name']}: IGDB {igdb_id}, CCU {game['player_count']:,}"
-                    )
+                    print(f"  ✅ {game['game_name']}: IGDB {igdb_id}, CCU {game['player_count']:,}")
                 else:
                     print(f"  ⚠️  {game['game_name']}: IGDB ID not found")
 
@@ -313,9 +311,7 @@ class SteamCollector:
                     # Temporal KPIs
                     "steam_is_free": game_data.get("is_free", False),
                     "steam_metacritic_score": (
-                        game_data["metacritic"]["score"]
-                        if game_data.get("metacritic")
-                        else None
+                        game_data["metacritic"]["score"] if game_data.get("metacritic") else None
                     ),
                 }
 

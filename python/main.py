@@ -67,9 +67,7 @@ def steam(limit: int | None, db_path: str, kpi_delay: float) -> None:
         click.echo("   • Prices\n")
 
         # Collect all KPIs (CCU + Metacritic + Price)
-        games_data = collector.collect_top_games(
-            limit=limit, include_kpis=True, delay=kpi_delay
-        )
+        games_data = collector.collect_top_games(limit=limit, include_kpis=True, delay=kpi_delay)
 
         click.echo(f"\n✅ Collected KPIs for {len(games_data)} games")
 
@@ -918,7 +916,7 @@ def metadata(full_refresh: bool, limit: int | None, db_path: str, delay: float) 
                                         "steam_required_age"
                                     )
                                     steam_metadata_count += 1
-                                    click.echo(f"     🎮 Steam metadata: ✓")
+                                    click.echo("     🎮 Steam metadata: ✓")
                             except Exception as steam_error:
                                 click.echo(f"     ⚠️  Steam metadata failed: {steam_error}")
 

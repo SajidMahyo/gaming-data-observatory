@@ -117,6 +117,7 @@ class DuckDBManager:
 
         # Replace NaN/inf with None to ensure valid JSON (NaN is not valid JSON)
         import numpy as np
+
         df = df.replace([np.nan, np.inf, -np.inf], None)
 
         df.to_json(output_path, orient="records", date_format="iso", indent=2)
@@ -400,9 +401,7 @@ class DuckDBManager:
         Table tracks all discovery operations and their results.
         """
         # Create sequence for auto-incrementing ID
-        self.conn.execute(
-            "CREATE SEQUENCE IF NOT EXISTS discovery_history_seq START 1"
-        )
+        self.conn.execute("CREATE SEQUENCE IF NOT EXISTS discovery_history_seq START 1")
 
         self.conn.execute(
             """
@@ -454,9 +453,7 @@ class DuckDBManager:
             ],
         )
 
-    def insert_discovered_games(
-        self, games: list[dict[str, Any]], source: str
-    ) -> tuple[int, int]:
+    def insert_discovered_games(self, games: list[dict[str, Any]], source: str) -> tuple[int, int]:
         """Insert discovered games into game_list table.
 
         Args:
