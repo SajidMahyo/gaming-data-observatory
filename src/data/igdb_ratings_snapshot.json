@@ -1315,42 +1315,6 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":368783,
-    "game_name":"Two Point Museum: Explorer Upgrade Pack",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":371029,
-    "game_name":"Tetramorph",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":4055610
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":372001,
-    "game_name":"Chains on Sand",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3730720
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":368744,
-    "game_name":"Legend of Ymir",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
     "igdb_id":343429,
     "game_name":"1998: The Toll Keeper Story",
     "rating":null,
@@ -1447,5 +1411,41 @@
     "aggregated_rating":null,
     "total_rating_count":null,
     "steam_app_id":3793750
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":368744,
+    "game_name":"Legend of Ymir",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":368783,
+    "game_name":"Two Point Museum: Explorer Upgrade Pack",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":371029,
+    "game_name":"Tetramorph",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":4055610
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":372001,
+    "game_name":"Chains on Sand",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3730720
   }
 ]
