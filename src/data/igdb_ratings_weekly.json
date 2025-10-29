@@ -929,14 +929,6 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":327405,
-    "game_name":"Megabonk",
-    "rating":85.4696121216,
-    "aggregated_rating":null,
-    "total_rating_count":11
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
     "igdb_id":373580,
     "game_name":"RV There Yet?",
     "rating":null,
@@ -953,14 +945,6 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":329309,
-    "game_name":"Escape from Duckov",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
     "igdb_id":52826,
     "game_name":"Skate.",
     "rating":67.9577102661,
@@ -969,19 +953,19 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":352849,
-    "game_name":"Crusader Kings III: All Under Heaven",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
     "igdb_id":280431,
     "game_name":"Suck Up!",
     "rating":82.0975646973,
     "aggregated_rating":null,
     "total_rating_count":12
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":352849,
+    "game_name":"Crusader Kings III: All Under Heaven",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -995,6 +979,22 @@
     "week_start":"2025-10-27T00:00:00.000",
     "igdb_id":157379,
     "game_name":"Silly Polly Beast",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":327405,
+    "game_name":"Megabonk",
+    "rating":85.4696121216,
+    "aggregated_rating":null,
+    "total_rating_count":11
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":368692,
+    "game_name":"Through Blood and Dragons: Dragon Wars",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1025,14 +1025,6 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":368692,
-    "game_name":"Through Blood and Dragons: Dragon Wars",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
     "igdb_id":273120,
     "game_name":"Duet Night Abyss",
     "rating":null,
@@ -1049,8 +1041,8 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":349774,
-    "game_name":"StrangeDream",
+    "igdb_id":302323,
+    "game_name":"The Sacred Memory",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1081,11 +1073,19 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":135400,
-    "game_name":"Minecraft",
-    "rating":80.2457427979,
+    "igdb_id":349774,
+    "game_name":"StrangeDream",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":391
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":371029,
+    "game_name":"Tetramorph",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1113,24 +1113,16 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":339985,
-    "game_name":"Shadowverse: Worlds Beyond",
-    "rating":null,
+    "igdb_id":152243,
+    "game_name":"Slime Rancher 2",
+    "rating":65.560005188,
     "aggregated_rating":null,
-    "total_rating_count":null
+    "total_rating_count":21
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":120176,
-    "game_name":"Teamfight Tactics",
-    "rating":81.4446029663,
-    "aggregated_rating":null,
-    "total_rating_count":112
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":371029,
-    "game_name":"Tetramorph",
+    "igdb_id":345153,
+    "game_name":"Death by Scrolling",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1145,11 +1137,19 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":152243,
-    "game_name":"Slime Rancher 2",
-    "rating":65.560005188,
+    "igdb_id":339985,
+    "game_name":"Shadowverse: Worlds Beyond",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":21
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":120176,
+    "game_name":"Teamfight Tactics",
+    "rating":81.4446029663,
+    "aggregated_rating":null,
+    "total_rating_count":112
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1177,11 +1177,11 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":151665,
-    "game_name":"Palworld",
-    "rating":71.5270233154,
+    "igdb_id":165386,
+    "game_name":"Outbreak Island",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":227
+    "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1193,11 +1193,27 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":302323,
-    "game_name":"The Sacred Memory",
-    "rating":null,
+    "igdb_id":151665,
+    "game_name":"Palworld",
+    "rating":71.5270233154,
     "aggregated_rating":null,
-    "total_rating_count":null
+    "total_rating_count":227
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":135400,
+    "game_name":"Minecraft",
+    "rating":80.2457427979,
+    "aggregated_rating":null,
+    "total_rating_count":391
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":316987,
+    "game_name":"No, I'm Not A Human",
+    "rating":78.1059036255,
+    "aggregated_rating":null,
+    "total_rating_count":28
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1225,14 +1241,6 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":316987,
-    "game_name":"No, I'm Not A Human",
-    "rating":78.1059036255,
-    "aggregated_rating":null,
-    "total_rating_count":28
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
     "igdb_id":197202,
     "game_name":"Escape the Backrooms",
     "rating":70.3458786011,
@@ -1249,16 +1257,8 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":165386,
-    "game_name":"Outbreak Island",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":345153,
-    "game_name":"Death by Scrolling",
+    "igdb_id":329309,
+    "game_name":"Escape from Duckov",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
