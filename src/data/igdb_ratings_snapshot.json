@@ -1090,6 +1090,15 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
+    "igdb_id":1029,
+    "game_name":"The Legend of Zelda: Ocarina of Time",
+    "rating":91.8153915405,
+    "aggregated_rating":null,
+    "total_rating_count":1961,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
     "igdb_id":339985,
     "game_name":"Shadowverse: Worlds Beyond",
     "rating":null,
@@ -1438,14 +1447,5 @@
     "aggregated_rating":null,
     "total_rating_count":null,
     "steam_app_id":3730720
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":1029,
-    "game_name":"The Legend of Zelda: Ocarina of Time",
-    "rating":91.8153915405,
-    "aggregated_rating":null,
-    "total_rating_count":1961,
-    "steam_app_id":null
   }
 ]
