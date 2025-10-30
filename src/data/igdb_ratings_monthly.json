@@ -1161,16 +1161,8 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":157379,
-    "game_name":"Silly Polly Beast",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":165386,
-    "game_name":"Outbreak Island",
+    "igdb_id":365551,
+    "game_name":"Simon the Sorcerer: Origins - Digital Deluxe Edition",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1185,8 +1177,16 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":365551,
-    "game_name":"Simon the Sorcerer: Origins - Digital Deluxe Edition",
+    "igdb_id":165386,
+    "game_name":"Outbreak Island",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":157379,
+    "game_name":"Silly Polly Beast",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1233,11 +1233,11 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":28212,
-    "game_name":"Commando Sniper Counter Strike",
-    "rating":null,
+    "igdb_id":151665,
+    "game_name":"Palworld",
+    "rating":71.5270233154,
     "aggregated_rating":null,
-    "total_rating_count":null
+    "total_rating_count":227
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
@@ -1249,11 +1249,11 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":151665,
-    "game_name":"Palworld",
-    "rating":71.5270233154,
+    "igdb_id":28212,
+    "game_name":"Commando Sniper Counter Strike",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":227
+    "total_rating_count":null
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
