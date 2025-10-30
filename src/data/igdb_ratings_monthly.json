@@ -921,139 +921,11 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":273120,
-    "game_name":"Duet Night Abyss",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":132526,
-    "game_name":"Space Chef",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":311846,
-    "game_name":"Mod Shooter",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":345153,
-    "game_name":"Death by Scrolling",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":152243,
-    "game_name":"Slime Rancher 2",
-    "rating":65.560005188,
-    "aggregated_rating":null,
-    "total_rating_count":21
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":9165,
-    "game_name":"Chess",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":349774,
-    "game_name":"StrangeDream",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
     "igdb_id":372001,
     "game_name":"Chains on Sand",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":368692,
-    "game_name":"Through Blood and Dragons: Dragon Wars",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":329309,
-    "game_name":"Escape from Duckov",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":165386,
-    "game_name":"Outbreak Island",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":368783,
-    "game_name":"Two Point Museum: Explorer Upgrade Pack",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":371029,
-    "game_name":"Tetramorph",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":343429,
-    "game_name":"1998: The Toll Keeper Story",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":202463,
-    "game_name":"Simon the Sorcerer Origins",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":316987,
-    "game_name":"No, I'm Not A Human",
-    "rating":78.1059036255,
-    "aggregated_rating":null,
-    "total_rating_count":28
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":52826,
-    "game_name":"Skate.",
-    "rating":67.9577102661,
-    "aggregated_rating":null,
-    "total_rating_count":24
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
@@ -1065,16 +937,8 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":213241,
-    "game_name":"Wreckreation",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":303736,
-    "game_name":"Comet Angel",
+    "igdb_id":365551,
+    "game_name":"Simon the Sorcerer: Origins - Digital Deluxe Edition",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1089,8 +953,16 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":365551,
-    "game_name":"Simon the Sorcerer: Origins - Digital Deluxe Edition",
+    "igdb_id":303736,
+    "game_name":"Comet Angel",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":213241,
+    "game_name":"Wreckreation",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1286,5 +1158,133 @@
     "rating":71.5270233154,
     "aggregated_rating":null,
     "total_rating_count":227
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":368692,
+    "game_name":"Through Blood and Dragons: Dragon Wars",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":311846,
+    "game_name":"Mod Shooter",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":52826,
+    "game_name":"Skate.",
+    "rating":67.9577102661,
+    "aggregated_rating":null,
+    "total_rating_count":24
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":132526,
+    "game_name":"Space Chef",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":345153,
+    "game_name":"Death by Scrolling",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":273120,
+    "game_name":"Duet Night Abyss",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":316987,
+    "game_name":"No, I'm Not A Human",
+    "rating":78.1059036255,
+    "aggregated_rating":null,
+    "total_rating_count":28
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":9165,
+    "game_name":"Chess",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":343429,
+    "game_name":"1998: The Toll Keeper Story",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":165386,
+    "game_name":"Outbreak Island",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":329309,
+    "game_name":"Escape from Duckov",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":371029,
+    "game_name":"Tetramorph",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":152243,
+    "game_name":"Slime Rancher 2",
+    "rating":65.560005188,
+    "aggregated_rating":null,
+    "total_rating_count":21
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":202463,
+    "game_name":"Simon the Sorcerer Origins",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":368783,
+    "game_name":"Two Point Museum: Explorer Upgrade Pack",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":349774,
+    "game_name":"StrangeDream",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
   }
 ]
