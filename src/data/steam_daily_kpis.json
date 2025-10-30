@@ -4,1032 +4,1032 @@
     "igdb_id":1372,
     "steam_app_id":730,
     "game_name":"Counter-Strike: Global Offensive",
-    "avg_ccu":997625.25,
+    "avg_ccu":1010586.0588235294,
     "peak_ccu":1473556,
     "min_ccu":653254,
     "avg_metacritic_score":null,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":2963,
     "steam_app_id":570,
     "game_name":"Dota 2",
-    "avg_ccu":554507.375,
+    "avg_ccu":561725.5882352941,
     "peak_ccu":739754,
     "min_ccu":389461,
     "avg_metacritic_score":90.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":27789,
     "steam_app_id":578080,
     "game_name":"PUBG: Battlegrounds",
-    "avg_ccu":305674.5625,
+    "avg_ccu":299427.0588235294,
     "peak_ccu":611858,
     "min_ccu":81525,
     "avg_metacritic_score":null,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":317407,
     "steam_app_id":2807960,
     "game_name":"Battlefield 6",
-    "avg_ccu":293330.9375,
+    "avg_ccu":300691.8823529412,
     "peak_ccu":453010,
     "min_ccu":175814,
     "avg_metacritic_score":82.0,
     "avg_price_cents":6999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":329309,
     "steam_app_id":3167020,
     "game_name":"Escape from Duckov",
-    "avg_ccu":153555.5625,
+    "avg_ccu":148216.8235294118,
     "peak_ccu":265182,
     "min_ccu":56665,
     "avg_metacritic_score":null,
-    "avg_price_cents":1610.0,
-    "samples":16
+    "avg_price_cents":1621.1176470588,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":262186,
     "steam_app_id":2507950,
     "game_name":"Delta Force",
-    "avg_ccu":102441.9375,
+    "avg_ccu":99926.2352941177,
     "peak_ccu":183403,
     "min_ccu":42994,
     "avg_metacritic_score":null,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":114795,
     "steam_app_id":1172470,
     "game_name":"Apex Legends",
-    "avg_ccu":73333.125,
+    "avg_ccu":72318.5882352941,
     "peak_ccu":143320,
     "min_ccu":38936,
     "avg_metacritic_score":88.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":3277,
     "steam_app_id":252490,
     "game_name":"Rust",
-    "avg_ccu":85222.9375,
-    "peak_ccu":134008,
+    "avg_ccu":88168.2352941177,
+    "peak_ccu":135293,
     "min_ccu":51111,
     "avg_metacritic_score":69.0,
     "avg_price_cents":2399.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":1020,
     "steam_app_id":271590,
     "game_name":"Grand Theft Auto V",
-    "avg_ccu":64177.0625,
+    "avg_ccu":65500.0588235294,
     "peak_ccu":88453,
     "min_ccu":33699,
     "avg_metacritic_score":96.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":294041,
     "steam_app_id":2767030,
     "game_name":"Marvel Rivals",
-    "avg_ccu":50718.5625,
+    "avg_ccu":51481.4705882353,
     "peak_ccu":86920,
     "min_ccu":23190,
     "avg_metacritic_score":null,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":353848,
     "steam_app_id":3405690,
     "game_name":"EA Sports FC 26",
-    "avg_ccu":35180.875,
-    "peak_ccu":60177,
+    "avg_ccu":36689.7058823529,
+    "peak_ccu":60831,
     "min_ccu":15976,
     "avg_metacritic_score":null,
     "avg_price_cents":6999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":327405,
     "steam_app_id":3405340,
     "game_name":"Megabonk",
-    "avg_ccu":32039.25,
-    "peak_ccu":46622,
+    "avg_ccu":32976.4705882353,
+    "peak_ccu":47972,
     "min_ccu":20425,
     "avg_metacritic_score":null,
     "avg_price_cents":999.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":339985,
-    "steam_app_id":2584990,
-    "game_name":"Shadowverse: Worlds Beyond",
-    "avg_ccu":26814.0,
-    "peak_ccu":43056,
-    "min_ccu":14894,
-    "avg_metacritic_score":null,
-    "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":891,
     "steam_app_id":440,
     "game_name":"Team Fortress 2",
-    "avg_ccu":32163.9375,
-    "peak_ccu":42970,
+    "avg_ccu":33007.4705882353,
+    "peak_ccu":46504,
     "min_ccu":20785,
     "avg_metacritic_score":92.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":339985,
+    "steam_app_id":2584990,
+    "game_name":"Shadowverse: Worlds Beyond",
+    "avg_ccu":25954.2941176471,
+    "peak_ccu":43056,
+    "min_ccu":12199,
+    "avg_metacritic_score":null,
+    "avg_price_cents":null,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":151665,
     "steam_app_id":1623730,
     "game_name":"Palworld",
-    "avg_ccu":28614.5625,
+    "avg_ccu":28406.4117647059,
     "peak_ccu":40873,
     "min_ccu":21332,
     "avg_metacritic_score":null,
     "avg_price_cents":2249.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":115289,
     "steam_app_id":1030300,
     "game_name":"Hollow Knight: Silksong",
-    "avg_ccu":28177.5,
+    "avg_ccu":28538.0588235294,
     "peak_ccu":38096,
     "min_ccu":17215,
     "avg_metacritic_score":91.0,
     "avg_price_cents":1999.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":298915,
-    "steam_app_id":2073620,
-    "game_name":"Arena Breakout: Infinite",
-    "avg_ccu":25640.3125,
-    "peak_ccu":35846,
-    "min_ccu":17490,
-    "avg_metacritic_score":null,
-    "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":373580,
     "steam_app_id":3949040,
     "game_name":"RV There Yet?",
-    "avg_ccu":23357.8125,
-    "peak_ccu":34981,
+    "avg_ccu":24161.0,
+    "peak_ccu":37012,
     "min_ccu":10635,
     "avg_metacritic_score":null,
     "avg_price_cents":799.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":298915,
+    "steam_app_id":2073620,
+    "game_name":"Arena Breakout: Infinite",
+    "avg_ccu":26283.9411764706,
+    "peak_ccu":36582,
+    "min_ccu":17490,
+    "avg_metacritic_score":null,
+    "avg_price_cents":null,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":125174,
     "steam_app_id":2357570,
     "game_name":"Overwatch 2",
-    "avg_ccu":23642.875,
+    "avg_ccu":24005.3529411765,
     "peak_ccu":30378,
     "min_ccu":14563,
     "avg_metacritic_score":null,
     "avg_price_cents":null,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":341687,
-    "steam_app_id":3681810,
-    "game_name":"Blue Protocol: Star Resonance",
-    "avg_ccu":18587.75,
-    "peak_ccu":27550,
-    "min_ccu":6959,
-    "avg_metacritic_score":null,
-    "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":330379,
     "steam_app_id":2352620,
     "game_name":"Fellowship",
-    "avg_ccu":15643.875,
-    "peak_ccu":27443,
+    "avg_ccu":16434.6470588235,
+    "peak_ccu":29087,
     "min_ccu":1761,
     "avg_metacritic_score":null,
     "avg_price_cents":2499.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":341687,
+    "steam_app_id":3681810,
+    "game_name":"Blue Protocol: Star Resonance",
+    "avg_ccu":19037.9411764706,
+    "peak_ccu":27550,
+    "min_ccu":6959,
+    "avg_metacritic_score":null,
+    "avg_price_cents":null,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":197202,
     "steam_app_id":1943950,
     "game_name":"Escape the Backrooms",
-    "avg_ccu":9928.375,
+    "avg_ccu":9769.4705882353,
     "peak_ccu":26584,
     "min_ccu":4736,
     "avg_metacritic_score":null,
     "avg_price_cents":899.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":7291,
     "steam_app_id":594650,
     "game_name":"Hunt: Showdown 1896",
-    "avg_ccu":14344.25,
+    "avg_ccu":14626.0588235294,
     "peak_ccu":24132,
     "min_ccu":8232,
     "avg_metacritic_score":81.0,
     "avg_price_cents":1349.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":228525,
     "steam_app_id":1145350,
     "game_name":"Hades II",
-    "avg_ccu":16632.1875,
-    "peak_ccu":21316,
+    "avg_ccu":16968.4705882353,
+    "peak_ccu":22349,
     "min_ccu":10881,
     "avg_metacritic_score":94.0,
     "avg_price_cents":2999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":314246,
     "steam_app_id":1285190,
     "game_name":"Borderlands 4",
-    "avg_ccu":13030.8125,
+    "avg_ccu":13374.4117647059,
     "peak_ccu":18908,
     "min_ccu":8486,
     "avg_metacritic_score":81.0,
     "avg_price_cents":6999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":52826,
     "steam_app_id":3354750,
     "game_name":"Skate.",
-    "avg_ccu":11791.75,
-    "peak_ccu":18347,
+    "avg_ccu":12208.2941176471,
+    "peak_ccu":18873,
     "min_ccu":7641,
     "avg_metacritic_score":null,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":6292,
     "steam_app_id":582660,
     "game_name":"Black Desert",
-    "avg_ccu":12172.6875,
-    "peak_ccu":16427,
+    "avg_ccu":12431.4705882353,
+    "peak_ccu":16572,
     "min_ccu":8330,
     "avg_metacritic_score":80.0,
     "avg_price_cents":999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":1942,
     "steam_app_id":292030,
     "game_name":"The Witcher 3: Wild Hunt",
-    "avg_ccu":9650.3125,
-    "peak_ccu":13965,
+    "avg_ccu":9912.6470588235,
+    "peak_ccu":14110,
     "min_ccu":5430,
     "avg_metacritic_score":93.0,
     "avg_price_cents":3999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":331188,
     "steam_app_id":1984270,
     "game_name":"Digimon Story: Time Stranger",
-    "avg_ccu":10821.4375,
+    "avg_ccu":10831.2941176471,
     "peak_ccu":13791,
     "min_ccu":7509,
     "avg_metacritic_score":null,
     "avg_price_cents":6999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":152246,
     "steam_app_id":1449110,
     "game_name":"The Outer Worlds 2",
-    "avg_ccu":9326.0625,
+    "avg_ccu":9503.1176470588,
     "peak_ccu":13191,
     "min_ccu":6201,
     "avg_metacritic_score":null,
     "avg_price_cents":6999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":1911,
     "steam_app_id":238960,
     "game_name":"Path of Exile",
-    "avg_ccu":7747.375,
-    "peak_ccu":11788,
+    "avg_ccu":8002.7058823529,
+    "peak_ccu":12088,
     "min_ccu":4903,
     "avg_metacritic_score":86.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":1184,
     "steam_app_id":1407200,
     "game_name":"World of Tanks",
-    "avg_ccu":5832.375,
-    "peak_ccu":10006,
+    "avg_ccu":6091.2352941176,
+    "peak_ccu":10233,
     "min_ccu":2795,
     "avg_metacritic_score":80.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":19698,
     "steam_app_id":761890,
     "game_name":"Albion Online",
-    "avg_ccu":6770.5625,
+    "avg_ccu":6926.0,
     "peak_ccu":9532,
     "min_ccu":4111,
     "avg_metacritic_score":null,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":24654,
     "steam_app_id":1063730,
     "game_name":"New World: Aeternum",
-    "avg_ccu":6124.125,
-    "peak_ccu":8862,
+    "avg_ccu":6313.7058823529,
+    "peak_ccu":9347,
     "min_ccu":4305,
     "avg_metacritic_score":null,
     "avg_price_cents":5999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":142688,
     "steam_app_id":1044720,
     "game_name":"Farthest Frontier",
-    "avg_ccu":6059.625,
-    "peak_ccu":8197,
+    "avg_ccu":6191.7647058824,
+    "peak_ccu":8306,
     "min_ccu":3908,
     "avg_metacritic_score":84.0,
     "avg_price_cents":3499.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":314252,
     "steam_app_id":3008130,
     "game_name":"Dying Light: The Beast",
-    "avg_ccu":4355.8125,
-    "peak_ccu":5947,
+    "avg_ccu":4459.7647058824,
+    "peak_ccu":6123,
     "min_ccu":2863,
     "avg_metacritic_score":null,
     "avg_price_cents":5999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":16,
     "steam_app_id":22380,
     "game_name":"Fallout: New Vegas",
-    "avg_ccu":3533.3125,
+    "avg_ccu":3593.2941176471,
     "peak_ccu":5801,
     "min_ccu":2220,
     "avg_metacritic_score":84.0,
     "avg_price_cents":999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":11133,
     "steam_app_id":374320,
     "game_name":"Dark Souls III",
-    "avg_ccu":3200.125,
+    "avg_ccu":3234.8823529412,
     "peak_ccu":4541,
     "min_ccu":2132,
     "avg_metacritic_score":89.0,
     "avg_price_cents":5999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":240556,
     "steam_app_id":2321470,
     "game_name":"Deep Rock Galactic: Survivor",
-    "avg_ccu":3109.8125,
-    "peak_ccu":4281,
+    "avg_ccu":3180.0,
+    "peak_ccu":4303,
     "min_ccu":2088,
     "avg_metacritic_score":null,
     "avg_price_cents":909.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":1011,
     "steam_app_id":49520,
     "game_name":"Borderlands 2",
-    "avg_ccu":1932.4375,
-    "peak_ccu":2670,
+    "avg_ccu":1982.7058823529,
+    "peak_ccu":2787,
     "min_ccu":1373,
     "avg_metacritic_score":89.0,
     "avg_price_cents":1999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":314178,
     "steam_app_id":2072560,
     "game_name":"Dragon Ball Gekishin Squadra",
-    "avg_ccu":1540.1875,
+    "avg_ccu":1568.3529411765,
     "peak_ccu":2559,
     "min_ccu":917,
     "avg_metacritic_score":null,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":731,
     "steam_app_id":12210,
     "game_name":"Grand Theft Auto IV",
-    "avg_ccu":1480.0,
-    "peak_ccu":2171,
+    "avg_ccu":1530.8823529412,
+    "peak_ccu":2345,
     "min_ccu":990,
     "avg_metacritic_score":90.0,
-    "avg_price_cents":1824.0,
-    "samples":16
+    "avg_price_cents":1751.9411764706,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":233,
     "steam_app_id":220,
     "game_name":"Half-Life 2",
-    "avg_ccu":1472.875,
+    "avg_ccu":1510.5294117647,
     "peak_ccu":2161,
     "min_ccu":876,
     "avg_metacritic_score":96.0,
     "avg_price_cents":199.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":316987,
     "steam_app_id":3180070,
     "game_name":"No, I'm Not A Human",
-    "avg_ccu":1206.9375,
-    "peak_ccu":1820,
+    "avg_ccu":1245.4705882353,
+    "peak_ccu":1862,
     "min_ccu":772,
     "avg_metacritic_score":null,
     "avg_price_cents":1499.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":325608,
-    "steam_app_id":2486820,
-    "game_name":"Sonic Racing: CrossWorlds",
-    "avg_ccu":1059.625,
-    "peak_ccu":1783,
-    "min_ccu":624,
-    "avg_metacritic_score":null,
-    "avg_price_cents":6999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":72,
     "steam_app_id":620,
     "game_name":"Portal 2",
-    "avg_ccu":1197.25,
-    "peak_ccu":1760,
+    "avg_ccu":1234.6470588235,
+    "peak_ccu":1833,
     "min_ccu":742,
     "avg_metacritic_score":95.0,
     "avg_price_cents":999.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":325608,
+    "steam_app_id":2486820,
+    "game_name":"Sonic Racing: CrossWorlds",
+    "avg_ccu":1075.1176470588,
+    "peak_ccu":1783,
+    "min_ccu":624,
+    "avg_metacritic_score":null,
+    "avg_price_cents":6999.0,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":12517,
     "steam_app_id":391540,
     "game_name":"Undertale",
-    "avg_ccu":1306.5625,
-    "peak_ccu":1739,
+    "avg_ccu":1332.7058823529,
+    "peak_ccu":1751,
     "min_ccu":827,
     "avg_metacritic_score":92.0,
     "avg_price_cents":249.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":222343,
-    "steam_app_id":2947440,
-    "game_name":"Silent Hill f",
-    "avg_ccu":1318.75,
-    "peak_ccu":1728,
-    "min_ccu":850,
-    "avg_metacritic_score":null,
-    "avg_price_cents":6999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":262529,
     "steam_app_id":1392860,
     "game_name":"Little Nightmares III",
-    "avg_ccu":1190.75,
-    "peak_ccu":1726,
+    "avg_ccu":1223.2352941176,
+    "peak_ccu":1743,
     "min_ccu":625,
     "avg_metacritic_score":null,
     "avg_price_cents":3999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
-    "igdb_id":79824,
-    "steam_app_id":1343370,
-    "game_name":"Old School RuneScape",
-    "avg_ccu":1069.5625,
-    "peak_ccu":1520,
-    "min_ccu":824,
+    "igdb_id":222343,
+    "steam_app_id":2947440,
+    "game_name":"Silent Hill f",
+    "avg_ccu":1322.0,
+    "peak_ccu":1728,
+    "min_ccu":850,
     "avg_metacritic_score":null,
-    "avg_price_cents":null,
-    "samples":16
+    "avg_price_cents":6999.0,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":152243,
     "steam_app_id":1657630,
     "game_name":"Slime Rancher 2",
-    "avg_ccu":1108.25,
-    "peak_ccu":1514,
+    "avg_ccu":1137.7058823529,
+    "peak_ccu":1609,
     "min_ccu":723,
     "avg_metacritic_score":null,
     "avg_price_cents":2999.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":79824,
+    "steam_app_id":1343370,
+    "game_name":"Old School RuneScape",
+    "avg_ccu":1086.8235294118,
+    "peak_ccu":1520,
+    "min_ccu":824,
+    "avg_metacritic_score":null,
+    "avg_price_cents":null,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":1164,
     "steam_app_id":203160,
     "game_name":"Tomb Raider",
-    "avg_ccu":881.75,
+    "avg_ccu":885.7058823529,
     "peak_ccu":1401,
     "min_ccu":513,
     "avg_metacritic_score":86.0,
     "avg_price_cents":224.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":529,
     "steam_app_id":220240,
     "game_name":"Far Cry 3",
-    "avg_ccu":790.0,
+    "avg_ccu":815.8823529412,
     "peak_ccu":1246,
     "min_ccu":433,
     "avg_metacritic_score":88.0,
     "avg_price_cents":499.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":1970,
     "steam_app_id":242050,
     "game_name":"Assassin's Creed IV Black Flag",
-    "avg_ccu":803.5625,
-    "peak_ccu":1097,
+    "avg_ccu":821.2941176471,
+    "peak_ccu":1105,
     "min_ccu":483,
     "avg_metacritic_score":null,
     "avg_price_cents":3999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":231,
     "steam_app_id":70,
     "game_name":"Half-Life",
-    "avg_ccu":623.125,
-    "peak_ccu":944,
+    "avg_ccu":645.4117647059,
+    "peak_ccu":1002,
     "min_ccu":391,
     "avg_metacritic_score":96.0,
     "avg_price_cents":199.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":250634,
     "steam_app_id":2417610,
     "game_name":"Metal Gear Solid Delta: Snake Eater",
-    "avg_ccu":729.3125,
-    "peak_ccu":914,
+    "avg_ccu":741.5882352941,
+    "peak_ccu":938,
     "min_ccu":461,
     "avg_metacritic_score":null,
     "avg_price_cents":6399.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":1871,
     "steam_app_id":207610,
     "game_name":"The Walking Dead",
-    "avg_ccu":479.6875,
-    "peak_ccu":713,
+    "avg_ccu":495.4705882353,
+    "peak_ccu":748,
     "min_ccu":286,
     "avg_metacritic_score":82.0,
     "avg_price_cents":149.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":7351,
-    "steam_app_id":379720,
-    "game_name":"Doom",
-    "avg_ccu":421.875,
-    "peak_ccu":630,
-    "min_ccu":235,
-    "avg_metacritic_score":85.0,
-    "avg_price_cents":1999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":119177,
     "steam_app_id":2000950,
     "game_name":"Call of Duty: Modern Warfare",
-    "avg_ccu":385.1875,
-    "peak_ccu":627,
+    "avg_ccu":401.3529411765,
+    "peak_ccu":660,
     "min_ccu":230,
     "avg_metacritic_score":null,
     "avg_price_cents":5999.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":7351,
+    "steam_app_id":379720,
+    "game_name":"Doom",
+    "avg_ccu":434.2352941176,
+    "peak_ccu":632,
+    "min_ccu":235,
+    "avg_metacritic_score":85.0,
+    "avg_price_cents":1999.0,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":320137,
     "steam_app_id":2101960,
     "game_name":"Cronos: The New Dawn",
-    "avg_ccu":304.8125,
+    "avg_ccu":315.1764705882,
     "peak_ccu":484,
     "min_ccu":168,
     "avg_metacritic_score":null,
     "avg_price_cents":5099.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":71,
     "steam_app_id":400,
     "game_name":"Portal",
-    "avg_ccu":323.875,
+    "avg_ccu":329.7647058824,
     "peak_ccu":436,
     "min_ccu":220,
     "avg_metacritic_score":90.0,
     "avg_price_cents":999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":623,
     "steam_app_id":7940,
     "game_name":"Call of Duty 4: Modern Warfare",
-    "avg_ccu":214.75,
+    "avg_ccu":226.5294117647,
     "peak_ccu":416,
     "min_ccu":87,
     "avg_metacritic_score":92.0,
     "avg_price_cents":1999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":533,
     "steam_app_id":205100,
     "game_name":"Dishonored",
-    "avg_ccu":278.9375,
-    "peak_ccu":386,
+    "avg_ccu":286.1764705882,
+    "peak_ccu":402,
     "min_ccu":179,
     "avg_metacritic_score":91.0,
     "avg_price_cents":999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":127,
     "steam_app_id":33230,
     "game_name":"Assassin's Creed II",
-    "avg_ccu":268.1875,
+    "avg_ccu":272.5294117647,
     "peak_ccu":367,
     "min_ccu":174,
     "avg_metacritic_score":86.0,
     "avg_price_cents":1999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":538,
     "steam_app_id":8870,
     "game_name":"BioShock Infinite",
-    "avg_ccu":257.0625,
+    "avg_ccu":262.3529411765,
     "peak_ccu":354,
     "min_ccu":182,
     "avg_metacritic_score":94.0,
     "avg_price_cents":749.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":7599,
-    "steam_app_id":319630,
-    "game_name":"Life is Strange",
-    "avg_ccu":224.875,
-    "peak_ccu":314,
-    "min_ccu":147,
-    "avg_metacritic_score":null,
-    "avg_price_cents":null,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":157379,
-    "steam_app_id":1598780,
-    "game_name":"Silly Polly Beast",
-    "avg_ccu":233.25,
-    "peak_ccu":305,
-    "min_ccu":158,
-    "avg_metacritic_score":null,
-    "avg_price_cents":1699.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":196954,
     "steam_app_id":1620730,
     "game_name":"Hell is Us",
-    "avg_ccu":190.875,
-    "peak_ccu":303,
+    "avg_ccu":198.9411764706,
+    "peak_ccu":328,
     "min_ccu":128,
     "avg_metacritic_score":null,
     "avg_price_cents":3999.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":7599,
+    "steam_app_id":319630,
+    "game_name":"Life is Strange",
+    "avg_ccu":230.8235294118,
+    "peak_ccu":326,
+    "min_ccu":147,
+    "avg_metacritic_score":null,
+    "avg_price_cents":null,
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":157379,
+    "steam_app_id":1598780,
+    "game_name":"Silly Polly Beast",
+    "avg_ccu":234.6470588235,
+    "peak_ccu":305,
+    "min_ccu":158,
+    "avg_metacritic_score":null,
+    "avg_price_cents":1699.0,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":113,
     "steam_app_id":48190,
     "game_name":"Assassin's Creed Brotherhood",
-    "avg_ccu":198.6875,
+    "avg_ccu":201.1176470588,
     "peak_ccu":291,
     "min_ccu":138,
     "avg_metacritic_score":88.0,
     "avg_price_cents":1999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":165386,
     "steam_app_id":1442530,
     "game_name":"Outbreak Island",
-    "avg_ccu":192.5,
+    "avg_ccu":198.0,
     "peak_ccu":286,
     "min_ccu":124,
     "avg_metacritic_score":null,
     "avg_price_cents":974.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":7767,
-    "steam_app_id":287980,
-    "game_name":"Mini Metro",
-    "avg_ccu":132.875,
-    "peak_ccu":184,
-    "min_ccu":89,
-    "avg_metacritic_score":77.0,
-    "avg_price_cents":999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":202463,
     "steam_app_id":1939890,
     "game_name":"Simon the Sorcerer Origins",
-    "avg_ccu":85.25,
-    "peak_ccu":176,
+    "avg_ccu":91.2941176471,
+    "peak_ccu":188,
     "min_ccu":23,
     "avg_metacritic_score":78.0,
     "avg_price_cents":2249.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":7767,
+    "steam_app_id":287980,
+    "game_name":"Mini Metro",
+    "avg_ccu":135.3529411765,
+    "peak_ccu":184,
+    "min_ccu":89,
+    "avg_metacritic_score":77.0,
+    "avg_price_cents":999.0,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":343429,
     "steam_app_id":3273530,
     "game_name":"1998: The Toll Keeper Story",
-    "avg_ccu":68.375,
+    "avg_ccu":67.0,
     "peak_ccu":112,
     "min_ccu":23,
     "avg_metacritic_score":null,
     "avg_price_cents":983.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":733,
-    "steam_app_id":12110,
-    "game_name":"Grand Theft Auto: Vice City",
-    "avg_ccu":72.3125,
-    "peak_ccu":91,
-    "min_ccu":44,
-    "avg_metacritic_score":94.0,
-    "avg_price_cents":null,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":279630,
-    "steam_app_id":2361770,
-    "game_name":"Shinobi: Art of Vengeance",
-    "avg_ccu":69.5625,
-    "peak_ccu":89,
-    "min_ccu":37,
-    "avg_metacritic_score":86.0,
-    "avg_price_cents":2999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":213241,
     "steam_app_id":1594040,
     "game_name":"Wreckreation",
-    "avg_ccu":53.3125,
-    "peak_ccu":83,
+    "avg_ccu":56.0,
+    "peak_ccu":99,
     "min_ccu":25,
     "avg_metacritic_score":68.0,
     "avg_price_cents":3599.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":279630,
+    "steam_app_id":2361770,
+    "game_name":"Shinobi: Art of Vengeance",
+    "avg_ccu":71.1764705882,
+    "peak_ccu":97,
+    "min_ccu":37,
+    "avg_metacritic_score":86.0,
+    "avg_price_cents":2999.0,
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":733,
+    "steam_app_id":12110,
+    "game_name":"Grand Theft Auto: Vice City",
+    "avg_ccu":73.4117647059,
+    "peak_ccu":91,
+    "min_ccu":44,
+    "avg_metacritic_score":94.0,
+    "avg_price_cents":null,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":132526,
     "steam_app_id":1272290,
     "game_name":"Space Chef",
-    "avg_ccu":52.25,
+    "avg_ccu":53.2352941176,
     "peak_ccu":72,
     "min_ccu":32,
     "avg_metacritic_score":null,
     "avg_price_cents":1349.0,
-    "samples":16
-  },
-  {
-    "date":"2025-10-30T00:00:00.000",
-    "igdb_id":345153,
-    "steam_app_id":3773590,
-    "game_name":"Death by Scrolling",
-    "avg_ccu":34.375,
-    "peak_ccu":65,
-    "min_ccu":18,
-    "avg_metacritic_score":null,
-    "avg_price_cents":719.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":15,
     "steam_app_id":22300,
     "game_name":"Fallout 3",
-    "avg_ccu":41.125,
-    "peak_ccu":64,
+    "avg_ccu":42.7647058824,
+    "peak_ccu":69,
     "min_ccu":28,
     "avg_metacritic_score":91.0,
     "avg_price_cents":999.0,
-    "samples":16
+    "samples":17
+  },
+  {
+    "date":"2025-10-30T00:00:00.000",
+    "igdb_id":345153,
+    "steam_app_id":3773590,
+    "game_name":"Death by Scrolling",
+    "avg_ccu":36.3529411765,
+    "peak_ccu":68,
+    "min_ccu":18,
+    "avg_metacritic_score":null,
+    "avg_price_cents":719.0,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":75,
     "steam_app_id":1238020,
     "game_name":"Mass Effect 3",
-    "avg_ccu":41.375,
+    "avg_ccu":41.8823529412,
     "peak_ccu":60,
     "min_ccu":27,
     "avg_metacritic_score":89.0,
     "avg_price_cents":2999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":20,
     "steam_app_id":7670,
     "game_name":"BioShock",
-    "avg_ccu":37.9375,
+    "avg_ccu":38.7647058824,
     "peak_ccu":58,
     "min_ccu":20,
     "avg_metacritic_score":96.0,
     "avg_price_cents":499.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":73,
     "steam_app_id":17460,
     "game_name":"Mass Effect",
-    "avg_ccu":27.0625,
+    "avg_ccu":27.8823529412,
     "peak_ccu":41,
     "min_ccu":16,
     "avg_metacritic_score":89.0,
     "avg_price_cents":2999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":359784,
     "steam_app_id":3547420,
     "game_name":"Ire: A Prologue",
-    "avg_ccu":7.25,
+    "avg_ccu":7.7058823529,
     "peak_ccu":15,
     "min_ccu":1,
     "avg_metacritic_score":null,
     "avg_price_cents":1999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":280431,
     "steam_app_id":2726370,
     "game_name":"Suck Up!",
-    "avg_ccu":9.125,
+    "avg_ccu":9.2941176471,
     "peak_ccu":14,
     "min_ccu":5,
     "avg_metacritic_score":null,
     "avg_price_cents":1699.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":349774,
     "steam_app_id":3808860,
     "game_name":"StrangeDream",
-    "avg_ccu":5.75,
+    "avg_ccu":5.6470588235,
     "peak_ccu":13,
     "min_ccu":2,
     "avg_metacritic_score":null,
     "avg_price_cents":449.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":999,
     "steam_app_id":15700,
     "game_name":"Oddworld: Abe's Oddysee",
-    "avg_ccu":7.25,
+    "avg_ccu":7.2941176471,
     "peak_ccu":11,
     "min_ccu":5,
     "avg_metacritic_score":null,
     "avg_price_cents":299.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1041,19 +1041,19 @@
     "min_ccu":1,
     "avg_metacritic_score":94.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":344732,
     "steam_app_id":3700580,
     "game_name":"Livber: Smoke and Mirrors",
-    "avg_ccu":0.625,
+    "avg_ccu":0.6470588235,
     "peak_ccu":2,
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":899.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1065,55 +1065,55 @@
     "min_ccu":1,
     "avg_metacritic_score":93.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":372001,
     "steam_app_id":3730720,
     "game_name":"Chains on Sand",
-    "avg_ccu":0.1875,
+    "avg_ccu":0.1764705882,
     "peak_ccu":1,
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":899.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":303736,
     "steam_app_id":2920010,
     "game_name":"Comet Angel",
-    "avg_ccu":0.0625,
+    "avg_ccu":0.0588235294,
     "peak_ccu":1,
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":799.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":352501,
     "steam_app_id":2877010,
     "game_name":"Einherjar's Ascent",
-    "avg_ccu":0.0625,
+    "avg_ccu":0.0588235294,
     "peak_ccu":1,
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":499.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
     "igdb_id":371029,
     "steam_app_id":4055610,
     "game_name":"Tetramorph",
-    "avg_ccu":0.0625,
+    "avg_ccu":0.0588235294,
     "peak_ccu":1,
     "min_ccu":0,
     "avg_metacritic_score":null,
-    "avg_price_cents":586.5,
-    "samples":16
+    "avg_price_cents":587.2352941176,
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1125,7 +1125,7 @@
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":2999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1137,7 +1137,7 @@
     "min_ccu":0,
     "avg_metacritic_score":91.0,
     "avg_price_cents":null,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1149,7 +1149,7 @@
     "min_ccu":0,
     "avg_metacritic_score":91.0,
     "avg_price_cents":1999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1161,7 +1161,7 @@
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":159.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1173,7 +1173,7 @@
     "min_ccu":0,
     "avg_metacritic_score":92.0,
     "avg_price_cents":3999.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1185,7 +1185,7 @@
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":2499.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1197,7 +1197,7 @@
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":849.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-30T00:00:00.000",
@@ -1209,7 +1209,7 @@
     "min_ccu":0,
     "avg_metacritic_score":null,
     "avg_price_cents":899.0,
-    "samples":16
+    "samples":17
   },
   {
     "date":"2025-10-29T00:00:00.000",
