@@ -5,38 +5,38 @@
     "igdb_id":115,
     "avg_peak_viewers":599910.4285714285,
     "all_time_peak_viewers":899726,
-    "avg_viewers":137544.8309785453,
-    "avg_channels":97.8398744113,
+    "avg_viewers":136713.4557823129,
+    "avg_channels":97.8469387755,
     "days_tracked":7
   },
   {
     "game_name":"Minecraft",
     "twitch_game_id":"27471",
     "igdb_id":135400,
-    "avg_peak_viewers":224077.5714285714,
+    "avg_peak_viewers":225751.0,
     "all_time_peak_viewers":318116,
-    "avg_viewers":122572.3642072213,
-    "avg_channels":98.1009942439,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Counter-Strike: Global Offensive",
-    "twitch_game_id":"32399",
-    "igdb_id":1372,
-    "avg_peak_viewers":112420.4285714286,
-    "all_time_peak_viewers":137475,
-    "avg_viewers":54380.0900052329,
-    "avg_channels":97.7540554683,
+    "avg_viewers":123619.9591836735,
+    "avg_channels":98.0986394558,
     "days_tracked":7
   },
   {
     "game_name":"Dota 2",
     "twitch_game_id":"29595",
     "igdb_id":2963,
-    "avg_peak_viewers":111170.5714285714,
+    "avg_peak_viewers":117209.7142857143,
     "all_time_peak_viewers":176781,
-    "avg_viewers":51998.8555729984,
-    "avg_channels":97.7723704867,
+    "avg_viewers":53001.5102040816,
+    "avg_channels":97.7551020408,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Counter-Strike: Global Offensive",
+    "twitch_game_id":"32399",
+    "igdb_id":1372,
+    "avg_peak_viewers":114525.1428571429,
+    "all_time_peak_viewers":137475,
+    "avg_viewers":54652.9659863946,
+    "avg_channels":97.7517006803,
     "days_tracked":7
   },
   {
@@ -45,18 +45,18 @@
     "igdb_id":353848,
     "avg_peak_viewers":68863.8571428571,
     "all_time_peak_viewers":119586,
-    "avg_viewers":32411.506541078,
-    "avg_channels":97.431711146,
+    "avg_viewers":32480.0850340136,
+    "avg_channels":97.4387755102,
     "days_tracked":7
   },
   {
     "game_name":"Path of Exile",
     "twitch_game_id":"29307",
     "igdb_id":1911,
-    "avg_peak_viewers":62608.4285714286,
+    "avg_peak_viewers":63394.0,
     "all_time_peak_viewers":171346,
-    "avg_viewers":33256.0989010989,
-    "avg_channels":90.3636839351,
+    "avg_viewers":33430.2346938776,
+    "avg_channels":90.3605442177,
     "days_tracked":7
   },
   {
@@ -65,38 +65,38 @@
     "igdb_id":126459,
     "avg_peak_viewers":61396.1428571429,
     "all_time_peak_viewers":77120,
-    "avg_viewers":36857.5138670853,
-    "avg_channels":97.4379905808,
+    "avg_viewers":37051.1088435374,
+    "avg_channels":97.4183673469,
     "days_tracked":7
   },
   {
     "game_name":"RV There Yet?",
     "twitch_game_id":"1517377137",
     "igdb_id":373580,
-    "avg_peak_viewers":52687.5714285714,
+    "avg_peak_viewers":52851.0,
     "all_time_peak_viewers":90416,
-    "avg_viewers":15871.2428048142,
-    "avg_channels":98.2454212454,
+    "avg_viewers":15967.3197278912,
+    "avg_channels":98.2619047619,
     "days_tracked":7
   },
   {
     "game_name":"Marvel Rivals",
     "twitch_game_id":"1264310518",
     "igdb_id":294041,
-    "avg_peak_viewers":36093.4285714286,
+    "avg_peak_viewers":37311.1428571429,
     "all_time_peak_viewers":51267,
-    "avg_viewers":14975.8309785453,
-    "avg_channels":98.2014652015,
+    "avg_viewers":15160.4965986395,
+    "avg_channels":98.2108843537,
     "days_tracked":7
   },
   {
     "game_name":"World of Tanks",
     "twitch_game_id":"27546",
     "igdb_id":1184,
-    "avg_peak_viewers":30139.7142857143,
+    "avg_peak_viewers":31543.5714285714,
     "all_time_peak_viewers":42446,
-    "avg_viewers":12203.3793825222,
-    "avg_channels":92.601255887,
+    "avg_viewers":12478.5136054422,
+    "avg_channels":92.6326530612,
     "days_tracked":7
   },
   {
@@ -105,8 +105,18 @@
     "igdb_id":123,
     "avg_peak_viewers":26434.7142857143,
     "all_time_peak_viewers":31725,
-    "avg_viewers":17234.2490842491,
-    "avg_channels":98.3908948195,
+    "avg_viewers":17299.5136054422,
+    "avg_channels":98.3979591837,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Dead by Daylight",
+    "twitch_game_id":"491487",
+    "igdb_id":18866,
+    "avg_peak_viewers":23853.7142857143,
+    "all_time_peak_viewers":32914,
+    "avg_viewers":14240.9897959184,
+    "avg_channels":97.9387755102,
     "days_tracked":7
   },
   {
@@ -115,28 +125,18 @@
     "igdb_id":45517,
     "avg_peak_viewers":23617.2857142857,
     "all_time_peak_viewers":33593,
-    "avg_viewers":14938.9738356881,
-    "avg_channels":34.9879644165,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Dead by Daylight",
-    "twitch_game_id":"491487",
-    "igdb_id":18866,
-    "avg_peak_viewers":23532.4285714286,
-    "all_time_peak_viewers":32914,
-    "avg_viewers":14171.442700157,
-    "avg_channels":97.9293563579,
+    "avg_viewers":14964.7006802721,
+    "avg_channels":35.0272108844,
     "days_tracked":7
   },
   {
     "game_name":"Hunt: Showdown 1896",
     "twitch_game_id":"500188",
     "igdb_id":7291,
-    "avg_peak_viewers":19656.2857142857,
+    "avg_peak_viewers":19727.5714285714,
     "all_time_peak_viewers":29874,
-    "avg_viewers":12542.6169544741,
-    "avg_channels":98.7095761381,
+    "avg_viewers":12566.7346938775,
+    "avg_channels":98.693877551,
     "days_tracked":7
   },
   {
@@ -145,8 +145,8 @@
     "igdb_id":1279,
     "avg_peak_viewers":19532.1428571429,
     "all_time_peak_viewers":29656,
-    "avg_viewers":12679.0811093668,
-    "avg_channels":87.832548404,
+    "avg_viewers":12683.5850340136,
+    "avg_channels":88.0170068027,
     "days_tracked":7
   },
   {
@@ -155,8 +155,8 @@
     "igdb_id":317407,
     "avg_peak_viewers":18325.5714285714,
     "all_time_peak_viewers":45329,
-    "avg_viewers":10555.295133438,
-    "avg_channels":97.4767137624,
+    "avg_viewers":10562.0,
+    "avg_channels":97.4829931973,
     "days_tracked":7
   },
   {
@@ -165,28 +165,28 @@
     "igdb_id":329309,
     "avg_peak_viewers":16169.0,
     "all_time_peak_viewers":34425,
-    "avg_viewers":10503.1773940345,
-    "avg_channels":99.0162218734,
+    "avg_viewers":10522.9591836735,
+    "avg_channels":99.0170068027,
     "days_tracked":7
   },
   {
     "game_name":"Teamfight Tactics",
     "twitch_game_id":"513143",
     "igdb_id":120176,
-    "avg_peak_viewers":14643.5714285714,
-    "all_time_peak_viewers":25406,
-    "avg_viewers":6860.6268969126,
-    "avg_channels":93.9089481947,
+    "avg_peak_viewers":15508.2857142857,
+    "all_time_peak_viewers":31459,
+    "avg_viewers":7107.3741496599,
+    "avg_channels":93.9489795918,
     "days_tracked":7
   },
   {
     "game_name":"Call of Duty: Modern Warfare",
     "twitch_game_id":"512710",
     "igdb_id":119177,
-    "avg_peak_viewers":14243.2857142857,
+    "avg_peak_viewers":14305.4285714286,
     "all_time_peak_viewers":27133,
-    "avg_viewers":8882.2935635793,
-    "avg_channels":97.1732077446,
+    "avg_viewers":8904.8367346939,
+    "avg_channels":97.1802721088,
     "days_tracked":7
   },
   {
@@ -195,8 +195,8 @@
     "igdb_id":114795,
     "avg_peak_viewers":13338.4285714286,
     "all_time_peak_viewers":21354,
-    "avg_viewers":7531.6033490319,
-    "avg_channels":97.8655154369,
+    "avg_viewers":7522.7517006803,
+    "avg_channels":97.8843537415,
     "days_tracked":7
   },
   {
@@ -205,8 +205,8 @@
     "igdb_id":327405,
     "avg_peak_viewers":13071.2857142857,
     "all_time_peak_viewers":21310,
-    "avg_viewers":7492.1271585557,
-    "avg_channels":97.7435897436,
+    "avg_viewers":7488.9183673469,
+    "avg_channels":97.7891156463,
     "days_tracked":7
   },
   {
@@ -215,8 +215,8 @@
     "igdb_id":331188,
     "avg_peak_viewers":12821.4285714286,
     "all_time_peak_viewers":38241,
-    "avg_viewers":3853.0805860806,
-    "avg_channels":93.4416535845,
+    "avg_viewers":3866.4353741497,
+    "avg_channels":93.4761904762,
     "days_tracked":7
   },
   {
@@ -225,7 +225,7 @@
     "igdb_id":288327,
     "avg_peak_viewers":12542.4285714286,
     "all_time_peak_viewers":20037,
-    "avg_viewers":8622.4212454212,
+    "avg_viewers":8647.8639455782,
     "avg_channels":98.0408163265,
     "days_tracked":7
   },
@@ -235,18 +235,18 @@
     "igdb_id":125174,
     "avg_peak_viewers":12477.1428571429,
     "all_time_peak_viewers":14393,
-    "avg_viewers":9153.2030350602,
-    "avg_channels":97.610151753,
+    "avg_viewers":9148.4047619048,
+    "avg_channels":97.6360544218,
     "days_tracked":7
   },
   {
     "game_name":"Old School RuneScape",
     "twitch_game_id":"459931",
     "igdb_id":79824,
-    "avg_peak_viewers":10363.7142857143,
+    "avg_peak_viewers":10658.7142857143,
     "all_time_peak_viewers":11822,
-    "avg_viewers":6889.3720565149,
-    "avg_channels":97.0340136054,
+    "avg_viewers":6952.4387755102,
+    "avg_channels":97.0952380952,
     "days_tracked":7
   },
   {
@@ -255,8 +255,8 @@
     "igdb_id":273120,
     "avg_peak_viewers":10259.2857142857,
     "all_time_peak_viewers":27441,
-    "avg_viewers":6426.3919413919,
-    "avg_channels":86.6127681842,
+    "avg_viewers":6422.8095238095,
+    "avg_channels":86.619047619,
     "days_tracked":7
   },
   {
@@ -265,8 +265,8 @@
     "igdb_id":3277,
     "avg_peak_viewers":10047.1428571429,
     "all_time_peak_viewers":23127,
-    "avg_viewers":5461.7498691784,
-    "avg_channels":98.240188383,
+    "avg_viewers":5487.6768707483,
+    "avg_channels":98.2551020408,
     "days_tracked":7
   },
   {
@@ -275,8 +275,8 @@
     "igdb_id":71001,
     "avg_peak_viewers":9461.0,
     "all_time_peak_viewers":11623,
-    "avg_viewers":5662.4746206175,
-    "avg_channels":99.5039246468,
+    "avg_viewers":5637.6802721088,
+    "avg_channels":99.5102040816,
     "days_tracked":7
   },
   {
@@ -285,8 +285,8 @@
     "igdb_id":339985,
     "avg_peak_viewers":8567.1428571429,
     "all_time_peak_viewers":23169,
-    "avg_viewers":2928.7027734171,
-    "avg_channels":52.0172684458,
+    "avg_viewers":2929.7176870748,
+    "avg_channels":52.0816326531,
     "days_tracked":7
   },
   {
@@ -295,8 +295,8 @@
     "igdb_id":15536,
     "avg_peak_viewers":8549.7142857143,
     "all_time_peak_viewers":23277,
-    "avg_viewers":4907.1491365777,
-    "avg_channels":99.1705913134,
+    "avg_viewers":4915.6734693878,
+    "avg_channels":99.156462585,
     "days_tracked":7
   },
   {
@@ -305,8 +305,8 @@
     "igdb_id":152246,
     "avg_peak_viewers":8514.4285714286,
     "all_time_peak_viewers":20086,
-    "avg_viewers":4683.2171637886,
-    "avg_channels":96.2904238619,
+    "avg_viewers":4682.3231292517,
+    "avg_channels":96.2653061224,
     "days_tracked":7
   },
   {
@@ -315,8 +315,8 @@
     "igdb_id":316987,
     "avg_peak_viewers":8497.4285714286,
     "all_time_peak_viewers":22334,
-    "avg_viewers":1703.3239141811,
-    "avg_channels":56.8492935636,
+    "avg_viewers":1698.9149659864,
+    "avg_channels":56.9693877551,
     "days_tracked":7
   },
   {
@@ -325,8 +325,8 @@
     "igdb_id":19698,
     "avg_peak_viewers":8097.2857142857,
     "all_time_peak_viewers":8508,
-    "avg_viewers":5668.5489272632,
-    "avg_channels":85.5981161695,
+    "avg_viewers":5694.0034013605,
+    "avg_channels":85.8265306122,
     "days_tracked":7
   },
   {
@@ -335,18 +335,18 @@
     "igdb_id":197202,
     "avg_peak_viewers":7876.1428571429,
     "all_time_peak_viewers":15199,
-    "avg_viewers":2168.4568288854,
-    "avg_channels":71.6488749346,
+    "avg_viewers":2169.0306122449,
+    "avg_channels":71.7517006803,
     "days_tracked":7
   },
   {
     "game_name":"Hollow Knight: Silksong",
     "twitch_game_id":"511391",
     "igdb_id":115289,
-    "avg_peak_viewers":7540.2857142857,
+    "avg_peak_viewers":7793.0,
     "all_time_peak_viewers":10646,
-    "avg_viewers":3267.8738880167,
-    "avg_channels":97.6734693878,
+    "avg_viewers":3317.6666666667,
+    "avg_channels":97.6836734694,
     "days_tracked":7
   },
   {
@@ -355,8 +355,8 @@
     "igdb_id":6292,
     "avg_peak_viewers":7399.4285714286,
     "all_time_peak_viewers":9924,
-    "avg_viewers":4872.9937205651,
-    "avg_channels":97.588173731,
+    "avg_viewers":4896.3469387755,
+    "avg_channels":97.5646258503,
     "days_tracked":7
   },
   {
@@ -365,8 +365,8 @@
     "igdb_id":9596,
     "avg_peak_viewers":7071.7142857143,
     "all_time_peak_viewers":8859,
-    "avg_viewers":4724.7231815803,
-    "avg_channels":98.9952904239,
+    "avg_viewers":4745.5646258503,
+    "avg_channels":99.0102040816,
     "days_tracked":7
   },
   {
@@ -375,8 +375,8 @@
     "igdb_id":9165,
     "avg_peak_viewers":6845.5714285714,
     "all_time_peak_viewers":10925,
-    "avg_viewers":2559.6614338043,
-    "avg_channels":55.7174254317,
+    "avg_viewers":2562.2517006803,
+    "avg_channels":55.8775510204,
     "days_tracked":7
   },
   {
@@ -385,8 +385,8 @@
     "igdb_id":298915,
     "avg_peak_viewers":6640.7142857143,
     "all_time_peak_viewers":8265,
-    "avg_viewers":3955.808477237,
-    "avg_channels":98.8571428571,
+    "avg_viewers":3985.1326530612,
+    "avg_channels":98.8673469388,
     "days_tracked":7
   },
   {
@@ -395,8 +395,8 @@
     "igdb_id":330379,
     "avg_peak_viewers":6501.0,
     "all_time_peak_viewers":10376,
-    "avg_viewers":3630.356881214,
-    "avg_channels":89.1428571429,
+    "avg_viewers":3632.343537415,
+    "avg_channels":89.3163265306,
     "days_tracked":7
   },
   {
@@ -405,18 +405,18 @@
     "igdb_id":341687,
     "avg_peak_viewers":6396.5714285714,
     "all_time_peak_viewers":10167,
-    "avg_viewers":3436.5651491366,
-    "avg_channels":95.7200418629,
+    "avg_viewers":3440.7244897959,
+    "avg_channels":95.768707483,
     "days_tracked":7
   },
   {
     "game_name":"Genshin Impact",
     "twitch_game_id":"513181",
     "igdb_id":119277,
-    "avg_peak_viewers":6190.1428571429,
+    "avg_peak_viewers":6304.5714285714,
     "all_time_peak_viewers":9513,
-    "avg_viewers":4085.9858712716,
-    "avg_channels":98.4547357405,
+    "avg_viewers":4111.6632653061,
+    "avg_channels":98.4727891156,
     "days_tracked":7
   },
   {
@@ -425,8 +425,8 @@
     "igdb_id":24654,
     "avg_peak_viewers":5896.4285714286,
     "all_time_peak_viewers":13012,
-    "avg_viewers":3200.1732077446,
-    "avg_channels":71.0999476714,
+    "avg_viewers":3201.925170068,
+    "avg_channels":71.1462585034,
     "days_tracked":7
   },
   {
@@ -435,8 +435,8 @@
     "igdb_id":222343,
     "avg_peak_viewers":4472.7142857143,
     "all_time_peak_viewers":5919,
-    "avg_viewers":2448.1878597593,
-    "avg_channels":97.5735217164,
+    "avg_viewers":2457.2482993197,
+    "avg_channels":97.5884353741,
     "days_tracked":7
   },
   {
@@ -445,8 +445,8 @@
     "igdb_id":359784,
     "avg_peak_viewers":4016.4285714286,
     "all_time_peak_viewers":11590,
-    "avg_viewers":916.6614338043,
-    "avg_channels":2.2187336473,
+    "avg_viewers":915.8741496599,
+    "avg_channels":2.2006802721,
     "days_tracked":7
   },
   {
@@ -455,8 +455,8 @@
     "igdb_id":25076,
     "avg_peak_viewers":3999.5714285714,
     "all_time_peak_viewers":7353,
-    "avg_viewers":1744.4270015699,
-    "avg_channels":97.6834118263,
+    "avg_viewers":1748.7959183673,
+    "avg_channels":97.6904761905,
     "days_tracked":7
   },
   {
@@ -465,8 +465,8 @@
     "igdb_id":262186,
     "avg_peak_viewers":3978.8571428571,
     "all_time_peak_viewers":5217,
-    "avg_viewers":2188.5007849294,
-    "avg_channels":99.1632653061,
+    "avg_viewers":2194.4081632653,
+    "avg_channels":99.1734693878,
     "days_tracked":7
   },
   {
@@ -475,8 +475,8 @@
     "igdb_id":1070,
     "avg_peak_viewers":3618.2857142857,
     "all_time_peak_viewers":5725,
-    "avg_viewers":910.8859236002,
-    "avg_channels":18.3725798012,
+    "avg_viewers":915.3945578231,
+    "avg_channels":18.4149659864,
     "days_tracked":7
   },
   {
@@ -485,18 +485,18 @@
     "igdb_id":262529,
     "avg_peak_viewers":3568.4285714286,
     "all_time_peak_viewers":6264,
-    "avg_viewers":1476.3736263736,
-    "avg_channels":78.5975928833,
+    "avg_viewers":1480.2959183673,
+    "avg_channels":78.9013605442,
     "days_tracked":7
   },
   {
     "game_name":"Legend of Ymir",
     "twitch_game_id":"889298168",
     "igdb_id":368744,
-    "avg_peak_viewers":3106.2857142857,
+    "avg_peak_viewers":3157.8571428571,
     "all_time_peak_viewers":8430,
-    "avg_viewers":1866.8451072737,
-    "avg_channels":66.3129251701,
+    "avg_viewers":1880.7517006803,
+    "avg_channels":66.4761904762,
     "days_tracked":7
   },
   {
@@ -505,8 +505,8 @@
     "igdb_id":142688,
     "avg_peak_viewers":2952.7142857143,
     "all_time_peak_viewers":9418,
-    "avg_viewers":790.8288854003,
-    "avg_channels":15.1093668237,
+    "avg_viewers":794.8163265306,
+    "avg_channels":15.1972789116,
     "days_tracked":7
   },
   {
@@ -515,8 +515,8 @@
     "igdb_id":228525,
     "avg_peak_viewers":2549.0,
     "all_time_peak_viewers":4151,
-    "avg_viewers":915.0047095761,
-    "avg_channels":66.032967033,
+    "avg_viewers":915.0612244898,
+    "avg_channels":66.3265306122,
     "days_tracked":7
   },
   {
@@ -525,8 +525,8 @@
     "igdb_id":1074,
     "avg_peak_viewers":2450.0,
     "all_time_peak_viewers":3797,
-    "avg_viewers":945.3469387755,
-    "avg_channels":28.861329147,
+    "avg_viewers":940.5102040816,
+    "avg_channels":28.9319727891,
     "days_tracked":7
   },
   {
@@ -535,8 +535,8 @@
     "igdb_id":472,
     "avg_peak_viewers":2305.5714285714,
     "all_time_peak_viewers":7047,
-    "avg_viewers":736.3192046049,
-    "avg_channels":65.6996336996,
+    "avg_viewers":734.4965986395,
+    "avg_channels":66.1258503401,
     "days_tracked":7
   },
   {
@@ -545,8 +545,8 @@
     "igdb_id":314252,
     "avg_peak_viewers":2110.8571428571,
     "all_time_peak_viewers":5480,
-    "avg_viewers":704.4442700157,
-    "avg_channels":75.4379905808,
+    "avg_viewers":704.3571428571,
+    "avg_channels":75.806122449,
     "days_tracked":7
   },
   {
@@ -555,8 +555,8 @@
     "igdb_id":317627,
     "avg_peak_viewers":1973.4285714286,
     "all_time_peak_viewers":3724,
-    "avg_viewers":1058.6237571952,
-    "avg_channels":99.6514913658,
+    "avg_viewers":1059.3333333333,
+    "avg_channels":99.6530612245,
     "days_tracked":7
   },
   {
@@ -565,8 +565,8 @@
     "igdb_id":7334,
     "avg_peak_viewers":1670.1428571429,
     "all_time_peak_viewers":4532,
-    "avg_viewers":573.4050235479,
-    "avg_channels":43.3103087389,
+    "avg_viewers":573.9795918367,
+    "avg_channels":43.3605442177,
     "days_tracked":7
   },
   {
@@ -575,8 +575,8 @@
     "igdb_id":314246,
     "avg_peak_viewers":1666.1428571429,
     "all_time_peak_viewers":2071,
-    "avg_viewers":860.6635269492,
-    "avg_channels":84.0188383046,
+    "avg_viewers":861.7176870748,
+    "avg_channels":84.2040816327,
     "days_tracked":7
   },
   {
@@ -585,8 +585,8 @@
     "igdb_id":52826,
     "avg_peak_viewers":1600.1428571429,
     "all_time_peak_viewers":6838,
-    "avg_viewers":367.3924646782,
-    "avg_channels":81.0926216641,
+    "avg_viewers":366.8775510204,
+    "avg_channels":81.3571428571,
     "days_tracked":7
   },
   {
@@ -595,8 +595,8 @@
     "igdb_id":1029,
     "avg_peak_viewers":1552.0,
     "all_time_peak_viewers":2358,
-    "avg_viewers":584.9267399267,
-    "avg_channels":32.8163265306,
+    "avg_viewers":580.4047619048,
+    "avg_channels":32.9693877551,
     "days_tracked":7
   },
   {
@@ -605,8 +605,8 @@
     "igdb_id":320137,
     "avg_peak_viewers":1536.5714285714,
     "all_time_peak_viewers":3449,
-    "avg_viewers":525.6295133438,
-    "avg_channels":32.3108320251,
+    "avg_viewers":526.5918367347,
+    "avg_channels":32.4489795918,
     "days_tracked":7
   },
   {
@@ -615,8 +615,8 @@
     "igdb_id":14593,
     "avg_peak_viewers":1391.0,
     "all_time_peak_viewers":1807,
-    "avg_viewers":798.7781266353,
-    "avg_channels":93.8974358974,
+    "avg_viewers":799.0136054422,
+    "avg_channels":93.9421768707,
     "days_tracked":7
   },
   {
@@ -625,18 +625,18 @@
     "igdb_id":157379,
     "avg_peak_viewers":1361.1428571429,
     "all_time_peak_viewers":6780,
-    "avg_viewers":434.3024594453,
-    "avg_channels":7.5934065934,
+    "avg_viewers":434.7380952381,
+    "avg_channels":7.5918367347,
     "days_tracked":7
   },
   {
     "game_name":"The Witcher 3: Wild Hunt",
     "twitch_game_id":"115977",
     "igdb_id":1942,
-    "avg_peak_viewers":1318.8571428571,
+    "avg_peak_viewers":1329.4285714286,
     "all_time_peak_viewers":2536,
-    "avg_viewers":520.0136054422,
-    "avg_channels":54.9455782313,
+    "avg_viewers":523.3605442177,
+    "avg_channels":55.3945578231,
     "days_tracked":7
   },
   {
@@ -645,18 +645,28 @@
     "igdb_id":16,
     "avg_peak_viewers":1177.8571428571,
     "all_time_peak_viewers":1918,
-    "avg_viewers":460.5850340136,
-    "avg_channels":32.9926739927,
+    "avg_viewers":467.2176870748,
+    "avg_channels":33.0680272109,
     "days_tracked":7
   },
   {
     "game_name":"Super Metroid",
     "twitch_game_id":"7595",
     "igdb_id":1103,
-    "avg_peak_viewers":1076.4285714286,
+    "avg_peak_viewers":1079.1428571429,
     "all_time_peak_viewers":1710,
-    "avg_viewers":295.3014128728,
-    "avg_channels":9.3469387755,
+    "avg_viewers":296.0918367347,
+    "avg_channels":9.3673469388,
+    "days_tracked":7
+  },
+  {
+    "game_name":"The Legend of Zelda: A Link to the Past",
+    "twitch_game_id":"9435",
+    "igdb_id":1026,
+    "avg_peak_viewers":1076.5714285714,
+    "all_time_peak_viewers":2228,
+    "avg_viewers":305.2380952381,
+    "avg_channels":15.5884353741,
     "days_tracked":7
   },
   {
@@ -665,8 +675,8 @@
     "igdb_id":1627,
     "avg_peak_viewers":983.1428571429,
     "all_time_peak_viewers":1925,
-    "avg_viewers":276.9497645212,
-    "avg_channels":16.4076399791,
+    "avg_viewers":278.5102040816,
+    "avg_channels":16.3605442177,
     "days_tracked":7
   },
   {
@@ -675,8 +685,8 @@
     "igdb_id":1871,
     "avg_peak_viewers":967.4285714286,
     "all_time_peak_viewers":1728,
-    "avg_viewers":338.6295133438,
-    "avg_channels":42.7216117216,
+    "avg_viewers":339.2551020408,
+    "avg_channels":42.7380952381,
     "days_tracked":7
   },
   {
@@ -685,8 +695,8 @@
     "igdb_id":345153,
     "avg_peak_viewers":950.7142857143,
     "all_time_peak_viewers":5446,
-    "avg_viewers":92.5782312925,
-    "avg_channels":0.4437467295,
+    "avg_viewers":92.5578231293,
+    "avg_channels":0.4421768707,
     "days_tracked":7
   },
   {
@@ -695,8 +705,8 @@
     "igdb_id":213241,
     "avg_peak_viewers":927.0,
     "all_time_peak_viewers":3668,
-    "avg_viewers":203.1622187336,
-    "avg_channels":3.334903192,
+    "avg_viewers":203.231292517,
+    "avg_channels":3.3537414966,
     "days_tracked":7
   },
   {
@@ -705,18 +715,8 @@
     "igdb_id":240556,
     "avg_peak_viewers":911.0,
     "all_time_peak_viewers":1930,
-    "avg_viewers":124.0544217687,
-    "avg_channels":11.5525902669,
-    "days_tracked":7
-  },
-  {
-    "game_name":"The Legend of Zelda: A Link to the Past",
-    "twitch_game_id":"9435",
-    "igdb_id":1026,
-    "avg_peak_viewers":829.1428571429,
-    "all_time_peak_viewers":1247,
-    "avg_viewers":284.2804814233,
-    "avg_channels":15.5311355311,
+    "avg_viewers":123.4829931973,
+    "avg_channels":11.6224489796,
     "days_tracked":7
   },
   {
@@ -725,8 +725,8 @@
     "igdb_id":325608,
     "avg_peak_viewers":772.1428571429,
     "all_time_peak_viewers":1306,
-    "avg_viewers":310.4526425955,
-    "avg_channels":35.673992674,
+    "avg_viewers":307.3537414966,
+    "avg_channels":35.5476190476,
     "days_tracked":7
   },
   {
@@ -735,18 +735,18 @@
     "igdb_id":1011,
     "avg_peak_viewers":754.1428571429,
     "all_time_peak_viewers":1451,
-    "avg_viewers":145.8602825746,
-    "avg_channels":13.0868655154,
+    "avg_viewers":145.887755102,
+    "avg_channels":13.1496598639,
     "days_tracked":7
   },
   {
     "game_name":"Dragon Ball Gekishin Squadra",
     "twitch_game_id":"801541637",
     "igdb_id":314178,
-    "avg_peak_viewers":604.5714285714,
+    "avg_peak_viewers":606.1428571429,
     "all_time_peak_viewers":1333,
-    "avg_viewers":270.8398744113,
-    "avg_channels":47.3385661957,
+    "avg_viewers":271.5,
+    "avg_channels":47.4523809524,
     "days_tracked":7
   },
   {
@@ -755,8 +755,8 @@
     "igdb_id":1009,
     "avg_peak_viewers":546.8571428571,
     "all_time_peak_viewers":935,
-    "avg_viewers":147.0664573522,
-    "avg_channels":15.748822606,
+    "avg_viewers":146.925170068,
+    "avg_channels":15.7857142857,
     "days_tracked":7
   },
   {
@@ -765,8 +765,8 @@
     "igdb_id":231,
     "avg_peak_viewers":542.8571428571,
     "all_time_peak_viewers":3099,
-    "avg_viewers":119.8011512297,
-    "avg_channels":4.1690214547,
+    "avg_viewers":119.6394557823,
+    "avg_channels":4.156462585,
     "days_tracked":7
   },
   {
@@ -775,18 +775,18 @@
     "igdb_id":165386,
     "avg_peak_viewers":522.0,
     "all_time_peak_viewers":2558,
-    "avg_viewers":67.1444270016,
-    "avg_channels":2.5614861329,
+    "avg_viewers":67.612244898,
+    "avg_channels":2.5850340136,
     "days_tracked":7
   },
   {
     "game_name":"Palworld",
     "twitch_game_id":"1036710512",
     "igdb_id":151665,
-    "avg_peak_viewers":481.0,
+    "avg_peak_viewers":482.0,
     "all_time_peak_viewers":648,
-    "avg_viewers":301.6671899529,
-    "avg_channels":73.4390371533,
+    "avg_viewers":302.8367346939,
+    "avg_channels":73.7278911565,
     "days_tracked":7
   },
   {
@@ -795,8 +795,8 @@
     "igdb_id":202463,
     "avg_peak_viewers":478.0,
     "all_time_peak_viewers":1015,
-    "avg_viewers":113.7760334903,
-    "avg_channels":4.0455259027,
+    "avg_viewers":121.8333333333,
+    "avg_channels":4.112244898,
     "days_tracked":7
   },
   {
@@ -805,8 +805,8 @@
     "igdb_id":891,
     "avg_peak_viewers":431.4285714286,
     "all_time_peak_viewers":825,
-    "avg_viewers":161.6174777603,
-    "avg_channels":27.4814233386,
+    "avg_viewers":162.6496598639,
+    "avg_channels":27.5646258503,
     "days_tracked":7
   },
   {
@@ -815,8 +815,18 @@
     "igdb_id":250634,
     "avg_peak_viewers":415.1428571429,
     "all_time_peak_viewers":849,
-    "avg_viewers":159.4986917844,
-    "avg_channels":24.8901098901,
+    "avg_viewers":159.0034013605,
+    "avg_channels":24.8775510204,
+    "days_tracked":7
+  },
+  {
+    "game_name":"God of War",
+    "twitch_game_id":"6369",
+    "igdb_id":19560,
+    "avg_peak_viewers":402.5714285714,
+    "all_time_peak_viewers":800,
+    "avg_viewers":150.425170068,
+    "avg_channels":41.4523809524,
     "days_tracked":7
   },
   {
@@ -825,18 +835,8 @@
     "igdb_id":7346,
     "avg_peak_viewers":400.0,
     "all_time_peak_viewers":559,
-    "avg_viewers":200.0130821559,
-    "avg_channels":17.3500784929,
-    "days_tracked":7
-  },
-  {
-    "game_name":"God of War",
-    "twitch_game_id":"6369",
-    "igdb_id":19560,
-    "avg_peak_viewers":388.5714285714,
-    "all_time_peak_viewers":800,
-    "avg_viewers":148.0523286238,
-    "avg_channels":41.2412349555,
+    "avg_viewers":198.4965986395,
+    "avg_channels":17.387755102,
     "days_tracked":7
   },
   {
@@ -845,8 +845,18 @@
     "igdb_id":731,
     "avg_peak_viewers":366.2857142857,
     "all_time_peak_viewers":873,
-    "avg_viewers":97.400837258,
-    "avg_channels":20.8430141287,
+    "avg_viewers":97.4149659864,
+    "avg_channels":20.8571428571,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Slime Rancher 2",
+    "twitch_game_id":"1378799411",
+    "igdb_id":152243,
+    "avg_peak_viewers":351.8571428571,
+    "all_time_peak_viewers":561,
+    "avg_viewers":77.156462585,
+    "avg_channels":10.6054421769,
     "days_tracked":7
   },
   {
@@ -855,18 +865,8 @@
     "igdb_id":501,
     "avg_peak_viewers":334.8571428571,
     "all_time_peak_viewers":1013,
-    "avg_viewers":49.3683935113,
-    "avg_channels":5.1344845631,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Slime Rancher 2",
-    "twitch_game_id":"1378799411",
-    "igdb_id":152243,
-    "avg_peak_viewers":318.4285714286,
-    "all_time_peak_viewers":561,
-    "avg_viewers":72.4672946102,
-    "avg_channels":10.5944531659,
+    "avg_viewers":49.5238095238,
+    "avg_channels":5.1360544218,
     "days_tracked":7
   },
   {
@@ -875,8 +875,8 @@
     "igdb_id":132526,
     "avg_peak_viewers":296.0,
     "all_time_peak_viewers":485,
-    "avg_viewers":67.8137100994,
-    "avg_channels":2.0062794349,
+    "avg_viewers":67.0170068027,
+    "avg_channels":2.0,
     "days_tracked":7
   },
   {
@@ -885,8 +885,8 @@
     "igdb_id":7331,
     "avg_peak_viewers":278.2857142857,
     "all_time_peak_viewers":1472,
-    "avg_viewers":82.8785975929,
-    "avg_channels":5.2475143904,
+    "avg_viewers":78.7380952381,
+    "avg_channels":5.2993197279,
     "days_tracked":7
   },
   {
@@ -895,8 +895,8 @@
     "igdb_id":12517,
     "avg_peak_viewers":245.7142857143,
     "all_time_peak_viewers":584,
-    "avg_viewers":108.1407639979,
-    "avg_channels":20.0800627943,
+    "avg_viewers":108.0850340136,
+    "avg_channels":20.1224489796,
     "days_tracked":7
   },
   {
@@ -905,18 +905,8 @@
     "igdb_id":72,
     "avg_peak_viewers":149.7142857143,
     "all_time_peak_viewers":306,
-    "avg_viewers":44.6645735217,
-    "avg_channels":8.1418105704,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Super Mario Galaxy",
-    "twitch_game_id":"14766",
-    "igdb_id":1077,
-    "avg_peak_viewers":139.7142857143,
-    "all_time_peak_viewers":285,
-    "avg_viewers":34.6049188906,
-    "avg_channels":3.2098377813,
+    "avg_viewers":44.7721088435,
+    "avg_channels":8.1394557823,
     "days_tracked":7
   },
   {
@@ -925,8 +915,18 @@
     "igdb_id":500,
     "avg_peak_viewers":139.7142857143,
     "all_time_peak_viewers":428,
-    "avg_viewers":31.8827838828,
-    "avg_channels":6.3584510727,
+    "avg_viewers":31.8333333333,
+    "avg_channels":6.3537414966,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Super Mario Galaxy",
+    "twitch_game_id":"14766",
+    "igdb_id":1077,
+    "avg_peak_viewers":139.7142857143,
+    "all_time_peak_viewers":285,
+    "avg_viewers":34.5782312925,
+    "avg_channels":3.1972789116,
     "days_tracked":7
   },
   {
@@ -935,8 +935,18 @@
     "igdb_id":196954,
     "avg_peak_viewers":126.4285714286,
     "all_time_peak_viewers":341,
-    "avg_viewers":54.526425955,
-    "avg_channels":7.7613814757,
+    "avg_viewers":54.731292517,
+    "avg_channels":7.8163265306,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Tomb Raider",
+    "twitch_game_id":"2770",
+    "igdb_id":1164,
+    "avg_peak_viewers":117.5714285714,
+    "all_time_peak_viewers":320,
+    "avg_viewers":27.8367346939,
+    "avg_channels":4.2857142857,
     "days_tracked":7
   },
   {
@@ -945,8 +955,8 @@
     "igdb_id":20,
     "avg_peak_viewers":113.5714285714,
     "all_time_peak_viewers":238,
-    "avg_viewers":35.3861852433,
-    "avg_channels":3.6499215071,
+    "avg_viewers":35.306122449,
+    "avg_channels":3.6428571429,
     "days_tracked":7
   },
   {
@@ -955,8 +965,8 @@
     "igdb_id":434,
     "avg_peak_viewers":112.7142857143,
     "all_time_peak_viewers":249,
-    "avg_viewers":38.7352171638,
-    "avg_channels":10.4071166928,
+    "avg_viewers":38.537414966,
+    "avg_channels":10.4353741497,
     "days_tracked":7
   },
   {
@@ -965,18 +975,8 @@
     "igdb_id":19565,
     "avg_peak_viewers":102.5714285714,
     "all_time_peak_viewers":333,
-    "avg_viewers":31.3422291994,
-    "avg_channels":13.3390894819,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Tomb Raider",
-    "twitch_game_id":"2770",
-    "igdb_id":1164,
-    "avg_peak_viewers":100.8571428571,
-    "all_time_peak_viewers":320,
-    "avg_viewers":26.5416012559,
-    "avg_channels":4.2056514914,
+    "avg_viewers":31.3163265306,
+    "avg_channels":13.3265306122,
     "days_tracked":7
   },
   {
@@ -985,8 +985,8 @@
     "igdb_id":233,
     "avg_peak_viewers":96.1428571429,
     "all_time_peak_viewers":214,
-    "avg_viewers":33.5866038723,
-    "avg_channels":5.2742019885,
+    "avg_viewers":33.2585034014,
+    "avg_channels":5.2482993197,
     "days_tracked":7
   },
   {
@@ -995,8 +995,8 @@
     "igdb_id":7351,
     "avg_peak_viewers":88.1428571429,
     "all_time_peak_viewers":297,
-    "avg_viewers":21.7017268446,
-    "avg_channels":3.4965986395,
+    "avg_viewers":21.6224489796,
+    "avg_channels":3.5068027211,
     "days_tracked":7
   },
   {
@@ -1005,8 +1005,8 @@
     "igdb_id":11156,
     "avg_peak_viewers":83.4285714286,
     "all_time_peak_viewers":113,
-    "avg_viewers":31.2783882784,
-    "avg_channels":6.9822082679,
+    "avg_viewers":31.5782312925,
+    "avg_channels":7.0442176871,
     "days_tracked":7
   },
   {
@@ -1015,8 +1015,8 @@
     "igdb_id":15,
     "avg_peak_viewers":82.8571428571,
     "all_time_peak_viewers":189,
-    "avg_viewers":33.8058608059,
-    "avg_channels":11.1282051282,
+    "avg_viewers":33.731292517,
+    "avg_channels":11.1360544218,
     "days_tracked":7
   },
   {
@@ -1035,8 +1035,8 @@
     "igdb_id":565,
     "avg_peak_viewers":80.4285714286,
     "all_time_peak_viewers":254,
-    "avg_viewers":6.3600209314,
-    "avg_channels":0.7791732077,
+    "avg_viewers":6.3639455782,
+    "avg_channels":0.7823129252,
     "days_tracked":7
   },
   {
@@ -1045,8 +1045,8 @@
     "igdb_id":426,
     "avg_peak_viewers":74.0,
     "all_time_peak_viewers":164,
-    "avg_viewers":16.5206698064,
-    "avg_channels":1.493458922,
+    "avg_viewers":16.5136054422,
+    "avg_channels":1.4965986395,
     "days_tracked":7
   },
   {
@@ -1055,8 +1055,18 @@
     "igdb_id":1073,
     "avg_peak_viewers":67.5714285714,
     "all_time_peak_viewers":197,
-    "avg_viewers":10.3338566196,
-    "avg_channels":0.8765044479,
+    "avg_viewers":10.3197278912,
+    "avg_channels":0.8945578231,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Grand Theft Auto: Vice City",
+    "twitch_game_id":"15631",
+    "igdb_id":733,
+    "avg_peak_viewers":66.8571428571,
+    "all_time_peak_viewers":99,
+    "avg_viewers":27.9319727891,
+    "avg_channels":4.3333333333,
     "days_tracked":7
   },
   {
@@ -1065,18 +1075,8 @@
     "igdb_id":1124,
     "avg_peak_viewers":64.8571428571,
     "all_time_peak_viewers":245,
-    "avg_viewers":6.8796441654,
-    "avg_channels":1.2307692308,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Grand Theft Auto: Vice City",
-    "twitch_game_id":"15631",
-    "igdb_id":733,
-    "avg_peak_viewers":64.2857142857,
-    "all_time_peak_viewers":99,
-    "avg_viewers":27.2961800105,
-    "avg_channels":4.3050758765,
+    "avg_viewers":6.8639455782,
+    "avg_channels":1.2244897959,
     "days_tracked":7
   },
   {
@@ -1085,8 +1085,8 @@
     "igdb_id":529,
     "avg_peak_viewers":60.2857142857,
     "all_time_peak_viewers":209,
-    "avg_viewers":15.3610675039,
-    "avg_channels":6.0491889063,
+    "avg_viewers":15.4285714286,
+    "avg_channels":6.0680272109,
     "days_tracked":7
   },
   {
@@ -1095,8 +1095,8 @@
     "igdb_id":344732,
     "avg_peak_viewers":58.8571428571,
     "all_time_peak_viewers":167,
-    "avg_viewers":9.8608058608,
-    "avg_channels":0.5201465201,
+    "avg_viewers":9.8537414966,
+    "avg_channels":0.5170068027,
     "days_tracked":7
   },
   {
@@ -1105,8 +1105,8 @@
     "igdb_id":538,
     "avg_peak_viewers":57.2857142857,
     "all_time_peak_viewers":114,
-    "avg_viewers":15.2380952381,
-    "avg_channels":2.8791208791,
+    "avg_viewers":15.2074829932,
+    "avg_channels":2.8775510204,
     "days_tracked":7
   },
   {
@@ -1115,8 +1115,8 @@
     "igdb_id":71,
     "avg_peak_viewers":53.7142857143,
     "all_time_peak_viewers":176,
-    "avg_viewers":10.5300889587,
-    "avg_channels":1.9246467818,
+    "avg_viewers":10.5442176871,
+    "avg_channels":1.9489795918,
     "days_tracked":7
   },
   {
@@ -1125,8 +1125,8 @@
     "igdb_id":533,
     "avg_peak_viewers":52.2857142857,
     "all_time_peak_viewers":96,
-    "avg_viewers":21.7503924647,
-    "avg_channels":4.0272108844,
+    "avg_viewers":21.7857142857,
+    "avg_channels":4.0476190476,
     "days_tracked":7
   },
   {
@@ -1135,8 +1135,8 @@
     "igdb_id":280431,
     "avg_peak_viewers":48.4285714286,
     "all_time_peak_viewers":206,
-    "avg_viewers":5.0230245945,
-    "avg_channels":0.4395604396,
+    "avg_viewers":5.0136054422,
+    "avg_channels":0.4387755102,
     "days_tracked":7
   },
   {
@@ -1145,8 +1145,8 @@
     "igdb_id":272,
     "avg_peak_viewers":41.0,
     "all_time_peak_viewers":57,
-    "avg_viewers":12.5018315018,
-    "avg_channels":3.8801674516,
+    "avg_viewers":12.5340136054,
+    "avg_channels":3.8911564626,
     "days_tracked":7
   },
   {
@@ -1155,8 +1155,8 @@
     "igdb_id":279630,
     "avg_peak_viewers":36.7142857143,
     "all_time_peak_viewers":113,
-    "avg_viewers":8.1810570382,
-    "avg_channels":1.8095238095,
+    "avg_viewers":8.2108843537,
+    "avg_channels":1.8197278912,
     "days_tracked":7
   },
   {
@@ -1165,38 +1165,38 @@
     "igdb_id":623,
     "avg_peak_viewers":30.8571428571,
     "all_time_peak_viewers":63,
-    "avg_viewers":9.6551543694,
-    "avg_channels":2.1533228676,
+    "avg_viewers":9.619047619,
+    "avg_channels":2.1360544218,
     "days_tracked":7
   },
   {
     "game_name":"Comet Angel",
     "twitch_game_id":"1270944141",
     "igdb_id":303736,
-    "avg_peak_viewers":29.7142857143,
+    "avg_peak_viewers":29.8571428571,
     "all_time_peak_viewers":157,
-    "avg_viewers":6.7969649398,
-    "avg_channels":0.1622187336,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Assassin's Creed II",
-    "twitch_game_id":"20810",
-    "igdb_id":127,
-    "avg_peak_viewers":26.0,
-    "all_time_peak_viewers":62,
-    "avg_viewers":8.843537415,
-    "avg_channels":2.7645211931,
+    "avg_viewers":6.8503401361,
+    "avg_channels":0.1700680272,
     "days_tracked":7
   },
   {
     "game_name":"Assassin's Creed",
     "twitch_game_id":"2711",
     "igdb_id":128,
-    "avg_peak_viewers":25.8571428571,
+    "avg_peak_viewers":27.4285714286,
     "all_time_peak_viewers":46,
-    "avg_viewers":8.3600209314,
-    "avg_channels":2.7273678702,
+    "avg_viewers":8.6700680272,
+    "avg_channels":2.7517006803,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Assassin's Creed II",
+    "twitch_game_id":"20810",
+    "igdb_id":127,
+    "avg_peak_viewers":26.4285714286,
+    "all_time_peak_viewers":62,
+    "avg_viewers":8.9047619048,
+    "avg_channels":2.7959183673,
     "days_tracked":7
   },
   {
@@ -1205,8 +1205,8 @@
     "igdb_id":1600,
     "avg_peak_viewers":22.1428571429,
     "all_time_peak_viewers":32,
-    "avg_viewers":4.6917844061,
-    "avg_channels":0.6813186813,
+    "avg_viewers":4.7585034014,
+    "avg_channels":0.693877551,
     "days_tracked":7
   },
   {
@@ -1215,7 +1215,7 @@
     "igdb_id":492,
     "avg_peak_viewers":19.4285714286,
     "all_time_peak_viewers":45,
-    "avg_viewers":6.5735217164,
+    "avg_viewers":6.5782312925,
     "avg_channels":3.3673469388,
     "days_tracked":7
   },
@@ -1225,8 +1225,8 @@
     "igdb_id":73,
     "avg_peak_viewers":15.0,
     "all_time_peak_viewers":33,
-    "avg_viewers":2.3840920984,
-    "avg_channels":0.766614338,
+    "avg_viewers":2.3911564626,
+    "avg_channels":0.7925170068,
     "days_tracked":7
   },
   {
@@ -1235,8 +1235,8 @@
     "igdb_id":1454,
     "avg_peak_viewers":12.7142857143,
     "all_time_peak_viewers":48,
-    "avg_viewers":3.6562009419,
-    "avg_channels":0.4887493459,
+    "avg_viewers":3.6428571429,
+    "avg_channels":0.4965986395,
     "days_tracked":7
   },
   {
@@ -1245,8 +1245,8 @@
     "igdb_id":999,
     "avg_peak_viewers":11.1428571429,
     "all_time_peak_viewers":22,
-    "avg_viewers":1.9947671376,
-    "avg_channels":0.5996860283,
+    "avg_viewers":2.1258503401,
+    "avg_channels":0.6326530612,
     "days_tracked":7
   },
   {
@@ -1265,8 +1265,8 @@
     "igdb_id":74,
     "avg_peak_viewers":7.1428571429,
     "all_time_peak_viewers":20,
-    "avg_viewers":2.1758241758,
-    "avg_channels":0.9288330717,
+    "avg_viewers":2.193877551,
+    "avg_channels":0.9319727891,
     "days_tracked":7
   },
   {
@@ -1275,8 +1275,8 @@
     "igdb_id":75,
     "avg_peak_viewers":6.8571428571,
     "all_time_peak_viewers":13,
-    "avg_viewers":1.6640502355,
-    "avg_channels":0.8079539508,
+    "avg_viewers":1.6428571429,
+    "avg_channels":0.7993197279,
     "days_tracked":7
   },
   {
@@ -1320,9 +1320,29 @@
     "days_tracked":7
   },
   {
+    "game_name":"Einherjar's Ascent",
+    "twitch_game_id":"1523512099",
+    "igdb_id":352501,
+    "avg_peak_viewers":0.0,
+    "all_time_peak_viewers":0,
+    "avg_viewers":0.0,
+    "avg_channels":0.0,
+    "days_tracked":7
+  },
+  {
     "game_name":"StrangeDream",
     "twitch_game_id":"1422052275",
     "igdb_id":349774,
+    "avg_peak_viewers":0.0,
+    "all_time_peak_viewers":0,
+    "avg_viewers":0.0,
+    "avg_channels":0.0,
+    "days_tracked":7
+  },
+  {
+    "game_name":"Mod Shooter",
+    "twitch_game_id":"1024316785",
+    "igdb_id":311846,
     "avg_peak_viewers":0.0,
     "all_time_peak_viewers":0,
     "avg_viewers":0.0,
@@ -1343,26 +1363,6 @@
     "game_name":"Tetramorph",
     "twitch_game_id":"1959698375",
     "igdb_id":371029,
-    "avg_peak_viewers":0.0,
-    "all_time_peak_viewers":0,
-    "avg_viewers":0.0,
-    "avg_channels":0.0,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Einherjar's Ascent",
-    "twitch_game_id":"1523512099",
-    "igdb_id":352501,
-    "avg_peak_viewers":0.0,
-    "all_time_peak_viewers":0,
-    "avg_viewers":0.0,
-    "avg_channels":0.0,
-    "days_tracked":7
-  },
-  {
-    "game_name":"Mod Shooter",
-    "twitch_game_id":"1024316785",
-    "igdb_id":311846,
     "avg_peak_viewers":0.0,
     "all_time_peak_viewers":0,
     "avg_viewers":0.0,
