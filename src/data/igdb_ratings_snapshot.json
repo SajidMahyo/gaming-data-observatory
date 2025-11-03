@@ -1,47 +1,11 @@
 [
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":1070,
-    "game_name":"Super Mario World",
-    "rating":92.1734161377,
+    "igdb_id":1124,
+    "game_name":"Super Castlevania IV",
+    "rating":77.3617858887,
     "aggregated_rating":100.0,
-    "total_rating_count":1805,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":18626,
-    "game_name":"Street Fighter II' Turbo",
-    "rating":83.8550033569,
-    "aggregated_rating":100.0,
-    "total_rating_count":113,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":7767,
-    "game_name":"Mini Metro",
-    "rating":76.6611557007,
-    "aggregated_rating":100.0,
-    "total_rating_count":131,
-    "steam_app_id":287980
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":1691,
-    "game_name":"Advance Wars",
-    "rating":84.116569519,
-    "aggregated_rating":100.0,
-    "total_rating_count":135,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":1627,
-    "game_name":"Super Smash Bros. Melee",
-    "rating":89.0895233154,
-    "aggregated_rating":100.0,
-    "total_rating_count":1013,
+    "total_rating_count":181,
     "steam_app_id":null
   },
   {
@@ -55,29 +19,38 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":1454,
-    "game_name":"Suikoden II",
-    "rating":91.7759246826,
+    "igdb_id":1627,
+    "game_name":"Super Smash Bros. Melee",
+    "rating":89.0895233154,
     "aggregated_rating":100.0,
-    "total_rating_count":107,
+    "total_rating_count":1013,
     "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":1124,
-    "game_name":"Super Castlevania IV",
-    "rating":77.3617858887,
+    "igdb_id":1691,
+    "game_name":"Advance Wars",
+    "rating":84.116569519,
     "aggregated_rating":100.0,
-    "total_rating_count":181,
+    "total_rating_count":135,
     "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":1103,
-    "game_name":"Super Metroid",
-    "rating":92.2258605957,
+    "igdb_id":7767,
+    "game_name":"Mini Metro",
+    "rating":76.6611557007,
     "aggregated_rating":100.0,
-    "total_rating_count":972,
+    "total_rating_count":131,
+    "steam_app_id":287980
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":18626,
+    "game_name":"Street Fighter II' Turbo",
+    "rating":83.8550033569,
+    "aggregated_rating":100.0,
+    "total_rating_count":113,
     "steam_app_id":null
   },
   {
@@ -123,6 +96,33 @@
     "rating":84.6210632324,
     "aggregated_rating":100.0,
     "total_rating_count":263,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":1454,
+    "game_name":"Suikoden II",
+    "rating":91.7759246826,
+    "aggregated_rating":100.0,
+    "total_rating_count":107,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":1103,
+    "game_name":"Super Metroid",
+    "rating":92.2258605957,
+    "aggregated_rating":100.0,
+    "total_rating_count":972,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":1070,
+    "game_name":"Super Mario World",
+    "rating":92.1734161377,
+    "aggregated_rating":100.0,
+    "total_rating_count":1805,
     "steam_app_id":null
   },
   {
@@ -190,15 +190,6 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":7170,
-    "game_name":"Ico",
-    "rating":85.2250366211,
-    "aggregated_rating":96.6666641235,
-    "total_rating_count":285,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
     "igdb_id":492,
     "game_name":"Gears of War 3",
     "rating":82.1915588379,
@@ -213,6 +204,15 @@
     "rating":90.374420166,
     "aggregated_rating":96.6666641235,
     "total_rating_count":282,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":7170,
+    "game_name":"Ico",
+    "rating":85.2250366211,
+    "aggregated_rating":96.6666641235,
+    "total_rating_count":285,
     "steam_app_id":null
   },
   {
@@ -712,21 +712,21 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":115,
-    "game_name":"League of Legends",
-    "rating":75.1333236694,
-    "aggregated_rating":84.0,
-    "total_rating_count":915,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
     "igdb_id":314178,
     "game_name":"Dragon Ball Gekishin Squadra",
     "rating":84.607421875,
     "aggregated_rating":84.0,
     "total_rating_count":19,
     "steam_app_id":2072560
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":115,
+    "game_name":"League of Legends",
+    "rating":75.1333236694,
+    "aggregated_rating":84.0,
+    "total_rating_count":915,
+    "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -829,12 +829,12 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":288327,
-    "game_name":"Pok\u00e9mon Legends: Z-A",
-    "rating":60.5467376709,
+    "igdb_id":71,
+    "game_name":"Portal",
+    "rating":86.445640564,
     "aggregated_rating":80.0,
-    "total_rating_count":26,
-    "steam_app_id":null
+    "total_rating_count":3649,
+    "steam_app_id":400
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -847,21 +847,12 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":231,
-    "game_name":"Half-Life",
-    "rating":88.5015716553,
+    "igdb_id":288327,
+    "game_name":"Pok\u00e9mon Legends: Z-A",
+    "rating":60.5467376709,
     "aggregated_rating":80.0,
-    "total_rating_count":2629,
-    "steam_app_id":70
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":71,
-    "game_name":"Portal",
-    "rating":86.445640564,
-    "aggregated_rating":80.0,
-    "total_rating_count":3649,
-    "steam_app_id":400
+    "total_rating_count":26,
+    "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -871,6 +862,15 @@
     "aggregated_rating":80.0,
     "total_rating_count":82,
     "steam_app_id":2507950
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":231,
+    "game_name":"Half-Life",
+    "rating":88.5015716553,
+    "aggregated_rating":80.0,
+    "total_rating_count":2629,
+    "steam_app_id":70
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -1036,98 +1036,8 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":197202,
-    "game_name":"Escape the Backrooms",
-    "rating":70.3458786011,
-    "aggregated_rating":null,
-    "total_rating_count":24,
-    "steam_app_id":1943950
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":372001,
-    "game_name":"Chains on Sand",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3730720
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":368692,
-    "game_name":"Through Blood and Dragons: Dragon Wars",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3793750
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":355793,
-    "game_name":"Guild Wars 2: Visions of Eternity",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3845870
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":345153,
-    "game_name":"Death by Scrolling",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3773590
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":311846,
-    "game_name":"Mod Shooter",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":2835300
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":213241,
-    "game_name":"Wreckreation",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":1594040
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":132526,
-    "game_name":"Space Chef",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":1272290
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":151665,
-    "game_name":"Palworld",
-    "rating":71.5270233154,
-    "aggregated_rating":null,
-    "total_rating_count":227,
-    "steam_app_id":1623730
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":339985,
-    "game_name":"Shadowverse: Worlds Beyond",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":2584990
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":368463,
-    "game_name":"Schoolboy SIM",
+    "igdb_id":324779,
+    "game_name":"Two Point Museum: Explorer Edition",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null,
@@ -1135,48 +1045,12 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":9596,
-    "game_name":"Tibia",
-    "rating":79.305770874,
+    "igdb_id":298915,
+    "game_name":"Arena Breakout: Infinite",
+    "rating":83.0693664551,
     "aggregated_rating":null,
-    "total_rating_count":69,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":352849,
-    "game_name":"Crusader Kings III: All Under Heaven",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3315530
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":120176,
-    "game_name":"Teamfight Tactics",
-    "rating":81.4446029663,
-    "aggregated_rating":null,
-    "total_rating_count":112,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":344732,
-    "game_name":"Livber: Smoke and Mirrors",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3700580
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":303736,
-    "game_name":"Comet Angel",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":2920010
+    "total_rating_count":81,
+    "steam_app_id":2073620
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -1189,66 +1063,48 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":28212,
-    "game_name":"Commando Sniper Counter Strike",
+    "igdb_id":303736,
+    "game_name":"Comet Angel",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null,
+    "steam_app_id":2920010
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":373580,
+    "game_name":"RV There Yet?",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3949040
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":165386,
+    "game_name":"Outbreak Island",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":1442530
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":135400,
+    "game_name":"Minecraft",
+    "rating":80.2457427979,
+    "aggregated_rating":null,
+    "total_rating_count":391,
     "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":368744,
-    "game_name":"Legend of Ymir",
+    "igdb_id":45517,
+    "game_name":"Virtual Casino",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null,
     "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":9165,
-    "game_name":"Chess",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":359784,
-    "game_name":"Ire: A Prologue",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3547420
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":349774,
-    "game_name":"StrangeDream",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3808860
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":324779,
-    "game_name":"Two Point Museum: Explorer Edition",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":330379,
-    "game_name":"Fellowship",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":2352620
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -1258,6 +1114,15 @@
     "aggregated_rating":null,
     "total_rating_count":null,
     "steam_app_id":3950020
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":302323,
+    "game_name":"The Sacred Memory",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":2967730
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -1279,30 +1144,66 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":1029,
-    "game_name":"The Legend of Zelda: Ocarina of Time",
-    "rating":91.8153915405,
+    "igdb_id":71001,
+    "game_name":"I'm Only Sleeping",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":1961,
+    "total_rating_count":null,
     "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":52826,
-    "game_name":"Skate.",
-    "rating":67.9577102661,
+    "igdb_id":368744,
+    "game_name":"Legend of Ymir",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":24,
-    "steam_app_id":3354750
+    "total_rating_count":null,
+    "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":341687,
-    "game_name":"Blue Protocol: Star Resonance",
-    "rating":90.2439041138,
+    "igdb_id":311846,
+    "game_name":"Mod Shooter",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":11,
-    "steam_app_id":3681810
+    "total_rating_count":null,
+    "steam_app_id":2835300
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":197202,
+    "game_name":"Escape the Backrooms",
+    "rating":70.3458786011,
+    "aggregated_rating":null,
+    "total_rating_count":24,
+    "steam_app_id":1943950
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":316987,
+    "game_name":"No, I'm Not A Human",
+    "rating":78.1059036255,
+    "aggregated_rating":null,
+    "total_rating_count":28,
+    "steam_app_id":3180070
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":371029,
+    "game_name":"Tetramorph",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":4055610
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":344732,
+    "game_name":"Livber: Smoke and Mirrors",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3700580
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -1315,21 +1216,57 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":298915,
-    "game_name":"Arena Breakout: Infinite",
-    "rating":83.0693664551,
+    "igdb_id":327405,
+    "game_name":"Megabonk",
+    "rating":85.4696121216,
     "aggregated_rating":null,
-    "total_rating_count":81,
-    "steam_app_id":2073620
+    "total_rating_count":11,
+    "steam_app_id":3405340
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":365551,
-    "game_name":"Simon the Sorcerer: Origins - Digital Deluxe Edition",
+    "igdb_id":339985,
+    "game_name":"Shadowverse: Worlds Beyond",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":2584990
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":28212,
+    "game_name":"Commando Sniper Counter Strike",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null,
     "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":349774,
+    "game_name":"StrangeDream",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3808860
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":213241,
+    "game_name":"Wreckreation",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":1594040
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":330379,
+    "game_name":"Fellowship",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":2352620
   },
   {
     "date":"2025-10-27T00:00:00.000",
@@ -1342,44 +1279,62 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":343429,
-    "game_name":"1998: The Toll Keeper Story",
+    "igdb_id":355793,
+    "game_name":"Guild Wars 2: Visions of Eternity",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null,
-    "steam_app_id":3273530
+    "steam_app_id":3845870
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":302323,
-    "game_name":"The Sacred Memory",
+    "igdb_id":152243,
+    "game_name":"Slime Rancher 2",
+    "rating":65.560005188,
+    "aggregated_rating":null,
+    "total_rating_count":21,
+    "steam_app_id":1657630
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":151665,
+    "game_name":"Palworld",
+    "rating":71.5270233154,
+    "aggregated_rating":null,
+    "total_rating_count":227,
+    "steam_app_id":1623730
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":359784,
+    "game_name":"Ire: A Prologue",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null,
-    "steam_app_id":2967730
+    "steam_app_id":3547420
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":327405,
-    "game_name":"Megabonk",
-    "rating":85.4696121216,
+    "igdb_id":341687,
+    "game_name":"Blue Protocol: Star Resonance",
+    "rating":90.2439041138,
     "aggregated_rating":null,
     "total_rating_count":11,
-    "steam_app_id":3405340
+    "steam_app_id":3681810
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":165386,
-    "game_name":"Outbreak Island",
-    "rating":null,
+    "igdb_id":1029,
+    "game_name":"The Legend of Zelda: Ocarina of Time",
+    "rating":91.8153915405,
     "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":1442530
+    "total_rating_count":1961,
+    "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":45517,
-    "game_name":"Virtual Casino",
+    "igdb_id":368463,
+    "game_name":"Schoolboy SIM",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null,
@@ -1387,20 +1342,74 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":373580,
-    "game_name":"RV There Yet?",
-    "rating":null,
+    "igdb_id":120176,
+    "game_name":"Teamfight Tactics",
+    "rating":81.4446029663,
     "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3949040
+    "total_rating_count":112,
+    "steam_app_id":null
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":135400,
-    "game_name":"Minecraft",
-    "rating":80.2457427979,
+    "igdb_id":132526,
+    "game_name":"Space Chef",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":391,
+    "total_rating_count":null,
+    "steam_app_id":1272290
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":52826,
+    "game_name":"Skate.",
+    "rating":67.9577102661,
+    "aggregated_rating":null,
+    "total_rating_count":24,
+    "steam_app_id":3354750
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":352849,
+    "game_name":"Crusader Kings III: All Under Heaven",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3315530
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":9165,
+    "game_name":"Chess",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":368692,
+    "game_name":"Through Blood and Dragons: Dragon Wars",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3793750
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":345153,
+    "game_name":"Death by Scrolling",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3773590
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":365551,
+    "game_name":"Simon the Sorcerer: Origins - Digital Deluxe Edition",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
     "steam_app_id":null
   },
   {
@@ -1414,38 +1423,29 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":316987,
-    "game_name":"No, I'm Not A Human",
-    "rating":78.1059036255,
-    "aggregated_rating":null,
-    "total_rating_count":28,
-    "steam_app_id":3180070
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":152243,
-    "game_name":"Slime Rancher 2",
-    "rating":65.560005188,
-    "aggregated_rating":null,
-    "total_rating_count":21,
-    "steam_app_id":1657630
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":71001,
-    "game_name":"I'm Only Sleeping",
+    "igdb_id":372001,
+    "game_name":"Chains on Sand",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null,
+    "steam_app_id":3730720
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":343429,
+    "game_name":"1998: The Toll Keeper Story",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3273530
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":9596,
+    "game_name":"Tibia",
+    "rating":79.305770874,
+    "aggregated_rating":null,
+    "total_rating_count":69,
     "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":371029,
-    "game_name":"Tetramorph",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":4055610
   }
 ]
