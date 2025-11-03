@@ -1198,24 +1198,6 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":151665,
-    "game_name":"Palworld",
-    "rating":71.5270233154,
-    "aggregated_rating":null,
-    "total_rating_count":227,
-    "steam_app_id":1623730
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
-    "igdb_id":135400,
-    "game_name":"Minecraft",
-    "rating":80.2457427979,
-    "aggregated_rating":null,
-    "total_rating_count":391,
-    "steam_app_id":null
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
     "igdb_id":132526,
     "game_name":"Space Chef",
     "rating":null,
@@ -1438,6 +1420,24 @@
     "aggregated_rating":null,
     "total_rating_count":null,
     "steam_app_id":3730720
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":135400,
+    "game_name":"Minecraft",
+    "rating":80.2457427979,
+    "aggregated_rating":null,
+    "total_rating_count":391,
+    "steam_app_id":null
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":151665,
+    "game_name":"Palworld",
+    "rating":71.5270233154,
+    "aggregated_rating":null,
+    "total_rating_count":227,
+    "steam_app_id":1623730
   },
   {
     "date":"2025-10-27T00:00:00.000",
