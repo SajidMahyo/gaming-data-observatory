@@ -1333,15 +1333,6 @@
   },
   {
     "date":"2025-10-27T00:00:00.000",
-    "igdb_id":349774,
-    "game_name":"StrangeDream",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null,
-    "steam_app_id":3808860
-  },
-  {
-    "date":"2025-10-27T00:00:00.000",
     "igdb_id":352501,
     "game_name":"Einherjar's Ascent",
     "rating":null,
@@ -1438,6 +1429,15 @@
     "aggregated_rating":null,
     "total_rating_count":null,
     "steam_app_id":3730720
+  },
+  {
+    "date":"2025-10-27T00:00:00.000",
+    "igdb_id":349774,
+    "game_name":"StrangeDream",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null,
+    "steam_app_id":3808860
   },
   {
     "date":"2025-10-27T00:00:00.000",
