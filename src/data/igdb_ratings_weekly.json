@@ -921,16 +921,8 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":280431,
-    "game_name":"Suck Up!",
-    "rating":82.0975646973,
-    "aggregated_rating":null,
-    "total_rating_count":12
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":45517,
-    "game_name":"Virtual Casino",
+    "igdb_id":352501,
+    "game_name":"Einherjar's Ascent",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -945,35 +937,43 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":152243,
-    "game_name":"Slime Rancher 2",
-    "rating":65.560005188,
-    "aggregated_rating":null,
-    "total_rating_count":21
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":329309,
-    "game_name":"Escape from Duckov",
+    "igdb_id":359784,
+    "game_name":"Ire: A Prologue",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":349774,
-    "game_name":"StrangeDream",
+    "igdb_id":303736,
+    "game_name":"Comet Angel",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":324779,
-    "game_name":"Two Point Museum: Explorer Edition",
+    "igdb_id":373580,
+    "game_name":"RV There Yet?",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":9596,
+    "game_name":"Tibia",
+    "rating":79.305770874,
+    "aggregated_rating":null,
+    "total_rating_count":69
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":327405,
+    "game_name":"Megabonk",
+    "rating":85.4696121216,
+    "aggregated_rating":null,
+    "total_rating_count":11
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -985,8 +985,8 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":132526,
-    "game_name":"Space Chef",
+    "igdb_id":368744,
+    "game_name":"Legend of Ymir",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1017,8 +1017,8 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":311846,
-    "game_name":"Mod Shooter",
+    "igdb_id":202463,
+    "game_name":"Simon the Sorcerer Origins",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1201,11 +1201,11 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":298915,
-    "game_name":"Arena Breakout: Infinite",
-    "rating":83.0693664551,
+    "igdb_id":280431,
+    "game_name":"Suck Up!",
+    "rating":82.0975646973,
     "aggregated_rating":null,
-    "total_rating_count":81
+    "total_rating_count":12
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1217,74 +1217,74 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":45517,
+    "game_name":"Virtual Casino",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":298915,
+    "game_name":"Arena Breakout: Infinite",
+    "rating":83.0693664551,
+    "aggregated_rating":null,
+    "total_rating_count":81
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":311846,
+    "game_name":"Mod Shooter",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":132526,
+    "game_name":"Space Chef",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":324779,
+    "game_name":"Two Point Museum: Explorer Edition",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":349774,
+    "game_name":"StrangeDream",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":329309,
+    "game_name":"Escape from Duckov",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":152243,
+    "game_name":"Slime Rancher 2",
+    "rating":65.560005188,
+    "aggregated_rating":null,
+    "total_rating_count":21
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
     "igdb_id":330379,
     "game_name":"Fellowship",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":303736,
-    "game_name":"Comet Angel",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":202463,
-    "game_name":"Simon the Sorcerer Origins",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":352501,
-    "game_name":"Einherjar's Ascent",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":359784,
-    "game_name":"Ire: A Prologue",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":9596,
-    "game_name":"Tibia",
-    "rating":79.305770874,
-    "aggregated_rating":null,
-    "total_rating_count":69
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":368744,
-    "game_name":"Legend of Ymir",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":373580,
-    "game_name":"RV There Yet?",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":327405,
-    "game_name":"Megabonk",
-    "rating":85.4696121216,
-    "aggregated_rating":null,
-    "total_rating_count":11
   }
 ]
