@@ -4,1342 +4,1353 @@
     "igdb_id":1372,
     "twitch_game_id":"32399",
     "game_name":"Counter-Strike: Global Offensive",
-    "avg_viewers":74288.8,
-    "peak_viewers":208322,
+    "avg_viewers":85543.0625,
+    "peak_viewers":254357,
     "min_viewers":14364,
-    "avg_channels":98.1333333333,
-    "samples":15
+    "avg_channels":98.25,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":115,
     "twitch_game_id":"21779",
     "game_name":"League of Legends",
-    "avg_viewers":70211.2,
+    "avg_viewers":72801.6875,
     "peak_viewers":125717,
     "min_viewers":33647,
-    "avg_channels":98.2,
-    "samples":15
+    "avg_channels":98.1875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":15536,
     "twitch_game_id":"491931",
     "game_name":"Escape from Tarkov",
-    "avg_viewers":62647.5333333333,
-    "peak_viewers":76007,
+    "avg_viewers":63571.8125,
+    "peak_viewers":77436,
     "min_viewers":44778,
-    "avg_channels":99.6,
-    "samples":15
+    "avg_channels":99.5,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":135400,
     "twitch_game_id":"27471",
     "game_name":"Minecraft",
-    "avg_viewers":25213.7333333333,
+    "avg_viewers":26675.1875,
     "peak_viewers":53633,
     "min_viewers":9731,
-    "avg_channels":97.2,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":2963,
-    "twitch_game_id":"29595",
-    "game_name":"Dota 2",
-    "avg_viewers":30886.5333333333,
-    "peak_viewers":51606,
-    "min_viewers":16274,
-    "avg_channels":98.2,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":1184,
-    "twitch_game_id":"27546",
-    "game_name":"World of Tanks",
-    "avg_viewers":17291.4666666667,
-    "peak_viewers":38673,
-    "min_viewers":6094,
-    "avg_channels":88.4,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":126459,
-    "twitch_game_id":"516575",
-    "game_name":"Valorant",
-    "avg_viewers":23027.2,
-    "peak_viewers":34311,
-    "min_viewers":10682,
-    "avg_channels":97.7333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":353848,
-    "twitch_game_id":"624536948",
-    "game_name":"EA Sports FC 26",
-    "avg_viewers":12365.6666666667,
-    "peak_viewers":32713,
-    "min_viewers":4658,
-    "avg_channels":96.2666666667,
-    "samples":15
+    "avg_channels":97.125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":123,
     "twitch_game_id":"18122",
     "game_name":"World of Warcraft",
-    "avg_viewers":18135.1333333333,
-    "peak_viewers":30780,
+    "avg_viewers":20336.125,
+    "peak_viewers":53351,
     "min_viewers":12191,
-    "avg_channels":98.1333333333,
-    "samples":15
+    "avg_channels":98.1875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":2963,
+    "twitch_game_id":"29595",
+    "game_name":"Dota 2",
+    "avg_viewers":31716.125,
+    "peak_viewers":51606,
+    "min_viewers":16274,
+    "avg_channels":98.0625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":353848,
+    "twitch_game_id":"624536948",
+    "game_name":"EA Sports FC 26",
+    "avg_viewers":14117.375,
+    "peak_viewers":40393,
+    "min_viewers":4658,
+    "avg_channels":96.5,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":1184,
+    "twitch_game_id":"27546",
+    "game_name":"World of Tanks",
+    "avg_viewers":18387.875,
+    "peak_viewers":38673,
+    "min_viewers":6094,
+    "avg_channels":88.9375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":126459,
+    "twitch_game_id":"516575",
+    "game_name":"Valorant",
+    "avg_viewers":23583.0,
+    "peak_viewers":34311,
+    "min_viewers":10682,
+    "avg_channels":97.875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":45517,
     "twitch_game_id":"29452",
     "game_name":"Virtual Casino",
-    "avg_viewers":14590.1333333333,
+    "avg_viewers":15199.5,
     "peak_viewers":24961,
     "min_viewers":10128,
-    "avg_channels":28.6666666667,
-    "samples":15
+    "avg_channels":29.875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":120176,
     "twitch_game_id":"513143",
     "game_name":"Teamfight Tactics",
-    "avg_viewers":16320.3333333333,
+    "avg_viewers":16340.4375,
     "peak_viewers":20715,
     "min_viewers":13158,
-    "avg_channels":98.3333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":114795,
-    "twitch_game_id":"511224",
-    "game_name":"Apex Legends",
-    "avg_viewers":11101.8,
-    "peak_viewers":18690,
-    "min_viewers":5334,
-    "avg_channels":98.1333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":18866,
-    "twitch_game_id":"491487",
-    "game_name":"Dead by Daylight",
-    "avg_viewers":10803.6666666667,
-    "peak_viewers":15867,
-    "min_viewers":5874,
-    "avg_channels":97.6666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":125174,
-    "twitch_game_id":"515025",
-    "game_name":"Overwatch 2",
-    "avg_viewers":11028.7333333333,
-    "peak_viewers":15664,
-    "min_viewers":8661,
-    "avg_channels":97.9333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":9165,
-    "twitch_game_id":"743",
-    "game_name":"Chess",
-    "avg_viewers":2793.6666666667,
-    "peak_viewers":11578,
-    "min_viewers":560,
-    "avg_channels":44.5333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":317407,
-    "twitch_game_id":"168648543",
-    "game_name":"Battlefield 6",
-    "avg_viewers":4422.6666666667,
-    "peak_viewers":11513,
-    "min_viewers":2115,
-    "avg_channels":97.9333333333,
-    "samples":15
+    "avg_channels":98.25,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1279,
     "twitch_game_id":"138585",
     "game_name":"Hearthstone",
-    "avg_viewers":7997.6,
-    "peak_viewers":11475,
+    "avg_viewers":8710.5625,
+    "peak_viewers":19405,
     "min_viewers":4049,
-    "avg_channels":83.6,
-    "samples":15
+    "avg_channels":84.625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":294041,
-    "twitch_game_id":"1264310518",
-    "game_name":"Marvel Rivals",
-    "avg_viewers":9021.2666666667,
-    "peak_viewers":11372,
-    "min_viewers":6100,
-    "avg_channels":97.2666666667,
-    "samples":15
+    "igdb_id":114795,
+    "twitch_game_id":"511224",
+    "game_name":"Apex Legends",
+    "avg_viewers":11488.875,
+    "peak_viewers":18690,
+    "min_viewers":5334,
+    "avg_channels":98.125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":79824,
-    "twitch_game_id":"459931",
-    "game_name":"Old School RuneScape",
-    "avg_viewers":6713.0666666667,
-    "peak_viewers":10215,
-    "min_viewers":3132,
-    "avg_channels":99.0,
-    "samples":15
+    "igdb_id":18866,
+    "twitch_game_id":"491487",
+    "game_name":"Dead by Daylight",
+    "avg_viewers":11187.625,
+    "peak_viewers":16947,
+    "min_viewers":5874,
+    "avg_channels":97.625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":125174,
+    "twitch_game_id":"515025",
+    "game_name":"Overwatch 2",
+    "avg_viewers":10945.75,
+    "peak_viewers":15664,
+    "min_viewers":8661,
+    "avg_channels":97.8125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":119177,
     "twitch_game_id":"512710",
     "game_name":"Call of Duty: Modern Warfare",
-    "avg_viewers":6520.7333333333,
-    "peak_viewers":9864,
+    "avg_viewers":7077.5625,
+    "peak_viewers":15430,
     "min_viewers":3768,
-    "avg_channels":96.9333333333,
-    "samples":15
+    "avg_channels":97.125,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":317407,
+    "twitch_game_id":"168648543",
+    "game_name":"Battlefield 6",
+    "avg_viewers":4972.6875,
+    "peak_viewers":13223,
+    "min_viewers":2115,
+    "avg_channels":98.0,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":9165,
+    "twitch_game_id":"743",
+    "game_name":"Chess",
+    "avg_viewers":2950.875,
+    "peak_viewers":11578,
+    "min_viewers":560,
+    "avg_channels":47.0,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":294041,
+    "twitch_game_id":"1264310518",
+    "game_name":"Marvel Rivals",
+    "avg_viewers":9144.125,
+    "peak_viewers":11372,
+    "min_viewers":6100,
+    "avg_channels":97.4375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":3277,
     "twitch_game_id":"263490",
     "game_name":"Rust",
-    "avg_viewers":4058.2666666667,
-    "peak_viewers":8338,
+    "avg_viewers":4494.0,
+    "peak_viewers":11030,
     "min_viewers":1871,
-    "avg_channels":98.1333333333,
-    "samples":15
+    "avg_channels":97.9375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":79824,
+    "twitch_game_id":"459931",
+    "game_name":"Old School RuneScape",
+    "avg_viewers":6973.75,
+    "peak_viewers":10884,
+    "min_viewers":3132,
+    "avg_channels":99.0625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":314252,
     "twitch_game_id":"1749963163",
     "game_name":"Dying Light: The Beast",
-    "avg_viewers":1936.4666666667,
+    "avg_viewers":1841.8125,
     "peak_viewers":8055,
     "min_viewers":65,
-    "avg_channels":55.0,
-    "samples":15
+    "avg_channels":57.3125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":71001,
     "twitch_game_id":"498592",
     "game_name":"I'm Only Sleeping",
-    "avg_viewers":5633.6,
+    "avg_viewers":5488.1875,
     "peak_viewers":7769,
-    "min_viewers":3373,
-    "avg_channels":99.6666666667,
-    "samples":15
+    "min_viewers":3307,
+    "avg_channels":99.6875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":19698,
     "twitch_game_id":"417528",
     "game_name":"Albion Online",
-    "avg_viewers":5107.2666666667,
+    "avg_viewers":5194.4375,
     "peak_viewers":7497,
     "min_viewers":2186,
-    "avg_channels":81.6,
-    "samples":15
+    "avg_channels":82.75,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":6292,
     "twitch_game_id":"386821",
     "game_name":"Black Desert",
-    "avg_viewers":3717.3333333333,
+    "avg_viewers":3792.0625,
     "peak_viewers":7044,
     "min_viewers":1483,
-    "avg_channels":96.9333333333,
-    "samples":15
+    "avg_channels":97.125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":151665,
     "twitch_game_id":"1036710512",
     "game_name":"Palworld",
-    "avg_viewers":1155.6,
+    "avg_viewers":1117.3125,
     "peak_viewers":6530,
     "min_viewers":127,
-    "avg_channels":64.5333333333,
-    "samples":15
+    "avg_channels":66.5625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":9596,
     "twitch_game_id":"19619",
     "game_name":"Tibia",
-    "avg_viewers":3884.0,
-    "peak_viewers":6217,
+    "avg_viewers":4041.375,
+    "peak_viewers":6402,
     "min_viewers":1386,
-    "avg_channels":98.6,
-    "samples":15
+    "avg_channels":98.6875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1074,
     "twitch_game_id":"2692",
     "game_name":"Super Mario 64",
-    "avg_viewers":761.1333333333,
+    "avg_viewers":750.9375,
     "peak_viewers":6065,
     "min_viewers":120,
-    "avg_channels":22.6666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":298915,
-    "twitch_game_id":"401587136",
-    "game_name":"Arena Breakout: Infinite",
-    "avg_viewers":3421.1333333333,
-    "peak_viewers":5677,
-    "min_viewers":1844,
-    "avg_channels":99.4666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":115289,
-    "twitch_game_id":"511391",
-    "game_name":"Hollow Knight: Silksong",
-    "avg_viewers":2040.3333333333,
-    "peak_viewers":5647,
-    "min_viewers":698,
-    "avg_channels":96.9333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":262529,
-    "twitch_game_id":"1936054038",
-    "game_name":"Little Nightmares III",
-    "avg_viewers":527.2666666667,
-    "peak_viewers":5322,
-    "min_viewers":23,
-    "avg_channels":18.7333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":288327,
-    "twitch_game_id":"997367275",
-    "game_name":"Pok\u00e9mon Legends: Z-A",
-    "avg_viewers":2376.4666666667,
-    "peak_viewers":5229,
-    "min_viewers":972,
-    "avg_channels":99.8,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":327405,
-    "twitch_game_id":"98473926",
-    "game_name":"Megabonk",
-    "avg_viewers":1467.3333333333,
-    "peak_viewers":5153,
-    "min_viewers":525,
-    "avg_channels":69.5333333333,
-    "samples":15
+    "avg_channels":23.5625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1911,
     "twitch_game_id":"29307",
     "game_name":"Path of Exile",
-    "avg_viewers":2825.3333333333,
-    "peak_viewers":5128,
+    "avg_viewers":3025.0,
+    "peak_viewers":6020,
     "min_viewers":1383,
-    "avg_channels":97.7333333333,
-    "samples":15
+    "avg_channels":97.875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":298915,
+    "twitch_game_id":"401587136",
+    "game_name":"Arena Breakout: Infinite",
+    "avg_viewers":3535.25,
+    "peak_viewers":5677,
+    "min_viewers":1844,
+    "avg_channels":99.5,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":115289,
+    "twitch_game_id":"511391",
+    "game_name":"Hollow Knight: Silksong",
+    "avg_viewers":2203.5,
+    "peak_viewers":5647,
+    "min_viewers":698,
+    "avg_channels":97.125,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":262529,
+    "twitch_game_id":"1936054038",
+    "game_name":"Little Nightmares III",
+    "avg_viewers":748.1875,
+    "peak_viewers":5322,
+    "min_viewers":23,
+    "avg_channels":19.5,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":288327,
+    "twitch_game_id":"997367275",
+    "game_name":"Pok\u00e9mon Legends: Z-A",
+    "avg_viewers":2530.9375,
+    "peak_viewers":5229,
+    "min_viewers":972,
+    "avg_channels":99.6875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":327405,
+    "twitch_game_id":"98473926",
+    "game_name":"Megabonk",
+    "avg_viewers":1450.25,
+    "peak_viewers":5153,
+    "min_viewers":525,
+    "avg_channels":71.375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":472,
     "twitch_game_id":"30028",
     "game_name":"The Elder Scrolls V: Skyrim",
-    "avg_viewers":1044.8,
+    "avg_viewers":997.1875,
     "peak_viewers":5096,
     "min_viewers":114,
-    "avg_channels":76.1333333333,
-    "samples":15
+    "avg_channels":77.5,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":228525,
     "twitch_game_id":"376500771",
     "game_name":"Hades II",
-    "avg_viewers":1064.0666666667,
+    "avg_viewers":1037.4375,
     "peak_viewers":4631,
     "min_viewers":208,
-    "avg_channels":44.4,
-    "samples":15
+    "avg_channels":46.9375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":262186,
     "twitch_game_id":"1282866981",
     "game_name":"Delta Force",
-    "avg_viewers":3158.9333333333,
+    "avg_viewers":3164.9375,
     "peak_viewers":4478,
     "min_viewers":1901,
-    "avg_channels":99.4666666667,
-    "samples":15
+    "avg_channels":99.4375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":119277,
     "twitch_game_id":"513181",
     "game_name":"Genshin Impact",
-    "avg_viewers":2589.2,
-    "peak_viewers":4277,
+    "avg_viewers":2698.6875,
+    "peak_viewers":4341,
     "min_viewers":1200,
-    "avg_channels":99.1333333333,
-    "samples":15
+    "avg_channels":99.1875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":316987,
     "twitch_game_id":"2115231542",
     "game_name":"No, I'm Not A Human",
-    "avg_viewers":729.4,
+    "avg_viewers":690.0,
     "peak_viewers":3503,
     "min_viewers":0,
-    "avg_channels":8.0,
-    "samples":15
+    "avg_channels":8.1875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":233,
     "twitch_game_id":"1420",
     "game_name":"Half-Life 2",
-    "avg_viewers":420.5333333333,
+    "avg_viewers":398.625,
     "peak_viewers":3193,
     "min_viewers":8,
-    "avg_channels":8.3333333333,
-    "samples":15
+    "avg_channels":8.4375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":25076,
     "twitch_game_id":"493959",
     "game_name":"Red Dead Redemption 2",
-    "avg_viewers":1447.0,
+    "avg_viewers":1534.4375,
     "peak_viewers":3107,
     "min_viewers":947,
-    "avg_channels":96.7333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":16,
-    "twitch_game_id":"23453",
-    "game_name":"Fallout: New Vegas",
-    "avg_viewers":986.4666666667,
-    "peak_viewers":2569,
-    "min_viewers":59,
-    "avg_channels":28.7333333333,
-    "samples":15
+    "avg_channels":96.9375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":7291,
     "twitch_game_id":"500188",
     "game_name":"Hunt: Showdown 1896",
-    "avg_viewers":1578.6666666667,
-    "peak_viewers":2552,
+    "avg_viewers":1670.6875,
+    "peak_viewers":3051,
     "min_viewers":1135,
-    "avg_channels":94.2,
-    "samples":15
+    "avg_channels":94.5,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":16,
+    "twitch_game_id":"23453",
+    "game_name":"Fallout: New Vegas",
+    "avg_viewers":958.1875,
+    "peak_viewers":2569,
+    "min_viewers":59,
+    "avg_channels":29.4375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":14593,
     "twitch_game_id":"490147",
     "game_name":"Hollow Knight",
-    "avg_viewers":985.2666666667,
+    "avg_viewers":992.9375,
     "peak_viewers":2356,
     "min_viewers":179,
-    "avg_channels":79.4666666667,
-    "samples":15
+    "avg_channels":80.375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1942,
     "twitch_game_id":"115977",
     "game_name":"The Witcher 3: Wild Hunt",
-    "avg_viewers":892.4666666667,
+    "avg_viewers":901.125,
     "peak_viewers":2276,
     "min_viewers":141,
-    "avg_channels":63.8666666667,
-    "samples":15
+    "avg_channels":65.625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":373580,
     "twitch_game_id":"1517377137",
     "game_name":"RV There Yet?",
-    "avg_viewers":1145.6666666667,
+    "avg_viewers":1151.75,
     "peak_viewers":2135,
     "min_viewers":108,
-    "avg_channels":55.6,
-    "samples":15
+    "avg_channels":58.25,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1029,
     "twitch_game_id":"11557",
     "game_name":"The Legend of Zelda: Ocarina of Time",
-    "avg_viewers":1063.6666666667,
+    "avg_viewers":1036.25,
     "peak_viewers":1943,
     "min_viewers":238,
-    "avg_channels":30.4666666667,
-    "samples":15
+    "avg_channels":30.75,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":339985,
     "twitch_game_id":"114524791",
     "game_name":"Shadowverse: Worlds Beyond",
-    "avg_viewers":620.7333333333,
+    "avg_viewers":598.4375,
     "peak_viewers":1665,
-    "min_viewers":274,
-    "avg_channels":27.1333333333,
-    "samples":15
+    "min_viewers":264,
+    "avg_channels":26.4375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":331188,
     "twitch_game_id":"197489698",
     "game_name":"Digimon Story: Time Stranger",
-    "avg_viewers":474.0666666667,
+    "avg_viewers":466.5,
     "peak_viewers":1547,
     "min_viewers":77,
-    "avg_channels":46.2666666667,
-    "samples":15
+    "avg_channels":47.1875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":7334,
     "twitch_game_id":"460636",
     "game_name":"Bloodborne",
-    "avg_viewers":481.3333333333,
+    "avg_viewers":476.1875,
     "peak_viewers":1391,
     "min_viewers":109,
-    "avg_channels":30.5333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":72,
-    "twitch_game_id":"19731",
-    "game_name":"Portal 2",
-    "avg_viewers":262.7333333333,
-    "peak_viewers":1302,
-    "min_viewers":7,
-    "avg_channels":6.4666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":222343,
-    "twitch_game_id":"848400095",
-    "game_name":"Silent Hill f",
-    "avg_viewers":525.5333333333,
-    "peak_viewers":1232,
-    "min_viewers":146,
-    "avg_channels":58.6,
-    "samples":15
+    "avg_channels":31.875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1070,
     "twitch_game_id":"1229",
     "game_name":"Super Mario World",
-    "avg_viewers":598.3333333333,
-    "peak_viewers":1123,
+    "avg_viewers":645.625,
+    "peak_viewers":1355,
     "min_viewers":377,
-    "avg_channels":21.2,
-    "samples":15
+    "avg_channels":21.25,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":72,
+    "twitch_game_id":"19731",
+    "game_name":"Portal 2",
+    "avg_viewers":282.75,
+    "peak_viewers":1302,
+    "min_viewers":7,
+    "avg_channels":6.625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":222343,
+    "twitch_game_id":"848400095",
+    "game_name":"Silent Hill f",
+    "avg_viewers":536.1875,
+    "peak_viewers":1232,
+    "min_viewers":146,
+    "avg_channels":59.375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":7331,
     "twitch_game_id":"458641",
     "game_name":"Uncharted 4: A Thief's End",
-    "avg_viewers":344.9333333333,
+    "avg_viewers":326.75,
     "peak_viewers":1055,
     "min_viewers":3,
-    "avg_channels":7.2,
-    "samples":15
+    "avg_channels":7.8125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":341687,
     "twitch_game_id":"266795834",
     "game_name":"Blue Protocol: Star Resonance",
-    "avg_viewers":540.4,
+    "avg_viewers":554.75,
     "peak_viewers":979,
     "min_viewers":157,
-    "avg_channels":33.4,
-    "samples":15
+    "avg_channels":33.3125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":329309,
     "twitch_game_id":"1127193950",
     "game_name":"Escape from Duckov",
-    "avg_viewers":422.3333333333,
+    "avg_viewers":420.125,
     "peak_viewers":977,
     "min_viewers":132,
-    "avg_channels":42.2666666667,
-    "samples":15
+    "avg_channels":42.3125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":317627,
     "twitch_game_id":"362339131",
     "game_name":"Ghost of Yotei",
-    "avg_viewers":388.9333333333,
-    "peak_viewers":924,
+    "avg_viewers":423.875,
+    "peak_viewers":948,
     "min_viewers":117,
-    "avg_channels":85.2666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":325608,
-    "twitch_game_id":"1135492840",
-    "game_name":"Sonic Racing: CrossWorlds",
-    "avg_viewers":169.0,
-    "peak_viewers":881,
-    "min_viewers":40,
-    "avg_channels":24.8,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":330379,
-    "twitch_game_id":"177579460",
-    "game_name":"Fellowship",
-    "avg_viewers":517.4,
-    "peak_viewers":838,
-    "min_viewers":218,
-    "avg_channels":18.8,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":368744,
-    "twitch_game_id":"889298168",
-    "game_name":"Legend of Ymir",
-    "avg_viewers":589.2666666667,
-    "peak_viewers":837,
-    "min_viewers":304,
-    "avg_channels":40.8666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":250634,
-    "twitch_game_id":"957620847",
-    "game_name":"Metal Gear Solid Delta: Snake Eater",
-    "avg_viewers":296.3333333333,
-    "peak_viewers":658,
-    "min_viewers":134,
-    "avg_channels":13.4,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":273120,
-    "twitch_game_id":"763313082",
-    "game_name":"Duet Night Abyss",
-    "avg_viewers":344.0666666667,
-    "peak_viewers":635,
-    "min_viewers":82,
-    "avg_channels":26.4,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":1103,
-    "twitch_game_id":"7595",
-    "game_name":"Super Metroid",
-    "avg_viewers":248.8,
-    "peak_viewers":634,
-    "min_viewers":34,
-    "avg_channels":11.2,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":314178,
-    "twitch_game_id":"801541637",
-    "game_name":"Dragon Ball Gekishin Squadra",
-    "avg_viewers":305.6666666667,
-    "peak_viewers":624,
-    "min_viewers":202,
-    "avg_channels":32.2666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":891,
-    "twitch_game_id":"16676",
-    "game_name":"Team Fortress 2",
-    "avg_viewers":183.4,
-    "peak_viewers":601,
-    "min_viewers":29,
-    "avg_channels":20.2,
-    "samples":15
+    "avg_channels":86.125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":52826,
     "twitch_game_id":"1421097847",
     "game_name":"Skate.",
-    "avg_viewers":314.2,
-    "peak_viewers":577,
+    "avg_viewers":350.0625,
+    "peak_viewers":888,
     "min_viewers":89,
-    "avg_channels":30.8,
-    "samples":15
+    "avg_channels":35.125,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":325608,
+    "twitch_game_id":"1135492840",
+    "game_name":"Sonic Racing: CrossWorlds",
+    "avg_viewers":164.5625,
+    "peak_viewers":881,
+    "min_viewers":40,
+    "avg_channels":24.9375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":330379,
+    "twitch_game_id":"177579460",
+    "game_name":"Fellowship",
+    "avg_viewers":532.125,
+    "peak_viewers":838,
+    "min_viewers":218,
+    "avg_channels":20.0625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":368744,
+    "twitch_game_id":"889298168",
+    "game_name":"Legend of Ymir",
+    "avg_viewers":586.4375,
+    "peak_viewers":837,
+    "min_viewers":304,
+    "avg_channels":41.875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":250634,
+    "twitch_game_id":"957620847",
+    "game_name":"Metal Gear Solid Delta: Snake Eater",
+    "avg_viewers":324.375,
+    "peak_viewers":745,
+    "min_viewers":134,
+    "avg_channels":13.4375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":273120,
+    "twitch_game_id":"763313082",
+    "game_name":"Duet Night Abyss",
+    "avg_viewers":330.9375,
+    "peak_viewers":635,
+    "min_viewers":82,
+    "avg_channels":26.4375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":1103,
+    "twitch_game_id":"7595",
+    "game_name":"Super Metroid",
+    "avg_viewers":253.375,
+    "peak_viewers":634,
+    "min_viewers":34,
+    "avg_channels":11.1875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":314178,
+    "twitch_game_id":"801541637",
+    "game_name":"Dragon Ball Gekishin Squadra",
+    "avg_viewers":309.4375,
+    "peak_viewers":624,
+    "min_viewers":202,
+    "avg_channels":32.4375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":891,
+    "twitch_game_id":"16676",
+    "game_name":"Team Fortress 2",
+    "avg_viewers":188.3125,
+    "peak_viewers":601,
+    "min_viewers":29,
+    "avg_channels":21.3125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":7346,
     "twitch_game_id":"110758",
     "game_name":"The Legend of Zelda: Breath of the Wild",
-    "avg_viewers":235.7333333333,
+    "avg_viewers":244.1875,
     "peak_viewers":543,
     "min_viewers":45,
-    "avg_channels":21.4,
-    "samples":15
+    "avg_channels":21.875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":19560,
     "twitch_game_id":"6369",
     "game_name":"God of War",
-    "avg_viewers":231.5333333333,
+    "avg_viewers":239.9375,
     "peak_viewers":474,
     "min_viewers":56,
-    "avg_channels":43.8,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":314246,
-    "twitch_game_id":"1846512643",
-    "game_name":"Borderlands 4",
-    "avg_viewers":188.2,
-    "peak_viewers":450,
-    "min_viewers":65,
-    "avg_channels":33.8666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":731,
-    "twitch_game_id":"18707",
-    "game_name":"Grand Theft Auto IV",
-    "avg_viewers":206.2666666667,
-    "peak_viewers":450,
-    "min_viewers":34,
-    "avg_channels":18.0666666667,
-    "samples":15
+    "avg_channels":45.875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":434,
     "twitch_game_id":"22848",
     "game_name":"Red Dead Redemption",
-    "avg_viewers":178.8,
-    "peak_viewers":435,
+    "avg_viewers":196.125,
+    "peak_viewers":456,
     "min_viewers":86,
-    "avg_channels":52.3333333333,
-    "samples":15
+    "avg_channels":55.3125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":1077,
-    "twitch_game_id":"14766",
-    "game_name":"Super Mario Galaxy",
-    "avg_viewers":91.2,
-    "peak_viewers":368,
-    "min_viewers":0,
-    "avg_channels":3.6,
-    "samples":15
+    "igdb_id":314246,
+    "twitch_game_id":"1846512643",
+    "game_name":"Borderlands 4",
+    "avg_viewers":187.6875,
+    "peak_viewers":450,
+    "min_viewers":65,
+    "avg_channels":34.4375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":731,
+    "twitch_game_id":"18707",
+    "game_name":"Grand Theft Auto IV",
+    "avg_viewers":208.6875,
+    "peak_viewers":450,
+    "min_viewers":34,
+    "avg_channels":18.1875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1026,
     "twitch_game_id":"9435",
     "game_name":"The Legend of Zelda: A Link to the Past",
-    "avg_viewers":147.7333333333,
-    "peak_viewers":353,
+    "avg_viewers":166.125,
+    "peak_viewers":442,
     "min_viewers":33,
-    "avg_channels":17.8666666667,
-    "samples":15
+    "avg_channels":18.125,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":1077,
+    "twitch_game_id":"14766",
+    "game_name":"Super Mario Galaxy",
+    "avg_viewers":108.5625,
+    "peak_viewers":369,
+    "min_viewers":0,
+    "avg_channels":3.5625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":152246,
     "twitch_game_id":"394801804",
     "game_name":"The Outer Worlds 2",
-    "avg_viewers":157.6666666667,
+    "avg_viewers":158.125,
     "peak_viewers":350,
     "min_viewers":39,
-    "avg_channels":34.9333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":128,
-    "twitch_game_id":"2711",
-    "game_name":"Assassin's Creed",
-    "avg_viewers":89.2666666667,
-    "peak_viewers":334,
-    "min_viewers":0,
-    "avg_channels":2.4666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":1627,
-    "twitch_game_id":"16282",
-    "game_name":"Super Smash Bros. Melee",
-    "avg_viewers":114.4,
-    "peak_viewers":277,
-    "min_viewers":21,
-    "avg_channels":14.2,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":24654,
-    "twitch_game_id":"493597",
-    "game_name":"New World: Aeternum",
-    "avg_viewers":114.6,
-    "peak_viewers":253,
-    "min_viewers":30,
-    "avg_channels":14.3333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":529,
-    "twitch_game_id":"29635",
-    "game_name":"Far Cry 3",
-    "avg_viewers":103.0666666667,
-    "peak_viewers":251,
-    "min_viewers":6,
-    "avg_channels":6.0,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":197202,
-    "twitch_game_id":"2066107586",
-    "game_name":"Escape the Backrooms",
-    "avg_viewers":81.4,
-    "peak_viewers":216,
-    "min_viewers":6,
-    "avg_channels":14.9333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":152243,
-    "twitch_game_id":"1378799411",
-    "game_name":"Slime Rancher 2",
-    "avg_viewers":73.1333333333,
-    "peak_viewers":202,
-    "min_viewers":9,
-    "avg_channels":8.7333333333,
-    "samples":15
+    "avg_channels":35.5625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1871,
     "twitch_game_id":"30740",
     "game_name":"The Walking Dead",
-    "avg_viewers":113.4,
-    "peak_viewers":199,
+    "avg_viewers":127.5,
+    "peak_viewers":339,
     "min_viewers":46,
-    "avg_channels":17.2,
-    "samples":15
+    "avg_channels":18.0,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":320137,
-    "twitch_game_id":"1112609075",
-    "game_name":"Cronos: The New Dawn",
-    "avg_viewers":45.6666666667,
-    "peak_viewers":198,
-    "min_viewers":3,
-    "avg_channels":6.0666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":15,
-    "twitch_game_id":"18763",
-    "game_name":"Fallout 3",
-    "avg_viewers":66.4,
-    "peak_viewers":167,
-    "min_viewers":4,
-    "avg_channels":12.3333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":12517,
-    "twitch_game_id":"490713",
-    "game_name":"Undertale",
-    "avg_viewers":81.3333333333,
-    "peak_viewers":163,
-    "min_viewers":28,
-    "avg_channels":15.2,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":74,
-    "twitch_game_id":"19676",
-    "game_name":"Mass Effect 2",
-    "avg_viewers":10.6,
-    "peak_viewers":157,
+    "igdb_id":128,
+    "twitch_game_id":"2711",
+    "game_name":"Assassin's Creed",
+    "avg_viewers":83.9375,
+    "peak_viewers":334,
     "min_viewers":0,
-    "avg_channels":0.2,
-    "samples":15
+    "avg_channels":2.5,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":1627,
+    "twitch_game_id":"16282",
+    "game_name":"Super Smash Bros. Melee",
+    "avg_viewers":109.0625,
+    "peak_viewers":277,
+    "min_viewers":21,
+    "avg_channels":13.9375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":24654,
+    "twitch_game_id":"493597",
+    "game_name":"New World: Aeternum",
+    "avg_viewers":114.875,
+    "peak_viewers":253,
+    "min_viewers":30,
+    "avg_channels":14.5625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":529,
+    "twitch_game_id":"29635",
+    "game_name":"Far Cry 3",
+    "avg_viewers":99.4375,
+    "peak_viewers":251,
+    "min_viewers":6,
+    "avg_channels":6.5,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":197202,
+    "twitch_game_id":"2066107586",
+    "game_name":"Escape the Backrooms",
+    "avg_viewers":82.75,
+    "peak_viewers":216,
+    "min_viewers":6,
+    "avg_channels":15.5625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":231,
     "twitch_game_id":"2755",
     "game_name":"Half-Life",
-    "avg_viewers":64.8,
-    "peak_viewers":155,
+    "avg_viewers":74.0,
+    "peak_viewers":212,
     "min_viewers":18,
-    "avg_channels":4.8,
-    "samples":15
+    "avg_channels":5.0,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":152243,
+    "twitch_game_id":"1378799411",
+    "game_name":"Slime Rancher 2",
+    "avg_viewers":75.3125,
+    "peak_viewers":202,
+    "min_viewers":9,
+    "avg_channels":8.75,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":320137,
+    "twitch_game_id":"1112609075",
+    "game_name":"Cronos: The New Dawn",
+    "avg_viewers":46.5625,
+    "peak_viewers":198,
+    "min_viewers":3,
+    "avg_channels":6.5,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":15,
+    "twitch_game_id":"18763",
+    "game_name":"Fallout 3",
+    "avg_viewers":66.1875,
+    "peak_viewers":167,
+    "min_viewers":4,
+    "avg_channels":12.9375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":12517,
+    "twitch_game_id":"490713",
+    "game_name":"Undertale",
+    "avg_viewers":86.0,
+    "peak_viewers":163,
+    "min_viewers":28,
+    "avg_channels":15.4375,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":74,
+    "twitch_game_id":"19676",
+    "game_name":"Mass Effect 2",
+    "avg_viewers":9.9375,
+    "peak_viewers":157,
+    "min_viewers":0,
+    "avg_channels":0.1875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":623,
     "twitch_game_id":"1964",
     "game_name":"Call of Duty 4: Modern Warfare",
-    "avg_viewers":10.0,
+    "avg_viewers":9.875,
     "peak_viewers":126,
     "min_viewers":0,
-    "avg_channels":0.8666666667,
-    "samples":15
+    "avg_channels":0.9375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":733,
     "twitch_game_id":"15631",
     "game_name":"Grand Theft Auto: Vice City",
-    "avg_viewers":27.6,
+    "avg_viewers":28.5625,
     "peak_viewers":121,
     "min_viewers":1,
-    "avg_channels":2.8,
-    "samples":15
+    "avg_channels":2.9375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":7351,
     "twitch_game_id":"6715",
     "game_name":"Doom",
-    "avg_viewers":25.3333333333,
+    "avg_viewers":24.5,
     "peak_viewers":111,
     "min_viewers":0,
-    "avg_channels":3.5333333333,
-    "samples":15
+    "avg_channels":3.5,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1011,
     "twitch_game_id":"32345",
     "game_name":"Borderlands 2",
-    "avg_viewers":26.8,
+    "avg_viewers":27.75,
     "peak_viewers":103,
     "min_viewers":2,
-    "avg_channels":7.6666666667,
-    "samples":15
+    "avg_channels":8.125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":19565,
     "twitch_game_id":"505371",
     "game_name":"Marvel's Spider-Man",
-    "avg_viewers":41.2666666667,
+    "avg_viewers":41.0,
     "peak_viewers":95,
     "min_viewers":14,
-    "avg_channels":13.3333333333,
-    "samples":15
+    "avg_channels":13.5,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":165386,
     "twitch_game_id":"1329991202",
     "game_name":"Outbreak Island",
-    "avg_viewers":19.8,
-    "peak_viewers":86,
+    "avg_viewers":24.375,
+    "peak_viewers":93,
     "min_viewers":0,
-    "avg_channels":0.6666666667,
-    "samples":15
+    "avg_channels":0.875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":11156,
     "twitch_game_id":"490374",
     "game_name":"Horizon Zero Dawn",
-    "avg_viewers":29.3333333333,
-    "peak_viewers":84,
+    "avg_viewers":32.9375,
+    "peak_viewers":87,
     "min_viewers":9,
-    "avg_channels":10.3333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":500,
-    "twitch_game_id":"21101",
-    "game_name":"Batman: Arkham Asylum",
-    "avg_viewers":21.9333333333,
-    "peak_viewers":75,
-    "min_viewers":2,
-    "avg_channels":4.6,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":1164,
-    "twitch_game_id":"2770",
-    "game_name":"Tomb Raider",
-    "avg_viewers":23.0,
-    "peak_viewers":73,
-    "min_viewers":3,
-    "avg_channels":3.5333333333,
-    "samples":15
+    "avg_channels":10.8125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1009,
     "twitch_game_id":"33180",
     "game_name":"The Last of Us",
-    "avg_viewers":24.9333333333,
-    "peak_viewers":70,
+    "avg_viewers":28.8125,
+    "peak_viewers":87,
     "min_viewers":3,
-    "avg_channels":11.0,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":71,
-    "twitch_game_id":"6187",
-    "game_name":"Portal",
-    "avg_viewers":8.9333333333,
-    "peak_viewers":65,
-    "min_viewers":0,
-    "avg_channels":1.0666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":501,
-    "twitch_game_id":"26559",
-    "game_name":"Batman: Arkham City",
-    "avg_viewers":23.3333333333,
-    "peak_viewers":63,
-    "min_viewers":2,
-    "avg_channels":4.5333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":142688,
-    "twitch_game_id":"105169862",
-    "game_name":"Farthest Frontier",
-    "avg_viewers":15.7333333333,
-    "peak_viewers":62,
-    "min_viewers":2,
-    "avg_channels":3.0,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":533,
-    "twitch_game_id":"32156",
-    "game_name":"Dishonored",
-    "avg_viewers":18.3333333333,
-    "peak_viewers":57,
-    "min_viewers":1,
-    "avg_channels":3.8,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":1600,
-    "twitch_game_id":"11895",
-    "game_name":"Gran Turismo 3: A-Spec",
-    "avg_viewers":5.2,
-    "peak_viewers":45,
-    "min_viewers":0,
-    "avg_channels":0.6,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":565,
-    "twitch_game_id":"20357",
-    "game_name":"Uncharted 2: Among Thieves",
-    "avg_viewers":4.1333333333,
-    "peak_viewers":45,
-    "min_viewers":0,
-    "avg_channels":0.6666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":240556,
-    "twitch_game_id":"1952699919",
-    "game_name":"Deep Rock Galactic: Survivor",
-    "avg_viewers":17.4666666667,
-    "peak_viewers":43,
-    "min_viewers":1,
-    "avg_channels":5.0666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":196954,
-    "twitch_game_id":"119464928",
-    "game_name":"Hell is Us",
-    "avg_viewers":11.2666666667,
-    "peak_viewers":34,
-    "min_viewers":1,
-    "avg_channels":4.5333333333,
-    "samples":15
+    "avg_channels":11.5625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":127,
     "twitch_game_id":"20810",
     "game_name":"Assassin's Creed II",
-    "avg_viewers":5.4666666667,
-    "peak_viewers":28,
+    "avg_viewers":10.0625,
+    "peak_viewers":79,
     "min_viewers":0,
-    "avg_channels":1.9333333333,
-    "samples":15
+    "avg_channels":2.125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":202463,
-    "twitch_game_id":"855139363",
-    "game_name":"Simon the Sorcerer Origins",
-    "avg_viewers":8.1333333333,
-    "peak_viewers":25,
-    "min_viewers":0,
-    "avg_channels":0.8,
-    "samples":15
+    "igdb_id":500,
+    "twitch_game_id":"21101",
+    "game_name":"Batman: Arkham Asylum",
+    "avg_viewers":24.8125,
+    "peak_viewers":75,
+    "min_viewers":2,
+    "avg_channels":5.125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":73,
-    "twitch_game_id":"15510",
-    "game_name":"Mass Effect",
-    "avg_viewers":5.4,
-    "peak_viewers":25,
-    "min_viewers":0,
-    "avg_channels":0.6666666667,
-    "samples":15
+    "igdb_id":1164,
+    "twitch_game_id":"2770",
+    "game_name":"Tomb Raider",
+    "avg_viewers":25.875,
+    "peak_viewers":73,
+    "min_viewers":3,
+    "avg_channels":3.5625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":20,
-    "twitch_game_id":"15866",
-    "game_name":"BioShock",
-    "avg_viewers":9.5333333333,
-    "peak_viewers":25,
-    "min_viewers":0,
-    "avg_channels":2.4,
-    "samples":15
+    "igdb_id":533,
+    "twitch_game_id":"32156",
+    "game_name":"Dishonored",
+    "avg_viewers":21.4375,
+    "peak_viewers":68,
+    "min_viewers":1,
+    "avg_channels":4.0,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":157379,
-    "twitch_game_id":"2137743085",
-    "game_name":"Silly Polly Beast",
-    "avg_viewers":6.2,
-    "peak_viewers":23,
+    "igdb_id":71,
+    "twitch_game_id":"6187",
+    "game_name":"Portal",
+    "avg_viewers":8.5,
+    "peak_viewers":65,
     "min_viewers":0,
-    "avg_channels":1.6,
-    "samples":15
+    "avg_channels":1.125,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":279630,
-    "twitch_game_id":"840833296",
-    "game_name":"Shinobi: Art of Vengeance",
-    "avg_viewers":5.2,
-    "peak_viewers":23,
+    "igdb_id":501,
+    "twitch_game_id":"26559",
+    "game_name":"Batman: Arkham City",
+    "avg_viewers":22.875,
+    "peak_viewers":63,
+    "min_viewers":2,
+    "avg_channels":4.75,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":142688,
+    "twitch_game_id":"105169862",
+    "game_name":"Farthest Frontier",
+    "avg_viewers":14.9375,
+    "peak_viewers":62,
+    "min_viewers":2,
+    "avg_channels":2.875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":1600,
+    "twitch_game_id":"11895",
+    "game_name":"Gran Turismo 3: A-Spec",
+    "avg_viewers":4.875,
+    "peak_viewers":45,
     "min_viewers":0,
-    "avg_channels":2.5333333333,
-    "samples":15
+    "avg_channels":0.5625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":565,
+    "twitch_game_id":"20357",
+    "game_name":"Uncharted 2: Among Thieves",
+    "avg_viewers":3.9375,
+    "peak_viewers":45,
+    "min_viewers":0,
+    "avg_channels":0.6875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":240556,
+    "twitch_game_id":"1952699919",
+    "game_name":"Deep Rock Galactic: Survivor",
+    "avg_viewers":17.375,
+    "peak_viewers":43,
+    "min_viewers":1,
+    "avg_channels":5.1875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":196954,
+    "twitch_game_id":"119464928",
+    "game_name":"Hell is Us",
+    "avg_viewers":10.8125,
+    "peak_viewers":34,
+    "min_viewers":1,
+    "avg_channels":4.5,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":538,
     "twitch_game_id":"29099",
     "game_name":"BioShock Infinite",
-    "avg_viewers":6.5333333333,
-    "peak_viewers":21,
+    "avg_viewers":8.1875,
+    "peak_viewers":33,
     "min_viewers":0,
-    "avg_channels":1.8666666667,
-    "samples":15
+    "avg_channels":2.1875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":73,
+    "twitch_game_id":"15510",
+    "game_name":"Mass Effect",
+    "avg_viewers":6.5625,
+    "peak_viewers":25,
+    "min_viewers":0,
+    "avg_channels":0.75,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":202463,
+    "twitch_game_id":"855139363",
+    "game_name":"Simon the Sorcerer Origins",
+    "avg_viewers":7.8125,
+    "peak_viewers":25,
+    "min_viewers":0,
+    "avg_channels":0.8125,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":20,
+    "twitch_game_id":"15866",
+    "game_name":"BioShock",
+    "avg_viewers":9.9375,
+    "peak_viewers":25,
+    "min_viewers":0,
+    "avg_channels":2.625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":157379,
+    "twitch_game_id":"2137743085",
+    "game_name":"Silly Polly Beast",
+    "avg_viewers":6.875,
+    "peak_viewers":23,
+    "min_viewers":0,
+    "avg_channels":1.6875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":279630,
+    "twitch_game_id":"840833296",
+    "game_name":"Shinobi: Art of Vengeance",
+    "avg_viewers":5.25,
+    "peak_viewers":23,
+    "min_viewers":0,
+    "avg_channels":2.75,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1073,
     "twitch_game_id":"2635",
     "game_name":"Super Mario World 2: Yoshi's Island",
-    "avg_viewers":5.1333333333,
+    "avg_viewers":4.8125,
     "peak_viewers":21,
     "min_viewers":0,
-    "avg_channels":1.0,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":75,
-    "twitch_game_id":"26992",
-    "game_name":"Mass Effect 3",
-    "avg_viewers":6.0666666667,
-    "peak_viewers":18,
-    "min_viewers":0,
-    "avg_channels":1.1333333333,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":426,
-    "twitch_game_id":"5815",
-    "game_name":"Final Fantasy III",
-    "avg_viewers":6.4,
-    "peak_viewers":17,
-    "min_viewers":0,
-    "avg_channels":1.8,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":492,
-    "twitch_game_id":"27596",
-    "game_name":"Gears of War 3",
-    "avg_viewers":3.7333333333,
-    "peak_viewers":16,
-    "min_viewers":0,
-    "avg_channels":1.6666666667,
-    "samples":15
+    "avg_channels":0.9375,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":272,
     "twitch_game_id":"1780220882",
     "game_name":"Unreal Tournament",
-    "avg_viewers":9.6666666667,
-    "peak_viewers":15,
+    "avg_viewers":10.25,
+    "peak_viewers":19,
     "min_viewers":6,
-    "avg_channels":3.5333333333,
-    "samples":15
+    "avg_channels":3.5625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":75,
+    "twitch_game_id":"26992",
+    "game_name":"Mass Effect 3",
+    "avg_viewers":5.6875,
+    "peak_viewers":18,
+    "min_viewers":0,
+    "avg_channels":1.0625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":426,
+    "twitch_game_id":"5815",
+    "game_name":"Final Fantasy III",
+    "avg_viewers":6.75,
+    "peak_viewers":17,
+    "min_viewers":0,
+    "avg_channels":1.875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":492,
+    "twitch_game_id":"27596",
+    "game_name":"Gears of War 3",
+    "avg_viewers":3.625,
+    "peak_viewers":16,
+    "min_viewers":0,
+    "avg_channels":1.6875,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":999,
     "twitch_game_id":"4822",
     "game_name":"Oddworld: Abe's Oddysee",
-    "avg_viewers":0.4,
+    "avg_viewers":0.4375,
     "peak_viewers":4,
     "min_viewers":0,
-    "avg_channels":0.2,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":7767,
-    "twitch_game_id":"459736",
-    "game_name":"Mini Metro",
-    "avg_viewers":0.1333333333,
-    "peak_viewers":2,
-    "min_viewers":0,
-    "avg_channels":0.0666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":132526,
-    "twitch_game_id":"1761343594",
-    "game_name":"Space Chef",
-    "avg_viewers":0.0666666667,
-    "peak_viewers":1,
-    "min_viewers":0,
-    "avg_channels":0.0666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":349774,
-    "twitch_game_id":"1422052275",
-    "game_name":"StrangeDream",
-    "avg_viewers":0.0666666667,
-    "peak_viewers":1,
-    "min_viewers":0,
-    "avg_channels":0.0666666667,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":1454,
-    "twitch_game_id":"9282",
-    "game_name":"Suikoden II",
-    "avg_viewers":0.0666666667,
-    "peak_viewers":1,
-    "min_viewers":0,
-    "avg_channels":0.0666666667,
-    "samples":15
+    "avg_channels":0.25,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
     "igdb_id":1124,
     "twitch_game_id":"1595783367",
     "game_name":"Super Castlevania IV",
-    "avg_viewers":0.1333333333,
+    "avg_viewers":0.25,
+    "peak_viewers":2,
+    "min_viewers":0,
+    "avg_channels":0.1875,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":7767,
+    "twitch_game_id":"459736",
+    "game_name":"Mini Metro",
+    "avg_viewers":0.125,
+    "peak_viewers":2,
+    "min_viewers":0,
+    "avg_channels":0.0625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":1454,
+    "twitch_game_id":"9282",
+    "game_name":"Suikoden II",
+    "avg_viewers":0.0625,
     "peak_viewers":1,
     "min_viewers":0,
-    "avg_channels":0.1333333333,
-    "samples":15
+    "avg_channels":0.0625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":343429,
+    "twitch_game_id":"2024419364",
+    "game_name":"1998: The Toll Keeper Story",
+    "avg_viewers":0.0625,
+    "peak_viewers":1,
+    "min_viewers":0,
+    "avg_channels":0.0625,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":132526,
+    "twitch_game_id":"1761343594",
+    "game_name":"Space Chef",
+    "avg_viewers":0.125,
+    "peak_viewers":1,
+    "min_viewers":0,
+    "avg_channels":0.125,
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":349774,
+    "twitch_game_id":"1422052275",
+    "game_name":"StrangeDream",
+    "avg_viewers":0.0625,
+    "peak_viewers":1,
+    "min_viewers":0,
+    "avg_channels":0.0625,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1350,18 +1361,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":345153,
-    "twitch_game_id":"2083189915",
-    "game_name":"Death by Scrolling",
-    "avg_viewers":0.0,
-    "peak_viewers":0,
-    "min_viewers":0,
-    "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1372,7 +1372,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1383,7 +1383,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1394,7 +1394,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1405,7 +1405,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1416,7 +1416,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1427,7 +1427,18 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":345153,
+    "twitch_game_id":"2083189915",
+    "game_name":"Death by Scrolling",
+    "avg_viewers":0.0,
+    "peak_viewers":0,
+    "min_viewers":0,
+    "avg_channels":0.0,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1438,7 +1449,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1449,18 +1460,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":280431,
-    "twitch_game_id":"1438487211",
-    "game_name":"Suck Up!",
-    "avg_viewers":0.0,
-    "peak_viewers":0,
-    "min_viewers":0,
-    "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1471,7 +1471,18 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
+  },
+  {
+    "date":"2025-12-02T00:00:00.000",
+    "igdb_id":280431,
+    "twitch_game_id":"1438487211",
+    "game_name":"Suck Up!",
+    "avg_viewers":0.0,
+    "peak_viewers":0,
+    "min_viewers":0,
+    "avg_channels":0.0,
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1482,18 +1493,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
-  },
-  {
-    "date":"2025-12-02T00:00:00.000",
-    "igdb_id":213241,
-    "twitch_game_id":"1436968331",
-    "game_name":"Wreckreation",
-    "avg_viewers":0.0,
-    "peak_viewers":0,
-    "min_viewers":0,
-    "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1504,18 +1504,18 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
-    "igdb_id":343429,
-    "twitch_game_id":"2024419364",
-    "game_name":"1998: The Toll Keeper Story",
+    "igdb_id":213241,
+    "twitch_game_id":"1436968331",
+    "game_name":"Wreckreation",
     "avg_viewers":0.0,
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1526,7 +1526,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-02T00:00:00.000",
@@ -1537,7 +1537,7 @@
     "peak_viewers":0,
     "min_viewers":0,
     "avg_channels":0.0,
-    "samples":15
+    "samples":16
   },
   {
     "date":"2025-12-01T00:00:00.000",
