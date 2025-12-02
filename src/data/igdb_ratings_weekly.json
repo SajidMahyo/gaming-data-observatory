@@ -929,11 +929,11 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":273120,
-    "game_name":"Duet Night Abyss",
-    "rating":null,
+    "igdb_id":52826,
+    "game_name":"Skate.",
+    "rating":67.9577102661,
     "aggregated_rating":null,
-    "total_rating_count":null
+    "total_rating_count":24
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -977,11 +977,11 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":302323,
-    "game_name":"The Sacred Memory",
-    "rating":null,
+    "igdb_id":152243,
+    "game_name":"Slime Rancher 2",
+    "rating":65.560005188,
     "aggregated_rating":null,
-    "total_rating_count":null
+    "total_rating_count":21
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1025,19 +1025,19 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":344732,
-    "game_name":"Livber: Smoke and Mirrors",
+    "igdb_id":329309,
+    "game_name":"Escape from Duckov",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":120176,
-    "game_name":"Teamfight Tactics",
-    "rating":81.4446029663,
+    "igdb_id":349774,
+    "game_name":"StrangeDream",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":112
+    "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1065,16 +1065,16 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":355793,
-    "game_name":"Guild Wars 2: Visions of Eternity",
+    "igdb_id":324779,
+    "game_name":"Two Point Museum: Explorer Edition",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":71001,
-    "game_name":"I'm Only Sleeping",
+    "igdb_id":132526,
+    "game_name":"Space Chef",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1089,8 +1089,8 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":339985,
-    "game_name":"Shadowverse: Worlds Beyond",
+    "igdb_id":311846,
+    "game_name":"Mod Shooter",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1145,11 +1145,11 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":341687,
-    "game_name":"Blue Protocol: Star Resonance",
-    "rating":90.2439041138,
+    "igdb_id":298915,
+    "game_name":"Arena Breakout: Infinite",
+    "rating":83.0693664551,
     "aggregated_rating":null,
-    "total_rating_count":11
+    "total_rating_count":81
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1177,11 +1177,11 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":1029,
-    "game_name":"The Legend of Zelda: Ocarina of Time",
-    "rating":91.8153915405,
+    "igdb_id":9165,
+    "game_name":"Chess",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":1961
+    "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
@@ -1193,24 +1193,16 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":52826,
-    "game_name":"Skate.",
-    "rating":67.9577102661,
+    "igdb_id":330379,
+    "game_name":"Fellowship",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":24
+    "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":280431,
-    "game_name":"Suck Up!",
-    "rating":82.0975646973,
-    "aggregated_rating":null,
-    "total_rating_count":12
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":9165,
-    "game_name":"Chess",
+    "igdb_id":71001,
+    "game_name":"I'm Only Sleeping",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1225,66 +1217,74 @@
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":298915,
-    "game_name":"Arena Breakout: Infinite",
-    "rating":83.0693664551,
-    "aggregated_rating":null,
-    "total_rating_count":81
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":311846,
-    "game_name":"Mod Shooter",
+    "igdb_id":273120,
+    "game_name":"Duet Night Abyss",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":132526,
-    "game_name":"Space Chef",
+    "igdb_id":280431,
+    "game_name":"Suck Up!",
+    "rating":82.0975646973,
+    "aggregated_rating":null,
+    "total_rating_count":12
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":302323,
+    "game_name":"The Sacred Memory",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":324779,
-    "game_name":"Two Point Museum: Explorer Edition",
+    "igdb_id":355793,
+    "game_name":"Guild Wars 2: Visions of Eternity",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":349774,
-    "game_name":"StrangeDream",
+    "igdb_id":339985,
+    "game_name":"Shadowverse: Worlds Beyond",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":329309,
-    "game_name":"Escape from Duckov",
+    "igdb_id":1029,
+    "game_name":"The Legend of Zelda: Ocarina of Time",
+    "rating":91.8153915405,
+    "aggregated_rating":null,
+    "total_rating_count":1961
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":341687,
+    "game_name":"Blue Protocol: Star Resonance",
+    "rating":90.2439041138,
+    "aggregated_rating":null,
+    "total_rating_count":11
+  },
+  {
+    "week_start":"2025-10-27T00:00:00.000",
+    "igdb_id":344732,
+    "game_name":"Livber: Smoke and Mirrors",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":152243,
-    "game_name":"Slime Rancher 2",
-    "rating":65.560005188,
+    "igdb_id":120176,
+    "game_name":"Teamfight Tactics",
+    "rating":81.4446029663,
     "aggregated_rating":null,
-    "total_rating_count":21
-  },
-  {
-    "week_start":"2025-10-27T00:00:00.000",
-    "igdb_id":330379,
-    "game_name":"Fellowship",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
+    "total_rating_count":112
   }
 ]
