@@ -929,11 +929,11 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":135400,
-    "game_name":"Minecraft",
-    "rating":80.2457427979,
+    "igdb_id":71001,
+    "game_name":"I'm Only Sleeping",
+    "rating":null,
     "aggregated_rating":null,
-    "total_rating_count":391
+    "total_rating_count":null
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
@@ -1073,24 +1073,24 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":151665,
-    "game_name":"Palworld",
-    "rating":71.5270233154,
+    "igdb_id":135400,
+    "game_name":"Minecraft",
+    "rating":80.2457427979,
     "aggregated_rating":null,
-    "total_rating_count":227
+    "total_rating_count":391
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":202463,
-    "game_name":"Simon the Sorcerer Origins",
+    "igdb_id":330379,
+    "game_name":"Fellowship",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":352501,
-    "game_name":"Einherjar's Ascent",
+    "igdb_id":343429,
+    "game_name":"1998: The Toll Keeper Story",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1137,40 +1137,8 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":71001,
-    "game_name":"I'm Only Sleeping",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":343429,
-    "game_name":"1998: The Toll Keeper Story",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":330379,
-    "game_name":"Fellowship",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
     "igdb_id":372001,
     "game_name":"Chains on Sand",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":165386,
-    "game_name":"Outbreak Island",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1193,19 +1161,11 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":132526,
-    "game_name":"Space Chef",
+    "igdb_id":352849,
+    "game_name":"Crusader Kings III: All Under Heaven",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":1029,
-    "game_name":"The Legend of Zelda: Ocarina of Time",
-    "rating":91.8153915405,
-    "aggregated_rating":null,
-    "total_rating_count":1961
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
@@ -1217,8 +1177,8 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":352849,
-    "game_name":"Crusader Kings III: All Under Heaven",
+    "igdb_id":165386,
+    "game_name":"Outbreak Island",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1233,8 +1193,16 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":311846,
-    "game_name":"Mod Shooter",
+    "igdb_id":329309,
+    "game_name":"Escape from Duckov",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":132526,
+    "game_name":"Space Chef",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1249,11 +1217,35 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":298915,
-    "game_name":"Arena Breakout: Infinite",
-    "rating":83.0693664551,
+    "igdb_id":151665,
+    "game_name":"Palworld",
+    "rating":71.5270233154,
     "aggregated_rating":null,
-    "total_rating_count":81
+    "total_rating_count":227
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":202463,
+    "game_name":"Simon the Sorcerer Origins",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":311846,
+    "game_name":"Mod Shooter",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":352501,
+    "game_name":"Einherjar's Ascent",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
@@ -1265,8 +1257,24 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":329309,
-    "game_name":"Escape from Duckov",
+    "igdb_id":298915,
+    "game_name":"Arena Breakout: Infinite",
+    "rating":83.0693664551,
+    "aggregated_rating":null,
+    "total_rating_count":81
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":1029,
+    "game_name":"The Legend of Zelda: Ocarina of Time",
+    "rating":91.8153915405,
+    "aggregated_rating":null,
+    "total_rating_count":1961
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":349774,
+    "game_name":"StrangeDream",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1275,14 +1283,6 @@
     "month_start":"2025-10-01T00:00:00.000",
     "igdb_id":273120,
     "game_name":"Duet Night Abyss",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":349774,
-    "game_name":"StrangeDream",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
