@@ -921,6 +921,14 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":365551,
+    "game_name":"Simon the Sorcerer: Origins - Digital Deluxe Edition",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
     "igdb_id":273120,
     "game_name":"Duet Night Abyss",
     "rating":null,
@@ -931,14 +939,6 @@
     "month_start":"2025-10-01T00:00:00.000",
     "igdb_id":324779,
     "game_name":"Two Point Museum: Explorer Edition",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":365551,
-    "game_name":"Simon the Sorcerer: Origins - Digital Deluxe Edition",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1006,38 +1006,6 @@
     "rating":80.2457427979,
     "aggregated_rating":null,
     "total_rating_count":391
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":45517,
-    "game_name":"Virtual Casino",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":152243,
-    "game_name":"Slime Rancher 2",
-    "rating":65.560005188,
-    "aggregated_rating":null,
-    "total_rating_count":21
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":197202,
-    "game_name":"Escape the Backrooms",
-    "rating":70.3458786011,
-    "aggregated_rating":null,
-    "total_rating_count":24
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":202463,
-    "game_name":"Simon the Sorcerer Origins",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
@@ -1121,6 +1089,14 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":311846,
+    "game_name":"Mod Shooter",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
     "igdb_id":355793,
     "game_name":"Guild Wars 2: Visions of Eternity",
     "rating":null,
@@ -1129,16 +1105,8 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":368744,
-    "game_name":"Legend of Ymir",
-    "rating":null,
-    "aggregated_rating":null,
-    "total_rating_count":null
-  },
-  {
-    "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":165386,
-    "game_name":"Outbreak Island",
+    "igdb_id":368463,
+    "game_name":"Schoolboy SIM",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1153,16 +1121,16 @@
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":368463,
-    "game_name":"Schoolboy SIM",
+    "igdb_id":368744,
+    "game_name":"Legend of Ymir",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
   },
   {
     "month_start":"2025-10-01T00:00:00.000",
-    "igdb_id":311846,
-    "game_name":"Mod Shooter",
+    "igdb_id":165386,
+    "game_name":"Outbreak Island",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null
@@ -1211,6 +1179,38 @@
     "month_start":"2025-10-01T00:00:00.000",
     "igdb_id":28212,
     "game_name":"Commando Sniper Counter Strike",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":202463,
+    "game_name":"Simon the Sorcerer Origins",
+    "rating":null,
+    "aggregated_rating":null,
+    "total_rating_count":null
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":152243,
+    "game_name":"Slime Rancher 2",
+    "rating":65.560005188,
+    "aggregated_rating":null,
+    "total_rating_count":21
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":197202,
+    "game_name":"Escape the Backrooms",
+    "rating":70.3458786011,
+    "aggregated_rating":null,
+    "total_rating_count":24
+  },
+  {
+    "month_start":"2025-10-01T00:00:00.000",
+    "igdb_id":45517,
+    "game_name":"Virtual Casino",
     "rating":null,
     "aggregated_rating":null,
     "total_rating_count":null

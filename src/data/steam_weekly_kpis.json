@@ -4,10 +4,10 @@
     "igdb_id":1372,
     "steam_app_id":730,
     "game_name":"Counter-Strike: Global Offensive",
-    "avg_peak_ccu":1158226.0,
+    "avg_peak_ccu":1174524.5,
     "max_peak_ccu":1537212,
-    "avg_ccu":943730.2797619047,
-    "total_samples":25,
+    "avg_ccu":950982.5047619047,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -17,8 +17,8 @@
     "game_name":"Dota 2",
     "avg_peak_ccu":616001.5,
     "max_peak_ccu":770786,
-    "avg_ccu":521495.6488095238,
-    "total_samples":25,
+    "avg_ccu":522622.5238095238,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -26,10 +26,10 @@
     "igdb_id":27789,
     "steam_app_id":578080,
     "game_name":"PUBG: Battlegrounds",
-    "avg_peak_ccu":441087.5,
+    "avg_peak_ccu":477029.0,
     "max_peak_ccu":639749,
-    "avg_ccu":260089.0892857143,
-    "total_samples":25,
+    "avg_ccu":273990.5142857143,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -39,8 +39,8 @@
     "game_name":"Rust",
     "avg_peak_ccu":206197.0,
     "max_peak_ccu":246843,
-    "avg_ccu":129592.6845238095,
-    "total_samples":25,
+    "avg_ccu":127679.2095238095,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -48,10 +48,10 @@
     "igdb_id":114795,
     "steam_app_id":1172470,
     "game_name":"Apex Legends",
-    "avg_peak_ccu":114373.5,
+    "avg_peak_ccu":120980.0,
     "max_peak_ccu":154800,
-    "avg_ccu":73901.1011904762,
-    "total_samples":25,
+    "avg_ccu":76470.8761904762,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -59,10 +59,10 @@
     "igdb_id":262186,
     "steam_app_id":2507950,
     "game_name":"Delta Force",
-    "avg_peak_ccu":100489.5,
+    "avg_peak_ccu":107909.0,
     "max_peak_ccu":132651,
-    "avg_ccu":65007.994047619,
-    "total_samples":25,
+    "avg_ccu":68012.919047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -72,8 +72,8 @@
     "game_name":"Marvel Rivals",
     "avg_peak_ccu":113116.0,
     "max_peak_ccu":121261,
-    "avg_ccu":91555.7023809524,
-    "total_samples":25,
+    "avg_ccu":89451.1523809524,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -83,8 +83,8 @@
     "game_name":"Grand Theft Auto V",
     "avg_peak_ccu":94515.0,
     "max_peak_ccu":119466,
-    "avg_ccu":76643.7321428571,
-    "total_samples":25,
+    "avg_ccu":76784.1571428571,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -94,8 +94,8 @@
     "game_name":"Battlefield 6",
     "avg_peak_ccu":102724.5,
     "max_peak_ccu":118591,
-    "avg_ccu":79692.4523809524,
-    "total_samples":25,
+    "avg_ccu":77753.5523809524,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -105,8 +105,8 @@
     "game_name":"EA Sports FC 26",
     "avg_peak_ccu":58513.5,
     "max_peak_ccu":73075,
-    "avg_ccu":41684.6964285714,
-    "total_samples":25,
+    "avg_ccu":40884.7714285714,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -114,10 +114,10 @@
     "igdb_id":151665,
     "steam_app_id":1623730,
     "game_name":"Palworld",
-    "avg_peak_ccu":60438.5,
+    "avg_peak_ccu":61288.0,
     "max_peak_ccu":69807,
-    "avg_ccu":51712.75,
-    "total_samples":25,
+    "avg_ccu":52088.7,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -127,8 +127,8 @@
     "game_name":"Team Fortress 2",
     "avg_peak_ccu":49732.0,
     "max_peak_ccu":50992,
-    "avg_ccu":45709.3035714286,
-    "total_samples":25,
+    "avg_ccu":45416.4285714286,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -138,8 +138,8 @@
     "game_name":"Overwatch 2",
     "avg_peak_ccu":36099.0,
     "max_peak_ccu":37342,
-    "avg_ccu":30693.8035714286,
-    "total_samples":25,
+    "avg_ccu":30184.9285714286,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -147,10 +147,10 @@
     "igdb_id":15536,
     "steam_app_id":3932890,
     "game_name":"Escape from Tarkov",
-    "avg_peak_ccu":28373.5,
+    "avg_peak_ccu":28867.0,
     "max_peak_ccu":34128,
-    "avg_ccu":22999.0654761905,
-    "total_samples":25,
+    "avg_ccu":23202.2904761905,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -160,8 +160,8 @@
     "game_name":"The Witcher 3: Wild Hunt",
     "avg_peak_ccu":24980.5,
     "max_peak_ccu":33248,
-    "avg_ccu":19742.3392857143,
-    "total_samples":25,
+    "avg_ccu":19727.4142857143,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -169,10 +169,10 @@
     "igdb_id":7291,
     "steam_app_id":594650,
     "game_name":"Hunt: Showdown 1896",
-    "avg_peak_ccu":22675.0,
+    "avg_peak_ccu":23459.0,
     "max_peak_ccu":31712,
-    "avg_ccu":16433.4702380952,
-    "total_samples":25,
+    "avg_ccu":16680.8952380952,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -182,8 +182,8 @@
     "game_name":"Megabonk",
     "avg_peak_ccu":24945.5,
     "max_peak_ccu":27250,
-    "avg_ccu":19113.5297619048,
-    "total_samples":25,
+    "avg_ccu":18649.1047619048,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -193,8 +193,8 @@
     "game_name":"Hollow Knight: Silksong",
     "avg_peak_ccu":23735.5,
     "max_peak_ccu":27199,
-    "avg_ccu":20788.994047619,
-    "total_samples":25,
+    "avg_ccu":20669.519047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -204,8 +204,8 @@
     "game_name":"RV There Yet?",
     "avg_peak_ccu":19479.5,
     "max_peak_ccu":25507,
-    "avg_ccu":12548.7083333333,
-    "total_samples":25,
+    "avg_ccu":12162.5333333333,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -215,8 +215,8 @@
     "game_name":"Arena Breakout: Infinite",
     "avg_peak_ccu":20852.0,
     "max_peak_ccu":24507,
-    "avg_ccu":17339.3333333333,
-    "total_samples":25,
+    "avg_ccu":17220.1333333333,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -226,8 +226,8 @@
     "game_name":"Black Desert",
     "avg_peak_ccu":21030.0,
     "max_peak_ccu":22646,
-    "avg_ccu":19114.4821428571,
-    "total_samples":25,
+    "avg_ccu":19035.0571428571,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -237,8 +237,8 @@
     "game_name":"Hades II",
     "avg_peak_ccu":18992.0,
     "max_peak_ccu":20891,
-    "avg_ccu":16627.0833333333,
-    "total_samples":25,
+    "avg_ccu":16392.3333333333,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -246,10 +246,10 @@
     "igdb_id":339985,
     "steam_app_id":2584990,
     "game_name":"Shadowverse: Worlds Beyond",
-    "avg_peak_ccu":16676.5,
+    "avg_peak_ccu":17063.5,
     "max_peak_ccu":20117,
-    "avg_ccu":12829.4880952381,
-    "total_samples":25,
+    "avg_ccu":13057.3380952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -257,10 +257,10 @@
     "igdb_id":329309,
     "steam_app_id":3167020,
     "game_name":"Escape from Duckov",
-    "avg_peak_ccu":15679.5,
+    "avg_peak_ccu":16229.0,
     "max_peak_ccu":19032,
-    "avg_ccu":11099.8452380952,
-    "total_samples":25,
+    "avg_ccu":11432.3952380952,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -270,8 +270,8 @@
     "game_name":"Fallout: New Vegas",
     "avg_peak_ccu":16751.5,
     "max_peak_ccu":17187,
-    "avg_ccu":12892.8333333333,
-    "total_samples":25,
+    "avg_ccu":12556.1333333333,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -281,8 +281,8 @@
     "game_name":"World of Tanks",
     "avg_peak_ccu":10778.0,
     "max_peak_ccu":15773,
-    "avg_ccu":8000.505952381,
-    "total_samples":25,
+    "avg_ccu":8004.580952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -290,10 +290,10 @@
     "igdb_id":197202,
     "steam_app_id":1943950,
     "game_name":"Escape the Backrooms",
-    "avg_peak_ccu":8389.0,
+    "avg_peak_ccu":8905.0,
     "max_peak_ccu":12841,
-    "avg_ccu":4670.6071428571,
-    "total_samples":25,
+    "avg_ccu":4829.4571428571,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -303,8 +303,8 @@
     "game_name":"Albion Online",
     "avg_peak_ccu":10574.0,
     "max_peak_ccu":11947,
-    "avg_ccu":8864.1428571429,
-    "total_samples":25,
+    "avg_ccu":8769.6428571429,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -314,8 +314,8 @@
     "game_name":"Path of Exile",
     "avg_peak_ccu":8922.0,
     "max_peak_ccu":10551,
-    "avg_ccu":7119.8273809524,
-    "total_samples":25,
+    "avg_ccu":7057.2523809524,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -325,8 +325,8 @@
     "game_name":"Borderlands 4",
     "avg_peak_ccu":9032.5,
     "max_peak_ccu":10043,
-    "avg_ccu":7151.5833333333,
-    "total_samples":25,
+    "avg_ccu":7004.2333333333,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -336,8 +336,8 @@
     "game_name":"Dying Light: The Beast",
     "avg_peak_ccu":6108.5,
     "max_peak_ccu":7318,
-    "avg_ccu":4919.3392857143,
-    "total_samples":25,
+    "avg_ccu":4875.2142857143,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -347,8 +347,8 @@
     "game_name":"Dark Souls III",
     "avg_peak_ccu":5754.0,
     "max_peak_ccu":6369,
-    "avg_ccu":5126.4761904762,
-    "total_samples":25,
+    "avg_ccu":5089.8761904762,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -358,8 +358,8 @@
     "game_name":"Digimon Story: Time Stranger",
     "avg_peak_ccu":6080.5,
     "max_peak_ccu":6273,
-    "avg_ccu":5592.4047619048,
-    "total_samples":25,
+    "avg_ccu":5524.6047619048,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -369,8 +369,8 @@
     "game_name":"Portal 2",
     "avg_peak_ccu":4208.0,
     "max_peak_ccu":5157,
-    "avg_ccu":3223.5476190476,
-    "total_samples":25,
+    "avg_ccu":3170.3476190476,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -380,8 +380,8 @@
     "game_name":"Grand Theft Auto IV",
     "avg_peak_ccu":4198.5,
     "max_peak_ccu":4889,
-    "avg_ccu":3344.744047619,
-    "total_samples":25,
+    "avg_ccu":3294.419047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -391,8 +391,8 @@
     "game_name":"Skate.",
     "avg_peak_ccu":4464.0,
     "max_peak_ccu":4809,
-    "avg_ccu":3519.6130952381,
-    "total_samples":25,
+    "avg_ccu":3432.1380952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -400,10 +400,10 @@
     "igdb_id":1164,
     "steam_app_id":203160,
     "game_name":"Tomb Raider",
-    "avg_peak_ccu":3348.5,
+    "avg_peak_ccu":3368.0,
     "max_peak_ccu":4179,
-    "avg_ccu":2810.5654761905,
-    "total_samples":25,
+    "avg_ccu":2817.4904761905,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -413,8 +413,8 @@
     "game_name":"The Outer Worlds 2",
     "avg_peak_ccu":3806.5,
     "max_peak_ccu":4176,
-    "avg_ccu":2852.0714285714,
-    "total_samples":25,
+    "avg_ccu":2759.5714285714,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -424,8 +424,8 @@
     "game_name":"Farthest Frontier",
     "avg_peak_ccu":3392.5,
     "max_peak_ccu":4154,
-    "avg_ccu":2904.8154761905,
-    "total_samples":25,
+    "avg_ccu":2891.8904761905,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -435,8 +435,8 @@
     "game_name":"Half-Life 2",
     "avg_peak_ccu":3281.5,
     "max_peak_ccu":4022,
-    "avg_ccu":2573.255952381,
-    "total_samples":25,
+    "avg_ccu":2532.880952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -446,8 +446,8 @@
     "game_name":"Deep Rock Galactic: Survivor",
     "avg_peak_ccu":3164.5,
     "max_peak_ccu":3753,
-    "avg_ccu":2747.7857142857,
-    "total_samples":25,
+    "avg_ccu":2725.3857142857,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -457,8 +457,8 @@
     "game_name":"Borderlands 2",
     "avg_peak_ccu":3321.0,
     "max_peak_ccu":3648,
-    "avg_ccu":2631.1369047619,
-    "total_samples":25,
+    "avg_ccu":2576.9619047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -468,8 +468,8 @@
     "game_name":"Blue Protocol: Star Resonance",
     "avg_peak_ccu":3000.5,
     "max_peak_ccu":3175,
-    "avg_ccu":2295.0297619048,
-    "total_samples":25,
+    "avg_ccu":2236.0047619048,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -479,8 +479,8 @@
     "game_name":"Slime Rancher 2",
     "avg_peak_ccu":2442.5,
     "max_peak_ccu":2743,
-    "avg_ccu":1914.744047619,
-    "total_samples":25,
+    "avg_ccu":1881.119047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -490,8 +490,8 @@
     "game_name":"Assassin's Creed IV Black Flag",
     "avg_peak_ccu":2204.0,
     "max_peak_ccu":2578,
-    "avg_ccu":1756.619047619,
-    "total_samples":25,
+    "avg_ccu":1730.919047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -501,8 +501,8 @@
     "game_name":"Fellowship",
     "avg_peak_ccu":2077.5,
     "max_peak_ccu":2516,
-    "avg_ccu":1456.244047619,
-    "total_samples":25,
+    "avg_ccu":1410.519047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -512,8 +512,8 @@
     "game_name":"Undertale",
     "avg_peak_ccu":2071.0,
     "max_peak_ccu":2337,
-    "avg_ccu":1765.0,
-    "total_samples":25,
+    "avg_ccu":1749.4,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -523,8 +523,8 @@
     "game_name":"Silent Hill f",
     "avg_peak_ccu":2251.0,
     "max_peak_ccu":2279,
-    "avg_ccu":2074.6964285714,
-    "total_samples":25,
+    "avg_ccu":2059.5714285714,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -534,8 +534,8 @@
     "game_name":"Far Cry 3",
     "avg_peak_ccu":1693.0,
     "max_peak_ccu":2193,
-    "avg_ccu":1189.0892857143,
-    "total_samples":25,
+    "avg_ccu":1174.4142857143,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -545,8 +545,8 @@
     "game_name":"Half-Life",
     "avg_peak_ccu":1856.5,
     "max_peak_ccu":2182,
-    "avg_ccu":1425.0595238095,
-    "total_samples":25,
+    "avg_ccu":1392.7095238095,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -556,8 +556,8 @@
     "game_name":"No, I'm Not A Human",
     "avg_peak_ccu":1754.5,
     "max_peak_ccu":2032,
-    "avg_ccu":1334.7321428571,
-    "total_samples":25,
+    "avg_ccu":1300.1571428571,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -567,8 +567,8 @@
     "game_name":"Dragon Ball Gekishin Squadra",
     "avg_peak_ccu":1911.0,
     "max_peak_ccu":2011,
-    "avg_ccu":1466.125,
-    "total_samples":25,
+    "avg_ccu":1427.1,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -578,8 +578,8 @@
     "game_name":"Old School RuneScape",
     "avg_peak_ccu":1762.0,
     "max_peak_ccu":1834,
-    "avg_ccu":1423.8035714286,
-    "total_samples":25,
+    "avg_ccu":1393.0285714286,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -589,8 +589,8 @@
     "game_name":"Sonic Racing: CrossWorlds",
     "avg_peak_ccu":1802.5,
     "max_peak_ccu":1829,
-    "avg_ccu":1482.0,
-    "total_samples":25,
+    "avg_ccu":1444.7,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -600,8 +600,8 @@
     "game_name":"New World: Aeternum",
     "avg_peak_ccu":1401.5,
     "max_peak_ccu":1608,
-    "avg_ccu":1067.7797619048,
-    "total_samples":25,
+    "avg_ccu":1045.4047619048,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -611,8 +611,8 @@
     "game_name":"Portal",
     "avg_peak_ccu":1297.5,
     "max_peak_ccu":1530,
-    "avg_ccu":1013.6726190476,
-    "total_samples":25,
+    "avg_ccu":994.8476190476,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -622,8 +622,8 @@
     "game_name":"Call of Duty: Modern Warfare",
     "avg_peak_ccu":1041.0,
     "max_peak_ccu":1323,
-    "avg_ccu":818.9226190476,
-    "total_samples":25,
+    "avg_ccu":809.8476190476,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -633,8 +633,8 @@
     "game_name":"Doom",
     "avg_peak_ccu":1084.0,
     "max_peak_ccu":1310,
-    "avg_ccu":823.3511904762,
-    "total_samples":25,
+    "avg_ccu":806.4761904762,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -644,8 +644,8 @@
     "game_name":"Assassin's Creed II",
     "avg_peak_ccu":1051.5,
     "max_peak_ccu":1297,
-    "avg_ccu":870.9107142857,
-    "total_samples":25,
+    "avg_ccu":865.2857142857,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -655,8 +655,8 @@
     "game_name":"Metal Gear Solid Delta: Snake Eater",
     "avg_peak_ccu":1095.0,
     "max_peak_ccu":1175,
-    "avg_ccu":876.3154761905,
-    "total_samples":25,
+    "avg_ccu":859.5904761905,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -666,8 +666,8 @@
     "game_name":"Little Nightmares III",
     "avg_peak_ccu":834.0,
     "max_peak_ccu":1016,
-    "avg_ccu":652.7678571429,
-    "total_samples":25,
+    "avg_ccu":645.6428571429,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -677,8 +677,8 @@
     "game_name":"Dishonored",
     "avg_peak_ccu":693.5,
     "max_peak_ccu":793,
-    "avg_ccu":537.8988095238,
-    "total_samples":25,
+    "avg_ccu":531.0238095238,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -688,8 +688,8 @@
     "game_name":"Assassin's Creed Brotherhood",
     "avg_peak_ccu":640.0,
     "max_peak_ccu":788,
-    "avg_ccu":540.0535714286,
-    "total_samples":25,
+    "avg_ccu":537.3285714286,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -699,8 +699,8 @@
     "game_name":"Cronos: The New Dawn",
     "avg_peak_ccu":589.5,
     "max_peak_ccu":698,
-    "avg_ccu":445.9464285714,
-    "total_samples":25,
+    "avg_ccu":437.4714285714,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -710,8 +710,8 @@
     "game_name":"Call of Duty 4: Modern Warfare",
     "avg_peak_ccu":492.0,
     "max_peak_ccu":661,
-    "avg_ccu":336.630952381,
-    "total_samples":25,
+    "avg_ccu":329.280952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -721,8 +721,8 @@
     "game_name":"Hell is Us",
     "avg_peak_ccu":455.5,
     "max_peak_ccu":556,
-    "avg_ccu":326.244047619,
-    "total_samples":25,
+    "avg_ccu":318.619047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -732,8 +732,8 @@
     "game_name":"BioShock Infinite",
     "avg_peak_ccu":476.0,
     "max_peak_ccu":550,
-    "avg_ccu":382.630952381,
-    "total_samples":25,
+    "avg_ccu":373.380952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -743,8 +743,8 @@
     "game_name":"Life is Strange",
     "avg_peak_ccu":440.0,
     "max_peak_ccu":510,
-    "avg_ccu":324.125,
-    "total_samples":25,
+    "avg_ccu":319.9,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -754,8 +754,8 @@
     "game_name":"The Walking Dead",
     "avg_peak_ccu":403.0,
     "max_peak_ccu":448,
-    "avg_ccu":287.8273809524,
-    "total_samples":25,
+    "avg_ccu":281.7523809524,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -765,8 +765,8 @@
     "game_name":"Mini Metro",
     "avg_peak_ccu":234.0,
     "max_peak_ccu":289,
-    "avg_ccu":191.0833333333,
-    "total_samples":25,
+    "avg_ccu":188.4333333333,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -776,8 +776,8 @@
     "game_name":"Shinobi: Art of Vengeance",
     "avg_peak_ccu":220.5,
     "max_peak_ccu":236,
-    "avg_ccu":173.8571428571,
-    "total_samples":25,
+    "avg_ccu":168.5571428571,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -787,8 +787,8 @@
     "game_name":"Grand Theft Auto: Vice City",
     "avg_peak_ccu":133.5,
     "max_peak_ccu":172,
-    "avg_ccu":101.875,
-    "total_samples":25,
+    "avg_ccu":101.9,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -798,8 +798,8 @@
     "game_name":"Fallout 3",
     "avg_peak_ccu":150.5,
     "max_peak_ccu":164,
-    "avg_ccu":102.5357142857,
-    "total_samples":25,
+    "avg_ccu":99.7857142857,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -809,8 +809,8 @@
     "game_name":"Outbreak Island",
     "avg_peak_ccu":92.5,
     "max_peak_ccu":112,
-    "avg_ccu":61.8869047619,
-    "total_samples":25,
+    "avg_ccu":60.3619047619,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -820,8 +820,8 @@
     "game_name":"BioShock",
     "avg_peak_ccu":93.5,
     "max_peak_ccu":99,
-    "avg_ccu":66.6130952381,
-    "total_samples":25,
+    "avg_ccu":64.7380952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -831,8 +831,8 @@
     "game_name":"Mass Effect 3",
     "avg_peak_ccu":77.5,
     "max_peak_ccu":83,
-    "avg_ccu":57.380952381,
-    "total_samples":25,
+    "avg_ccu":56.280952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -842,8 +842,8 @@
     "game_name":"Silly Polly Beast",
     "avg_peak_ccu":65.5,
     "max_peak_ccu":80,
-    "avg_ccu":51.6845238095,
-    "total_samples":25,
+    "avg_ccu":51.6095238095,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -853,8 +853,8 @@
     "game_name":"Mass Effect",
     "avg_peak_ccu":45.0,
     "max_peak_ccu":54,
-    "avg_ccu":32.9880952381,
-    "total_samples":25,
+    "avg_ccu":32.7380952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -864,8 +864,8 @@
     "game_name":"Simon the Sorcerer Origins",
     "avg_peak_ccu":32.0,
     "max_peak_ccu":50,
-    "avg_ccu":16.9107142857,
-    "total_samples":25,
+    "avg_ccu":16.9857142857,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -875,8 +875,8 @@
     "game_name":"Suck Up!",
     "avg_peak_ccu":23.0,
     "max_peak_ccu":24,
-    "avg_ccu":16.8571428571,
-    "total_samples":25,
+    "avg_ccu":16.2571428571,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -886,8 +886,8 @@
     "game_name":"Oddworld: Abe's Oddysee",
     "avg_peak_ccu":19.0,
     "max_peak_ccu":23,
-    "avg_ccu":13.0357142857,
-    "total_samples":25,
+    "avg_ccu":12.7857142857,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -897,8 +897,8 @@
     "game_name":"Mass Effect 2",
     "avg_peak_ccu":14.5,
     "max_peak_ccu":17,
-    "avg_ccu":7.8333333333,
-    "total_samples":25,
+    "avg_ccu":7.3333333333,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -908,8 +908,8 @@
     "game_name":"Space Chef",
     "avg_peak_ccu":16.5,
     "max_peak_ccu":17,
-    "avg_ccu":13.5773809524,
-    "total_samples":25,
+    "avg_ccu":13.2523809524,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -919,8 +919,8 @@
     "game_name":"1998: The Toll Keeper Story",
     "avg_peak_ccu":12.0,
     "max_peak_ccu":17,
-    "avg_ccu":7.0714285714,
-    "total_samples":25,
+    "avg_ccu":7.1714285714,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -930,8 +930,8 @@
     "game_name":"Wreckreation",
     "avg_peak_ccu":11.5,
     "max_peak_ccu":15,
-    "avg_ccu":5.6488095238,
-    "total_samples":25,
+    "avg_ccu":5.3238095238,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -941,8 +941,8 @@
     "game_name":"Death by Scrolling",
     "avg_peak_ccu":8.0,
     "max_peak_ccu":8,
-    "avg_ccu":5.0,
-    "total_samples":25,
+    "avg_ccu":4.8,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -952,8 +952,8 @@
     "game_name":"Ire: A Prologue",
     "avg_peak_ccu":3.0,
     "max_peak_ccu":4,
-    "avg_ccu":1.0238095238,
-    "total_samples":25,
+    "avg_ccu":1.1238095238,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -963,8 +963,8 @@
     "game_name":"StrangeDream",
     "avg_peak_ccu":2.0,
     "max_peak_ccu":3,
-    "avg_ccu":0.630952381,
-    "total_samples":25,
+    "avg_ccu":0.680952381,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -974,8 +974,8 @@
     "game_name":"Grand Theft Auto: San Andreas",
     "avg_peak_ccu":1.5,
     "max_peak_ccu":2,
-    "avg_ccu":0.8214285714,
-    "total_samples":25,
+    "avg_ccu":0.8714285714,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -986,7 +986,7 @@
     "avg_peak_ccu":0.5,
     "max_peak_ccu":1,
     "avg_ccu":0.0238095238,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -997,7 +997,7 @@
     "avg_peak_ccu":0.5,
     "max_peak_ccu":1,
     "avg_ccu":0.0476190476,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1008,7 +1008,7 @@
     "avg_peak_ccu":0.5,
     "max_peak_ccu":1,
     "avg_ccu":0.0238095238,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1019,7 +1019,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1030,7 +1030,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1041,7 +1041,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1052,7 +1052,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1063,7 +1063,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1074,7 +1074,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1085,7 +1085,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1096,7 +1096,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1107,7 +1107,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
@@ -1118,7 +1118,7 @@
     "avg_peak_ccu":0.0,
     "max_peak_ccu":0,
     "avg_ccu":0.0,
-    "total_samples":25,
+    "total_samples":26,
     "days_in_week":2
   },
   {
